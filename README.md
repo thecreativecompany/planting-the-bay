@@ -16,6 +16,7 @@ This version is aligned to the uploaded design brief:
 - Giving section with recurring partner framing
 - Email capture module
 - Parallax on video, image cards, and flyover area
+- Section color-wipe animations, headline slide-ins, staggered cards, and motion polish
 
 ## Run locally
 

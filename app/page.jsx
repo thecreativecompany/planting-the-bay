@@ -41,7 +41,7 @@ export default function Home() {
   const [videoPlaying, setVideoPlaying] = useState(false);
 
   useEffect(() => {
-    const revealItems = Array.from(document.querySelectorAll('.reveal'));
+    const revealItems = Array.from(document.querySelectorAll('.reveal, .section-reveal'));
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -134,7 +134,7 @@ export default function Home() {
         Give
       </a>
 
-      <section id="home" className="hero-section" aria-label="Hero section">
+      <section id="home" className="hero-section section-reveal light-wipe hero-wipe" aria-label="Hero section">
         <div className="hero-micro hero-micro-left">STORY</div>
         <div className="hero-micro hero-micro-center">VISION</div>
         <div className="hero-micro hero-micro-right">GIVE</div>
@@ -193,7 +193,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="vision" className="roadmap-section" aria-label="Bay Area expansion roadmap">
+      <section id="vision" className="roadmap-section section-reveal light-wipe" aria-label="Bay Area expansion roadmap">
         <p className="micro micro-left">BERKELEY</p>
         <p className="micro micro-center">TO</p>
         <p className="micro micro-right">BEYOND</p>
@@ -212,7 +212,7 @@ export default function Home() {
 
         <div className="roadmap-track reveal">
           {roadmap.map((place, index) => (
-            <div key={place} className="roadmap-stop">
+            <div key={place} className="roadmap-stop" style={{ '--delay': `${index * 90}ms` }}>
               <span>{String(index + 1).padStart(2, '0')}</span>
               <strong>{place}</strong>
             </div>
@@ -230,7 +230,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="why-bay" className="case-section" aria-label="Why the Bay section">
+      <section id="why-bay" className="case-section section-reveal dark-wipe" aria-label="Why the Bay section">
         <div className="case-inner reveal">
           <h2>
             <span className="serif-word">WHY</span>
@@ -251,7 +251,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="momentum-section" aria-label="Fundraising momentum">
+      <section className="momentum-section section-reveal light-wipe reverse-wipe" aria-label="Fundraising momentum">
         <div className="momentum-card reveal">
           <div>
             <p className="section-eyebrow">Year 1 Momentum</p>
@@ -274,7 +274,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="story" className="story-section" aria-label="Our story section">
+      <section id="story" className="story-section section-reveal blue-wipe" aria-label="Our story section">
         <div className="story-label reveal">OUR <em>Story</em></div>
         <div className="story-card reveal">
           <div className="story-photo parallax-object" data-parallax="0.08" aria-hidden="true">
@@ -292,14 +292,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="get-involved" className="pathways-section" aria-label="Get involved pathways">
+      <section id="get-involved" className="pathways-section section-reveal light-wipe" aria-label="Get involved pathways">
         <div className="section-heading reveal">
           <p className="section-eyebrow">Get Involved</p>
           <h2>Choose your path into the story.</h2>
         </div>
         <div className="pathway-grid">
-          {pathways.map((pathway) => (
-            <article key={pathway.title} className="pathway-card reveal">
+          {pathways.map((pathway, index) => (
+            <article key={pathway.title} className="pathway-card reveal" style={{ '--delay': `${index * 120}ms` }}>
               <span>{pathway.eyebrow}</span>
               <h3>{pathway.title}</h3>
               <p>{pathway.body}</p>
@@ -309,7 +309,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flyover-section" aria-label="Bay Area flyover feature">
+      <section className="flyover-section section-reveal dark-wipe reverse-wipe" aria-label="Bay Area flyover feature">
         <div className="flyover-scene parallax-object" data-parallax="0.05" aria-hidden="true">
           <span className="beam beam-one" />
           <span className="beam beam-two" />
@@ -323,7 +323,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="give" className="give-section" aria-label="Give section">
+      <section id="give" className="give-section section-reveal dark-wipe" aria-label="Give section">
         <div className="give-frame reveal">
           <p className="section-eyebrow">Give / recurring first</p>
           <div className="give-card-inner">
@@ -334,8 +334,8 @@ export default function Home() {
               </p>
             </div>
             <div className="tier-grid">
-              {givingTiers.map((tier) => (
-                <div key={tier.amount} className="tier-card">
+              {givingTiers.map((tier, index) => (
+                <div key={tier.amount} className="tier-card" style={{ '--delay': `${index * 90}ms` }}>
                   <strong>{tier.amount}</strong>
                   <span>{tier.label}</span>
                 </div>
@@ -349,7 +349,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="email-section" aria-label="Email capture">
+      <section className="email-section section-reveal dark-wipe reverse-wipe" aria-label="Email capture">
         <div className="email-inner reveal">
           <h2>Follow the planting story.</h2>
           <p>Get updates, prayer requests, and milestones as Berkeley launches and the Bay Area roadmap unfolds.</p>
@@ -360,7 +360,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="ptb-footer">
+      <footer className="ptb-footer section-reveal footer-wipe">
         <div className="footer-square" aria-hidden="true" />
         <div className="footer-grid">
           <div className="footer-column">
