@@ -235,7 +235,9 @@ button {
 }
 
 .hero-title-bay {
+  position: relative;
   display: block;
+  width: max-content;
   max-width: 100%;
   letter-spacing: -0.095em;
 }
@@ -246,7 +248,7 @@ button {
   font-style: normal;
 }
 
-.hero-title-row::after {
+.hero-title-bay::after {
   position: absolute;
   left: 0.02em;
   bottom: -0.07em;
@@ -1692,7 +1694,7 @@ button {
     display: block !important;
   }
 
-  .hero-title-row::after {
+  .hero-title-bay::after {
     width: 1.52em;
   }
 
