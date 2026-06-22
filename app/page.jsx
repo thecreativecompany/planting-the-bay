@@ -30,8 +30,6 @@ const givingTiers = [
 ];
 
 export default function Home() {
-  const [videoPlaying, setVideoPlaying] = useState(false);
-
   useEffect(() => {
     const revealItems = Array.from(document.querySelectorAll('.reveal, .section-reveal'));
     const observer = new IntersectionObserver(
@@ -109,30 +107,14 @@ export default function Home() {
             <span className="hero-title-bay">THE BAY</span>
           </h1>
 
-          <button
-            type="button"
-            className={`vision-video parallax-object ${videoPlaying ? 'is-playing' : ''}`}
-            data-parallax="0.12"
-            onClick={() => setVideoPlaying((playing) => !playing)}
-            aria-label="Play vision video"
-          >
-            <span className="video-topline">
-              <span className="video-dot" />
-              60 sec vision video | Planting the Bay
-            </span>
-            <span className="video-stage">
-              <span className="bay-line bay-line-one" />
-              <span className="bay-line bay-line-two" />
-              <span className="speaker-shape" />
-              <span className="podium-shape" />
-            </span>
-            <span className="video-play">{videoPlaying ? 'Ⅱ' : '▶'}</span>
-            <span className="video-footer">
-              <span>CC</span>
-              <span>Watch vision</span>
-              <span>YouTube</span>
-            </span>
-          </button>
+          <div className="vision-video parallax-object" data-parallax="0.12">
+            <iframe
+              src="https://www.youtube.com/embed/R3GfuzLMPkA?rel=0&modestbranding=1"
+              title="Planting the Bay vision video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
 
           <div className="hero-copy-panel">
             <p>
@@ -142,12 +124,6 @@ export default function Home() {
               <a href="/give" className="btn btn-dark">Give</a>
               <a href="/get-involved" className="btn btn-light">Get Involved</a>
             </div>
-          </div>
-
-          <div className="hero-side-brand" aria-hidden="true">
-            <span>PB</span>
-            <small>PLANTING THE BAY</small>
-            <i>©</i>
           </div>
         </div>
       </section>
