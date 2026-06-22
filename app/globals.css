@@ -2980,3 +2980,37 @@ button {
     padding-top: 0;
   }
 }
+
+
+/* Hero right column: video top, copy/CTA bottom */
+.hero-right {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: clamp(500px, 47vw, 640px);
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.vision-video {
+  flex: 0 0 auto;
+}
+
+.hero-copy-panel {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 1180px) {
+  .hero-right {
+    min-height: clamp(460px, 48vw, 580px);
+  }
+}
+
+@media (max-width: 1020px) {
+  .hero-right {
+    display: grid;
+    min-height: auto;
+    justify-content: stretch;
+    gap: 1.35rem;
+  }
+}
