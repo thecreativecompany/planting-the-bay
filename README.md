@@ -39,3 +39,25 @@ Open `http://localhost:3000`.
 - `app/page.jsx`
 - `app/globals.css`
 - `app/layout.jsx`
+
+
+## Added page navigation routes
+
+The primary navigation now links to real Next.js routes instead of only homepage anchor sections:
+
+- `/story`
+- `/vision`
+- `/why-the-bay`
+- `/get-involved`
+- `/give`
+
+Secondary placeholder routes were also added for footer/mobile navigation:
+
+- `/team`
+- `/updates`
+- `/prayer`
+- `/partners`
+- `/faq`
+- `/contact`
+
+These pages use starter placeholder content so the navigation works immediately on Vercel.

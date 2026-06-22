@@ -1,14 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-
-const navItems = [
-  { label: 'Story', href: '#story' },
-  { label: 'Vision', href: '#vision' },
-  { label: 'Why Bay', href: '#why-bay' },
-  { label: 'Get Involved', href: '#get-involved' },
-  { label: 'Give', href: '#give' },
-];
+import SiteHeader from './components/SiteHeader';
 
 const roadmap = ['Berkeley', 'San Francisco', 'Peninsula', 'San Jose', 'Tri-Valley', 'Beyond'];
 
@@ -37,7 +30,6 @@ const givingTiers = [
 ];
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [videoPlaying, setVideoPlaying] = useState(false);
 
   useEffect(() => {
@@ -95,42 +87,9 @@ export default function Home() {
 
   return (
     <main className="ptb-page">
-      <header className="ptb-header">
-        <a href="#home" className="ptb-logo" aria-label="Planting the Bay home">
-          <strong>PLANTING</strong>
-          <span>THE BAY</span>
-        </a>
+      <SiteHeader />
 
-        <nav className="ptb-desktop-nav" aria-label="Primary navigation">
-          {navItems.map((item) => (
-            <a key={item.label} href={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <button
-          type="button"
-          className="ptb-menu"
-          aria-label="Toggle navigation"
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-
-        <div className={`ptb-mobile-nav ${menuOpen ? 'is-open' : ''}`}>
-          {navItems.map((item) => (
-            <a key={item.label} href={item.href} onClick={() => setMenuOpen(false)}>
-              {item.label}
-            </a>
-          ))}
-        </div>
-      </header>
-
-      <a href="#give" className="sticky-give">
+      <a href="/give" className="sticky-give">
         Give
       </a>
 
@@ -180,8 +139,8 @@ export default function Home() {
               A church-planting and campus-ministry initiative across the San Francisco Bay Area — starting in Berkeley and expanding outward.
             </p>
             <div className="hero-actions">
-              <a href="#give" className="btn btn-dark">Give</a>
-              <a href="#get-involved" className="btn btn-light">Get Involved</a>
+              <a href="/give" className="btn btn-dark">Give</a>
+              <a href="/get-involved" className="btn btn-light">Get Involved</a>
             </div>
           </div>
 
@@ -287,7 +246,7 @@ export default function Home() {
             <p>
               The home for the emotional narrative: calling, partnership with SF Bay Fellowship, and the people behind the planting work.
             </p>
-            <a href="#get-involved" className="btn btn-light">Meet the team</a>
+            <a href="/get-involved" className="btn btn-light">Meet the team</a>
           </div>
         </div>
       </section>
@@ -364,19 +323,20 @@ export default function Home() {
         <div className="footer-square" aria-hidden="true" />
         <div className="footer-grid">
           <div className="footer-column">
-            <a href="#story">Story</a>
-            <a href="#vision">Vision</a>
-            <a href="#why-bay">Why the Bay</a>
+            <a href="/story">Story</a>
+            <a href="/vision">Vision</a>
+            <a href="/why-the-bay">Why the Bay</a>
           </div>
           <div className="footer-column">
-            <a href="#get-involved">Get Involved</a>
-            <a href="#give">Give</a>
-            <a href="mailto:hello@plantingthebay.com">Contact</a>
+            <a href="/get-involved">Get Involved</a>
+            <a href="/give">Give</a>
+            <a href="/team">Team</a>
+            <a href="/contact">Contact</a>
           </div>
           <div className="footer-column">
-            <a href="#home">Instagram</a>
-            <a href="#home">Updates</a>
-            <a href="#home">Prayer</a>
+            <a href="/partners">Partners</a>
+            <a href="/updates">Updates</a>
+            <a href="/prayer">Prayer</a>
           </div>
           <div className="footer-mini-logo" aria-hidden="true">
             <span>PB</span>
