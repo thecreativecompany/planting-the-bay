@@ -214,10 +214,11 @@ button {
   z-index: 2;
   width: min(1230px, 91vw);
   margin: 0 auto;
-  font-size: clamp(4.2rem, 12.2vw, 12.9rem);
+  font-size: clamp(4.2rem, 10.8vw, 11.5rem);
   font-weight: 950;
-  letter-spacing: -0.085em;
-  line-height: 0.78;
+  letter-spacing: -0.022em;
+  word-spacing: 0.1em;
+  line-height: 0.82;
   text-align: left;
   text-transform: uppercase;
   white-space: normal;
@@ -239,7 +240,8 @@ button {
   display: block;
   width: max-content;
   max-width: 100%;
-  letter-spacing: -0.095em;
+  letter-spacing: -0.022em;
+  word-spacing: 0.12em;
 }
 
 .hero-title-row em,
@@ -250,9 +252,9 @@ button {
 
 .hero-title-bay::after {
   position: absolute;
-  left: 0.02em;
-  bottom: -0.07em;
-  width: 1.56em;
+  left: 0;
+  right: 0;
+  bottom: -0.075em;
   height: 0.045em;
   content: "";
   background: black;
