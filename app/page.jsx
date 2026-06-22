@@ -146,8 +146,8 @@ export default function Home() {
             <span>FIRST.</span>
             <span className="hero-title-row">
               <em>REACH</em>
-              <b>THE BAY</b>
             </span>
+            <span className="hero-title-bay">THE BAY</span>
           </h1>
 
           <button

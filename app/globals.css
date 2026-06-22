@@ -189,7 +189,7 @@ button {
 
 .hero-section {
   position: relative;
-  min-height: clamp(720px, 78vw, 980px);
+  min-height: clamp(760px, 82vw, 1080px);
   background: var(--paper);
   color: black;
 }
@@ -197,7 +197,7 @@ button {
 .hero-shell {
   position: relative;
   min-height: inherit;
-  padding: clamp(4.6rem, 8vw, 7rem) clamp(1rem, 4vw, 3rem) 0;
+  padding: clamp(4.6rem, 7.2vw, 6.4rem) clamp(1rem, 4vw, 3rem) 0;
 }
 
 .hero-kicker {
@@ -212,15 +212,15 @@ button {
 .hero-title {
   position: relative;
   z-index: 2;
-  width: min(1230px, 92vw);
+  width: min(1230px, 91vw);
   margin: 0 auto;
-  font-size: clamp(4.6rem, 13.7vw, 14.6rem);
+  font-size: clamp(4.2rem, 12.2vw, 12.9rem);
   font-weight: 950;
   letter-spacing: -0.085em;
-  line-height: 0.82;
+  line-height: 0.78;
   text-align: left;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .hero-title span {
@@ -229,9 +229,15 @@ button {
 
 .hero-title-row {
   position: relative;
-  display: flex !important;
-  align-items: baseline;
-  gap: 0.08em;
+  display: block !important;
+  width: max-content;
+  max-width: 100%;
+}
+
+.hero-title-bay {
+  display: block;
+  max-width: 100%;
+  letter-spacing: -0.095em;
 }
 
 .hero-title-row em,
@@ -244,7 +250,7 @@ button {
   position: absolute;
   left: 0.02em;
   bottom: -0.07em;
-  width: 1.66em;
+  width: 1.56em;
   height: 0.045em;
   content: "";
   background: black;
@@ -255,9 +261,9 @@ button {
   --parallax-y: 0px;
   position: absolute;
   z-index: 5;
-  top: clamp(13.4rem, 20.4vw, 17.8rem);
-  left: 50%;
-  width: clamp(260px, 31vw, 450px);
+  top: clamp(12.2rem, 19vw, 17.2rem);
+  left: 56%;
+  width: clamp(260px, 29vw, 430px);
   aspect-ratio: 16 / 9;
   overflow: hidden;
   border: 5px solid #f7f4ee;
@@ -366,8 +372,8 @@ button {
   position: absolute;
   z-index: 6;
   right: clamp(1rem, 5vw, 5rem);
-  bottom: clamp(3rem, 7vw, 6rem);
-  width: min(360px, 36vw);
+  bottom: clamp(2.4rem, 6vw, 5rem);
+  width: min(370px, 36vw);
 }
 
 .hero-copy-panel p {
@@ -415,8 +421,8 @@ button {
 
 .hero-side-brand {
   position: absolute;
-  top: clamp(15.4rem, 25vw, 20rem);
-  right: clamp(3.5rem, 12vw, 15rem);
+  top: clamp(14.8rem, 24vw, 19.5rem);
+  right: clamp(3rem, 9vw, 12rem);
   z-index: 3;
   display: grid;
   justify-items: center;
@@ -1234,25 +1240,27 @@ button {
 
 .footer-bottom {
   display: grid;
-  grid-template-columns: auto minmax(80px, 0.28fr) minmax(0, 1fr);
-  gap: clamp(0.8rem, 2vw, 2rem);
+  grid-template-columns: auto minmax(70px, 0.16fr) minmax(0, 1fr);
+  gap: clamp(0.75rem, 1.6vw, 1.6rem);
   align-items: end;
 }
 
 .footer-bottom span,
 .footer-bottom strong {
-  font-size: clamp(3.2rem, 8vw, 8.3rem);
   font-weight: 950;
   letter-spacing: -0.09em;
   line-height: 0.78;
   white-space: nowrap;
 }
 
+.footer-bottom span {
+  font-size: clamp(3rem, 7.2vw, 7.5rem);
+}
+
 .footer-bottom strong {
   min-width: 0;
-  overflow: hidden;
+  font-size: clamp(2.4rem, 5.55vw, 6.2rem);
   text-align: right;
-  text-overflow: clip;
 }
 
 .footer-bottom small {
@@ -1283,7 +1291,7 @@ button {
   }
 
   .vision-video {
-    left: 46%;
+    left: 54%;
   }
 
   .hero-side-brand {
@@ -1294,9 +1302,12 @@ button {
     width: 92vw;
   }
 
-  .footer-bottom span,
+  .footer-bottom span {
+    font-size: clamp(2.7rem, 6.7vw, 6.5rem);
+  }
+
   .footer-bottom strong {
-    font-size: clamp(2.7rem, 7.2vw, 6.5rem);
+    font-size: clamp(2.4rem, 5vw, 5.4rem);
   }
 }
 
@@ -1314,7 +1325,7 @@ button {
   }
 
   .hero-section {
-    min-height: 820px;
+    min-height: 880px;
   }
 
   .hero-shell {
@@ -1322,7 +1333,7 @@ button {
   }
 
   .hero-title {
-    font-size: clamp(4rem, 20vw, 8.4rem);
+    font-size: clamp(3.9rem, 18vw, 7.4rem);
     white-space: normal;
   }
 
@@ -1335,7 +1346,7 @@ button {
   }
 
   .vision-video {
-    top: 25rem;
+    top: 24.4rem;
     left: 50%;
     width: min(86vw, 390px);
     transform: translate3d(-50%, var(--parallax-y), 0);
@@ -1343,7 +1354,7 @@ button {
 
   .hero-copy-panel {
     right: auto;
-    bottom: 6.4rem;
+    bottom: 5.2rem;
     left: 50%;
     width: min(88vw, 440px);
     transform: translateX(-50%);
@@ -1455,12 +1466,13 @@ button {
   }
 
   .hero-section {
-    min-height: 760px;
+    min-height: 820px;
   }
 
   .hero-title {
     width: 92vw;
-    font-size: clamp(3.25rem, 18vw, 5.8rem);
+    font-size: clamp(3.05rem, 17.3vw, 5.45rem);
+    line-height: 0.83;
   }
 
   .hero-kicker {
@@ -1469,7 +1481,7 @@ button {
   }
 
   .vision-video {
-    top: 20rem;
+    top: 20.5rem;
   }
 
   .hero-copy-panel {
@@ -1557,6 +1569,7 @@ button {
 
   .footer-bottom span,
   .footer-bottom strong {
-    font-size: clamp(3rem, 17vw, 5.8rem);
+    font-size: clamp(2.7rem, 14vw, 5rem);
+    text-align: left;
   }
 }
