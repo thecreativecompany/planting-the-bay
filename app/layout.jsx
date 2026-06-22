@@ -1,8 +1,14 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Planting the Bay | Home',
-  description: 'A Social Dallas-inspired landing page starter for Planting the Bay, built with Next.js and Tailwind CSS.',
+  title: 'Planting the Bay | Church Planting Initiative',
+  description:
+    'A fundraising, storytelling, and vision-casting website for a Bay Area church-planting and campus-ministry initiative.',
+  openGraph: {
+    title: 'Planting the Bay',
+    description: 'Planting first in Berkeley, then expanding across the Bay.',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({ children }) {

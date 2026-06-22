@@ -1,17 +1,21 @@
-# Planting the Bay Starter
+# Planting the Bay — Next.js + Tailwind Starter
 
-A Vercel-ready **Next.js + Tailwind CSS** landing page starter for Planting the Bay.
+A Vercel-ready front-end starter for the Planting the Bay website.
 
-## Included
+This version is aligned to the uploaded design brief:
 
-- Next.js App Router
-- Tailwind CSS
-- Social Dallas-inspired section rhythm with original Planting the Bay placeholder content
-- Fixed navigation and mobile dropdown
-- Hero video mockup interaction
-- Scroll reveal animation
-- Parallax movement on video, mini image blocks, and stage section
-- Responsive landing page sections and footer
+- Fundraising + storytelling homepage
+- Mobile-first navigation and sticky giving CTA
+- Hero with vision-video placeholder
+- Clear Give and Get Involved actions
+- Berkeley-first expansion roadmap
+- Year 1 fundraising momentum meter placeholder
+- Why the Bay teaser section
+- Stuart & Ashley / story section placeholder
+- Get Involved pathway cards
+- Giving section with recurring partner framing
+- Email capture module
+- Parallax on video, image cards, and flyover area
 
 ## Run locally
 
@@ -20,17 +24,17 @@ npm install
 npm run dev
 ```
 
-Then open `http://localhost:3000`.
+Open `http://localhost:3000`.
 
 ## Deploy to Vercel
 
 1. Upload this folder to GitHub.
-2. Import the GitHub repo into Vercel.
-3. Keep the default Next.js settings.
-4. Deploy.
+2. Import the repo in Vercel.
+3. Use default Next.js settings.
+4. Set the canonical domain to `plantingthebay.com` and redirect `plantthebay.com` to it.
 
 ## Main files
 
-- `app/page.jsx` — page structure and interactions
-- `app/globals.css` — all layout, animation, and responsive styling
-- `app/layout.jsx` — metadata and root layout
+- `app/page.jsx`
+- `app/globals.css`
+- `app/layout.jsx`

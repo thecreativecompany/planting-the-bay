@@ -2,12 +2,38 @@
 
 import { useEffect, useState } from 'react';
 
-const navItems = ['About', 'Location', 'Next Steps', 'Media', 'Give'];
+const navItems = [
+  { label: 'Story', href: '#story' },
+  { label: 'Vision', href: '#vision' },
+  { label: 'Why Bay', href: '#why-bay' },
+  { label: 'Get Involved', href: '#get-involved' },
+  { label: 'Give', href: '#give' },
+];
 
-const footerLinks = [
-  ['About', 'Location', 'Next Steps'],
-  ['Media', 'Ministries', 'Give'],
-  ['Instagram', 'Facebook', 'Email'],
+const roadmap = ['Berkeley', 'San Francisco', 'Peninsula', 'San Jose', 'Tri-Valley', 'Beyond'];
+
+const pathways = [
+  {
+    eyebrow: '01',
+    title: 'Join the team',
+    body: 'For staff couples, interns, and families considering relocating to help plant in the Bay.',
+  },
+  {
+    eyebrow: '02',
+    title: 'Serve locally',
+    body: 'Help host pop-up services, welcome students, and support neighborhood ministry moments.',
+  },
+  {
+    eyebrow: '03',
+    title: 'Pray with us',
+    body: 'Join the prayer pipeline and receive focused updates as the work grows across each region.',
+  },
+];
+
+const givingTiers = [
+  { amount: '$25/mo', label: 'helps build the prayer and supporter base' },
+  { amount: '$250/mo', label: 'helps fund campus ministry support' },
+  { amount: 'Major gifts', label: 'help accelerate staff, events, and expansion' },
 ];
 
 export default function Home() {
@@ -25,7 +51,7 @@ export default function Home() {
           }
         });
       },
-      { threshold: 0.14, rootMargin: '0px 0px -6% 0px' }
+      { threshold: 0.14, rootMargin: '0px 0px -8% 0px' }
     );
 
     revealItems.forEach((item) => observer.observe(item));
@@ -68,24 +94,24 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="sd-page bg-[#f6f4ef] text-black">
-      <header className="sd-header">
-        <a href="#home" className="sd-logo" aria-label="Planting the Bay home">
+    <main className="ptb-page">
+      <header className="ptb-header">
+        <a href="#home" className="ptb-logo" aria-label="Planting the Bay home">
           <strong>PLANTING</strong>
           <span>THE BAY</span>
         </a>
 
-        <nav className="sd-desktop-nav" aria-label="Primary navigation">
+        <nav className="ptb-desktop-nav" aria-label="Primary navigation">
           {navItems.map((item) => (
-            <a key={item} href={`#${item.toLowerCase().replaceAll(' ', '-')}`}>
-              {item}
+            <a key={item.label} href={item.href}>
+              {item.label}
             </a>
           ))}
         </nav>
 
         <button
           type="button"
-          className="sd-menu"
+          className="ptb-menu"
           aria-label="Toggle navigation"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
@@ -95,57 +121,69 @@ export default function Home() {
           <span />
         </button>
 
-        <div className={`sd-mobile-nav ${menuOpen ? 'is-open' : ''}`}>
+        <div className={`ptb-mobile-nav ${menuOpen ? 'is-open' : ''}`}>
           {navItems.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase().replaceAll(' ', '-')}`}
-              onClick={() => setMenuOpen(false)}
-            >
-              {item}
+            <a key={item.label} href={item.href} onClick={() => setMenuOpen(false)}>
+              {item.label}
             </a>
           ))}
         </div>
       </header>
 
-      <section id="home" className="hero-social" aria-label="Hero section">
-        <div className="hero-mark hero-mark-left">LET&apos;S</div>
-        <div className="hero-mark hero-mark-center">GET</div>
-        <div className="hero-mark hero-mark-right">ROOTED</div>
+      <a href="#give" className="sticky-give">
+        Give
+      </a>
 
-        <div className="hero-inner reveal">
-          <h1 className="hero-social-title" aria-label="God loves the Bay">
-            <span>GOD LOVES</span>
-            <span className="hero-title-line">
-              <em>THE</em>
-              <b>BAY</b>
+      <section id="home" className="hero-section" aria-label="Hero section">
+        <div className="hero-micro hero-micro-left">STORY</div>
+        <div className="hero-micro hero-micro-center">VISION</div>
+        <div className="hero-micro hero-micro-right">GIVE</div>
+
+        <div className="hero-shell reveal">
+          <p className="hero-kicker">Beginning September 1 • Berkeley first</p>
+          <h1 className="hero-title" aria-label="Plant first, reach the Bay">
+            <span>PLANT</span>
+            <span>FIRST.</span>
+            <span className="hero-title-row">
+              <em>REACH</em>
+              <b>THE BAY</b>
             </span>
           </h1>
 
           <button
             type="button"
-            className={`hero-video-card parallax-object ${videoPlaying ? 'is-playing' : ''}`}
+            className={`vision-video parallax-object ${videoPlaying ? 'is-playing' : ''}`}
             data-parallax="0.12"
             onClick={() => setVideoPlaying((playing) => !playing)}
-            aria-label="Play launch message video"
+            aria-label="Play vision video"
           >
             <span className="video-topline">
-              <span className="video-avatar">PTB</span>
-              Now You Know | Planting the Bay
+              <span className="video-dot" />
+              60 sec vision video | Planting the Bay
             </span>
             <span className="video-stage">
-              <span className="video-person" />
-              <span className="video-pulpit" />
-              <span className="video-light video-light-one" />
-              <span className="video-light video-light-two" />
+              <span className="bay-line bay-line-one" />
+              <span className="bay-line bay-line-two" />
+              <span className="speaker-shape" />
+              <span className="podium-shape" />
             </span>
-            <span className="video-control">{videoPlaying ? 'Ⅱ' : '▶'}</span>
+            <span className="video-play">{videoPlaying ? 'Ⅱ' : '▶'}</span>
             <span className="video-footer">
               <span>CC</span>
-              <span>Watch message</span>
+              <span>Watch vision</span>
               <span>YouTube</span>
             </span>
           </button>
+
+          <div className="hero-copy-panel">
+            <p>
+              A church-planting and campus-ministry initiative across the San Francisco Bay Area — starting in Berkeley and expanding outward.
+            </p>
+            <div className="hero-actions">
+              <a href="#give" className="btn btn-dark">Give</a>
+              <a href="#get-involved" className="btn btn-light">Get Involved</a>
+            </div>
+          </div>
 
           <div className="hero-side-brand" aria-hidden="true">
             <span>PB</span>
@@ -155,117 +193,191 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="location" className="sunday-section" aria-label="Service times and location">
-        <p className="micro micro-left">LET&apos;S</p>
-        <p className="micro micro-center">GET</p>
-        <p className="micro micro-right">ROOTED</p>
+      <section id="vision" className="roadmap-section" aria-label="Bay Area expansion roadmap">
+        <p className="micro micro-left">BERKELEY</p>
+        <p className="micro micro-center">TO</p>
+        <p className="micro micro-right">BEYOND</p>
+        <div className="roadmap-word" aria-hidden="true">BAY</div>
 
-        <div className="sunday-word" aria-hidden="true">SUNDAY</div>
-
-        <div className="sunday-content reveal">
+        <div className="roadmap-content reveal">
+          <p className="section-eyebrow">At-a-glance vision</p>
           <h2>
-            <span>BAY AREA</span>
-            <em>SUNDAYS</em>
+            <span>BERKELEY</span>
+            <em>FIRST</em>
           </h2>
-          <a href="https://maps.google.com" target="_blank" rel="noreferrer" className="service-pill">
-            <strong>9AM + 11:30AM</strong>
-            <span>
-              →
-              <small>DIRECTIONS</small>
-            </span>
-          </a>
+          <p>
+            Build campus ministry and a local church first, then multiply into the major regions of the Bay.
+          </p>
         </div>
 
-        <div className="mini-photo mini-photo-one parallax-object" data-parallax="0.16" aria-hidden="true">
+        <div className="roadmap-track reveal">
+          {roadmap.map((place, index) => (
+            <div key={place} className="roadmap-stop">
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <strong>{place}</strong>
+            </div>
+          ))}
+        </div>
+
+        <div className="mini-card mini-card-one parallax-object" data-parallax="0.16" aria-hidden="true">
           <span />
         </div>
-        <div className="mini-photo mini-photo-two parallax-object" data-parallax="0.1" aria-hidden="true">
+        <div className="mini-card mini-card-two parallax-object" data-parallax="0.1" aria-hidden="true">
           <span />
         </div>
-        <div className="mini-photo mini-photo-three parallax-object" data-parallax="0.2" aria-hidden="true">
+        <div className="mini-card mini-card-three parallax-object" data-parallax="0.2" aria-hidden="true">
           <span />
         </div>
-        <div className="blue-rule" aria-hidden="true" />
       </section>
 
-      <section id="about" className="values-section" aria-label="Values section">
-        <div className="values-copy reveal">
-          <span className="cream-square" aria-hidden="true" />
+      <section id="why-bay" className="case-section" aria-label="Why the Bay section">
+        <div className="case-inner reveal">
           <h2>
-            <span className="serif-word">HOUSE</span>
-            <small>OF</small>
-            <strong>PRAYER</strong>
-            <span className="serif-word offset">HOUSE</span>
-            <small>OF</small>
-            <strong>PRESENCE</strong>
-            <i className="blue-pill" aria-hidden="true" />
+            <span className="serif-word">WHY</span>
+            <small>THE</small>
+            <strong>BAY</strong>
+            <span className="serif-word offset">WHY</span>
+            <small>NOW</small>
+            <strong>MOVE</strong>
             <span className="dot-row" aria-hidden="true">
               <b />
               <b />
               <b />
             </span>
-            <span className="serif-word lower">HOUSE</span>
-            <small>FOR</small>
-            <strong>PEOPLE</strong>
           </h2>
+          <p>
+            The Bay Area is a high-leverage opportunity for church planting, campus ministry, social outreach, and regional expansion.
+          </p>
         </div>
       </section>
 
-      <section id="next-steps" className="pastors-section" aria-label="Pastors introduction">
-        <div className="pastor-label reveal">OUR <em>Pastors</em></div>
-        <div className="pastors-card reveal">
-          <div className="pastor-photo" aria-hidden="true">
+      <section className="momentum-section" aria-label="Fundraising momentum">
+        <div className="momentum-card reveal">
+          <div>
+            <p className="section-eyebrow">Year 1 Momentum</p>
+            <h2>$1,000,000</h2>
+            <p>Launch funding goal for staff, campus ministry, pop-up services, and early expansion infrastructure.</p>
+          </div>
+          <div className="meter-wrap" aria-label="Fundraising progress meter placeholder">
+            <div className="meter-topline">
+              <span>Progress meter</span>
+              <strong>Live total ready</strong>
+            </div>
+            <div className="meter-bar">
+              <span />
+            </div>
+            <div className="meter-labels">
+              <span>$0</span>
+              <span>$1M</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="story" className="story-section" aria-label="Our story section">
+        <div className="story-label reveal">OUR <em>Story</em></div>
+        <div className="story-card reveal">
+          <div className="story-photo parallax-object" data-parallax="0.08" aria-hidden="true">
             <span className="person person-one" />
             <span className="person person-two" />
           </div>
-          <div className="pastor-copy">
-            <h2>MEET OUR PASTORS</h2>
-            <a href="#about">LEARN MORE</a>
+          <div className="story-copy">
+            <p className="section-eyebrow">Lead Evangelist + Planting Coordinators</p>
+            <h2>Stuart & Ashley Mains</h2>
+            <p>
+              The home for the emotional narrative: calling, partnership with SF Bay Fellowship, and the people behind the planting work.
+            </p>
+            <a href="#get-involved" className="btn btn-light">Meet the team</a>
           </div>
         </div>
       </section>
 
-      <section id="media" className="home-campaign" aria-label="Campaign feature">
-        <div className="stage-scene parallax-object" data-parallax="0.05" aria-hidden="true">
+      <section id="get-involved" className="pathways-section" aria-label="Get involved pathways">
+        <div className="section-heading reveal">
+          <p className="section-eyebrow">Get Involved</p>
+          <h2>Choose your path into the story.</h2>
+        </div>
+        <div className="pathway-grid">
+          {pathways.map((pathway) => (
+            <article key={pathway.title} className="pathway-card reveal">
+              <span>{pathway.eyebrow}</span>
+              <h3>{pathway.title}</h3>
+              <p>{pathway.body}</p>
+              <a href="mailto:hello@plantingthebay.com">Start here →</a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="flyover-section" aria-label="Bay Area flyover feature">
+        <div className="flyover-scene parallax-object" data-parallax="0.05" aria-hidden="true">
           <span className="beam beam-one" />
           <span className="beam beam-two" />
           <span className="beam beam-three" />
-          <span className="crowd" />
+          <span className="map-line" />
         </div>
-        <div className="campaign-copy reveal">
-          <h2>ALMOST HOME</h2>
-          <p>
-            Partner with us to raise faith, hope, and community in the Bay. Every gift helps create a home for families, neighbors, and anyone looking for belonging.
-          </p>
-          <a href="#give">LEARN MORE</a>
+        <div className="flyover-copy reveal">
+          <p className="section-eyebrow">3D Bay flyover placeholder</p>
+          <h2>FROM ONE SEED TO MANY REGIONS</h2>
+          <p>Use the existing Bay Area flyover here as the visual centerpiece for the expansion roadmap.</p>
         </div>
       </section>
 
-      <section id="give" className="word-year-section" aria-label="Word for the year">
-        <div className="word-year-frame reveal">
-          <p>OUR WORD FOR THE YEAR</p>
-          <div className="word-card-inner">
-            <h2>ROOTED</h2>
-            <p>
-              “They will be like a tree planted by the water that sends out its roots by the stream.” Jeremiah 17:8
-            </p>
-            <span>PTB</span>
+      <section id="give" className="give-section" aria-label="Give section">
+        <div className="give-frame reveal">
+          <p className="section-eyebrow">Give / recurring first</p>
+          <div className="give-card-inner">
+            <div>
+              <h2>BAY BUILDERS</h2>
+              <p>
+                A monthly partner program for people helping fund the first three years of church planting and campus ministry across the Bay.
+              </p>
+            </div>
+            <div className="tier-grid">
+              {givingTiers.map((tier) => (
+                <div key={tier.amount} className="tier-card">
+                  <strong>{tier.amount}</strong>
+                  <span>{tier.label}</span>
+                </div>
+              ))}
+            </div>
+            <div className="give-actions">
+              <a href="mailto:giving@plantingthebay.com" className="btn btn-dark">Start giving</a>
+              <a href="mailto:giving@plantingthebay.com" className="btn btn-light">Major gifts / DAF</a>
+            </div>
           </div>
         </div>
       </section>
 
-      <footer className="sd-footer">
+      <section className="email-section" aria-label="Email capture">
+        <div className="email-inner reveal">
+          <h2>Follow the planting story.</h2>
+          <p>Get updates, prayer requests, and milestones as Berkeley launches and the Bay Area roadmap unfolds.</p>
+          <form className="email-form">
+            <input type="email" placeholder="Email address" aria-label="Email address" />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </section>
+
+      <footer className="ptb-footer">
         <div className="footer-square" aria-hidden="true" />
         <div className="footer-grid">
-          {footerLinks.map((group, index) => (
-            <div key={index} className="footer-column">
-              {group.map((link) => (
-                <a key={link} href={link === 'Email' ? 'mailto:hello@plantingthebay.com' : '#home'}>
-                  {link}
-                </a>
-              ))}
-            </div>
-          ))}
+          <div className="footer-column">
+            <a href="#story">Story</a>
+            <a href="#vision">Vision</a>
+            <a href="#why-bay">Why the Bay</a>
+          </div>
+          <div className="footer-column">
+            <a href="#get-involved">Get Involved</a>
+            <a href="#give">Give</a>
+            <a href="mailto:hello@plantingthebay.com">Contact</a>
+          </div>
+          <div className="footer-column">
+            <a href="#home">Instagram</a>
+            <a href="#home">Updates</a>
+            <a href="#home">Prayer</a>
+          </div>
           <div className="footer-mini-logo" aria-hidden="true">
             <span>PB</span>
             <small>PLANTING THE BAY</small>
@@ -274,7 +386,7 @@ export default function Home() {
         </div>
         <div className="footer-bottom">
           <span>©2026</span>
-          <small>ALL RIGHTS RESERVED.</small>
+          <small>501(c)(3) giving info placeholder.</small>
           <strong>PLANTING THE BAY</strong>
         </div>
       </footer>
