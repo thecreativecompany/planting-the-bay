@@ -112,7 +112,7 @@ export default function Home() {
           <div className="hero-right">
             <div className="vision-video parallax-object" data-parallax="0.12">
               <iframe
-                src="https://www.youtube.com/embed/K1QICrgxTjA?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&loop=1&playlist=K1QICrgxTjA"
+                src="https://www.youtube.com/embed/8HDjaAV_12s?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&loop=1&playlist=8HDjaAV_12s"
                 title="Planting the Bay vision video"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
