@@ -2993,7 +2993,7 @@ button {
 }
 
 .hero-title {
-  font-size: clamp(4.4rem, 6.85vw, 7.85rem);
+  font-size: 92px;
   line-height: 0.82;
   max-width: 660px;
 }
@@ -3059,6 +3059,11 @@ button {
   }
 }
 
+
+/* Desktop hero H1 exact size */
+.hero-title {
+  font-size: 92px;
+}
 
 /* Hero-only padding after removing global section padding */
 .hero-shell {
