@@ -3281,3 +3281,21 @@ button {
     gap: 1.25rem;
   }
 }
+
+
+/* Hero right column spacing set to 2rem */
+.hero-right {
+  gap: 2rem;
+}
+
+@media (max-width: 1180px) {
+  .hero-right {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1020px) {
+  .hero-right {
+    gap: 1.35rem;
+  }
+}
