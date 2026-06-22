@@ -3299,3 +3299,27 @@ button {
     gap: 1.35rem;
   }
 }
+
+
+/* Force 2rem visual space between hero video and description */
+.hero-right {
+  gap: 2rem !important;
+}
+
+.vision-video {
+  margin-bottom: 2rem !important;
+}
+
+.hero-copy-panel {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 1020px) {
+  .hero-right {
+    gap: 1.35rem !important;
+  }
+
+  .vision-video {
+    margin-bottom: 0 !important;
+  }
+}
