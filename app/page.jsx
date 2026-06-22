@@ -150,45 +150,47 @@ export default function Home() {
             <span className="hero-title-bay">THE BAY</span>
           </h1>
 
-          <button
-            type="button"
-            className={`vision-video parallax-object ${videoPlaying ? 'is-playing' : ''}`}
-            data-parallax="0.12"
-            onClick={() => setVideoPlaying((playing) => !playing)}
-            aria-label="Play vision video"
-          >
-            <span className="video-topline">
-              <span className="video-dot" />
-              60 sec vision video | Planting the Bay
-            </span>
-            <span className="video-stage">
-              <span className="bay-line bay-line-one" />
-              <span className="bay-line bay-line-two" />
-              <span className="speaker-shape" />
-              <span className="podium-shape" />
-            </span>
-            <span className="video-play">{videoPlaying ? 'Ⅱ' : '▶'}</span>
-            <span className="video-footer">
-              <span>CC</span>
-              <span>Watch vision</span>
-              <span>YouTube</span>
-            </span>
-          </button>
+          <div className="hero-side-stack">
+            <button
+              type="button"
+              className={`vision-video parallax-object ${videoPlaying ? 'is-playing' : ''}`}
+              data-parallax="0.12"
+              onClick={() => setVideoPlaying((playing) => !playing)}
+              aria-label="Play vision video"
+            >
+              <span className="video-topline">
+                <span className="video-dot" />
+                60 sec vision video | Planting the Bay
+              </span>
+              <span className="video-stage">
+                <span className="bay-line bay-line-one" />
+                <span className="bay-line bay-line-two" />
+                <span className="speaker-shape" />
+                <span className="podium-shape" />
+              </span>
+              <span className="video-play">{videoPlaying ? 'Ⅱ' : '▶'}</span>
+              <span className="video-footer">
+                <span>CC</span>
+                <span>Watch vision</span>
+                <span>YouTube</span>
+              </span>
+            </button>
 
-          <div className="hero-copy-panel">
-            <p>
-              A church-planting and campus-ministry initiative across the San Francisco Bay Area — starting in Berkeley and expanding outward.
-            </p>
-            <div className="hero-actions">
-              <a href="#give" className="btn btn-dark">Give</a>
-              <a href="#get-involved" className="btn btn-light">Get Involved</a>
+            <div className="hero-side-brand" aria-hidden="true">
+              <span>PB</span>
+              <small>PLANTING THE BAY</small>
+              <i>©</i>
             </div>
-          </div>
 
-          <div className="hero-side-brand" aria-hidden="true">
-            <span>PB</span>
-            <small>PLANTING THE BAY</small>
-            <i>©</i>
+            <div className="hero-copy-panel">
+              <p>
+                A church-planting and campus-ministry initiative across the San Francisco Bay Area — starting in Berkeley and expanding outward.
+              </p>
+              <div className="hero-actions">
+                <a href="#give" className="btn btn-dark">Give</a>
+                <a href="#get-involved" className="btn btn-light">Get Involved</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
