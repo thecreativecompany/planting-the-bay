@@ -1801,50 +1801,6 @@ button {
 }
 
 
-/* Global section alignment */
-.hero-shell,
-.roadmap-section,
-.case-section,
-.momentum-section,
-.story-section,
-.pathways-section,
-.flyover-section,
-.give-section,
-.email-section,
-.ptb-footer,
-.sub-hero,
-.sub-content {
-  padding-inline: var(--page-pad);
-}
-
-.case-inner,
-.momentum-card,
-.story-card,
-.section-heading,
-.pathway-grid,
-.give-frame,
-.email-inner,
-.footer-grid,
-.footer-bottom,
-.sub-grid {
-  width: min(var(--content-max), 100%);
-}
-
-.vision-video,
-.hero-title,
-.hero-kicker,
-.hero-copy-panel,
-.roadmap-content,
-.roadmap-track,
-.momentum-card,
-.story-card,
-.pathway-grid,
-.give-frame,
-.email-inner,
-.footer-bottom {
-  max-width: 100%;
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -3100,5 +3056,19 @@ button {
   .hero-title {
     font-size: clamp(2.95rem, 14.8vw, 4.85rem);
     line-height: 0.86;
+  }
+}
+
+
+/* Hero-only padding after removing global section padding */
+.hero-shell {
+  padding-left: clamp(1rem, 4vw, 4rem);
+  padding-right: clamp(1rem, 4vw, 4rem);
+}
+
+@media (max-width: 820px) {
+  .hero-shell {
+    padding-left: clamp(1rem, 5vw, 1.5rem);
+    padding-right: clamp(1rem, 5vw, 1.5rem);
   }
 }
