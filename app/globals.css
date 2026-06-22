@@ -391,8 +391,9 @@ button {
 .hero-copy-panel {
   position: absolute;
   z-index: 6;
+  top: clamp(30rem, 39vw, 38rem);
   right: clamp(1rem, 5vw, 5rem);
-  bottom: clamp(3rem, 5.6vw, 5.4rem);
+  bottom: auto;
   width: min(370px, 36vw);
 }
 
@@ -1809,8 +1810,9 @@ button {
 
 @media (max-width: 1100px) {
   .hero-copy-panel {
+    top: clamp(28rem, 41vw, 35rem);
     right: 1.4rem;
-    bottom: 4rem;
+    bottom: auto;
     width: min(320px, 42vw);
   }
 
@@ -1877,6 +1879,7 @@ button {
   }
 
   .hero-copy-panel {
+    top: auto;
     right: auto;
     bottom: 5.2rem;
     left: 50%;
