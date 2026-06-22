@@ -1,20 +1,18 @@
 # Planting the Bay Starter
 
-Next.js + Tailwind CSS landing page inspired by the structure and interaction style of Social Dallas, adapted with original placeholder content for Planting the Bay.
+A Vercel-ready Next.js + Tailwind CSS landing page starter for Planting the Bay.
 
-## Included sections
+## Included
 
-- Fixed glass navigation with mobile menu
-- Full-screen animated hero slider
-- Moving marquee announcement strip
-- Service / location callout section
-- Oversized typography values section
-- Next steps section with layered image placeholders
-- Ministries cards with hover motion
-- Media feature split section
-- Giving / partner campaign CTA
-- Word-of-the-year block
-- Footer
+- Social Dallas-inspired section flow using original Planting the Bay copy/placeholders
+- Fixed minimal navigation
+- Oversized editorial hero typography
+- Simulated video card with click interaction
+- Small floating image placeholders
+- Scroll parallax on the hero video, small images, and campaign visual
+- Scroll reveal animations
+- Mobile menu
+- Responsive layout
 
 ## Run locally
 
@@ -23,20 +21,24 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000 in your browser.
+Open `http://localhost:3000`.
 
 ## Deploy to Vercel
 
-1. Upload/push this folder to GitHub.
+1. Upload this folder to GitHub.
 2. Import the repository in Vercel.
-3. Keep the default build settings:
+3. Keep the defaults:
    - Framework: Next.js
    - Build command: `npm run build`
    - Output directory: `.next`
+4. Deploy.
+
+## Main files
+
+- `app/page.jsx`
+- `app/globals.css`
+- `app/layout.jsx`
 
 ## Notes
 
-- The current imagery is CSS-generated placeholder art, so you can replace it later with real Planting the Bay photos or videos.
-- Main files to edit:
-  - `app/page.jsx`
-  - `app/globals.css`
+The layout closely follows the provided reference screenshot’s structure and motion style, but all text, graphics, and image/video areas are original placeholders for Planting the Bay. Replace the CSS-generated placeholders with final photography/video assets later.
