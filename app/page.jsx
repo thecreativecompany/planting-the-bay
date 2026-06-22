@@ -97,32 +97,36 @@ export default function Home() {
         <div className="hero-micro hero-micro-right">GIVE</div>
 
         <div className="hero-shell reveal">
-          <p className="hero-kicker">Beginning September 1 • Berkeley first</p>
-          <h1 className="hero-title" aria-label="Plant first, reach the Bay">
-            <span>PLANT</span>
-            <span>FIRST.</span>
-            <span className="hero-title-row">
-              <em>REACH</em>
-            </span>
-            <span className="hero-title-bay">THE BAY</span>
-          </h1>
-
-          <div className="vision-video parallax-object" data-parallax="0.12">
-            <iframe
-              src="https://www.youtube.com/embed/R3GfuzLMPkA?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&loop=1&playlist=R3GfuzLMPkA"
-              title="Planting the Bay vision video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
+          <div className="hero-left">
+            <p className="hero-kicker">Beginning September 1 • Berkeley first</p>
+            <h1 className="hero-title" aria-label="Plant first, reach the Bay">
+              <span>PLANT</span>
+              <span>FIRST.</span>
+              <span className="hero-title-row">
+                <em>REACH</em>
+              </span>
+              <span className="hero-title-bay">THE BAY</span>
+            </h1>
           </div>
 
-          <div className="hero-copy-panel">
-            <p>
-              A church-planting and campus-ministry initiative across the San Francisco Bay Area — starting in Berkeley and expanding outward.
-            </p>
-            <div className="hero-actions">
-              <a href="/give" className="btn btn-dark">Give</a>
-              <a href="/get-involved" className="btn btn-light">Get Involved</a>
+          <div className="hero-right">
+            <div className="vision-video parallax-object" data-parallax="0.12">
+              <iframe
+                src="https://www.youtube.com/embed/R3GfuzLMPkA?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&loop=1&playlist=R3GfuzLMPkA"
+                title="Planting the Bay vision video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+
+            <div className="hero-copy-panel">
+              <p>
+                A church-planting and campus-ministry initiative across the San Francisco Bay Area — starting in Berkeley and expanding outward.
+              </p>
+              <div className="hero-actions">
+                <a href="/give" className="btn btn-dark">Give</a>
+                <a href="/get-involved" className="btn btn-light">Get Involved</a>
+              </div>
             </div>
           </div>
         </div>
