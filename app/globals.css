@@ -3201,3 +3201,41 @@ button {
     gap: 1.25rem;
   }
 }
+
+
+/* Hero right column whole-top adjustment without reducing spacing */
+.hero-right {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: stretch;
+  min-height: clamp(500px, 47vw, 640px);
+  padding-top: 0;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.vision-video {
+  flex: 0 0 auto;
+}
+
+.hero-copy-panel {
+  flex: 0 0 auto;
+  margin-top: 0;
+}
+
+@media (max-width: 1180px) {
+  .hero-right {
+    min-height: clamp(460px, 48vw, 580px);
+    padding-top: 0;
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+}
+
+@media (max-width: 1020px) {
+  .hero-right {
+    display: grid;
+    min-height: auto;
+    gap: 1.35rem;
+  }
+}
