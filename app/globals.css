@@ -3323,3 +3323,18 @@ button {
     margin-bottom: 0 !important;
   }
 }
+
+
+/* Full underline under THE BAY */
+.hero-title .hero-title-bay {
+  width: max-content;
+  max-width: none;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.hero-title .hero-title-bay::after {
+  left: 0;
+  right: auto;
+  width: calc(100% + 0.08em);
+}
