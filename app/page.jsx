@@ -156,13 +156,13 @@ export default function Home() {
         </div>
 
         <div className="mini-card mini-card-one parallax-object" data-parallax="0.16" aria-hidden="true">
-          <img src="/roadmap-interview-1.svg" alt="" />
+          <img src="/roadmap-photo-1.png" alt="" />
         </div>
         <div className="mini-card mini-card-two parallax-object" data-parallax="0.1" aria-hidden="true">
-          <img src="/roadmap-interview-2.svg" alt="" />
+          <img src="/roadmap-photo-2.png" alt="" />
         </div>
         <div className="mini-card mini-card-three parallax-object" data-parallax="0.2" aria-hidden="true">
-          <img src="/roadmap-interview-3.svg" alt="" />
+          <img src="/roadmap-photo-3.png" alt="" />
         </div>
       </section>
 
