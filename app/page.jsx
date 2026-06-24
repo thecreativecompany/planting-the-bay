@@ -133,10 +133,7 @@ export default function Home() {
       </section>
 
       <section id="vision" className="roadmap-section section-reveal light-wipe" aria-label="Bay Area expansion roadmap">
-        <p className="micro micro-left">BERKELEY</p>
-        <p className="micro micro-center">TO</p>
-        <p className="micro micro-right">BEYOND</p>
-        <div className="roadmap-word" aria-hidden="true">BAY</div>
+        <div className="roadmap-word" aria-hidden="true">THE BAY</div>
 
         <div className="roadmap-content reveal">
           <p className="section-eyebrow">At-a-glance vision</p>
