@@ -3664,3 +3664,37 @@ button {
     bottom: 10%;
   }
 }
+
+/* Final roadmap watermark placement: THE BAY visible in lower right */
+.roadmap-section {
+  overflow: hidden;
+}
+
+.roadmap-word {
+  top: auto !important;
+  left: auto !important;
+  right: clamp(1rem, 4vw, 3rem) !important;
+  bottom: clamp(8.5rem, 12vw, 11.5rem) !important;
+  transform: none !important;
+  display: block !important;
+  width: max-content !important;
+  max-width: none !important;
+  font-size: clamp(7rem, 12.5vw, 13.5rem) !important;
+  line-height: 0.88 !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+  color: rgba(180, 168, 147, 0.18) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 900px) {
+  .roadmap-word {
+    right: 50% !important;
+    bottom: auto !important;
+    top: 6% !important;
+    transform: translateX(50%) !important;
+    text-align: center !important;
+    font-size: clamp(4.75rem, 17vw, 8.5rem) !important;
+  }
+}
