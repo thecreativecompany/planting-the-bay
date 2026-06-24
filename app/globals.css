@@ -693,7 +693,6 @@ button {
   position: relative;
   overflow: hidden;
   padding: clamp(6.8rem, 10vw, 10rem) 1rem;
-  border-top: 10px solid var(--blue);
   background: black;
   color: white;
 }
@@ -1719,7 +1718,6 @@ button {
 
 .sub-content {
   padding: clamp(4rem, 9vw, 8rem) clamp(1rem, 6vw, 5rem);
-  border-top: 9px solid var(--blue);
   background: #050505;
   color: white;
 }
@@ -2235,7 +2233,6 @@ button {
 
 .hero-section {
   min-height: clamp(650px, 68vw, 860px);
-  border-bottom: 4px solid var(--blue);
 }
 
 .hero-shell {
@@ -2299,7 +2296,6 @@ button {
   min-height: clamp(560px, 56vw, 740px);
   padding-top: clamp(4.5rem, 8vw, 7rem);
   padding-bottom: clamp(4.5rem, 7vw, 6.5rem);
-  border-bottom: 4px solid var(--blue);
 }
 
 .roadmap-content {
@@ -2321,7 +2317,6 @@ button {
 .case-section {
   padding-block: clamp(5.2rem, 8vw, 8rem);
   border-top: 0;
-  border-bottom: 4px solid var(--blue);
 }
 
 .case-inner h2 {
@@ -2405,8 +2400,6 @@ button {
 
 .flyover-section {
   min-height: clamp(430px, 54vw, 640px);
-  border-top: 4px solid var(--blue);
-  border-bottom: 4px solid var(--blue);
 }
 
 .flyover-copy {
@@ -2432,8 +2425,6 @@ button {
 
 .email-section {
   padding-block: clamp(5rem, 8vw, 7rem);
-  border-top: 4px solid var(--blue);
-  border-bottom: 4px solid var(--blue);
 }
 
 .email-inner h2 {
@@ -2593,7 +2584,6 @@ button {
 /* Hero unsqueeze pass */
 .hero-section {
   min-height: auto;
-  border-bottom: 4px solid var(--blue);
 }
 
 .hero-shell {
@@ -3337,4 +3327,16 @@ button {
   left: 0;
   right: auto;
   width: calc(100% + 0.08em);
+}
+
+
+/* Remove blue horizontal section divider lines */
+.hero-section,
+.roadmap-section,
+.case-section,
+.flyover-section,
+.email-section,
+.sub-content {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
 }
