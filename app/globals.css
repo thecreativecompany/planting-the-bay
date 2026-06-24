@@ -3340,3 +3340,34 @@ button {
   border-top: 0 !important;
   border-bottom: 0 !important;
 }
+
+
+/* Fully remove animated horizontal divider lines */
+.section-reveal::after,
+.light-wipe::after,
+.dark-wipe::after,
+.blue-wipe::after,
+.footer-wipe::after,
+.hero-wipe::after {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  content: none !important;
+  background: transparent !important;
+  transform: none !important;
+}
+
+.hero-section,
+.roadmap-section,
+.case-section,
+.momentum-section,
+.story-section,
+.pathways-section,
+.flyover-section,
+.give-section,
+.email-section,
+.ptb-footer,
+.sub-content {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
