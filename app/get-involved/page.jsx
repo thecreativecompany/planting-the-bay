@@ -1,4 +1,4 @@
-import PlaceholderPage from '../components/PlaceholderPage';
+import InteriorPage from '../components/InteriorPage';
 
 export const metadata = {
   title: 'Planting the Bay — Get Involved',
@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <PlaceholderPage
+    <InteriorPage
       eyebrow='Get Involved'
       title='Choose your path into the story.'
       intro='A recruiting hub for staff couples, families considering relocation, volunteers, local supporters, and prayer partners.'

@@ -1,4 +1,4 @@
-import PlaceholderPage from '../components/PlaceholderPage';
+import InteriorPage from '../components/InteriorPage';
 
 export const metadata = {
   title: 'Planting the Bay — Our Story',
@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <PlaceholderPage
+    <InteriorPage
       eyebrow='Our Story'
       title='The calling behind Planting the Bay.'
       intro="A longer narrative page for Stuart and Ashley's story, the partnership with SF Bay Fellowship, and why Berkeley is the first seed for a Bay-wide movement."

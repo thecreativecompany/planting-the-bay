@@ -1,22 +1,16 @@
-# Planting the Bay — Next.js + Tailwind Starter
+# Planting the Bay — polished Next.js starter
 
-A Vercel-ready front-end starter for the Planting the Bay website.
+A Vercel-ready front-end for the Planting the Bay website.
 
-This version is aligned to the uploaded design brief:
+## What this polished version includes
 
-- Fundraising + storytelling homepage
-- Mobile-first navigation and sticky giving CTA
-- Hero with vision-video placeholder
-- Clear Give and Get Involved actions
-- Berkeley-first expansion roadmap
-- Year 1 fundraising momentum meter placeholder
-- Why the Bay teaser section
-- Stuart & Ashley / story section placeholder
-- Get Involved pathway cards
-- Giving section with recurring partner framing
-- Email capture module
-- Parallax on video, image cards, and flyover area
-- Section color-wipe animations, headline slide-ins, staggered cards, and motion polish
+- Cleaned homepage hierarchy with fewer decorative-only elements
+- Non-autoplay vision video embed for better performance and user control
+- Berkeley-first roadmap, Why the Bay case, fundraising momentum, story, get-involved, give, and updates sections
+- Mobile-first navigation with accessible mobile menu semantics
+- Consolidated CSS: removed the oversized unused style sheet and kept only the current site styles
+- Removed duplicate roadmap photo assets; one optimized content image remains in `public/roadmap-photo-1.png`
+- Real Next.js routes for primary and footer/mobile navigation
 
 ## Run locally
 
@@ -26,6 +20,12 @@ npm run dev
 ```
 
 Open `http://localhost:3000`.
+
+## Build check
+
+```bash
+npm run build
+```
 
 ## Deploy to Vercel
 
@@ -39,25 +39,19 @@ Open `http://localhost:3000`.
 - `app/page.jsx`
 - `app/globals.css`
 - `app/layout.jsx`
+- `app/components/SiteHeader.jsx`
+- `app/components/InteriorPage.jsx`
 
-
-## Added page navigation routes
-
-The primary navigation now links to real Next.js routes instead of only homepage anchor sections:
+## Routes
 
 - `/story`
 - `/vision`
 - `/why-the-bay`
 - `/get-involved`
 - `/give`
-
-Secondary placeholder routes were also added for footer/mobile navigation:
-
 - `/team`
 - `/updates`
 - `/prayer`
 - `/partners`
 - `/faq`
 - `/contact`
-
-These pages use starter placeholder content so the navigation works immediately on Vercel.

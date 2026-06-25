@@ -11,17 +11,27 @@ export const primaryNav = [
   { label: 'Give', href: '/give' },
 ];
 
+const secondaryNav = [
+  { label: 'Team', href: '/team' },
+  { label: 'Updates', href: '/updates' },
+  { label: 'Prayer', href: '/prayer' },
+  { label: 'Partners', href: '/partners' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Contact', href: '/contact' },
+];
+
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
   const isActive = (href) => pathname === href;
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header className="ptb-header">
-      <a href="/" className="ptb-logo" aria-label="Planting the Bay home">
-        <strong>PLANTING</strong>
-        <span>THE BAY</span>
+      <a href="/" className="ptb-logo" aria-label="Planting the Bay home" onClick={closeMenu}>
+        <strong>Planting</strong>
+        <span>The Bay</span>
       </a>
 
       <nav className="ptb-desktop-nav" aria-label="Primary navigation">
@@ -37,6 +47,7 @@ export default function SiteHeader() {
         className={`ptb-menu ${menuOpen ? 'is-open' : ''}`}
         aria-label="Toggle navigation"
         aria-expanded={menuOpen}
+        aria-controls="mobile-navigation"
         onClick={() => setMenuOpen((open) => !open)}
       >
         <span />
@@ -44,28 +55,22 @@ export default function SiteHeader() {
         <span />
       </button>
 
-      <div className={`ptb-mobile-nav ${menuOpen ? 'is-open' : ''}`}>
-        <a href="/" className={pathname === '/' ? 'is-active' : undefined} onClick={() => setMenuOpen(false)}>
+      <nav id="mobile-navigation" className={`ptb-mobile-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Mobile navigation">
+        <a href="/" className={pathname === '/' ? 'is-active' : undefined} onClick={closeMenu}>
           Home
         </a>
         {primaryNav.map((item) => (
-          <a
-            key={item.label}
-            href={item.href}
-            className={isActive(item.href) ? 'is-active' : undefined}
-            onClick={() => setMenuOpen(false)}
-          >
+          <a key={item.label} href={item.href} className={isActive(item.href) ? 'is-active' : undefined} onClick={closeMenu}>
             {item.label}
           </a>
         ))}
-        <span className="mobile-nav-divider" />
-        <a href="/team" onClick={() => setMenuOpen(false)}>Team</a>
-        <a href="/updates" onClick={() => setMenuOpen(false)}>Updates</a>
-        <a href="/prayer" onClick={() => setMenuOpen(false)}>Prayer</a>
-        <a href="/partners" onClick={() => setMenuOpen(false)}>Partners</a>
-        <a href="/faq" onClick={() => setMenuOpen(false)}>FAQ</a>
-        <a href="/contact" onClick={() => setMenuOpen(false)}>Contact</a>
-      </div>
+        <span className="mobile-nav-divider" aria-hidden="true" />
+        {secondaryNav.map((item) => (
+          <a key={item.label} href={item.href} className={isActive(item.href) ? 'is-active' : undefined} onClick={closeMenu}>
+            {item.label}
+          </a>
+        ))}
+      </nav>
     </header>
   );
 }

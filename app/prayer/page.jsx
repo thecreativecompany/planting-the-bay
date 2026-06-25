@@ -1,4 +1,4 @@
-import PlaceholderPage from '../components/PlaceholderPage';
+import InteriorPage from '../components/InteriorPage';
 
 export const metadata = {
   title: 'Planting the Bay — Prayer',
@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <PlaceholderPage
+    <InteriorPage
       eyebrow='Prayer'
       title='Pray with the planting team.'
       intro='A simple on-ramp for people who want to support spiritually even before they give or relocate.'
@@ -16,7 +16,7 @@ export default function Page() {
       cards={[
     { title: 'Monthly prayer focus', body: 'List current prayer needs and launch milestones.' },
     { title: 'Prayer signup', body: 'Capture emails for prayer updates.' },
-    { title: 'Prayer wall', body: 'Optional future module for requests and answered prayers.' },
+    { title: 'Prayer wall', body: 'Requests and answered prayers can show the spiritual momentum behind the plant.' },
   ]}
     />
   );

@@ -1,4 +1,4 @@
-import PlaceholderPage from '../components/PlaceholderPage';
+import InteriorPage from '../components/InteriorPage';
 
 export const metadata = {
   title: 'Planting the Bay — Partners',
@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <PlaceholderPage
+    <InteriorPage
       eyebrow='Partners'
       title='Planting with trusted partners.'
       intro='A credibility page for SF Bay Fellowship, ICOC affiliation, partner churches, and endorsement quotes.'
@@ -15,8 +15,8 @@ export default function Page() {
       secondaryCta={{ label: 'Get Involved', href: '/get-involved' }}
       cards={[
     { title: 'SF Bay Fellowship', body: 'Explain the Berkeley partnership and support structure.' },
-    { title: 'Church partners', body: 'Add supporting churches, logos, and regions.' },
-    { title: 'Endorsements', body: 'Use quotes from trusted leaders to build donor confidence.' },
+    { title: 'Church partners', body: 'Supporting churches, logos, and regions build credibility for the launch.' },
+    { title: 'Endorsements', body: 'Quotes from trusted leaders build donor confidence and show shared ownership.' },
   ]}
     />
   );
