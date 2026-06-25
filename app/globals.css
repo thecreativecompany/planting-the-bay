@@ -1,6 +1,15 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/geist/GeistVF-BF6569491f13184.ttf") format("truetype");
+  font-weight: 100 950;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
+  --font-geist: "Geist", Arial, Helvetica, sans-serif;
   --paper: #f6f4ef;
   --paper-deep: #ede7da;
   --ink: #050505;
@@ -27,7 +36,15 @@ body {
   min-height: 100vh;
   background: var(--paper);
   color: var(--ink);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist);
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-geist);
 }
 
 ::selection {
@@ -542,7 +559,7 @@ button {
   width: max-content;
   max-width: 100%;
   color: rgba(180, 168, 147, 0.16);
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-geist);
   font-size: clamp(6rem, 13vw, 14rem);
   font-style: italic;
   line-height: 0.8;
@@ -592,7 +609,7 @@ button {
 
 .roadmap-content h2 em {
   margin-top: -0.08em;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-geist);
   font-size: 0.92em;
   font-style: normal;
   letter-spacing: -0.045em;
@@ -724,7 +741,7 @@ button {
 }
 
 .serif-word {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-geist);
   font-weight: 950;
   letter-spacing: -0.08em;
 }
@@ -858,7 +875,7 @@ button {
 }
 
 .story-label em {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-geist);
   font-weight: 400;
 }
 
@@ -1116,7 +1133,7 @@ button {
   max-width: 700px;
   margin: 0;
   color: var(--forest);
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-geist);
   font-size: clamp(4rem, 9vw, 8.8rem);
   font-weight: 400;
   letter-spacing: -0.1em;
@@ -1683,7 +1700,7 @@ button {
   right: -8vw;
   content: "BAY";
   color: rgba(180, 168, 147, 0.18);
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-geist);
   font-size: clamp(8rem, 21vw, 22rem);
   font-style: italic;
   line-height: 0.8;
