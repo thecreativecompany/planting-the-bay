@@ -74,20 +74,7 @@ export default function Home() {
         <div className="hero-shell reveal">
           <div className="hero-copy">
             <p className="hero-kicker">Beginning September 1 • Berkeley first</p>
-            <h1 className="hero-title" aria-label="Plant first. Reach the Bay.">
-              {[
-                ['Plant'],
-                ['first.'],
-                ['Reach'],
-                ['the', 'Bay.'],
-              ].map((line) => (
-                <span className="hero-title-line" key={line.join(' ')}>
-                  {line.map((word) => (
-                    <span className="split-mask" key={word}><span className="split-word">{word}</span></span>
-                  ))}
-                </span>
-              ))}
-            </h1>
+            <h1 className="hero-title">Plant first. Reach the Bay.</h1>
             <p className="hero-lede">
               A church-planting and campus-ministry initiative beginning in Berkeley and multiplying across the San Francisco Bay Area.
             </p>
@@ -97,23 +84,13 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-media-wrap">
-            <div className="bay-layer is-back" aria-hidden="true" />
-            <div className="bay-layer is-mid" aria-hidden="true" />
-            <div className="bay-layer is-front" aria-hidden="true" />
-            <div className="hero-media" data-gsap="video-parallax" aria-label="Planting the Bay vision video">
-              <iframe
-                src="https://www.youtube.com/embed/R_FuIcXQSow?playsinline=1&rel=0&modestbranding=1"
-                title="Planting the Bay vision video"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-            <div className="hero-orbit-card" data-gsap="lift">
-              <span>3-year arc</span>
-              <strong>$5M+</strong>
-              <small>fundraising vision for a Bay-wide movement</small>
-            </div>
+          <div className="hero-media" aria-label="Planting the Bay vision video">
+            <iframe
+              src="https://www.youtube.com/embed/R_FuIcXQSow?playsinline=1&rel=0&modestbranding=1"
+              title="Planting the Bay vision video"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>
@@ -128,7 +105,6 @@ export default function Home() {
         </div>
 
         <div className="roadmap-track reveal" role="list">
-          <div className="roadmap-line" aria-hidden="true"><span /></div>
           {roadmap.map((place, index) => (
             <div key={place} className="roadmap-stop" role="listitem" style={{ '--delay': `${index * 70}ms` }}>
               <span>{String(index + 1).padStart(2, '0')}</span>
@@ -146,32 +122,12 @@ export default function Home() {
             The Bay Area is a high-leverage opportunity for church planting, campus ministry, social outreach, and regional expansion — beginning with Berkeley and growing outward.
           </p>
         </div>
-        <div className="stat-grid reveal" data-gsap="stagger-grid" role="list">
+        <div className="stat-grid reveal" role="list">
           {stats.map((stat) => (
             <div className="stat-card" key={stat.label} role="listitem">
               <strong>{stat.value}</strong>
               <span>{stat.label}</span>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="social-funnel-section section-reveal" aria-label="Digital to in-person pathway">
-        <div className="section-heading reveal">
-          <p className="section-eyebrow">Three movement engines</p>
-          <h2>From a reel to a room to a region.</h2>
-        </div>
-        <div className="funnel-grid" data-gsap="stagger-grid">
-          {[
-            ['Social outreach', 'Use existing digital reach to find seekers and supporters across the Bay.'],
-            ['Pop-up services', 'Create RSVP-ready gatherings in campuses, homes, and neighborhood venues.'],
-            ['Campus ministry', 'Build first in Berkeley, then multiply student leadership across major campuses.'],
-          ].map(([title, body], index) => (
-            <article className="funnel-card" data-gsap="lift" key={title} style={{ '--delay': `${index * 90}ms` }}>
-              <span>0{index + 1}</span>
-              <h3>{title}</h3>
-              <p>{body}</p>
-            </article>
           ))}
         </div>
       </section>
@@ -183,7 +139,7 @@ export default function Home() {
             <h2>$1,000,000</h2>
             <p>Launch funding goal for staff, campus ministry, pop-up services, and early expansion infrastructure.</p>
           </div>
-          <div className="meter-wrap" data-gsap="lift" aria-label="Fundraising progress target">
+          <div className="meter-wrap" aria-label="Fundraising progress target">
             <div className="meter-topline">
               <span>Funding target</span>
               <strong>Year 1</strong>
@@ -201,7 +157,7 @@ export default function Home() {
 
       <section id="story" className="story-section section-reveal" aria-label="Our story section">
         <div className="story-card reveal">
-          <figure className="story-photo" data-gsap="image-wipe">
+          <figure className="story-photo">
             <img src="/roadmap-photo-1.png" alt="A ministry conversation representing Planting the Bay leadership and relational outreach" />
           </figure>
           <div className="story-copy">
@@ -220,9 +176,9 @@ export default function Home() {
           <p className="section-eyebrow">Get Involved</p>
           <h2>Choose your path into the story.</h2>
         </div>
-        <div className="pathway-grid" data-gsap="stagger-grid">
+        <div className="pathway-grid">
           {pathways.map((pathway, index) => (
-            <article key={pathway.title} className="pathway-card reveal" data-gsap="lift" style={{ '--delay': `${index * 90}ms` }}>
+            <article key={pathway.title} className="pathway-card reveal" style={{ '--delay': `${index * 90}ms` }}>
               <span>{pathway.eyebrow}</span>
               <h3>{pathway.title}</h3>
               <p>{pathway.body}</p>
@@ -242,9 +198,9 @@ export default function Home() {
                 A monthly partner program for people helping fund the first three years of church planting and campus ministry across the Bay.
               </p>
             </div>
-            <div className="tier-grid" data-gsap="stagger-grid">
+            <div className="tier-grid">
               {givingTiers.map((tier) => (
-                <div key={tier.amount} className="tier-card" data-gsap="lift">
+                <div key={tier.amount} className="tier-card">
                   <strong>{tier.amount}</strong>
                   <span>{tier.label}</span>
                 </div>
@@ -267,7 +223,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="ptb-footer section-reveal" data-gsap="footer-rise">
+      <footer className="ptb-footer section-reveal">
         <div className="footer-grid">
           <div className="footer-brand">
             <strong>Planting the Bay</strong>
