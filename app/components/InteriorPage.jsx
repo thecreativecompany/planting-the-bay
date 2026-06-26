@@ -22,9 +22,9 @@ export default function InteriorPage({
       </section>
 
       <section className="sub-content" aria-label={`${eyebrow} details`}>
-        <div className="sub-grid">
+        <div className="sub-grid" data-gsap="stagger-grid">
           {cards.map((card, index) => (
-            <article className="sub-card" key={card.title}>
+            <article className="sub-card" data-gsap="lift" key={card.title}>
               <span>{String(index + 1).padStart(2, '0')}</span>
               <h2>{card.title}</h2>
               <p>{card.body}</p>

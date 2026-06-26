@@ -11,76 +11,122 @@ export default function GsapMotion() {
     gsap.registerPlugin(ScrollTrigger);
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const cleanupFns = [];
+
     const ctx = gsap.context(() => {
+      const revealSelectors = '.section-reveal, .reveal, [data-gsap], .split-word, .ptb-header';
+
       if (reduceMotion) {
-        gsap.set('[data-gsap]', { clearProps: 'all', opacity: 1, y: 0, x: 0, scale: 1 });
-        gsap.set('.split-word', { clearProps: 'all', opacity: 1, yPercent: 0, rotate: 0 });
+        gsap.set(revealSelectors, { clearProps: 'all', opacity: 1, y: 0, x: 0, scale: 1, rotate: 0 });
+        document.querySelectorAll('.section-reveal, .reveal').forEach((item) => item.classList.add('is-visible'));
         return;
       }
 
       gsap.set('.split-word', { display: 'inline-block', transformOrigin: '0% 100%' });
+      gsap.set('.hero-media, .bay-layer, .hero-orbit-card, [data-gsap="lift"]', { willChange: 'transform, opacity' });
 
       const intro = gsap.timeline({ defaults: { ease: 'expo.out' } });
       intro
-        .from('.ptb-header', { y: -20, opacity: 0, duration: 0.8 })
-        .from('.hero-kicker', { y: 18, opacity: 0, duration: 0.8 }, '-=0.45')
-        .from('.split-word', { yPercent: 112, rotate: 2, opacity: 0, duration: 1.05, stagger: 0.045 }, '-=0.55')
-        .from('.hero-lede, .hero-actions', { y: 24, opacity: 0, duration: 0.9, stagger: 0.09 }, '-=0.65')
-        .from('.hero-media, .hero-orbit-card', { y: 42, opacity: 0, scale: 0.96, duration: 1, stagger: 0.12 }, '-=0.75')
-        .from('.bay-layer', { y: 46, opacity: 0, duration: 1.1, stagger: 0.08 }, '-=0.9');
+        .from('.ptb-header', { y: -24, opacity: 0, duration: 0.75 })
+        .from('.hero-kicker', { y: 18, opacity: 0, duration: 0.75 }, '-=0.45')
+        .from('.split-word', { yPercent: 112, rotate: 2, opacity: 0, duration: 1.05, stagger: 0.045 }, '-=0.5')
+        .from('.hero-lede, .hero-actions', { y: 24, opacity: 0, duration: 0.85, stagger: 0.09 }, '-=0.65')
+        .from('.bay-layer', { y: 54, opacity: 0, scale: 0.96, duration: 1.05, stagger: 0.075 }, '-=0.78')
+        .from('.hero-media, .hero-orbit-card', { y: 46, opacity: 0, scale: 0.95, duration: 1, stagger: 0.12 }, '-=0.88');
 
-      gsap.to('.bay-layer.is-back', {
-        yPercent: -12,
-        xPercent: 4,
+      gsap.to('.hero-media', {
+        yPercent: -22,
+        scale: 1.045,
+        ease: 'none',
+        scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: 0.8 },
+      });
+
+      gsap.to('.hero-orbit-card', {
+        yPercent: -42,
+        rotate: -1.5,
+        ease: 'none',
         scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: 0.9 },
       });
-      gsap.to('.bay-layer.is-mid', {
-        yPercent: -24,
-        xPercent: -5,
-        scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: 0.9 },
+
+      [
+        ['.bay-layer.is-back', -12, 4],
+        ['.bay-layer.is-mid', -24, -5],
+        ['.bay-layer.is-front', -40, 7],
+      ].forEach(([selector, yPercent, xPercent]) => {
+        gsap.to(selector, {
+          yPercent,
+          xPercent,
+          ease: 'none',
+          scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: 0.9 },
+        });
       });
-      gsap.to('.bay-layer.is-front', {
-        yPercent: -40,
-        xPercent: 7,
-        scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: 0.9 },
+
+      gsap.utils.toArray('section:not(.hero-section), footer').forEach((section) => {
+        const copy = section.querySelectorAll('.section-eyebrow, h2, .hero-lede, p:not(.section-eyebrow), .btn');
+        if (!copy.length) return;
+        gsap.from(copy, {
+          scrollTrigger: { trigger: section, start: 'top 76%', once: true },
+          y: 32,
+          opacity: 0,
+          duration: 0.85,
+          stagger: 0.055,
+          ease: 'power3.out',
+        });
       });
 
       gsap.from('.roadmap-stop', {
-        scrollTrigger: { trigger: '.roadmap-track', start: 'top 78%' },
-        y: 36,
+        scrollTrigger: { trigger: '.roadmap-track', start: 'top 78%', once: true },
+        y: 42,
         opacity: 0,
-        duration: 0.75,
+        duration: 0.78,
         stagger: 0.075,
         ease: 'power3.out',
       });
 
-      gsap.fromTo('.roadmap-line span',
+      gsap.fromTo(
+        '.roadmap-line span',
         { scaleX: 0 },
         {
           scaleX: 1,
           transformOrigin: 'left center',
           duration: 1.15,
           ease: 'power3.inOut',
-          scrollTrigger: { trigger: '.roadmap-track', start: 'top 78%' },
+          scrollTrigger: { trigger: '.roadmap-track', start: 'top 78%', once: true },
         }
       );
 
-      gsap.fromTo('.meter-bar span',
+      gsap.fromTo(
+        '.meter-bar span',
         { scaleX: 0 },
         {
           scaleX: 1,
           transformOrigin: 'left center',
           duration: 1.25,
           ease: 'expo.out',
-          scrollTrigger: { trigger: '.momentum-card', start: 'top 75%' },
+          scrollTrigger: { trigger: '.momentum-card', start: 'top 75%', once: true },
         }
       );
 
+      gsap.utils.toArray('[data-gsap="stagger-grid"]').forEach((grid) => {
+        const items = Array.from(grid.children).filter((child) => !child.classList.contains('roadmap-line'));
+        if (!items.length) return;
+        gsap.from(items, {
+          scrollTrigger: { trigger: grid, start: 'top 78%', once: true },
+          y: 44,
+          opacity: 0,
+          scale: 0.975,
+          duration: 0.78,
+          stagger: 0.075,
+          ease: 'power3.out',
+        });
+      });
+
       gsap.utils.toArray('[data-gsap="lift"]').forEach((el) => {
         gsap.from(el, {
-          scrollTrigger: { trigger: el, start: 'top 82%' },
+          scrollTrigger: { trigger: el, start: 'top 82%', once: true },
           y: 50,
           opacity: 0,
+          scale: 0.985,
           duration: 0.85,
           ease: 'power3.out',
         });
@@ -88,16 +134,83 @@ export default function GsapMotion() {
 
       gsap.utils.toArray('[data-gsap="image-wipe"]').forEach((el) => {
         gsap.from(el, {
-          scrollTrigger: { trigger: el, start: 'top 80%' },
+          scrollTrigger: { trigger: el, start: 'top 80%', once: true },
           clipPath: 'inset(0 0 100% 0)',
           scale: 1.08,
           duration: 1.1,
           ease: 'expo.out',
         });
+        const image = el.querySelector('img');
+        if (image) {
+          gsap.to(image, {
+            yPercent: -9,
+            ease: 'none',
+            scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: 0.9 },
+          });
+        }
+      });
+
+      gsap.from('.footer-brand, .footer-column, .footer-bottom', {
+        scrollTrigger: { trigger: '.ptb-footer', start: 'top 82%', once: true },
+        y: 26,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.08,
+        ease: 'power3.out',
       });
     });
 
-    return () => ctx.revert();
+    if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      const hoverTargets = document.querySelectorAll('.btn, .roadmap-stop, .stat-card, .funnel-card, .pathway-card, .tier-card, .hero-orbit-card');
+      hoverTargets.forEach((el) => {
+        const enter = () => gsap.to(el, { y: -8, scale: 1.018, duration: 0.26, ease: 'power3.out', overwrite: 'auto' });
+        const leave = () => gsap.to(el, { y: 0, scale: 1, duration: 0.36, ease: 'power3.out', overwrite: 'auto' });
+        el.addEventListener('mouseenter', enter);
+        el.addEventListener('mouseleave', leave);
+        cleanupFns.push(() => {
+          el.removeEventListener('mouseenter', enter);
+          el.removeEventListener('mouseleave', leave);
+        });
+      });
+
+      const heroWrap = document.querySelector('.hero-media-wrap');
+      const heroMedia = document.querySelector('.hero-media');
+      if (heroWrap && heroMedia) {
+        const move = (event) => {
+          const rect = heroWrap.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+          gsap.to(heroMedia, {
+            x: x * 18,
+            y: y * 14,
+            rotateX: y * -3,
+            rotateY: x * 4,
+            transformPerspective: 900,
+            duration: 0.45,
+            ease: 'power3.out',
+            overwrite: 'auto',
+          });
+          gsap.to('.hero-orbit-card', { x: x * -12, y: y * -10, duration: 0.45, ease: 'power3.out', overwrite: 'auto' });
+        };
+        const leave = () => {
+          gsap.to(heroMedia, { x: 0, y: 0, rotateX: 0, rotateY: 0, duration: 0.65, ease: 'expo.out', overwrite: 'auto' });
+          gsap.to('.hero-orbit-card', { x: 0, y: 0, duration: 0.65, ease: 'expo.out', overwrite: 'auto' });
+        };
+        heroWrap.addEventListener('mousemove', move);
+        heroWrap.addEventListener('mouseleave', leave);
+        cleanupFns.push(() => {
+          heroWrap.removeEventListener('mousemove', move);
+          heroWrap.removeEventListener('mouseleave', leave);
+        });
+      }
+    }
+
+    ScrollTrigger.refresh();
+
+    return () => {
+      cleanupFns.forEach((fn) => fn());
+      ctx.revert();
+    };
   }, []);
 
   return null;

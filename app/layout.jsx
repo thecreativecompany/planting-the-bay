@@ -1,4 +1,5 @@
 import './globals.css';
+import GsapMotion from './components/GsapMotion';
 
 export const metadata = {
   title: 'Planting the Bay | Church Planting Initiative',
@@ -14,7 +15,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <GsapMotion />
+        {children}
+      </body>
     </html>
   );
 }
