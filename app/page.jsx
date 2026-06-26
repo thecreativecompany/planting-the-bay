@@ -77,9 +77,13 @@ export default function Home() {
           <div className="hero-copy">
             <p className="hero-kicker">Beginning September 1 • Berkeley first</p>
             <h1 className="hero-title" aria-label="Plant first. Reach the Bay.">
-              {['Plant', 'first.', 'Reach', 'the', 'Bay.'].map((word) => (
+              {['Plant', 'first.', 'Reach'].map((word) => (
                 <span className="split-mask" key={word}><span className="split-word">{word}</span></span>
               ))}
+              <span className="hero-nowrap" aria-hidden="true">
+                <span className="split-mask"><span className="split-word">the</span></span>
+                <span className="split-mask"><span className="split-word">Bay.</span></span>
+              </span>
             </h1>
             <p className="hero-lede">
               A church-planting and campus-ministry initiative beginning in Berkeley and multiplying across the San Francisco Bay Area.

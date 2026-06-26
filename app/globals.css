@@ -132,6 +132,7 @@ img, iframe { max-width: 100%; }
 .section-reveal.is-visible, .reveal.is-visible, .is-visible .reveal { opacity: 1; transform: translateY(0); }
 .split-mask { display: inline-block; overflow: hidden; padding-right: 0.08em; }
 .hero-title .split-mask:not(:last-child) { margin-right: 0.15em; }
+.hero-nowrap { display: inline-block; white-space: nowrap; }
 
 .hero-section { position: relative; min-height: 100svh; display: grid; place-items: center; padding: 6.5rem var(--pad) 4rem; }
 .hero-section::before {
