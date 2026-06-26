@@ -122,6 +122,8 @@ export default function GsapMotion() {
       });
 
       gsap.utils.toArray('[data-gsap="lift"]').forEach((el) => {
+        if (el.closest('[data-gsap="stagger-grid"]')) return;
+
         gsap.from(el, {
           scrollTrigger: { trigger: el, start: 'top 82%', once: true },
           y: 50,
@@ -161,18 +163,6 @@ export default function GsapMotion() {
     });
 
     if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      const hoverTargets = document.querySelectorAll('.btn, .roadmap-stop, .stat-card, .funnel-card, .pathway-card, .tier-card, .hero-orbit-card');
-      hoverTargets.forEach((el) => {
-        const enter = () => gsap.to(el, { y: -8, scale: 1.018, duration: 0.26, ease: 'power3.out', overwrite: 'auto' });
-        const leave = () => gsap.to(el, { y: 0, scale: 1, duration: 0.36, ease: 'power3.out', overwrite: 'auto' });
-        el.addEventListener('mouseenter', enter);
-        el.addEventListener('mouseleave', leave);
-        cleanupFns.push(() => {
-          el.removeEventListener('mouseenter', enter);
-          el.removeEventListener('mouseleave', leave);
-        });
-      });
-
       const heroWrap = document.querySelector('.hero-media-wrap');
       const heroMedia = document.querySelector('.hero-media');
       if (heroWrap && heroMedia) {

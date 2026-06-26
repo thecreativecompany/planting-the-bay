@@ -169,11 +169,9 @@ img, iframe { max-width: 100%; }
 .hero-title { margin: 0; max-width: 860px; font-size: clamp(4.2rem, 11.2vw, 11rem); font-weight: 950; letter-spacing: -0.072em; line-height: 0.84; text-transform: uppercase; }
 .hero-lede { max-width: 610px; margin: clamp(1.2rem, 2vw, 1.8rem) 0 0; color: #333329; font-size: clamp(1.05rem, 1.6vw, 1.36rem); font-weight: 650; line-height: 1.32; }
 .hero-actions, .give-actions, .sub-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.35rem; }
-.btn { position: relative; isolation: isolate; display: inline-flex; min-height: 2.9rem; align-items: center; justify-content: center; padding: 0.9rem 1.12rem; border: 1px solid currentColor; font-size: 0.72rem; font-weight: 950; letter-spacing: 0.13em; line-height: 1; text-transform: uppercase; transition: transform 220ms ease, background 220ms ease, color 220ms ease; overflow: hidden; }
-.btn::after { position: absolute; inset: auto 0 0; z-index: -1; height: 100%; content: ""; background: color-mix(in srgb, var(--green) 88%, white); transform: translateY(102%); transition: transform 280ms cubic-bezier(.19,1,.22,1); }
-.btn:hover::after, .btn:focus-visible::after { transform: translateY(0); }
-.btn-light:hover, .btn-light:focus-visible { color: var(--cream); }
-.btn:hover, .btn:focus-visible { transform: translateY(-2px); }
+.btn { position: relative; isolation: isolate; display: inline-flex; min-height: 2.9rem; align-items: center; justify-content: center; padding: 0.9rem 1.12rem; border: 1px solid currentColor; font-size: 0.72rem; font-weight: 950; letter-spacing: 0.13em; line-height: 1; text-transform: uppercase; transition: opacity 180ms ease, background-color 180ms ease, border-color 180ms ease, color 180ms ease; overflow: hidden; }
+.btn::after { display: none; }
+.btn:hover, .btn:focus-visible { opacity: 0.84; }
 .btn-dark { background: var(--ink); color: var(--cream); }
 .btn-light { background: var(--cream); color: var(--ink); }
 
