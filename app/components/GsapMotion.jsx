@@ -122,7 +122,7 @@ export default function GsapMotion() {
       });
 
       gsap.utils.toArray('[data-gsap="lift"]').forEach((el) => {
-        if (el.closest('[data-gsap="stagger-grid"]')) return;
+        if (el.closest('[data-gsap="stagger-grid"]') || el.classList.contains('hero-orbit-card')) return;
 
         gsap.from(el, {
           scrollTrigger: { trigger: el, start: 'top 82%', once: true },
