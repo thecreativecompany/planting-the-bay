@@ -167,7 +167,13 @@ export default function Home() {
             ['Pop-up services', 'Create RSVP-ready gatherings in campuses, homes, and neighborhood venues.'],
             ['Campus ministry', 'Build first in Berkeley, then multiply student leadership across major campuses.'],
           ].map(([title, body], index) => (
-            <article className="funnel-card" data-gsap="lift" key={title} style={{ '--delay': `${index * 90}ms` }}>
+            <article
+              className="funnel-card"
+              data-gsap="lift"
+              data-parallax-depth={[-7, -12, -8][index]}
+              key={title}
+              style={{ '--delay': `${index * 90}ms` }}
+            >
               <span>0{index + 1}</span>
               <h3>{title}</h3>
               <p>{body}</p>

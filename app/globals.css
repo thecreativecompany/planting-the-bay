@@ -221,10 +221,10 @@ img, iframe { max-width: 100%; }
 
 .social-funnel-section { padding: clamp(5rem, 10vw, 9rem) var(--pad); background: color-mix(in srgb, var(--paper) 84%, white); }
 .funnel-grid { display: grid; width: min(var(--max), 100%); grid-template-columns: 1fr 1.2fr 1fr; gap: 1px; margin: clamp(1.5rem, 3vw, 3rem) auto 0; border: 1px solid var(--line); background: var(--line); }
-.funnel-card { position: relative; min-height: 310px; display: grid; align-content: space-between; gap: 1rem; padding: clamp(1rem, 2vw, 1.6rem); background: var(--cream); overflow: hidden; will-change: transform; }
+.funnel-card { position: relative; min-height: 310px; display: grid; align-content: space-between; gap: 1rem; padding: clamp(1.1rem, 2vw, 1.7rem); background: var(--cream); overflow: hidden; will-change: transform; }
 .funnel-card::before { content: ""; position: absolute; inset: auto -20% -45% 12%; height: 70%; border: 1px solid rgba(33,72,45,.16); border-radius: 999px 999px 0 0; background: radial-gradient(circle at 50% 0%, rgba(66,111,68,.18), transparent 65%); }
 .funnel-card span { color: var(--green-2); font-size: 0.72rem; font-weight: 950; letter-spacing: 0.14em; text-transform: uppercase; }
-.funnel-card h3 { position: relative; max-width: 100%; margin: 0; overflow-wrap: normal; font-size: clamp(2.55rem, 3.35vw, 3.95rem); font-weight: 950; letter-spacing: -0.026em; line-height: 0.92; text-transform: uppercase; }
+.funnel-card h3 { position: relative; max-width: 100%; margin: 0; overflow-wrap: normal; text-wrap: balance; font-size: clamp(2.25rem, 2.85vw, 3.2rem); font-weight: 950; letter-spacing: -0.04em; line-height: 0.9; text-transform: uppercase; }
 .funnel-card p { position: relative; max-width: 320px; margin: 0; color: var(--muted); line-height: 1.45; }
 
 .momentum-card, .story-card, .give-frame, .email-inner, .sub-hero, .sub-content { width: min(var(--max), 100%); margin-inline: auto; }
@@ -285,6 +285,7 @@ img, iframe { max-width: 100%; }
   .ptb-desktop-nav { display: none; }
   .ptb-menu, .sticky-give { display: block; }
   .hero-shell, .case-section, .momentum-card, .story-card, .funnel-grid { grid-template-columns: 1fr; }
+  .funnel-card h3 { font-size: clamp(2.65rem, 10vw, 4.8rem); }
   .hero-section { min-height: auto; align-items: start; }
   .hero-media-wrap { width: min(680px, 100%); min-height: clamp(330px, 80vw, 560px); }
   .hero-media { inset: 11% 0 18% 5%; }
