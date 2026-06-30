@@ -12,6 +12,7 @@ export default function InteriorPage({
     <main className="ptb-page sub-page">
       <SiteHeader />
       <section className="sub-hero section-reveal is-visible">
+        <div className="sub-hero-glow" aria-hidden="true" />
         <p className="section-eyebrow">{eyebrow}</p>
         <h1>{title}</h1>
         <p>{intro}</p>
@@ -28,9 +29,15 @@ export default function InteriorPage({
               <span>{String(index + 1).padStart(2, '0')}</span>
               <h2>{card.title}</h2>
               <p>{card.body}</p>
+              <i aria-hidden="true">↗</i>
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="sub-cta" aria-label="Recommended next step">
+        <p>Ready to move from interest to action?</p>
+        <a href={primaryCta.href}>{primaryCta.label} →</a>
       </section>
 
       <footer className="sub-footer">

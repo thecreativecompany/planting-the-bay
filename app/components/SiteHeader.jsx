@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 export const primaryNav = [
@@ -22,21 +22,34 @@ const secondaryNav = [
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 18);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const isActive = (href) => pathname === href;
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className="ptb-header">
+    <header className={`ptb-header ${scrolled || menuOpen ? 'is-scrolled' : ''}`}>
       <a href="/" className="ptb-logo" aria-label="Planting the Bay home" onClick={closeMenu}>
+        <i aria-hidden="true" />
         <strong>Planting</strong>
         <span>The Bay</span>
       </a>
 
       <nav className="ptb-desktop-nav" aria-label="Primary navigation">
         {primaryNav.map((item) => (
-          <a key={item.label} href={item.href} className={isActive(item.href) ? 'is-active' : undefined}>
+          <a
+            key={item.label}
+            href={item.href}
+            className={[isActive(item.href) ? 'is-active' : '', item.label === 'Give' ? 'nav-give' : ''].filter(Boolean).join(' ') || undefined}
+          >
             {item.label}
           </a>
         ))}

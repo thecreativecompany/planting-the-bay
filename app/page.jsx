@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import SiteHeader from './components/SiteHeader';
 
 const roadmap = ['Berkeley', 'San Francisco', 'Peninsula', 'San Jose', 'Tri-Valley', 'Beyond'];
@@ -38,7 +38,35 @@ const givingTiers = [
   { amount: 'Major gifts', label: 'accelerate staff, events, and regional expansion' },
 ];
 
+const launchSignals = [
+  {
+    id: 'seekers',
+    label: 'Seekers',
+    metric: 'Digital → table',
+    title: 'Turn online attention into real conversations.',
+    body: 'Make every reel, update, and invite point toward a next step: prayer, RSVP, coffee, or giving.',
+  },
+  {
+    id: 'gatherings',
+    label: 'Gatherings',
+    metric: 'Pop-up rhythm',
+    title: 'Design small rooms that can become a church.',
+    body: 'Host relational services and campus moments that feel personal before they become permanent.',
+  },
+  {
+    id: 'leaders',
+    label: 'Leaders',
+    metric: 'Staff pipeline',
+    title: 'Recruit people who can carry the Bay-wide vision.',
+    body: 'Clarify roles for staff couples, interns, hosts, donors, and prayer partners from day one.',
+  },
+];
+
+const baySignals = ['Prayer pipeline', 'Campus contacts', 'Pop-up RSVPs', 'Monthly partners'];
+
 export default function Home() {
+  const [activeSignal, setActiveSignal] = useState(launchSignals[0]);
+
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.querySelectorAll('.reveal, .section-reveal').forEach((item) => item.classList.add('is-visible'));
@@ -179,6 +207,54 @@ export default function Home() {
               <p>{body}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+
+      <section className="signal-section section-reveal" aria-label="Interactive Bay launch command center">
+        <div className="signal-shell reveal">
+          <div className="signal-copy">
+            <p className="section-eyebrow">Launch command center</p>
+            <h2>Make the movement feel alive.</h2>
+            <p>
+              A modern supporter page should not just explain the plan — it should let people feel the rhythm of invites, rooms, prayer, and generosity coming together across the Bay.
+            </p>
+            <div className="signal-pills" aria-label="Movement indicators">
+              {baySignals.map((signal) => (
+                <span key={signal}>{signal}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="signal-console" data-gsap="lift">
+            <div className="signal-tabs" role="tablist" aria-label="Launch focus areas">
+              {launchSignals.map((signal) => (
+                <button
+                  key={signal.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeSignal.id === signal.id}
+                  className={activeSignal.id === signal.id ? 'is-active' : undefined}
+                  onClick={() => setActiveSignal(signal)}
+                >
+                  {signal.label}
+                </button>
+              ))}
+            </div>
+            <div className="signal-panel" role="tabpanel" aria-live="polite">
+              <span>{activeSignal.metric}</span>
+              <h3>{activeSignal.title}</h3>
+              <p>{activeSignal.body}</p>
+              <a href="/get-involved">Explore next steps</a>
+            </div>
+            <div className="signal-map" aria-hidden="true">
+              {roadmap.slice(0, 5).map((place, index) => (
+                <span key={place} style={{ '--x': `${12 + index * 18}%`, '--y': `${68 - (index % 3) * 22}%`, '--delay': `${index * 110}ms` }}>
+                  {place}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
