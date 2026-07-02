@@ -1,90 +1,101 @@
 "use client";
 
+import React, { useEffect, useRef, useState } from "react";
 import {
+  motion,
+  useMotionValueEvent,
   useScroll,
   useTransform,
-  motion,
 } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
 
 interface TimelineEntry {
   title: string;
   content: React.ReactNode;
 }
 
-export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
+interface TimelineProps {
+  data: TimelineEntry[];
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+}
+
+export function Timeline({ data, eyebrow, title, description }: TimelineProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
   const [height, setHeight] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setHeight(rect.height);
-    }
-  }, [ref, data]);
+    const measure = () => {
+      if (ref.current) {
+        setHeight(ref.current.getBoundingClientRect().height);
+      }
+    };
+
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [data]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 10%", "end 50%"],
+    offset: ["start 18%", "end 58%"],
   });
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
-  const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  const opacityTransform = useTransform(scrollYProgress, [0, 0.08], [0, 1]);
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (!data.length) return;
+    const nextIndex = Math.min(data.length - 1, Math.max(0, Math.floor(latest * data.length)));
+    setActiveIndex(nextIndex);
+  });
 
   return (
-    <div
-      className="w-full bg-[var(--paper)] font-sans md:px-10"
-      ref={containerRef}
-    >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <p className="section-eyebrow">At-a-glance vision</p>
-        <h2 className="timeline-heading">
-          Berkeley first, then the Bay.
-        </h2>
-        <p className="timeline-intro">
-          A phased planting roadmap for campus ministry, pop-up services, and regional church growth across the San Francisco Bay Area.
-        </p>
+    <section className="timeline-section section-reveal" ref={containerRef} aria-label="Bay Area expansion roadmap">
+      <div className="timeline-watermark" aria-hidden="true">THE BAY</div>
+      <div className="timeline-intro reveal">
+        {eyebrow ? <p className="section-eyebrow">{eyebrow}</p> : null}
+        {title ? <h2>{title}</h2> : null}
+        {description ? <p>{description}</p> : null}
       </div>
 
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+      <div ref={ref} className="timeline-list">
         {data.map((item, index) => (
-          <div
-            key={index}
-            className="flex justify-start pt-10 md:pt-32 md:gap-10"
+          <article
+            key={item.title}
+            className={`timeline-entry ${index === activeIndex ? "is-active" : ""}`}
           >
-            <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
-              <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[var(--paper)] flex items-center justify-center">
-                <div className="h-4 w-4 rounded-full bg-[var(--green)] border border-[var(--ink)] p-2" />
+            <div className="timeline-sticky">
+              <div className="timeline-dot" aria-hidden="true">
+                <span />
               </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-black uppercase tracking-[-0.06em] text-[rgba(16,17,13,0.38)]">
-                {item.title}
-              </h3>
+              <div>
+                <span className="timeline-step">{String(index + 1).padStart(2, "0")}</span>
+                <h3>{item.title}</h3>
+              </div>
             </div>
 
-            <div className="relative pl-20 pr-4 md:pl-4 w-full">
-              <h3 className="md:hidden block text-2xl mb-4 text-left font-black uppercase tracking-[-0.04em] text-[rgba(16,17,13,0.55)]">
-                {item.title}
-              </h3>
+            <motion.div
+              className="timeline-card"
+              initial={{ opacity: 0, x: index % 2 === 0 ? 34 : -34 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            >
               {item.content}
-            </div>
-          </div>
+            </motion.div>
+          </article>
         ))}
-        <div
-          style={{
-            height: height + "px",
-          }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-[rgba(16,17,13,0.16)] to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
-        >
+
+        <div className="timeline-rail" style={{ height }} aria-hidden="true">
           <motion.div
-            style={{
-              height: heightTransform,
-              opacity: opacityTransform,
-            }}
-            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-[var(--green)] via-[var(--blue)] to-transparent from-[0%] via-[10%] rounded-full"
+            style={{ height: heightTransform, opacity: opacityTransform }}
+            className="timeline-rail-fill"
           />
         </div>
       </div>
-    </div>
+    </section>
   );
-};
+}
