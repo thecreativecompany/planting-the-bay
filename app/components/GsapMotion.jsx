@@ -13,22 +13,6 @@ export default function GsapMotion() {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const cleanupFns = [];
 
-    document.body.classList.add('ptb-motion-ready');
-    cleanupFns.push(() => document.body.classList.remove('ptb-motion-ready'));
-
-    const ambientGrid = document.createElement('div');
-    ambientGrid.className = 'ptb-ambient-grid';
-    ambientGrid.setAttribute('aria-hidden', 'true');
-    ambientGrid.innerHTML = Array.from({ length: 7 }, () => '<span />').join('');
-    document.body.prepend(ambientGrid);
-    cleanupFns.push(() => ambientGrid.remove());
-
-    const cursor = document.createElement('div');
-    cursor.className = 'ptb-cursor-orb';
-    cursor.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(cursor);
-    cleanupFns.push(() => cursor.remove());
-
     const ctx = gsap.context(() => {
       const revealSelectors = '.section-reveal, .reveal, [data-gsap], .split-word, .ptb-header';
 
@@ -39,25 +23,7 @@ export default function GsapMotion() {
       }
 
       gsap.set('.split-word', { display: 'inline-block', transformOrigin: '0% 100%' });
-      gsap.set('.hero-media, .bay-layer, .hero-orbit-card, [data-gsap="lift"], .ptb-ambient-grid span, .hero-scroll-cue', { willChange: 'transform, opacity' });
-
-      gsap.fromTo(
-        '.ptb-ambient-grid span',
-        { scaleY: 0, transformOrigin: 'top center', opacity: 0 },
-        { scaleY: 1, opacity: 1, duration: 1.15, stagger: 0.045, ease: 'expo.out' }
-      );
-
-      gsap.to('.ptb-ambient-grid span', {
-        yPercent: -18,
-        ease: 'none',
-        scrollTrigger: { trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: 0.9 },
-      });
-
-      gsap.fromTo(
-        '.hero-scroll-cue',
-        { autoAlpha: 0, y: 16 },
-        { autoAlpha: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: 1.15 }
-      );
+      gsap.set('.hero-media, .bay-layer, .hero-orbit-card, [data-gsap="lift"]', { willChange: 'transform, opacity' });
 
       const intro = gsap.timeline({ defaults: { ease: 'expo.out' } });
       intro
@@ -96,8 +62,6 @@ export default function GsapMotion() {
       });
 
       gsap.utils.toArray('section:not(.hero-section), footer').forEach((section) => {
-        if (section.classList.contains('sub-hero')) return;
-
         const copy = section.querySelectorAll('.section-eyebrow, h2, .hero-lede, p:not(.section-eyebrow), .btn');
         if (!copy.length) return;
         gsap.from(copy, {
@@ -216,47 +180,6 @@ export default function GsapMotion() {
     });
 
     if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      const cursorX = gsap.quickTo(cursor, 'x', { duration: 0.42, ease: 'power3.out' });
-      const cursorY = gsap.quickTo(cursor, 'y', { duration: 0.42, ease: 'power3.out' });
-      const moveCursor = (event) => {
-        cursorX(event.clientX);
-        cursorY(event.clientY);
-      };
-      window.addEventListener('pointermove', moveCursor, { passive: true });
-      cleanupFns.push(() => window.removeEventListener('pointermove', moveCursor));
-
-      const magneticItems = gsap.utils.toArray('.btn, .sticky-give, .pathway-card, .funnel-card, .stat-card, .tier-card, .sub-card, [data-gsap="interactive-box"]');
-      magneticItems.forEach((el) => {
-        const onEnter = () => cursor.classList.add('is-active');
-        const onMove = (event) => {
-          const rect = el.getBoundingClientRect();
-          const x = (event.clientX - rect.left) / rect.width - 0.5;
-          const y = (event.clientY - rect.top) / rect.height - 0.5;
-          gsap.to(el, {
-            x: x * 10,
-            y: y * 8,
-            rotateX: y * -2.2,
-            rotateY: x * 2.6,
-            transformPerspective: 900,
-            duration: 0.38,
-            ease: 'power3.out',
-            overwrite: 'auto',
-          });
-        };
-        const onLeave = () => {
-          cursor.classList.remove('is-active');
-          gsap.to(el, { x: 0, y: 0, rotateX: 0, rotateY: 0, duration: 0.58, ease: 'expo.out', overwrite: 'auto' });
-        };
-        el.addEventListener('pointerenter', onEnter);
-        el.addEventListener('pointermove', onMove);
-        el.addEventListener('pointerleave', onLeave);
-        cleanupFns.push(() => {
-          el.removeEventListener('pointerenter', onEnter);
-          el.removeEventListener('pointermove', onMove);
-          el.removeEventListener('pointerleave', onLeave);
-        });
-      });
-
       const heroWrap = document.querySelector('.hero-media-wrap');
       const heroMedia = document.querySelector('.hero-media');
       if (heroWrap && heroMedia) {

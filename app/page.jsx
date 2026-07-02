@@ -6,59 +6,6 @@ import { Timeline } from '@/components/ui/timeline';
 
 const roadmap = ['Berkeley', 'San Francisco', 'Peninsula', 'San Jose', 'Tri-Valley', 'Beyond'];
 
-const visionTimeline = [
-  {
-    title: '01',
-    content: (
-      <div className="timeline-card">
-        <p className="timeline-kicker">Berkeley first</p>
-        <h3>Launch campus ministry and a local church together.</h3>
-        <p>
-          Begin with Berkeley in partnership with SF Bay Fellowship, forming the first local rhythm of prayer, outreach, and relational gatherings.
-        </p>
-        <div className="timeline-image-grid">
-          <img src="/roadmap-photo-1.png" alt="Interview conversation for the Berkeley launch" />
-          <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=900&q=80" alt="People gathered in conversation" />
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: '02',
-    content: (
-      <div className="timeline-card">
-        <p className="timeline-kicker">Pop-up services</p>
-        <h3>Create regional gathering points across the Bay.</h3>
-        <p>
-          Use pop-up services, dinners, and RSVP moments to help seekers, students, families, and supporters find a clear next step.
-        </p>
-        <div className="timeline-image-grid">
-          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80" alt="Team conversation around a table" />
-          <img src="https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=900&q=80" alt="Community event gathering" />
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: '03',
-    content: (
-      <div className="timeline-card">
-        <p className="timeline-kicker">Bay-wide expansion</p>
-        <h3>Multiply from Berkeley toward every major region.</h3>
-        <p>
-          Expand from Berkeley to San Francisco, the Peninsula, San Jose, the Tri-Valley, and beyond through campus contacts, monthly partners, and new leaders.
-        </p>
-        <div className="timeline-region-list">
-          {['Berkeley', 'San Francisco', 'Peninsula', 'San Jose', 'Tri-Valley', 'Beyond'].map((region) => (
-            <span key={region}>{region}</span>
-          ))}
-        </div>
-      </div>
-    ),
-  },
-];
-
-
 const stats = [
   { value: 'Sept 1', label: 'Berkeley launch window' },
   { value: '$1M', label: 'Year-one funding goal' },
@@ -117,6 +64,78 @@ const launchSignals = [
 ];
 
 const baySignals = ['Prayer pipeline', 'Campus contacts', 'Pop-up RSVPs', 'Monthly partners'];
+
+const roadmapTimeline = [
+  {
+    title: 'Berkeley',
+    content: (
+      <div className="timeline-content-block">
+        <p>
+          Start where students, seekers, and builders already gather. Berkeley becomes the first launch room for prayer nights, campus conversations, and supporter updates.
+        </p>
+        <div className="timeline-image-grid">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=82" alt="People gathered around laptops in a collaborative interview-style meeting" />
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=82" alt="Interview conversation in a modern Bay Area style workspace" />
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: 'San Francisco',
+    content: (
+      <div className="timeline-content-block">
+        <p>
+          Move from campus traction into city-wide connection: pop-up gatherings, digital invites, and relational dinners that make the mission visible.
+        </p>
+        <ul className="timeline-checklist">
+          <li>Monthly prayer and vision gatherings</li>
+          <li>Neighborhood host teams</li>
+          <li>Video stories that point to real next steps</li>
+        </ul>
+      </div>
+    ),
+  },
+  {
+    title: 'Peninsula',
+    content: (
+      <div className="timeline-content-block">
+        <p>
+          Build a supporter bridge through families, professionals, and campus-adjacent leaders who can fund and host the next layer of outreach.
+        </p>
+        <div className="timeline-image-grid is-wide">
+          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1100&q=82" alt="Small team in conversation around a conference table" />
+          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1100&q=82" alt="Group conversation and planning session" />
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: 'San Jose',
+    content: (
+      <div className="timeline-content-block">
+        <p>
+          Expand into the South Bay with a repeatable launch playbook: prayer pipeline, campus contacts, local service, and recurring Bay Builders partners.
+        </p>
+        <div className="timeline-metrics" role="list">
+          <span role="listitem"><strong>01</strong> Prayer</span>
+          <span role="listitem"><strong>02</strong> Team</span>
+          <span role="listitem"><strong>03</strong> Rooms</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Tri-Valley + Beyond',
+    content: (
+      <div className="timeline-content-block">
+        <p>
+          Turn a Berkeley-first launch into a Bay-wide movement with clear giving, serving, and leadership pathways for every region that follows.
+        </p>
+        <a className="timeline-link" href="/vision">See the full vision →</a>
+      </div>
+    ),
+  },
+];
 
 export default function Home() {
   const [activeSignal, setActiveSignal] = useState(launchSignals[0]);
@@ -200,9 +219,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="vision" className="roadmap-section timeline-roadmap-section section-reveal" aria-label="Bay Area expansion roadmap">
-        <Timeline data={visionTimeline} />
-      </section>
+      <Timeline
+        data={roadmapTimeline}
+        eyebrow="At-a-glance vision"
+        title="Berkeley first, then the Bay."
+        description="A phased planting roadmap for campus ministry, pop-up services, and regional church growth across the San Francisco Bay Area."
+      />
 
       <section id="why-bay" className="case-section section-reveal" aria-label="Why the Bay section">
         <div className="case-inner reveal">
