@@ -55,3 +55,20 @@ npm run build
 - `/partners`
 - `/faq`
 - `/contact`
+
+
+## Timeline roadmap component
+
+Integrated the roadmap using a shadcn-style component path:
+
+- `components/ui/timeline.tsx`
+- Imported in `app/page.jsx` using `@/components/ui/timeline`
+
+Dependencies added:
+
+```bash
+npm install framer-motion
+npm install -D typescript @types/react @types/react-dom @types/node
+```
+
+This project already uses Tailwind CSS and the `@/*` path alias. A `tsconfig.json` file was added so the existing JavaScript pages can safely import the new TypeScript/TSX timeline component.
