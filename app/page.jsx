@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 import SiteHeader from './components/SiteHeader';
 import { Timeline } from '@/components/ui/timeline';
-
-const roadmap = ['Berkeley', 'San Francisco', 'Peninsula', 'San Jose', 'Tri-Valley', 'Beyond'];
+import { FeatureCard } from '@/components/ui/grid-feature-cards';
+import { Church, GraduationCap, HandHeart, MapPinned, Megaphone, UsersRound } from 'lucide-react';
 
 const visionTimeline = [
   {
@@ -59,11 +59,39 @@ const visionTimeline = [
 ];
 
 
-const stats = [
-  { value: 'Sept 1', label: 'Berkeley launch window' },
-  { value: '$1M', label: 'Year-one funding goal' },
-  { value: '6', label: 'Bay regions in the roadmap' },
+const whyBayFeatures = [
+  {
+    title: 'High-leverage region',
+    icon: MapPinned,
+    description: 'The Bay connects campuses, neighborhoods, families, founders, and seekers across one influential region.',
+  },
+  {
+    title: 'Campus ministry',
+    icon: GraduationCap,
+    description: 'Berkeley creates the first anchor for student outreach before expanding toward other major Bay Area campuses.',
+  },
+  {
+    title: 'Pop-up services',
+    icon: Church,
+    description: 'Regional gatherings give people an easy first step before permanent church plant rhythms are formed.',
+  },
+  {
+    title: 'Digital outreach',
+    icon: Megaphone,
+    description: 'Social reach can move from content to conversations, RSVPs, prayer, and real local involvement.',
+  },
+  {
+    title: 'Relocation pathway',
+    icon: UsersRound,
+    description: 'The site must help staff couples, interns, families, and volunteers quickly understand where they fit.',
+  },
+  {
+    title: 'Donor confidence',
+    icon: HandHeart,
+    description: 'Clear goals, transparent funding, and measurable progress help supporters give with trust.',
+  },
 ];
+
 
 const pathways = [
   {
@@ -204,7 +232,7 @@ export default function Home() {
         <Timeline data={visionTimeline} />
       </section>
 
-      <section id="why-bay" className="case-section section-reveal" aria-label="Why the Bay section">
+      <section id="why-bay" className="case-section why-feature-section section-reveal" aria-label="Why the Bay section">
         <div className="case-inner reveal">
           <p className="section-eyebrow">Why the Bay</p>
           <h2>The need, the data, and the moment.</h2>
@@ -212,12 +240,10 @@ export default function Home() {
             The Bay Area is a high-leverage opportunity for church planting, campus ministry, social outreach, and regional expansion — beginning with Berkeley and growing outward.
           </p>
         </div>
-        <div className="stat-grid reveal" data-gsap="stagger-grid" role="list">
-          {stats.map((stat) => (
-            <div className="stat-card" key={stat.label} role="listitem">
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
-            </div>
+
+        <div className="why-feature-grid reveal" data-gsap="stagger-grid" role="list">
+          {whyBayFeatures.map((feature) => (
+            <FeatureCard key={feature.title} feature={feature} role="listitem" className="why-feature-card" />
           ))}
         </div>
       </section>

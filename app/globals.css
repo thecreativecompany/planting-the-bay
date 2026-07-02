@@ -897,3 +897,74 @@ body.ptb-motion-ready {
     padding: 1rem;
   }
 }
+
+
+/* Why the Bay feature-card grid */
+.why-feature-section {
+  display: block;
+  padding: clamp(5rem, 10vw, 9rem) var(--pad);
+  background: color-mix(in srgb, var(--paper) 86%, white);
+  color: var(--ink);
+}
+
+.ptb-page > .why-feature-section::before {
+  background:
+    linear-gradient(90deg, rgba(16,17,13,.07) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(16,17,13,.07) 1px, transparent 1px);
+  background-size: 14.285vw 14.285vw;
+  opacity: 0.42;
+  mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+}
+
+.why-feature-section .case-inner {
+  width: min(var(--max), 100%);
+  max-width: none;
+  margin: 0 auto clamp(2rem, 5vw, 4rem);
+  justify-self: auto;
+}
+
+.why-feature-section .section-eyebrow {
+  color: var(--green);
+}
+
+.why-feature-section .case-inner h2 {
+  max-width: 980px;
+  color: var(--ink);
+}
+
+.why-feature-section .case-inner p:not(.section-eyebrow) {
+  max-width: 720px;
+  color: var(--muted);
+}
+
+.why-feature-grid {
+  display: grid;
+  width: min(1120px, 100%);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 auto;
+  border: 1px dashed rgba(16, 17, 13, 0.24);
+  background: rgba(16, 17, 13, 0.16);
+  gap: 1px;
+}
+
+.why-feature-card {
+  min-height: 260px;
+  border: 0;
+  background: color-mix(in srgb, var(--paper) 80%, white);
+}
+
+.why-feature-card:hover {
+  background: var(--cream);
+}
+
+@media (max-width: 900px) {
+  .why-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .why-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}

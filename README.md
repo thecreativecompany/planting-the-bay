@@ -72,3 +72,17 @@ npm install -D typescript @types/react @types/react-dom @types/node
 ```
 
 This project already uses Tailwind CSS and the `@/*` path alias. A `tsconfig.json` file was added so the existing JavaScript pages can safely import the new TypeScript/TSX timeline component.
+
+
+## Why the Bay grid feature cards
+
+Integrated the grid feature card component into the homepage **Why the Bay** section.
+
+Added:
+
+- `components/ui/grid-feature-cards.tsx`
+- `lib/utils.ts`
+- `lucide-react` dependency
+- White-background / black-text feature grid styling in `app/globals.css`
+
+The Why the Bay section now uses six feature cards focused on the region, campus ministry, pop-up services, digital outreach, relocation, and donor confidence.
