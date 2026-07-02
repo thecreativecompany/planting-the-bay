@@ -6,6 +6,8 @@ import { Timeline } from '@/components/ui/timeline';
 import { FeatureCard } from '@/components/ui/grid-feature-cards';
 import { Church, GraduationCap, HandHeart, MapPinned, Megaphone, UsersRound } from 'lucide-react';
 
+const roadmap = ['Berkeley', 'San Francisco', 'Peninsula', 'San Jose', 'Tri-Valley', 'Beyond'];
+
 const visionTimeline = [
   {
     title: '01',
