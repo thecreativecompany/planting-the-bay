@@ -775,3 +775,125 @@ body.ptb-motion-ready {
   .signal-map span, .signal-map::before, .hero-scroll-cue i::before, body.ptb-motion-ready, .signal-panel { animation: none; }
   .ptb-cursor-orb, .ptb-ambient-grid { display: none; }
 }
+
+
+/* Timeline roadmap integration */
+.timeline-roadmap-section {
+  padding: 0;
+  background: var(--paper);
+  overflow: visible;
+}
+
+.timeline-roadmap-section::before {
+  opacity: 0.35;
+}
+
+.timeline-roadmap-section > div {
+  background: transparent;
+}
+
+.timeline-heading {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(3rem, 7vw, 7.25rem);
+  font-weight: 950;
+  letter-spacing: -0.055em;
+  line-height: 0.86;
+  text-transform: uppercase;
+}
+
+.timeline-intro {
+  max-width: 520px;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: clamp(0.95rem, 1.25vw, 1.12rem);
+  font-weight: 720;
+  line-height: 1.5;
+}
+
+.timeline-card {
+  max-width: 760px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 240, 0.82);
+  box-shadow: 0 28px 80px rgba(16, 17, 13, 0.07);
+  backdrop-filter: blur(16px);
+}
+
+.timeline-kicker {
+  margin: 0 0 0.7rem;
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.timeline-card h3 {
+  max-width: 650px;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(2rem, 4vw, 4.35rem);
+  font-weight: 950;
+  letter-spacing: -0.06em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.timeline-card p:not(.timeline-kicker) {
+  max-width: 620px;
+  margin: 1rem 0 1.25rem;
+  color: var(--muted);
+  font-size: clamp(0.95rem, 1.25vw, 1.08rem);
+  font-weight: 720;
+  line-height: 1.5;
+}
+
+.timeline-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.timeline-image-grid img {
+  width: 100%;
+  height: clamp(150px, 18vw, 240px);
+  object-fit: cover;
+  border: 1px solid rgba(16, 17, 13, 0.12);
+  box-shadow: 0 18px 45px rgba(16, 17, 13, 0.08);
+}
+
+.timeline-region-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 1.25rem;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.timeline-region-list span {
+  padding: 1rem;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: clamp(0.72rem, 1vw, 0.9rem);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 820px) {
+  .timeline-heading {
+    font-size: clamp(2.8rem, 14vw, 5.5rem);
+  }
+
+  .timeline-image-grid,
+  .timeline-region-list {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-card {
+    padding: 1rem;
+  }
+}

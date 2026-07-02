@@ -2,8 +2,62 @@
 
 import { useEffect, useState } from 'react';
 import SiteHeader from './components/SiteHeader';
+import { Timeline } from '@/components/ui/timeline';
 
 const roadmap = ['Berkeley', 'San Francisco', 'Peninsula', 'San Jose', 'Tri-Valley', 'Beyond'];
+
+const visionTimeline = [
+  {
+    title: '01',
+    content: (
+      <div className="timeline-card">
+        <p className="timeline-kicker">Berkeley first</p>
+        <h3>Launch campus ministry and a local church together.</h3>
+        <p>
+          Begin with Berkeley in partnership with SF Bay Fellowship, forming the first local rhythm of prayer, outreach, and relational gatherings.
+        </p>
+        <div className="timeline-image-grid">
+          <img src="/roadmap-photo-1.png" alt="Interview conversation for the Berkeley launch" />
+          <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=900&q=80" alt="People gathered in conversation" />
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: '02',
+    content: (
+      <div className="timeline-card">
+        <p className="timeline-kicker">Pop-up services</p>
+        <h3>Create regional gathering points across the Bay.</h3>
+        <p>
+          Use pop-up services, dinners, and RSVP moments to help seekers, students, families, and supporters find a clear next step.
+        </p>
+        <div className="timeline-image-grid">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80" alt="Team conversation around a table" />
+          <img src="https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=900&q=80" alt="Community event gathering" />
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: '03',
+    content: (
+      <div className="timeline-card">
+        <p className="timeline-kicker">Bay-wide expansion</p>
+        <h3>Multiply from Berkeley toward every major region.</h3>
+        <p>
+          Expand from Berkeley to San Francisco, the Peninsula, San Jose, the Tri-Valley, and beyond through campus contacts, monthly partners, and new leaders.
+        </p>
+        <div className="timeline-region-list">
+          {['Berkeley', 'San Francisco', 'Peninsula', 'San Jose', 'Tri-Valley', 'Beyond'].map((region) => (
+            <span key={region}>{region}</span>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+];
+
 
 const stats = [
   { value: 'Sept 1', label: 'Berkeley launch window' },
@@ -146,24 +200,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="vision" className="roadmap-section section-reveal" aria-label="Bay Area expansion roadmap">
-        <div className="roadmap-content reveal">
-          <p className="section-eyebrow">At-a-glance vision</p>
-          <h2>Berkeley first, then the Bay.</h2>
-          <p>
-            Build campus ministry and a local church first, then multiply into the major regions of the Bay with clear next steps for donors, prayer partners, and team members.
-          </p>
-        </div>
-
-        <div className="roadmap-track reveal" role="list">
-          <div className="roadmap-line" aria-hidden="true"><span /></div>
-          {roadmap.map((place, index) => (
-            <div key={place} className="roadmap-stop" role="listitem" style={{ '--delay': `${index * 70}ms` }}>
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              <strong>{place}</strong>
-            </div>
-          ))}
-        </div>
+      <section id="vision" className="roadmap-section timeline-roadmap-section section-reveal" aria-label="Bay Area expansion roadmap">
+        <Timeline data={visionTimeline} />
       </section>
 
       <section id="why-bay" className="case-section section-reveal" aria-label="Why the Bay section">
