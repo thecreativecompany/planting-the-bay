@@ -221,9 +221,9 @@ export default function Home() {
 
       <Timeline
         data={roadmapTimeline}
-        eyebrow="At-a-glance vision"
+        eyebrow="At-a-glance roadmap"
         title="Berkeley first, then the Bay."
-        description="A phased planting roadmap for campus ministry, pop-up services, and regional church growth across the San Francisco Bay Area."
+        description="A scroll-led roadmap for turning the first Berkeley launch room into a Bay-wide movement of prayer, campus ministry, pop-up gatherings, and recurring support."
       />
 
       <section id="why-bay" className="case-section section-reveal" aria-label="Why the Bay section">
