@@ -5,6 +5,26 @@ import config from '../../../sanity.config';
 
 type StudioComponent = React.ComponentType<{ config: any }>;
 
+function StudioLoading() {
+  return (
+    <main
+      style={{
+        minHeight: '100vh',
+        display: 'grid',
+        placeItems: 'center',
+        background: '#10110d',
+        color: '#fffaf0',
+        fontFamily: 'system-ui, sans-serif',
+        letterSpacing: '0.08em',
+        textTransform: 'uppercase',
+        fontWeight: 800,
+      }}
+    >
+      Loading Sanity Studio…
+    </main>
+  );
+}
+
 export default function StudioClient() {
   const [Studio, setStudio] = useState<StudioComponent | null>(null);
 
@@ -23,23 +43,7 @@ export default function StudioClient() {
   }, []);
 
   if (!Studio) {
-    return (
-      <main
-        style={{
-          minHeight: '100vh',
-          display: 'grid',
-          placeItems: 'center',
-          background: '#10110d',
-          color: '#fffaf0',
-          fontFamily: 'system-ui, sans-serif',
-          letterSpacing: '0.08em',
-          textTransform: 'uppercase',
-          fontWeight: 800,
-        }}
-      >
-        Loading Sanity Studio…
-      </main>
-    );
+    return <StudioLoading />;
   }
 
   return <Studio config={config} />;

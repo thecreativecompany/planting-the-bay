@@ -154,3 +154,8 @@ npm run build
 ```
 
 `package-lock.json` was removed because new Sanity/Formspree-related dependencies were added; running `npm install` will regenerate it.
+
+
+## Sanity Studio build fix
+
+The `/studio` route now lazy-loads `next-sanity/studio` on the client through `app/studio/[[...tool]]/StudioClient.tsx`. This prevents the Studio package from being prerendered during `next build` on Vercel.
