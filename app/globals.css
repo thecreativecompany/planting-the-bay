@@ -2506,3 +2506,93 @@ body.ptb-motion-ready {
     min-height: 3.35rem;
   }
 }
+
+
+/* --- Aura polish pass: accessibility, editorial proof strip, and mobile refinement --- */
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 999;
+  padding: 0.85rem 1rem;
+  background: var(--ink);
+  color: var(--cream);
+  font-size: 0.74rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transform: translateY(-140%);
+  transition: transform 180ms ease;
+}
+.skip-link:focus-visible { transform: translateY(0); }
+
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--green) 72%, white);
+  outline-offset: 4px;
+}
+
+body.ptb-menu-open { overflow: hidden; }
+
+.hero-proof-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  width: min(640px, 100%);
+  margin: clamp(1.35rem, 2.5vw, 2rem) 0 0;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  background: color-mix(in srgb, var(--ink) 13%, transparent);
+}
+.hero-proof-strip div {
+  min-width: 0;
+  padding: clamp(0.85rem, 1.6vw, 1.1rem);
+  background: color-mix(in srgb, var(--paper) 88%, white);
+}
+.hero-proof-strip dt {
+  margin: 0 0 0.42rem;
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.hero-proof-strip dd {
+  margin: 0;
+  font-size: clamp(1.15rem, 2.2vw, 1.75rem);
+  font-weight: 950;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+.timeline-intro:empty { display: none; }
+.timeline-section .timeline-intro h2 { text-wrap: balance; }
+.timeline-section .timeline-intro p:not(.section-eyebrow) { max-width: 740px; }
+
+.ptb-form input,
+.ptb-form textarea,
+.ptb-form select,
+.email-form input {
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+.ptb-form input:focus,
+.ptb-form textarea:focus,
+.ptb-form select:focus,
+.email-form input:focus {
+  border-color: color-mix(in srgb, var(--green) 48%, var(--line));
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--green) 14%, transparent);
+}
+
+@media (max-width: 700px) {
+  .ptb-header { padding-inline: 1rem; }
+  .ptb-logo { letter-spacing: 0.1em; }
+  .hero-proof-strip { grid-template-columns: 1fr; }
+  .hero-proof-strip div { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+  .hero-title-line { white-space: normal; }
+  .signal-tabs { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ptb-ambient-grid,
+  .ptb-cursor-orb { display: none !important; }
+}

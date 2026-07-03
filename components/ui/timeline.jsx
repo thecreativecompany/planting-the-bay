@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import {
   motion,
   useMotionValueEvent,
+  useReducedMotion,
   useScroll,
   useTransform,
 } from "framer-motion";
@@ -13,6 +14,7 @@ export function Timeline({ data, eyebrow, title, description }) {
   const containerRef = useRef(null);
   const [height, setHeight] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const measure = () => {
@@ -45,8 +47,8 @@ export function Timeline({ data, eyebrow, title, description }) {
       <div className="timeline-watermark" aria-hidden="true">THE BAY</div>
       <div className="timeline-intro reveal">
         {eyebrow ? <p className="section-eyebrow">{eyebrow}</p> : null}
-        <h2>{title}</h2>
-        <p>{description}</p>
+        {title ? <h2>{title}</h2> : null}
+        {description ? <p>{description}</p> : null}
       </div>
 
       <div ref={ref} className="timeline-list">
@@ -67,8 +69,8 @@ export function Timeline({ data, eyebrow, title, description }) {
 
             <motion.div
               className="timeline-card"
-              initial={{ opacity: 0, x: index % 2 === 0 ? 34 : -34 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={shouldReduceMotion ? false : { opacity: 0, x: index % 2 === 0 ? 34 : -34 }}
+              whileInView={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >

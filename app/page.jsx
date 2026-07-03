@@ -270,7 +270,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="ptb-page">
+    <main id="main-content" className="ptb-page">
       <SiteHeader />
 
       <a href="/give" className="sticky-give">
@@ -302,6 +302,11 @@ export default function Home() {
               <a href="/give" className="btn btn-dark">Give</a>
               <a href="/get-involved" className="btn btn-light">Get Involved</a>
             </div>
+            <dl className="hero-proof-strip" aria-label="Planting the Bay launch proof points">
+              <div><dt>Launch anchor</dt><dd>Berkeley</dd></div>
+              <div><dt>Roadmap</dt><dd>6 regions</dd></div>
+              <div><dt>Vision arc</dt><dd>$5M+</dd></div>
+            </dl>
           </div>
 
           <div className="hero-media-wrap">
@@ -326,7 +331,12 @@ export default function Home() {
       </section>
 
       <section id="vision" className="roadmap-section timeline-roadmap-section section-reveal" aria-label="Bay Area expansion roadmap">
-        <Timeline data={visionTimeline} />
+        <Timeline
+          data={visionTimeline}
+          eyebrow="Bay-wide roadmap"
+          title="A three-step launch arc."
+          description="Start with Berkeley, build repeatable pop-up and campus rhythms, then multiply through every major Bay Area corridor."
+        />
       </section>
 
       <section id="why-bay" className="case-section why-feature-section section-reveal" aria-label="Why the Bay section">

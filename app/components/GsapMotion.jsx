@@ -16,18 +16,21 @@ export default function GsapMotion() {
     document.body.classList.add('ptb-motion-ready');
     cleanupFns.push(() => document.body.classList.remove('ptb-motion-ready'));
 
-    const ambientGrid = document.createElement('div');
-    ambientGrid.className = 'ptb-ambient-grid';
-    ambientGrid.setAttribute('aria-hidden', 'true');
-    ambientGrid.innerHTML = Array.from({ length: 7 }, () => '<span />').join('');
-    document.body.prepend(ambientGrid);
-    cleanupFns.push(() => ambientGrid.remove());
+    let cursor = null;
+    if (!reduceMotion) {
+      const ambientGrid = document.createElement('div');
+      ambientGrid.className = 'ptb-ambient-grid';
+      ambientGrid.setAttribute('aria-hidden', 'true');
+      ambientGrid.innerHTML = Array.from({ length: 7 }, () => '<span />').join('');
+      document.body.prepend(ambientGrid);
+      cleanupFns.push(() => ambientGrid.remove());
 
-    const cursor = document.createElement('div');
-    cursor.className = 'ptb-cursor-orb';
-    cursor.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(cursor);
-    cleanupFns.push(() => cursor.remove());
+      cursor = document.createElement('div');
+      cursor.className = 'ptb-cursor-orb';
+      cursor.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(cursor);
+      cleanupFns.push(() => cursor.remove());
+    }
 
     const ctx = gsap.context(() => {
       const revealSelectors = '.section-reveal, .reveal, [data-gsap], .split-word, .ptb-header';
@@ -215,7 +218,7 @@ export default function GsapMotion() {
       });
     });
 
-    if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    if (!reduceMotion && cursor && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
       const cursorX = gsap.quickTo(cursor, 'x', { duration: 0.42, ease: 'power3.out' });
       const cursorY = gsap.quickTo(cursor, 'y', { duration: 0.42, ease: 'power3.out' });
       const moveCursor = (event) => {
@@ -289,7 +292,7 @@ export default function GsapMotion() {
       }
     }
 
-    ScrollTrigger.refresh();
+    window.requestAnimationFrame(() => ScrollTrigger.refresh());
 
     return () => {
       cleanupFns.forEach((fn) => fn());

@@ -32,11 +32,22 @@ export default function SiteHeader() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.classList.toggle('ptb-menu-open', menuOpen);
+    return () => document.body.classList.remove('ptb-menu-open');
+  }, [menuOpen]);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
   const isActive = (href) => pathname === href;
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className={`ptb-header ${scrolled || menuOpen ? 'is-scrolled' : ''}`}>
+    <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+      <header className={`ptb-header ${scrolled || menuOpen ? 'is-scrolled' : ''}`}>
       <a href="/" className="ptb-logo" aria-label="Planting the Bay home" onClick={closeMenu}>
         <i aria-hidden="true" />
         <strong>Planting</strong>
@@ -63,9 +74,9 @@ export default function SiteHeader() {
         aria-controls="mobile-navigation"
         onClick={() => setMenuOpen((open) => !open)}
       >
-        <span />
-        <span />
-        <span />
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
       </button>
 
       <nav id="mobile-navigation" className={`ptb-mobile-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Mobile navigation">
@@ -84,6 +95,7 @@ export default function SiteHeader() {
           </a>
         ))}
       </nav>
-    </header>
+      </header>
+    </>
   );
 }

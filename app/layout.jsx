@@ -2,14 +2,25 @@ import './globals.css';
 import GsapMotion from './components/GsapMotion';
 
 export const metadata = {
-  title: 'Planting the Bay | Church Planting Initiative',
+  metadataBase: new globalThis.URL('https://plantingthebay.com'),
+  title: {
+    default: 'Planting the Bay | Berkeley First. Bay-wide Next.',
+    template: '%s | Planting the Bay',
+  },
   description:
-    'A fundraising, storytelling, and vision-casting website for a Bay Area church-planting and campus-ministry initiative.',
+    'A Berkeley-first church-planting and campus-ministry initiative multiplying prayer, pop-up services, students, and partners across the San Francisco Bay Area.',
+  keywords: ['Planting the Bay', 'Berkeley church plant', 'Bay Area campus ministry', 'SF Bay Fellowship'],
   openGraph: {
     title: 'Planting the Bay',
     description: 'Planting first in Berkeley, then expanding across the Bay.',
     type: 'website',
+    siteName: 'Planting the Bay',
   },
+};
+
+export const viewport = {
+  themeColor: '#21482d',
+  colorScheme: 'light',
 };
 
 export default function RootLayout({ children }) {
