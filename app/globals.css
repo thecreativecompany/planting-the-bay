@@ -2180,3 +2180,329 @@ body.ptb-motion-ready {
     display: grid;
   }
 }
+
+/* Refinement pass: lower-page spacing and readability only. No content, hero, or timeline changes. */
+#why-bay,
+#why-bay ~ section,
+.ptb-footer {
+  --section-y: clamp(6.5rem, 10vw, 10rem);
+  --content-w: min(1040px, 100%);
+  --grid-gap: clamp(1.9rem, 4.5vw, 3.75rem);
+  --card-pad: clamp(1.65rem, 3vw, 2.35rem);
+}
+
+#why-bay,
+.social-funnel-section,
+.signal-section,
+.momentum-section,
+.budget-section,
+.story-section,
+.partner-section,
+.pathways-section,
+.events-section,
+.give-section,
+.field-notes-section,
+.email-section {
+  padding-block: var(--section-y);
+}
+
+.why-feature-section .case-inner,
+.social-funnel-section .section-heading,
+.budget-section .section-heading,
+.pathways-section .section-heading,
+.events-section .section-heading,
+.field-notes-section .section-heading,
+.partner-section .section-heading {
+  width: var(--content-w);
+  gap: clamp(0.85rem, 1.8vw, 1.25rem);
+  margin-bottom: var(--grid-gap);
+}
+
+.why-feature-section .case-inner h2,
+.social-funnel-section .section-heading h2,
+.budget-section .section-heading h2,
+.pathways-section .section-heading h2,
+.events-section .section-heading h2,
+.field-notes-section .section-heading h2 {
+  max-width: 760px;
+  font-size: clamp(2.65rem, 5vw, 5.1rem);
+  letter-spacing: -0.036em;
+  line-height: 0.96;
+}
+
+.why-feature-section .case-inner p:not(.section-eyebrow),
+.case-inner p:not(.section-eyebrow),
+.momentum-card p,
+.story-copy p:not(.section-eyebrow),
+.give-card-inner p,
+.email-inner p,
+.signal-copy p:not(.section-eyebrow),
+.budget-note {
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.68;
+  letter-spacing: -0.006em;
+}
+
+.why-feature-grid,
+.proof-grid,
+.funnel-grid,
+.budget-grid,
+.partner-grid,
+.pathway-grid,
+.events-grid,
+.field-notes-grid,
+.tier-grid {
+  width: var(--content-w);
+  margin-top: 0;
+}
+
+.why-feature-card,
+.proof-card,
+.funnel-card,
+.budget-card,
+.partner-card,
+.pathway-card,
+.event-card,
+.field-note-card,
+.tier-card,
+.sub-card {
+  gap: clamp(1rem, 2vw, 1.35rem);
+  padding: var(--card-pad);
+}
+
+.why-feature-card,
+.funnel-card,
+.budget-card,
+.pathway-card,
+.event-card,
+.field-note-card {
+  min-height: clamp(255px, 24vw, 315px);
+}
+
+.proof-card {
+  min-height: clamp(215px, 19vw, 260px);
+}
+
+.partner-card,
+.tier-card {
+  min-height: clamp(180px, 16vw, 220px);
+}
+
+.proof-card strong,
+.budget-card h3,
+.event-card h3,
+.field-note-card h3,
+.pathway-card h3,
+.funnel-card h3,
+.signal-panel h3,
+.partner-card strong,
+.tier-card strong {
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.funnel-card h3 {
+  font-size: clamp(1.75rem, 2.35vw, 2.65rem);
+}
+
+.budget-card h3,
+.event-card h3,
+.field-note-card h3 {
+  font-size: clamp(1.55rem, 2.15vw, 2.25rem);
+}
+
+.pathway-card h3,
+.sub-card h2 {
+  font-size: clamp(1.4rem, 2.05vw, 2.15rem);
+  line-height: 1.02;
+}
+
+.proof-card strong,
+.partner-card strong {
+  font-size: clamp(1.45rem, 2.15vw, 2.25rem);
+}
+
+.proof-card p,
+.budget-card p,
+.partner-card p,
+.event-card p,
+.field-note-card p,
+.pathway-card p,
+.funnel-card p,
+.giving-widget p {
+  max-width: 36rem;
+  font-size: clamp(0.96rem, 1vw, 1.02rem);
+  line-height: 1.62;
+}
+
+.signal-shell,
+.momentum-card,
+.story-card,
+.give-frame,
+.email-inner,
+.footer-grid,
+.footer-bottom {
+  width: var(--content-w);
+}
+
+.signal-shell,
+.momentum-card,
+.story-card,
+.email-inner {
+  gap: var(--grid-gap);
+}
+
+.signal-copy h2,
+.story-copy h2,
+.give-card-inner h2,
+.email-inner h2,
+.momentum-card h2 {
+  font-size: clamp(2.65rem, 4.8vw, 5.1rem);
+  letter-spacing: -0.036em;
+  line-height: 0.98;
+}
+
+.signal-console {
+  min-height: clamp(450px, 44vw, 520px);
+}
+
+.signal-panel {
+  gap: clamp(1rem, 2vw, 1.35rem);
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.momentum-card,
+.story-card,
+.give-frame,
+.giving-widget,
+.form-heading {
+  padding: var(--card-pad);
+}
+
+.meter-wrap,
+.giving-widget {
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.give-card-inner {
+  gap: var(--grid-gap);
+}
+
+.ptb-form label {
+  gap: 0.7rem;
+  padding: clamp(1.15rem, 2.4vw, 1.6rem);
+}
+
+.ptb-form input,
+.ptb-form select,
+.ptb-form textarea,
+.giving-widget select,
+.email-form input {
+  padding: 1.05rem 1.1rem;
+  line-height: 1.35;
+}
+
+.ptb-form button,
+.email-form button,
+.giving-toggle button {
+  min-height: 3.25rem;
+  padding-inline: 1.25rem;
+}
+
+.email-inner {
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.78fr);
+  align-items: center;
+}
+
+.email-form {
+  width: min(560px, 100%);
+}
+
+.ptb-footer {
+  padding-block: clamp(4rem, 7vw, 6rem);
+}
+
+.footer-grid {
+  gap: clamp(2.5rem, 7vw, 7rem);
+}
+
+.footer-brand {
+  gap: 0.65rem;
+}
+
+.footer-brand strong {
+  font-size: clamp(1.75rem, 2.7vw, 2.65rem);
+  line-height: 1;
+}
+
+.footer-column {
+  gap: 0.9rem;
+}
+
+.footer-bottom {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding-top: 1.35rem;
+}
+
+@media (max-width: 980px) {
+  #why-bay,
+  #why-bay ~ section,
+  .ptb-footer {
+    --section-y: clamp(5.25rem, 9vw, 7rem);
+    --grid-gap: clamp(1.6rem, 5vw, 2.5rem);
+    --card-pad: clamp(1.4rem, 4vw, 2rem);
+  }
+
+  .funnel-grid,
+  .partner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .signal-shell,
+  .email-inner,
+  .momentum-card,
+  .story-card {
+    gap: clamp(1.8rem, 5vw, 3rem);
+  }
+}
+
+@media (max-width: 700px) {
+  #why-bay,
+  #why-bay ~ section,
+  .ptb-footer {
+    --section-y: 4.75rem;
+    --card-pad: 1.35rem;
+  }
+
+  .why-feature-section .case-inner h2,
+  .social-funnel-section .section-heading h2,
+  .budget-section .section-heading h2,
+  .pathways-section .section-heading h2,
+  .events-section .section-heading h2,
+  .field-notes-section .section-heading h2,
+  .signal-copy h2,
+  .story-copy h2,
+  .give-card-inner h2,
+  .email-inner h2,
+  .momentum-card h2 {
+    font-size: clamp(2.25rem, 10.5vw, 3.65rem);
+    letter-spacing: -0.032em;
+    line-height: 1;
+  }
+
+  .why-feature-card,
+  .funnel-card,
+  .budget-card,
+  .pathway-card,
+  .event-card,
+  .field-note-card,
+  .proof-card,
+  .partner-card,
+  .tier-card {
+    min-height: auto;
+  }
+
+  .email-form button {
+    min-height: 3.35rem;
+  }
+}
