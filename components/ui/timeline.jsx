@@ -15,27 +15,16 @@ export function Timeline({ data, eyebrow, title, description }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const target = ref.current;
-    if (!target) return undefined;
-
     const measure = () => {
-      setHeight(target.getBoundingClientRect().height);
+      if (ref.current) {
+        setHeight(ref.current.getBoundingClientRect().height);
+      }
     };
 
     measure();
-
-    const resizeObserver = typeof ResizeObserver !== "undefined"
-      ? new ResizeObserver(measure)
-      : null;
-
-    resizeObserver?.observe(target);
     window.addEventListener("resize", measure);
-
-    return () => {
-      resizeObserver?.disconnect();
-      window.removeEventListener("resize", measure);
-    };
-  }, [data]);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -77,7 +66,7 @@ export function Timeline({ data, eyebrow, title, description }) {
             </div>
 
             <motion.div
-              className="timeline-card-shell"
+              className="timeline-card"
               initial={{ opacity: 0, x: index % 2 === 0 ? 34 : -34 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.35 }}

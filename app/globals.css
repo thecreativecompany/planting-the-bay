@@ -2181,194 +2181,29 @@ body.ptb-motion-ready {
   }
 }
 
-/* --------------------------------------------------------------------------
-   Production polish pass — spacing, readability, and responsive structure
-   -------------------------------------------------------------------------- */
-:root {
-  --container-wide: 1080px;
-  --container-narrow: 960px;
-  --section-y-lg: clamp(5.75rem, 9vw, 8.75rem);
-  --section-y-md: clamp(4.75rem, 8vw, 7rem);
-  --card-pad: clamp(1.35rem, 2.4vw, 2.15rem);
-  --card-pad-sm: clamp(1.1rem, 2vw, 1.55rem);
-  --heading-tight: 0.92;
-}
-
-.ptb-page {
-  overflow-x: clip;
-  overflow-y: visible;
-}
-
-img,
-iframe,
-video,
-svg {
-  max-width: 100%;
-}
-
-img {
-  display: block;
-  height: auto;
-}
-
-:is(.hero-title, .timeline-heading, .roadmap-content h2, .case-inner h2, .section-heading h2, .story-copy h2, .give-card-inner h2, .email-inner h2, .momentum-card h2, .sub-hero h1, .form-heading h3, .signal-copy h2, .signal-panel h3, .timeline-card h3, .funnel-card h3, .pathway-card h3, .budget-card h3, .event-card h3, .field-note-card h3, .partner-card strong, .footer-brand strong) {
-  text-wrap: balance;
-  overflow-wrap: break-word;
-}
-
-:is(.case-inner p, .section-heading p, .timeline-card p, .proof-card p, .budget-card p, .funnel-card p, .pathway-card p, .partner-card p, .event-card p, .field-note-card p, .story-copy p, .give-card-inner p, .email-inner p, .form-heading p) {
-  overflow-wrap: break-word;
-}
-
-/* Header refinement */
-.ptb-header {
-  width: 100%;
-  max-width: 100vw;
-}
-
-.ptb-logo i {
-  display: inline-block;
-  width: 0.5rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: currentColor;
-}
-
-.ptb-desktop-nav {
-  min-width: 0;
-}
-
-.ptb-desktop-nav a,
-.ptb-mobile-nav a {
-  white-space: nowrap;
-}
-
-.nav-give {
-  padding: 0.7rem 0.9rem;
-  border: 1px solid currentColor;
-}
-
-/* Hero: keep the bold poster moment without letting it crush the layout. */
-.hero-section {
-  min-height: min(100svh, 980px);
-  padding-top: clamp(6.5rem, 10vw, 9rem);
-  padding-bottom: clamp(4rem, 7vw, 6rem);
-}
-
-.hero-shell {
-  width: min(var(--container-wide), 100%);
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.78fr);
-  align-items: center;
-}
-
-.hero-title {
-  font-size: clamp(3.6rem, 8vw, 8rem);
-  letter-spacing: -0.04em;
-  line-height: 0.88;
-}
-
-.hero-lede {
-  max-width: 660px;
-  line-height: 1.42;
-}
-
-.hero-media-wrap {
-  min-width: 0;
-}
-
-.hero-media {
-  box-shadow: 0 28px 80px rgba(16, 17, 13, 0.22);
-}
-
-.hero-orbit-card {
-  gap: 0.45rem;
-  padding: clamp(0.95rem, 2vw, 1.2rem);
-}
-
-/* Timeline: remove the nested-card feeling and make each step breathe. */
-.timeline-roadmap-section {
-  padding-block: clamp(1rem, 3vw, 2rem) clamp(4.75rem, 8vw, 7rem);
-}
-
-.timeline-roadmap-section .max-w-7xl {
-  max-width: var(--container-wide);
-}
-
-.timeline-heading {
-  max-width: 860px;
-  font-size: clamp(3rem, 6.4vw, 6.5rem);
-  letter-spacing: -0.05em;
-  line-height: 0.9;
-}
-
-.timeline-intro {
-  max-width: 680px;
-  line-height: 1.55;
-}
-
-.timeline-card-shell {
-  width: 100%;
-  max-width: 780px;
-}
-
-.timeline-card {
-  width: 100%;
-  max-width: 780px;
-  padding: clamp(1.35rem, 2.8vw, 2.3rem);
-  background: color-mix(in srgb, var(--paper) 90%, white);
-  border-color: rgba(16, 17, 13, 0.14);
-  box-shadow: 0 24px 70px rgba(16, 17, 13, 0.075);
-}
-
-.timeline-card h3 {
-  font-size: clamp(2rem, 3.7vw, 3.85rem);
-  letter-spacing: -0.05em;
-  line-height: 0.94;
-}
-
-.timeline-card p:not(.timeline-kicker) {
-  margin-top: 1rem;
-  font-weight: 650;
-  line-height: 1.58;
-}
-
-.timeline-image-grid {
-  gap: clamp(0.75rem, 1.6vw, 1rem);
-}
-
-.timeline-image-grid img {
-  aspect-ratio: 4 / 3;
-  height: auto;
-  object-fit: cover;
-}
-
-.timeline-region-list span {
-  min-height: 4rem;
-  display: grid;
-  align-items: center;
-  line-height: 1.25;
-}
-
-/* Lower-page section system */
+/* Refinement pass: lower-page spacing and readability only. No content, hero, or timeline changes. */
 #why-bay,
 #why-bay ~ section,
 .ptb-footer {
-  --section-y: var(--section-y-lg);
+  --section-y: clamp(6.5rem, 10vw, 10rem);
+  --content-w: min(1040px, 100%);
+  --grid-gap: clamp(1.9rem, 4.5vw, 3.75rem);
+  --card-pad: clamp(1.65rem, 3vw, 2.35rem);
 }
 
 #why-bay,
 .social-funnel-section,
+.signal-section,
 .momentum-section,
 .budget-section,
-.pathways-section,
-.events-section,
-.field-notes-section,
 .story-section,
 .partner-section,
+.pathways-section,
+.events-section,
 .give-section,
+.field-notes-section,
 .email-section {
-  padding-top: var(--section-y, var(--section-y-lg));
-  padding-bottom: var(--section-y, var(--section-y-lg));
+  padding-block: var(--section-y);
 }
 
 .why-feature-section .case-inner,
@@ -2378,17 +2213,9 @@ img {
 .events-section .section-heading,
 .field-notes-section .section-heading,
 .partner-section .section-heading {
-  width: min(var(--container-narrow), 100%);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(0.7rem, 1.4vw, 1rem);
-  align-items: start;
-  justify-items: start;
-  margin-inline: auto;
-}
-
-.why-feature-section .case-inner {
-  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+  width: var(--content-w);
+  gap: clamp(0.85rem, 1.8vw, 1.25rem);
+  margin-bottom: var(--grid-gap);
 }
 
 .why-feature-section .case-inner h2,
@@ -2396,18 +2223,24 @@ img {
 .budget-section .section-heading h2,
 .pathways-section .section-heading h2,
 .events-section .section-heading h2,
-.field-notes-section .section-heading h2,
-.partner-section .section-heading h2 {
-  max-width: 800px;
-  font-size: clamp(2.85rem, 5.4vw, 5.65rem);
-  letter-spacing: -0.045em;
-  line-height: var(--heading-tight);
+.field-notes-section .section-heading h2 {
+  max-width: 760px;
+  font-size: clamp(2.65rem, 5vw, 5.1rem);
+  letter-spacing: -0.036em;
+  line-height: 0.96;
 }
 
-.why-feature-section .case-inner p:not(.section-eyebrow) {
-  max-width: 660px;
-  margin-top: 0.35rem;
-  line-height: 1.55;
+.why-feature-section .case-inner p:not(.section-eyebrow),
+.case-inner p:not(.section-eyebrow),
+.momentum-card p,
+.story-copy p:not(.section-eyebrow),
+.give-card-inner p,
+.email-inner p,
+.signal-copy p:not(.section-eyebrow),
+.budget-note {
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.68;
+  letter-spacing: -0.006em;
 }
 
 .why-feature-grid,
@@ -2419,28 +2252,8 @@ img {
 .events-grid,
 .field-notes-grid,
 .tier-grid {
-  width: min(var(--container-wide), 100%);
-  gap: 1px;
-  border-color: rgba(16, 17, 13, 0.15);
-  background: rgba(16, 17, 13, 0.13);
-}
-
-.why-feature-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.proof-grid,
-.budget-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.funnel-grid,
-.partner-grid,
-.pathway-grid,
-.events-grid,
-.field-notes-grid,
-.tier-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: var(--content-w);
+  margin-top: 0;
 }
 
 .why-feature-card,
@@ -2453,47 +2266,60 @@ img {
 .field-note-card,
 .tier-card,
 .sub-card {
-  min-width: 0;
-  align-content: start;
-  gap: clamp(0.8rem, 1.4vw, 1.1rem);
+  gap: clamp(1rem, 2vw, 1.35rem);
   padding: var(--card-pad);
-  border: 0;
 }
 
 .why-feature-card,
-.proof-card,
 .funnel-card,
 .budget-card,
 .pathway-card,
 .event-card,
 .field-note-card {
-  background: color-mix(in srgb, var(--paper) 92%, white);
-}
-
-.why-feature-card {
-  min-height: 245px;
-}
-
-.why-feature-card h3 {
-  margin-top: clamp(2rem, 4vw, 3rem);
-  font-size: clamp(1.35rem, 2.1vw, 2rem);
-  line-height: 1;
-}
-
-.why-feature-card p {
-  max-width: none;
-  line-height: 1.55;
+  min-height: clamp(255px, 24vw, 315px);
 }
 
 .proof-card {
-  min-height: 205px;
+  min-height: clamp(215px, 19vw, 260px);
 }
 
-.proof-card strong {
-  max-width: none;
-  font-size: clamp(1.4rem, 2.15vw, 2.15rem);
-  letter-spacing: -0.045em;
+.partner-card,
+.tier-card {
+  min-height: clamp(180px, 16vw, 220px);
+}
+
+.proof-card strong,
+.budget-card h3,
+.event-card h3,
+.field-note-card h3,
+.pathway-card h3,
+.funnel-card h3,
+.signal-panel h3,
+.partner-card strong,
+.tier-card strong {
+  letter-spacing: -0.035em;
   line-height: 1;
+}
+
+.funnel-card h3 {
+  font-size: clamp(1.75rem, 2.35vw, 2.65rem);
+}
+
+.budget-card h3,
+.event-card h3,
+.field-note-card h3 {
+  font-size: clamp(1.55rem, 2.15vw, 2.25rem);
+}
+
+.pathway-card h3,
+.sub-card h2 {
+  font-size: clamp(1.4rem, 2.05vw, 2.15rem);
+  line-height: 1.02;
+}
+
+.proof-card strong,
+.partner-card strong {
+  font-size: clamp(1.45rem, 2.15vw, 2.25rem);
 }
 
 .proof-card p,
@@ -2503,183 +2329,68 @@ img {
 .field-note-card p,
 .pathway-card p,
 .funnel-card p,
-.tier-card span {
-  max-width: none;
-  font-size: clamp(0.92rem, 1.05vw, 1rem);
-  line-height: 1.58;
+.giving-widget p {
+  max-width: 36rem;
+  font-size: clamp(0.96rem, 1vw, 1.02rem);
+  line-height: 1.62;
 }
 
-.funnel-card {
-  min-height: 270px;
-}
-
-.funnel-card h3,
-.budget-card h3,
-.event-card h3,
-.field-note-card h3,
-.pathway-card h3 {
-  max-width: none;
-  letter-spacing: -0.045em;
-  line-height: 0.96;
-}
-
-.funnel-card h3 {
-  font-size: clamp(1.9rem, 2.65vw, 2.8rem);
-}
-
-.budget-card {
-  min-height: 245px;
-}
-
-.budget-card h3,
-.event-card h3,
-.field-note-card h3 {
-  font-size: clamp(1.55rem, 2.2vw, 2.35rem);
-}
-
-.partner-grid {
-  border-color: rgba(255, 250, 240, 0.14);
-  background: rgba(255, 250, 240, 0.14);
-}
-
-.partner-card {
-  min-height: 170px;
-  background: #151711;
-}
-
-.partner-card strong {
-  font-size: clamp(1.55rem, 2.4vw, 2.35rem);
-  line-height: 0.96;
-}
-
-.endorsement-quote {
-  width: min(var(--container-wide), 100%);
-  line-height: 1.16;
-}
-
-.pathway-grid,
-.form-panel,
-.events-grid,
-.field-notes-grid,
+.signal-shell,
+.momentum-card,
+.story-card,
 .give-frame,
 .email-inner,
 .footer-grid,
 .footer-bottom {
-  width: min(var(--container-narrow), 100%);
+  width: var(--content-w);
 }
 
-.pathway-card {
-  min-height: 250px;
+.signal-shell,
+.momentum-card,
+.story-card,
+.email-inner {
+  gap: var(--grid-gap);
 }
 
-.pathway-card a,
-.event-card a,
-.field-note-card a {
-  margin-top: auto;
-  line-height: 1.3;
-}
-
-.momentum-card {
-  width: min(var(--container-wide), 100%);
-  padding: clamp(1.35rem, 3vw, 2.4rem);
-  align-items: center;
-}
-
+.signal-copy h2,
+.story-copy h2,
+.give-card-inner h2,
+.email-inner h2,
 .momentum-card h2 {
-  font-size: clamp(2.5rem, 5.5vw, 5.4rem);
-  line-height: 0.95;
+  font-size: clamp(2.65rem, 4.8vw, 5.1rem);
+  letter-spacing: -0.036em;
+  line-height: 0.98;
 }
 
-.momentum-card p {
-  line-height: 1.55;
+.signal-console {
+  min-height: clamp(450px, 44vw, 520px);
 }
 
-.story-card {
-  width: min(var(--container-wide), 100%);
-  grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1fr);
-  padding: clamp(1rem, 2.2vw, 1.5rem);
-  align-items: stretch;
+.signal-panel {
+  gap: clamp(1rem, 2vw, 1.35rem);
+  padding: clamp(1.6rem, 3vw, 2.4rem);
 }
 
-.story-photo {
-  aspect-ratio: 4 / 3;
-  min-height: 100%;
-}
-
-.story-copy {
-  display: grid;
-  align-content: center;
-  justify-items: start;
-  padding: clamp(0.35rem, 2vw, 1.6rem);
-}
-
-.story-copy h2 {
-  font-size: clamp(2.8rem, 4.8vw, 5rem);
-  line-height: 0.92;
-}
-
-.give-frame {
-  padding: clamp(1.2rem, 3vw, 2.4rem);
-}
-
-.give-card-inner h2 {
-  font-size: clamp(2.7rem, 5.4vw, 5.4rem);
-  line-height: 0.9;
-}
-
-.tier-card {
-  min-height: 155px;
-  padding: var(--card-pad-sm);
-}
-
-.tier-card strong {
-  font-size: clamp(1.55rem, 2.4vw, 2.55rem);
-  line-height: 0.95;
-}
-
-.giving-widget {
-  padding: clamp(1.1rem, 2.2vw, 1.6rem);
-  color: var(--ink);
-}
-
-.giving-toggle {
-  max-width: 100%;
-  flex-wrap: wrap;
-}
-
-.payment-methods span,
-.giving-toggle button {
-  line-height: 1.15;
-}
-
-.form-panel {
-  margin-top: clamp(2rem, 4vw, 3.5rem);
-}
-
-.ptb-form {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  border-color: rgba(16, 17, 13, 0.15);
-  background: rgba(16, 17, 13, 0.13);
-}
-
-.form-heading,
-.ptb-form label,
-.ptb-form button {
-  background: color-mix(in srgb, var(--paper) 94%, white);
-}
-
+.momentum-card,
+.story-card,
+.give-frame,
+.giving-widget,
 .form-heading {
-  padding: clamp(1.25rem, 3vw, 2.2rem);
+  padding: var(--card-pad);
 }
 
-.form-heading h3 {
-  font-size: clamp(2rem, 4.2vw, 4.1rem);
-  line-height: 0.94;
+.meter-wrap,
+.giving-widget {
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.give-card-inner {
+  gap: var(--grid-gap);
 }
 
 .ptb-form label {
-  padding: clamp(1rem, 2.2vw, 1.35rem);
-  line-height: 1.25;
+  gap: 0.7rem;
+  padding: clamp(1.15rem, 2.4vw, 1.6rem);
 }
 
 .ptb-form input,
@@ -2687,324 +2398,111 @@ img {
 .ptb-form textarea,
 .giving-widget select,
 .email-form input {
-  border-color: rgba(16, 17, 13, 0.15);
-  font-size: 1rem;
+  padding: 1.05rem 1.1rem;
   line-height: 1.35;
-}
-
-.ptb-form textarea {
-  min-height: 150px;
 }
 
 .ptb-form button,
-.email-form button {
+.email-form button,
+.giving-toggle button {
   min-height: 3.25rem;
+  padding-inline: 1.25rem;
 }
 
 .email-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(290px, 0.72fr);
-  align-items: end;
-  gap: clamp(1.5rem, 5vw, 4rem);
-}
-
-.email-inner h2 {
-  font-size: clamp(2.8rem, 5.2vw, 5.35rem);
-  line-height: 0.9;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.78fr);
+  align-items: center;
 }
 
 .email-form {
-  width: 100%;
-  max-width: 520px;
+  width: min(560px, 100%);
 }
 
 .ptb-footer {
-  padding-top: clamp(3rem, 6vw, 5rem);
-  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  padding-block: clamp(4rem, 7vw, 6rem);
 }
 
 .footer-grid {
-  grid-template-columns: minmax(0, 1fr) auto auto;
-  align-items: start;
+  gap: clamp(2.5rem, 7vw, 7rem);
+}
+
+.footer-brand {
+  gap: 0.65rem;
 }
 
 .footer-brand strong {
-  line-height: 0.95;
+  font-size: clamp(1.75rem, 2.7vw, 2.65rem);
+  line-height: 1;
 }
 
-.footer-column a {
-  line-height: 1.35;
+.footer-column {
+  gap: 0.9rem;
 }
 
-@media (max-width: 1180px) {
-  .proof-grid,
-  .budget-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .hero-shell,
-  .signal-shell,
-  .momentum-card {
-    grid-template-columns: 1fr;
-  }
-
-  .signal-shell {
-    width: min(var(--container-narrow), 100%);
-  }
-
-  .hero-media-wrap {
-    width: min(680px, 100%);
-    justify-self: start;
-  }
+.footer-bottom {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding-top: 1.35rem;
 }
 
 @media (max-width: 980px) {
-  :root {
-    --card-pad: clamp(1.2rem, 3vw, 1.75rem);
+  #why-bay,
+  #why-bay ~ section,
+  .ptb-footer {
+    --section-y: clamp(5.25rem, 9vw, 7rem);
+    --grid-gap: clamp(1.6rem, 5vw, 2.5rem);
+    --card-pad: clamp(1.4rem, 4vw, 2rem);
   }
 
-  .hero-section {
-    min-height: auto;
-  }
-
-  .hero-shell,
-  .story-card,
-  .email-inner {
+  .funnel-grid,
+  .partner-grid {
     grid-template-columns: 1fr;
   }
 
-  .why-feature-grid,
-  .funnel-grid,
-  .partner-grid,
-  .pathway-grid,
-  .events-grid,
-  .field-notes-grid,
-  .tier-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .proof-grid,
-  .budget-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .timeline-roadmap-section .max-w-7xl {
-    padding-left: var(--pad);
-    padding-right: var(--pad);
-  }
-
-  .story-photo {
-    min-height: 0;
-    aspect-ratio: 16 / 10;
-  }
-
-  .email-form,
-  .email-inner .section-eyebrow,
-  .email-inner h2,
-  .email-inner p {
-    grid-column: auto;
-    grid-row: auto;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
+  .signal-shell,
+  .email-inner,
+  .momentum-card,
+  .story-card {
+    gap: clamp(1.8rem, 5vw, 3rem);
   }
 }
 
 @media (max-width: 700px) {
-  :root {
-    --pad: clamp(1rem, 4.5vw, 1.25rem);
-    --section-y-lg: 4.5rem;
-    --section-y-md: 4rem;
-    --card-pad: 1.15rem;
+  #why-bay,
+  #why-bay ~ section,
+  .ptb-footer {
+    --section-y: 4.75rem;
+    --card-pad: 1.35rem;
   }
 
-  .ptb-header {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-  }
-
-  .hero-section {
-    padding-top: 5.75rem;
-    padding-bottom: 3.25rem;
-  }
-
-  .hero-title {
-    font-size: clamp(3.25rem, 16vw, 4.8rem);
-    line-height: 0.9;
-  }
-
-  .hero-lede {
-    font-size: 1rem;
-  }
-
-  .hero-actions,
-  .give-actions,
-  .sub-actions {
-    width: 100%;
-  }
-
-  .hero-media-wrap {
-    min-height: clamp(310px, 86vw, 390px);
-  }
-
-  .hero-orbit-card {
-    width: min(76%, 260px);
-  }
-
-  .hero-scroll-cue {
-    display: none;
-  }
-
-  .timeline-roadmap-section {
-    padding-bottom: 4rem;
-  }
-
-  .timeline-heading,
   .why-feature-section .case-inner h2,
   .social-funnel-section .section-heading h2,
   .budget-section .section-heading h2,
   .pathways-section .section-heading h2,
   .events-section .section-heading h2,
   .field-notes-section .section-heading h2,
-  .partner-section .section-heading h2,
   .signal-copy h2,
   .story-copy h2,
-  .email-inner h2,
   .give-card-inner h2,
+  .email-inner h2,
   .momentum-card h2 {
-    font-size: clamp(2.45rem, 12.5vw, 4rem);
-    letter-spacing: -0.04em;
-    line-height: 0.94;
-  }
-
-  .timeline-card h3,
-  .funnel-card h3,
-  .budget-card h3,
-  .event-card h3,
-  .field-note-card h3,
-  .pathway-card h3,
-  .form-heading h3 {
-    font-size: clamp(1.85rem, 9vw, 3rem);
-    line-height: 0.98;
-  }
-
-  .timeline-card {
-    padding: 1rem;
-  }
-
-  .timeline-image-grid,
-  .timeline-region-list,
-  .why-feature-grid,
-  .proof-grid,
-  .funnel-grid,
-  .budget-grid,
-  .partner-grid,
-  .pathway-grid,
-  .events-grid,
-  .field-notes-grid,
-  .tier-grid,
-  .ptb-form {
-    grid-template-columns: 1fr;
+    font-size: clamp(2.25rem, 10.5vw, 3.65rem);
+    letter-spacing: -0.032em;
+    line-height: 1;
   }
 
   .why-feature-card,
-  .proof-card,
   .funnel-card,
   .budget-card,
-  .partner-card,
   .pathway-card,
   .event-card,
   .field-note-card,
+  .proof-card,
+  .partner-card,
   .tier-card {
     min-height: auto;
   }
 
-  .signal-console {
-    min-height: auto;
-  }
-
-  .signal-tabs {
-    grid-template-columns: 1fr;
-  }
-
-  .signal-panel {
-    max-width: none;
-  }
-
-  .signal-panel a {
-    width: auto;
-  }
-
-  .signal-map {
-    display: none;
-  }
-
-  .story-card {
-    padding: 1rem;
-  }
-
-  .story-copy {
-    padding: 0.25rem 0 0;
-  }
-
-  .giving-toggle,
-  .giving-toggle button,
-  .email-form,
-  .email-form input,
   .email-form button {
-    width: 100%;
-  }
-
-  .email-form {
-    display: grid;
-  }
-
-  .footer-grid,
-  .footer-bottom {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-bottom {
-    display: grid;
-  }
-}
-
-@media (max-width: 430px) {
-  .hero-title {
-    font-size: clamp(3rem, 15vw, 4rem);
-  }
-
-  .hero-title-line {
-    white-space: normal;
-  }
-
-  .hero-title-line .split-mask {
-    display: inline-block;
-  }
-
-  .hero-title-line .split-mask:not(:last-child) {
-    margin-right: 0.12em;
-  }
-
-  .timeline-roadmap-section .pl-20 {
-    padding-left: 4.35rem;
-  }
-
-  .timeline-roadmap-section .pr-4 {
-    padding-right: 0;
-  }
-
-  .form-heading,
-  .ptb-form label,
-  .ptb-form button,
-  .giving-widget,
-  .give-frame {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    min-height: 3.35rem;
   }
 }
