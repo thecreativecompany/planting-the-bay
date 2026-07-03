@@ -18,11 +18,28 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
+    const target = ref.current;
+    if (!target) return undefined;
+
+    const measure = () => {
+      const rect = target.getBoundingClientRect();
       setHeight(rect.height);
-    }
-  }, [ref, data]);
+    };
+
+    measure();
+
+    const resizeObserver = typeof ResizeObserver !== "undefined"
+      ? new ResizeObserver(measure)
+      : null;
+
+    resizeObserver?.observe(target);
+    window.addEventListener("resize", measure);
+
+    return () => {
+      resizeObserver?.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, [data]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
