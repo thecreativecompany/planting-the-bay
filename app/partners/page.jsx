@@ -1,23 +1,47 @@
-import InteriorPage from '../components/InteriorPage';
+import SiteHeader from '../components/SiteHeader';
 
 export const metadata = {
   title: 'Planting the Bay — Partners',
-  description: 'A credibility page for SF Bay Fellowship, ICOC affiliation, partner churches, and endorsement quotes.',
+  description: 'Credibility, endorsements, SF Bay Fellowship partnership, and churches supporting Planting the Bay.',
 };
+
+const partners = [
+  ['SF Bay Fellowship', 'Berkeley launch partner and local support structure.'],
+  ['ICOC affiliation', 'Existing church network and credibility for donors, churches, and relocating families.'],
+  ['Partner churches', 'A place for supporting churches, logos, regions, and donor confidence signals.'],
+];
 
 export default function Page() {
   return (
-    <InteriorPage
-      eyebrow='Partners'
-      title='Planting with trusted partners.'
-      intro='A credibility page for SF Bay Fellowship, ICOC affiliation, partner churches, and endorsement quotes.'
-      primaryCta={{ label: 'Give', href: '/give' }}
-      secondaryCta={{ label: 'Get Involved', href: '/get-involved' }}
-      cards={[
-    { title: 'SF Bay Fellowship', body: 'Explain the Berkeley partnership and support structure.' },
-    { title: 'Church partners', body: 'Supporting churches, logos, and regions build credibility for the launch.' },
-    { title: 'Endorsements', body: 'Quotes from trusted leaders build donor confidence and show shared ownership.' },
-  ]}
-    />
+    <main className="ptb-page sub-page">
+      <SiteHeader />
+      <section className="sub-hero section-reveal is-visible">
+        <div className="sub-hero-glow" aria-hidden="true" />
+        <p className="section-eyebrow">Partners</p>
+        <h1>Planting with trusted partners.</h1>
+        <p>
+          Partners and endorsements help donors understand the credibility, accountability, and shared ownership behind the Bay-wide vision.
+        </p>
+        <div className="sub-actions">
+          <a href="/give" className="btn btn-dark">Give</a>
+          <a href="/contact" className="btn btn-light">Partner with us</a>
+        </div>
+      </section>
+
+      <section className="partner-section">
+        <div className="partner-grid">
+          {partners.map(([name, detail]) => (
+            <article className="partner-card" key={name}>
+              <strong>{name}</strong>
+              <p>{detail}</p>
+            </article>
+          ))}
+        </div>
+        <blockquote className="endorsement-quote">
+          “We believe the Bay Area is ready for a fresh movement of faith, campus ministry, and regional church planting.”
+          <span>Placeholder quote — replace with an approved endorsement.</span>
+        </blockquote>
+      </section>
+    </main>
   );
 }

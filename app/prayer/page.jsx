@@ -1,23 +1,31 @@
-import InteriorPage from '../components/InteriorPage';
+import SiteHeader from '../components/SiteHeader';
+import { PrayerSignupForm } from '../components/FormspreeForms';
 
 export const metadata = {
   title: 'Planting the Bay — Prayer',
-  description: 'A simple on-ramp for people who want to support spiritually even before they give or relocate.',
+  description: 'Sign up for prayer updates or submit a prayer request for the Berkeley launch and Bay-wide planting movement.',
 };
 
 export default function Page() {
   return (
-    <InteriorPage
-      eyebrow='Prayer'
-      title='Pray with the planting team.'
-      intro='A simple on-ramp for people who want to support spiritually even before they give or relocate.'
-      primaryCta={{ label: 'Give', href: '/give' }}
-      secondaryCta={{ label: 'Get Involved', href: '/get-involved' }}
-      cards={[
-    { title: 'Monthly prayer focus', body: 'List current prayer needs and launch milestones.' },
-    { title: 'Prayer signup', body: 'Capture emails for prayer updates.' },
-    { title: 'Prayer wall', body: 'Requests and answered prayers can show the spiritual momentum behind the plant.' },
-  ]}
-    />
+    <main className="ptb-page sub-page">
+      <SiteHeader />
+      <section className="sub-hero section-reveal is-visible">
+        <div className="sub-hero-glow" aria-hidden="true" />
+        <p className="section-eyebrow">Prayer</p>
+        <h1>Pray with the planting team.</h1>
+        <p>
+          A simple on-ramp for people who want to support spiritually even before they give financially, relocate, or serve locally.
+        </p>
+        <div className="sub-actions">
+          <a href="#prayer-form" className="btn btn-dark">Join prayer list</a>
+          <a href="/give" className="btn btn-light">Give</a>
+        </div>
+      </section>
+
+      <section id="prayer-form" className="form-page-section">
+        <PrayerSignupForm />
+      </section>
+    </main>
   );
 }

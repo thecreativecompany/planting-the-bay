@@ -86,3 +86,71 @@ Added:
 - White-background / black-text feature grid styling in `app/globals.css`
 
 The Why the Bay section now uses six feature cards focused on the region, campus ministry, pop-up services, digital outreach, relocation, and donor confidence.
+
+
+## Sanity CMS + Formspree setup
+
+This version includes Sanity schema/config files and Formspree-ready forms.
+
+### Sanity
+
+Files added:
+
+- `sanity.config.ts`
+- `sanity/lib/client.ts`
+- `sanity/lib/queries.ts`
+- `sanity/schemas/*`
+- `app/studio/[[...tool]]/page.tsx`
+
+Content types included:
+
+- Site Settings
+- Updates / Stories
+- Pop-up Services / Events
+- Team Members
+- Partners / Endorsements
+- Budget / Where Gift Goes
+
+Add these environment variables in Vercel:
+
+```bash
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2025-01-01
+```
+
+Sanity Studio route:
+
+```txt
+/studio
+```
+
+### Formspree
+
+Forms now use Formspree-ready actions through environment variables:
+
+```bash
+NEXT_PUBLIC_FORMSPREE_GET_INVOLVED_URL=https://formspree.io/f/your-get-involved-id
+NEXT_PUBLIC_FORMSPREE_EMAIL_SIGNUP_URL=https://formspree.io/f/your-email-signup-id
+NEXT_PUBLIC_FORMSPREE_PRAYER_URL=https://formspree.io/f/your-prayer-id
+NEXT_PUBLIC_FORMSPREE_CONTACT_URL=https://formspree.io/f/your-contact-id
+NEXT_PUBLIC_FORMSPREE_GIVING_URL=https://formspree.io/f/your-giving-id
+```
+
+Forms added:
+
+- Homepage email signup
+- Homepage Get Involved form
+- `/get-involved` pathway form
+- `/give` giving-interest form
+- `/prayer` prayer form
+- `/contact` contact form
+
+After downloading, run:
+
+```bash
+npm install
+npm run build
+```
+
+`package-lock.json` was removed because new Sanity/Formspree-related dependencies were added; running `npm install` will regenerate it.

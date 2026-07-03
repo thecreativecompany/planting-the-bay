@@ -1,23 +1,31 @@
-import InteriorPage from '../components/InteriorPage';
+import SiteHeader from '../components/SiteHeader';
+import { ContactForm } from '../components/FormspreeForms';
 
 export const metadata = {
   title: 'Planting the Bay — Contact',
-  description: 'A simple page for general inquiries, donor conversations, media, and people wanting to join the launch.',
+  description: 'Contact Planting the Bay for general inquiries, donor conversations, media, partnerships, and launch interest.',
 };
 
 export default function Page() {
   return (
-    <InteriorPage
-      eyebrow='Contact'
-      title='Start the conversation.'
-      intro='A simple page for general inquiries, donor conversations, media, and people wanting to join the launch.'
-      primaryCta={{ label: 'Email us', href: 'mailto:hello@plantingthebay.com' }}
-      secondaryCta={{ label: 'Give', href: '/give' }}
-      cards={[
-    { title: 'General inquiries', body: 'Email hello@plantingthebay.com for general questions, donor conversations, and launch interest.' },
-    { title: 'Giving conversations', body: 'Dedicated follow-up for major gifts, donor-advised funds, and stock conversations.' },
-    { title: 'Media and partnerships', body: 'A direct path for churches, partners, and media contacts to connect with the team.' },
-  ]}
-    />
+    <main className="ptb-page sub-page">
+      <SiteHeader />
+      <section className="sub-hero section-reveal is-visible">
+        <div className="sub-hero-glow" aria-hidden="true" />
+        <p className="section-eyebrow">Contact</p>
+        <h1>Start the conversation.</h1>
+        <p>
+          For general questions, churches, donors, media, partner organizations, or people interested in the Berkeley launch.
+        </p>
+        <div className="sub-actions">
+          <a href="#contact-form" className="btn btn-dark">Email us</a>
+          <a href="/get-involved" className="btn btn-light">Get Involved</a>
+        </div>
+      </section>
+
+      <section id="contact-form" className="form-page-section">
+        <ContactForm />
+      </section>
+    </main>
   );
 }

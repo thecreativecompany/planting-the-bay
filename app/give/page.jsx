@@ -1,23 +1,91 @@
-import InteriorPage from '../components/InteriorPage';
+import SiteHeader from '../components/SiteHeader';
+import { GivingInterestForm } from '../components/FormspreeForms';
 
 export const metadata = {
   title: 'Planting the Bay — Give',
-  description: 'The conversion page for one-time and recurring gifts, impact tiers, fund designation, tax-deductibility notes, and where-the-gift-goes transparency.',
+  description: 'Recurring giving, impact tiers, fund designation, tax-deductibility notes, and Year 1 budget transparency.',
 };
+
+const impactTiers = [
+  ['$25/mo', 'Builds the prayer and supporter base.'],
+  ['$250/mo', 'Helps fund campus ministry and pop-up gatherings.'],
+  ['Major gifts', 'Accelerate staff, events, and regional expansion.'],
+];
+
+const giftUses = [
+  ['Planting staff', 'Stuart and Ashley plus two additional staff couples focused on church planting and campus ministry.'],
+  ['Campus ministry', 'Berkeley-first student outreach, follow-up, discipleship, and future campus expansion.'],
+  ['Pop-up services', 'Regional gatherings, venue costs, hospitality, kids, worship, and RSVP-ready entry points.'],
+  ['Expansion infrastructure', 'Donor updates, content, systems, communications, travel, and the Bay-wide vision asset.'],
+];
 
 export default function Page() {
   return (
-    <InteriorPage
-      eyebrow='Give'
-      title='Help fund the first three years.'
-      intro='The conversion page for one-time and recurring gifts, impact tiers, fund designation, tax-deductibility notes, and where-the-gift-goes transparency.'
-      primaryCta={{ label: 'Start giving', href: 'mailto:giving@plantingthebay.com' }}
-      secondaryCta={{ label: 'Major gifts / DAF', href: 'mailto:giving@plantingthebay.com' }}
-      cards={[
-    { title: 'Recurring first', body: 'Frame the Bay Builders monthly partner program and invite sustained support.' },
-    { title: 'Impact tiers', body: 'Show suggested giving levels such as $25/mo, $250/mo, and major gifts.' },
-    { title: 'Where your gift goes', body: 'Year 1 support funds staff, campus ministry, pop-up services, and expansion infrastructure.' },
-  ]}
-    />
+    <main className="ptb-page sub-page">
+      <SiteHeader />
+      <section className="sub-hero section-reveal is-visible">
+        <div className="sub-hero-glow" aria-hidden="true" />
+        <p className="section-eyebrow">Give</p>
+        <h1>Help fund the first three years.</h1>
+        <p>
+          Bay Builders is the monthly partner pathway for people helping fund the first three years of church planting and campus ministry across the Bay.
+        </p>
+        <div className="sub-actions">
+          <a href="#giving-interest" className="btn btn-dark">Start giving</a>
+          <a href="mailto:giving@plantingthebay.com" className="btn btn-light">Major gifts / DAF</a>
+        </div>
+      </section>
+
+      <section className="form-page-section">
+        <div className="give-card-inner give-page-card">
+          <div>
+            <p className="section-eyebrow">Impact tiers</p>
+            <h2>Bay Builders</h2>
+            <p>Recurring giving is emphasized, with one-time, DAF, stock, and major gift conversations supported as next steps.</p>
+          </div>
+          <div className="tier-grid">
+            {impactTiers.map(([amount, label]) => (
+              <div className="tier-card" key={amount}>
+                <strong>{amount}</strong>
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+          <div className="budget-grid give-page-budget">
+            {giftUses.map(([title, body]) => (
+              <article className="budget-card" key={title}>
+                <span>Use of funds</span>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
+            ))}
+          </div>
+          <div className="giving-widget">
+            <div className="giving-toggle" role="group" aria-label="Gift frequency">
+              <button type="button" className="is-active">Monthly</button>
+              <button type="button">One-time</button>
+            </div>
+            <label>
+              Fund designation
+              <select defaultValue="planting-the-bay">
+                <option value="planting-the-bay">Planting the Bay fund</option>
+                <option value="general">General initiative</option>
+              </select>
+            </label>
+            <div className="payment-methods">
+              <span>Card</span>
+              <span>ACH</span>
+              <span>DAF</span>
+              <span>Stock</span>
+            </div>
+            <p>Connect this section to the final giving provider for recurring billing, fund designation, automated receipts, and PCI-compliant checkout.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="giving-interest" className="form-page-section">
+        <GivingInterestForm />
+      </section>
+    </main>
   );
 }

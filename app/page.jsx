@@ -5,6 +5,7 @@ import SiteHeader from './components/SiteHeader';
 import { Timeline } from '@/components/ui/timeline';
 import { FeatureCard } from '@/components/ui/grid-feature-cards';
 import { Church, GraduationCap, HandHeart, MapPinned, Megaphone, UsersRound } from 'lucide-react';
+import { EmailSignupForm, GetInvolvedForm } from './components/FormspreeForms';
 
 const roadmap = ['Berkeley', 'San Francisco', 'Peninsula', 'San Jose', 'Tri-Valley', 'Beyond'];
 
@@ -94,6 +95,100 @@ const whyBayFeatures = [
   },
 ];
 
+
+const whyBayProofPoints = [
+  {
+    label: 'Survey data slot',
+    value: 'Highest-leverage case',
+    body: 'Reserved for the final survey finding that identifies the Bay Area as a top planting opportunity in North America.',
+  },
+  {
+    label: 'Social reach',
+    value: '~59K',
+    body: 'Supporter and seeker traffic can move from existing social reach into prayer, RSVP, giving, and local conversations.',
+  },
+  {
+    label: 'Launch anchor',
+    value: 'Berkeley',
+    body: 'The first planting focus connects campus ministry and a local church before expansion across the Bay.',
+  },
+  {
+    label: 'Regional roadmap',
+    value: '6 regions',
+    body: 'Berkeley, San Francisco, the Peninsula, San Jose, the Tri-Valley, and beyond are built into the expansion story.',
+  },
+];
+
+const budgetUses = [
+  {
+    title: 'Planting staff',
+    body: 'Supports Stuart and Ashley plus the first two staff-couple roles focused on campus ministry and church planting.',
+    tag: 'People',
+  },
+  {
+    title: 'Campus ministry',
+    body: 'Funds Berkeley-first student outreach, follow-up, discipleship rhythms, and future campus expansion.',
+    tag: 'Students',
+  },
+  {
+    title: 'Pop-up services',
+    body: 'Covers venue, hospitality, worship, kids, production, and RSVP-ready gatherings across Bay regions.',
+    tag: 'Gatherings',
+  },
+  {
+    title: 'Expansion infrastructure',
+    body: 'Supports communications, systems, travel, donor updates, and the 3D Bay Area vision storytelling asset.',
+    tag: 'Systems',
+  },
+];
+
+const upcomingGatherings = [
+  {
+    region: 'Berkeley',
+    date: 'September launch',
+    detail: 'First pop-up gathering and campus ministry on-ramp.',
+  },
+  {
+    region: 'San Francisco',
+    date: 'Coming soon',
+    detail: 'Regional interest gathering for supporters, seekers, and host homes.',
+  },
+  {
+    region: 'Peninsula',
+    date: 'Coming soon',
+    detail: 'Early prayer and RSVP pathway for the next expansion corridor.',
+  },
+];
+
+const partnerItems = [
+  {
+    name: 'SF Bay Fellowship',
+    detail: 'Berkeley launch partner and local support structure.',
+  },
+  {
+    name: 'ICOC network',
+    detail: 'Existing church relationships, donor credibility, and shared mission alignment.',
+  },
+  {
+    name: 'Partner churches',
+    detail: 'A place for supporting churches, logos, and endorsement quotes.',
+  },
+];
+
+const fieldNotes = [
+  {
+    title: 'Berkeley launch prep',
+    body: 'Monthly progress note for launch milestones, staff recruitment, and first gatherings.',
+  },
+  {
+    title: 'Prayer needs',
+    body: 'Focused prayer requests for students, seekers, staff couples, and open doors across the Bay.',
+  },
+  {
+    title: 'Supporter update',
+    body: 'A donor retention touchpoint showing progress toward the Year 1 goal and what gifts are making possible.',
+  },
+];
 
 const pathways = [
   {
@@ -248,6 +343,16 @@ export default function Home() {
             <FeatureCard key={feature.title} feature={feature} role="listitem" className="why-feature-card" />
           ))}
         </div>
+
+        <div className="proof-grid reveal" aria-label="Why the Bay proof points">
+          {whyBayProofPoints.map((point) => (
+            <article className="proof-card" key={point.label}>
+              <span>{point.label}</span>
+              <strong>{point.value}</strong>
+              <p>{point.body}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="social-funnel-section section-reveal" aria-label="Digital to in-person pathway">
@@ -347,6 +452,25 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="budget-section section-reveal" aria-label="Where your gift goes">
+        <div className="section-heading reveal">
+          <p className="section-eyebrow">Where your gift goes</p>
+          <h2>Transparent funding for the first year.</h2>
+        </div>
+        <div className="budget-grid reveal" data-gsap="stagger-grid">
+          {budgetUses.map((item) => (
+            <article className="budget-card" key={item.title}>
+              <span>{item.tag}</span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+        <p className="budget-note reveal">
+          Final percentages and line-item figures can be updated from Sanity once the approved Year 1 budget is ready.
+        </p>
+      </section>
+
       <section id="story" className="story-section section-reveal" aria-label="Our story section">
         <div className="story-card reveal">
           <figure className="story-photo" data-gsap="image-wipe">
@@ -361,6 +485,25 @@ export default function Home() {
             <a href="/team" className="btn btn-light">Meet the team</a>
           </div>
         </div>
+      </section>
+
+      <section className="partner-section section-reveal" aria-label="Partners and endorsements">
+        <div className="section-heading reveal">
+          <p className="section-eyebrow">Partners + Endorsements</p>
+          <h2>Planting with trusted partners.</h2>
+        </div>
+        <div className="partner-grid reveal">
+          {partnerItems.map((partner) => (
+            <article className="partner-card" key={partner.name}>
+              <strong>{partner.name}</strong>
+              <p>{partner.detail}</p>
+            </article>
+          ))}
+        </div>
+        <blockquote className="endorsement-quote reveal">
+          “We believe the Bay Area is ready for a fresh movement of faith, campus ministry, and regional church planting.”
+          <span>Endorsement placeholder — replace with approved partner quote.</span>
+        </blockquote>
       </section>
 
       <section id="get-involved" className="pathways-section section-reveal" aria-label="Get involved pathways">
@@ -378,6 +521,28 @@ export default function Home() {
             </article>
           ))}
         </div>
+      
+
+        <div className="form-panel reveal">
+          <GetInvolvedForm />
+        </div>
+      </section>
+
+      <section className="events-section section-reveal" aria-label="Upcoming pop-up services">
+        <div className="section-heading reveal">
+          <p className="section-eyebrow">Pop-up services</p>
+          <h2>Next gathering points.</h2>
+        </div>
+        <div className="events-grid reveal">
+          {upcomingGatherings.map((event) => (
+            <article className="event-card" key={event.region}>
+              <span>{event.date}</span>
+              <h3>{event.region}</h3>
+              <p>{event.detail}</p>
+              <a href="mailto:hello@plantingthebay.com?subject=Pop-up%20RSVP">RSVP / learn more →</a>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section id="give" className="give-section section-reveal" aria-label="Give section">
@@ -390,6 +555,7 @@ export default function Home() {
                 A monthly partner program for people helping fund the first three years of church planting and campus ministry across the Bay.
               </p>
             </div>
+
             <div className="tier-grid" data-gsap="stagger-grid">
               {givingTiers.map((tier) => (
                 <div key={tier.amount} className="tier-card" data-gsap="lift">
@@ -398,6 +564,28 @@ export default function Home() {
                 </div>
               ))}
             </div>
+
+            <div className="giving-widget" aria-label="Giving options mockup">
+              <div className="giving-toggle" role="group" aria-label="Gift frequency">
+                <button type="button" className="is-active">Monthly</button>
+                <button type="button">One-time</button>
+              </div>
+              <label>
+                Fund designation
+                <select defaultValue="planting-the-bay">
+                  <option value="planting-the-bay">Planting the Bay fund</option>
+                  <option value="general">General initiative</option>
+                </select>
+              </label>
+              <div className="payment-methods" aria-label="Giving methods">
+                <span>Card</span>
+                <span>ACH</span>
+                <span>DAF</span>
+                <span>Stock</span>
+              </div>
+              <p>Tax-deductible giving and automated receipts should be connected through the final giving platform.</p>
+            </div>
+
             <div className="give-actions">
               <a href="mailto:giving@plantingthebay.com" className="btn btn-dark">Start giving</a>
               <a href="mailto:giving@plantingthebay.com" className="btn btn-light">Major gifts / DAF</a>
@@ -406,12 +594,28 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="field-notes-section section-reveal" aria-label="Latest updates and field notes">
+        <div className="section-heading reveal">
+          <p className="section-eyebrow">Updates / Stories</p>
+          <h2>Field notes from the Bay.</h2>
+        </div>
+        <div className="field-notes-grid reveal">
+          {fieldNotes.map((note) => (
+            <article className="field-note-card" key={note.title}>
+              <h3>{note.title}</h3>
+              <p>{note.body}</p>
+              <a href="/updates">Read updates →</a>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="email-section section-reveal" aria-label="Email updates">
         <div className="email-inner reveal">
           <p className="section-eyebrow">Updates</p>
           <h2>Follow the planting story.</h2>
           <p>Get prayer requests and milestones as Berkeley launches and the Bay Area roadmap unfolds.</p>
-          <a className="btn btn-light" href="mailto:hello@plantingthebay.com?subject=Planting%20the%20Bay%20updates">Request updates</a>
+          <EmailSignupForm />
         </div>
       </section>
 

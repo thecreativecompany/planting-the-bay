@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint app"
+    "lint": "eslint app",
+    "studio": "sanity dev",
+    "studio:deploy": "sanity deploy"
   },
   "dependencies": {
     "@tailwindcss/postcss": "latest",
@@ -15,7 +17,10 @@
     "react": "latest",
     "react-dom": "latest",
     "framer-motion": "latest",
-    "lucide-react": "latest"
+    "lucide-react": "latest",
+    "next-sanity": "latest",
+    "sanity": "latest",
+    "@sanity/vision": "latest"
   },
   "devDependencies": {
     "autoprefixer": "latest",
