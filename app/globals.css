@@ -5437,6 +5437,388 @@ body.ptb-menu-open .ptb-mobile-nav a {
   }
 }
 
+/* --- Aura final pass: mobile-first spacing, premium cards, cleaner grids --- */
+:root {
+  --aura-card-radius: clamp(1.05rem, 1.45vw, 1.55rem);
+  --aura-card-shadow: 0 22px 70px rgba(16, 18, 13, 0.07);
+  --aura-card-shadow-hover: 0 28px 88px rgba(16, 18, 13, 0.12);
+}
+
+.campaign-container {
+  width: min(100% - clamp(1.25rem, 4vw, 4rem), var(--max));
+}
+
+.campaign-section {
+  padding-block: clamp(4.75rem, 8.4vw, 8.5rem);
+}
+
+.section-header {
+  gap: clamp(.8rem, 1.35vw, 1.05rem);
+  margin-bottom: clamp(1.65rem, 3.4vw, 3rem);
+}
+
+.section-header h2,
+.story-grid h2,
+.roadmap-grid h2,
+.giving-grid h2,
+.email-grid h2 {
+  text-wrap: balance;
+  letter-spacing: clamp(-0.045em, -0.55vw, -0.025em);
+}
+
+.campaign-hero {
+  padding-top: clamp(7.2rem, 11vw, 10rem);
+  padding-bottom: clamp(4.75rem, 8vw, 7rem);
+}
+
+.hero-grid {
+  grid-template-columns: minmax(0, 1.02fr) minmax(420px, .98fr);
+  gap: clamp(2.1rem, 5.8vw, 6.5rem);
+  align-items: center;
+}
+
+.hero-copy {
+  display: grid;
+  gap: clamp(.9rem, 1.6vw, 1.25rem);
+  max-width: 720px;
+}
+
+.campaign-hero h1 {
+  max-width: 13ch;
+  font-size: clamp(3.65rem, 8vw, 8.85rem);
+  line-height: .9;
+  letter-spacing: clamp(-.07em, -.68vw, -.045em);
+}
+
+.campaign-hero h2 {
+  max-width: 18ch;
+  margin-top: 0;
+  font-size: clamp(1.5rem, 2.6vw, 2.75rem);
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+
+.hero-description {
+  max-width: 61ch;
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  line-height: 1.66;
+}
+
+.campaign-actions {
+  margin-top: clamp(.25rem, 1vw, .65rem);
+}
+
+.trust-tags,
+.hero-proof-strip {
+  margin-top: clamp(.35rem, 1vw, .85rem);
+}
+
+.video-placeholder {
+  border-radius: clamp(1.35rem, 2vw, 2.05rem);
+  box-shadow: 0 32px 110px rgba(16, 18, 13, 0.2), inset 0 1px rgba(255,255,255,.16);
+}
+
+.hero-location-card,
+.hero-stat-card {
+  border-radius: var(--aura-card-radius);
+}
+
+.region-route {
+  gap: clamp(.75rem, 1.4vw, 1rem);
+  border: 0;
+  background: transparent;
+}
+
+.region-route article,
+.why-grid article,
+.pathway-grid-v2 article,
+.budget-grid-v2 article,
+.story-card-grid article,
+.pillar-grid article,
+.giving-card,
+.progress-card,
+.email-card,
+.flyover-card {
+  border: 1px solid rgba(16, 18, 13, 0.11);
+  border-radius: var(--aura-card-radius);
+  box-shadow: var(--aura-card-shadow);
+  transition: transform 220ms cubic-bezier(.22, 1, .36, 1), box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease;
+}
+
+.region-route article:hover,
+.why-grid article:hover,
+.pathway-grid-v2 article:hover,
+.budget-grid-v2 article:hover,
+.story-card-grid article:hover,
+.pillar-grid article:hover {
+  transform: translateY(-4px);
+  border-color: rgba(33, 72, 45, 0.18);
+  box-shadow: var(--aura-card-shadow-hover);
+}
+
+.why-grid,
+.pathway-grid-v2,
+.budget-grid-v2,
+.story-card-grid {
+  gap: clamp(.8rem, 1.45vw, 1.15rem);
+  border: 0;
+  background: transparent;
+}
+
+.why-grid article,
+.pathway-grid-v2 article,
+.budget-grid-v2 article {
+  min-height: auto;
+  padding: clamp(1.15rem, 2.05vw, 1.65rem);
+  background: rgba(255, 250, 240, .76);
+}
+
+.why-grid article {
+  min-height: clamp(225px, 19vw, 280px);
+}
+
+.pillar-grid {
+  gap: clamp(.9rem, 1.7vw, 1.35rem);
+}
+
+.pillar-grid img,
+.story-card-grid img {
+  background: rgba(16, 18, 13, .08);
+}
+
+.pillar-grid article > div,
+.story-card-grid article > div {
+  padding: clamp(1.1rem, 2vw, 1.45rem);
+}
+
+.roadmap-grid,
+.giving-grid,
+.fundraising-grid,
+.story-grid,
+.email-grid {
+  gap: clamp(1.8rem, 5vw, 4.75rem);
+}
+
+.phase-list {
+  gap: clamp(.65rem, 1.2vw, .9rem);
+}
+
+.phase-list article {
+  border-radius: 1rem;
+}
+
+.giving-card,
+.progress-card,
+.email-card,
+.flyover-card {
+  overflow: hidden;
+  backdrop-filter: blur(18px) saturate(1.05);
+}
+
+.tier-grid-v2 {
+  gap: clamp(.65rem, 1.25vw, .9rem);
+}
+
+.tier-grid-v2 button {
+  min-height: 5.35rem;
+  border-radius: 1rem;
+}
+
+.budget-grid-v2 article {
+  min-height: clamp(220px, 19vw, 270px);
+}
+
+.story-card-grid article {
+  background: rgba(255, 250, 240, .78);
+}
+
+.email-form-row {
+  grid-template-columns: minmax(0, 1fr) max-content;
+}
+
+.email-form input,
+.email-form button,
+.campaign-btn {
+  touch-action: manipulation;
+}
+
+.mobile-cta-bar {
+  padding-bottom: max(.7rem, env(safe-area-inset-bottom));
+}
+
+@media (max-width: 1180px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    max-width: 820px;
+  }
+
+  .hero-visual {
+    width: min(100%, 760px);
+    margin-inline: auto;
+  }
+
+  .why-grid,
+  .budget-grid-v2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pathway-grid-v2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 780px) {
+  .campaign-section {
+    padding-block: clamp(3.9rem, 13vw, 5.35rem);
+  }
+
+  .campaign-hero {
+    padding-top: 6.8rem;
+    padding-bottom: 4.25rem;
+  }
+
+  .hero-copy {
+    gap: .85rem;
+  }
+
+  .campaign-hero h1 {
+    max-width: 10ch;
+    font-size: clamp(3.25rem, 15vw, 5.75rem);
+    line-height: .92;
+  }
+
+  .campaign-hero h2 {
+    max-width: 18ch;
+    font-size: clamp(1.42rem, 7.25vw, 2.35rem);
+    line-height: 1.04;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.64;
+  }
+
+  .campaign-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .7rem;
+  }
+
+  .campaign-actions .campaign-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .trust-tags {
+    gap: .45rem;
+  }
+
+  .trust-tags span {
+    flex: 1 1 calc(50% - .45rem);
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-proof-strip {
+    grid-template-columns: 1fr;
+    gap: .55rem;
+  }
+
+  .hero-proof-strip > div {
+    min-height: 4.25rem;
+  }
+
+  .region-route,
+  .why-grid,
+  .pillar-grid,
+  .pathway-grid-v2,
+  .budget-grid-v2,
+  .story-card-grid {
+    grid-template-columns: 1fr;
+    gap: .78rem;
+  }
+
+  .why-grid article,
+  .budget-grid-v2 article,
+  .pathway-grid-v2 article {
+    min-height: auto;
+  }
+
+  .pillar-grid img,
+  .story-card-grid img {
+    height: clamp(210px, 58vw, 300px);
+  }
+
+  .roadmap-grid,
+  .giving-grid,
+  .fundraising-grid,
+  .story-grid,
+  .email-grid {
+    gap: 1.45rem;
+  }
+
+  .tier-grid-v2,
+  .funding-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .email-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .campaign-container {
+    width: min(100% - 1.15rem, var(--max));
+  }
+
+  .campaign-hero h1 {
+    font-size: clamp(3rem, 17vw, 4.9rem);
+  }
+
+  .hero-visual {
+    min-height: 440px;
+  }
+
+  .video-placeholder {
+    inset: 0 0 25% 0;
+    border-radius: 1.15rem;
+  }
+
+  .hero-stat-card {
+    left: .65rem;
+    right: .65rem;
+    bottom: .15rem;
+  }
+
+  .trust-tags span {
+    flex-basis: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .region-route article,
+  .why-grid article,
+  .pathway-grid-v2 article,
+  .budget-grid-v2 article,
+  .story-card-grid article,
+  .pillar-grid article {
+    transition: none !important;
+  }
+
+  .region-route article:hover,
+  .why-grid article:hover,
+  .pathway-grid-v2 article:hover,
+  .budget-grid-v2 article:hover,
+  .story-card-grid article:hover,
+  .pillar-grid article:hover {
+    transform: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ptb-desktop-nav .nav-give,
   .video-overlay button {
