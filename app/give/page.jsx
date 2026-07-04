@@ -7,10 +7,13 @@ export const metadata = {
 };
 
 const impactTiers = [
-  ['$25/mo', 'Builds the prayer and supporter base.'],
-  ['$250/mo', 'Helps fund campus ministry and pop-up gatherings.'],
-  ['Major gifts', 'Accelerate staff, events, and regional expansion.'],
+  ['$25/mo', 'Support the movement with a faithful monthly gift.'],
+  ['$100/mo', 'Help fuel outreach, hospitality, and follow-up.'],
+  ['$250/mo', 'Help fund Berkeley campus ministry and student discipleship.'],
+  ['$500/mo', 'Invest in staff couples and planting work.'],
 ];
+
+const trustNotes = ['Tax-deductible giving', 'Automated receipts', 'Card / ACH / DAF / stock', 'Major gift conversations'];
 
 const giftUses = [
   ['Planting staff', 'Stuart and Ashley plus two additional staff couples focused on church planting and campus ministry.'],
@@ -43,13 +46,16 @@ export default function Page() {
             <h2>Bay Builders</h2>
             <p>Recurring giving is emphasized, with one-time, DAF, stock, and major gift conversations supported as next steps.</p>
           </div>
-          <div className="tier-grid">
+          <div className="tier-grid give-tier-grid">
             {impactTiers.map(([amount, label]) => (
               <div className="tier-card" key={amount}>
                 <strong>{amount}</strong>
                 <span>{label}</span>
               </div>
             ))}
+          </div>
+          <div className="give-trust-strip" aria-label="Giving trust notes">
+            {trustNotes.map((note) => <span key={note}>{note}</span>)}
           </div>
           <div className="budget-grid give-page-budget">
             {giftUses.map(([title, body]) => (
@@ -79,6 +85,7 @@ export default function Page() {
               <span>Stock</span>
             </div>
             <p>Connect this section to the final giving provider for recurring billing, fund designation, automated receipts, and PCI-compliant checkout.</p>
+            <a className="btn btn-dark giving-widget-cta" href="#giving-interest">Continue to giving interest</a>
           </div>
         </div>
       </section>
@@ -89,3 +96,4 @@ export default function Page() {
     </main>
   );
 }
+

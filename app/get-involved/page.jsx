@@ -7,9 +7,34 @@ export const metadata = {
 };
 
 const pathways = [
-  ['Join the team / planting staff', 'For staff couples, interns, and families considering relocating to plant with us.'],
-  ['Serve / volunteer', 'For local supporters who want to welcome, host, volunteer, and support pop-up gatherings.'],
-  ['Pray', 'For supporters who want to receive focused prayer needs and monthly updates.'],
+  {
+    label: 'Staffing',
+    title: 'Join the Team / Staff Couples',
+    body: 'For couples, interns, and families considering relocating to plant with us.',
+    cta: 'Explore Staff Roles',
+    href: '/team',
+  },
+  {
+    label: 'Volunteer',
+    title: 'Serve or Volunteer',
+    body: 'Use your time and gifts to support gatherings, outreach, hospitality, and local ministry.',
+    cta: 'Serve With Us',
+    href: '#interest-form',
+  },
+  {
+    label: 'Relocate',
+    title: 'Relocate to the Bay',
+    body: 'Join the mission on the ground and help build the next chapter of the Bay Area church.',
+    cta: 'Start the Conversation',
+    href: '/contact',
+  },
+  {
+    label: 'Prayer',
+    title: 'Pray With Us',
+    body: 'Join the prayer pipeline and receive updates as the movement grows.',
+    cta: 'Join the Prayer List',
+    href: '/prayer',
+  },
 ];
 
 export default function Page() {
@@ -31,11 +56,12 @@ export default function Page() {
 
       <section className="sub-content">
         <div className="sub-grid">
-          {pathways.map(([title, body], index) => (
-            <article className="sub-card" key={title}>
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              <h2>{title}</h2>
-              <p>{body}</p>
+          {pathways.map((pathway, index) => (
+            <article className="sub-card" key={pathway.title}>
+              <span>{String(index + 1).padStart(2, '0')} / {pathway.label}</span>
+              <h2>{pathway.title}</h2>
+              <p>{pathway.body}</p>
+              <a href={pathway.href}>{pathway.cta}</a>
               <i aria-hidden="true">↗</i>
             </article>
           ))}
@@ -43,8 +69,9 @@ export default function Page() {
       </section>
 
       <section id="interest-form" className="form-page-section">
-        <GetInvolvedForm />
+        <GetInvolvedForm title="Start with the pathway that fits you best." />
       </section>
     </main>
   );
 }
+

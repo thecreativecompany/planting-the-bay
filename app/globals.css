@@ -4263,10 +4263,16 @@ textarea:focus {
 
 /* --- Production launch polish: conversion, forms, motion, and accessibility --- */
 .campaign-btn:focus-visible,
+.btn:focus-visible,
 .mobile-cta-bar a:focus-visible,
 .video-overlay button:focus-visible,
 .tier-grid-v2 button:focus-visible,
 .pathway-grid-v2 a:focus-visible,
+.sub-card a:focus-visible,
+.ptb-form input:focus-visible,
+.ptb-form select:focus-visible,
+.ptb-form textarea:focus-visible,
+.ptb-form button:focus-visible,
 .email-form input:focus-visible,
 .email-form button:focus-visible,
 .video-modal-close:focus-visible {
@@ -4473,13 +4479,75 @@ textarea:focus {
 }
 .email-form button:disabled { opacity: .72; cursor: progress; }
 .form-status { margin: 0; color: rgba(255,250,240,.62); font-size: .86rem; line-height: 1.45; }
-.form-status.is-success { color: #d7f0cf; }
-.form-status.is-error { color: #ffd7c7; }
+.ptb-form .form-status {
+  grid-column: 1 / -1;
+  color: color-mix(in srgb, var(--muted) 86%, var(--ink));
+}
+.form-status.is-success,
+.ptb-form .form-status.is-success { color: #2f6a3d; }
+.form-status.is-error,
+.ptb-form .form-status.is-error { color: #a84624; }
+.sub-card a {
+  position: relative;
+  z-index: 1;
+  align-self: end;
+  width: max-content;
+  min-height: 2.65rem;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid rgba(33,72,45,.18);
+  border-radius: 999px;
+  padding: .72rem .9rem;
+  color: var(--green);
+  font-size: .68rem;
+  font-weight: 950;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+.sub-card a:hover,
+.sub-card a:focus-visible {
+  background: var(--green);
+  color: var(--cream);
+  transform: translateX(4px);
+}
+.give-tier-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.give-trust-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(244,223,173,.18);
+  border-radius: 1rem;
+  background: rgba(244,223,173,.18);
+}
+.give-trust-strip span {
+  display: grid;
+  min-height: 64px;
+  place-items: center;
+  padding: .75rem;
+  background: rgba(255,255,255,.07);
+  color: rgba(255,250,240,.76);
+  font-size: .64rem;
+  font-weight: 950;
+  letter-spacing: .1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.giving-widget-cta {
+  width: max-content;
+  margin-top: .25rem;
+}
 
 @media (max-width: 780px) {
   .campaign-actions .campaign-btn-primary,
   .campaign-actions .campaign-btn-secondary { min-width: 0; }
   .video-modal-card { grid-template-columns: 1fr; }
+  .give-tier-grid,
+  .give-trust-strip { grid-template-columns: 1fr; }
+  .giving-widget-cta { width: 100%; }
   .email-form-row { display: grid; }
   .email-form button { min-height: 3.35rem; }
 }

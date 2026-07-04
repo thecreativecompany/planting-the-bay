@@ -115,7 +115,7 @@ function CountUp({ value, prefix = '', suffix = '', label }) {
         const progress = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
         setDisplay(Math.round(value * eased));
-        if (progress < 1) window.window.requestAnimationFrame(tick);
+        if (progress < 1) window.requestAnimationFrame(tick);
       };
       window.requestAnimationFrame(tick);
       observer.disconnect();
@@ -191,11 +191,6 @@ export default function Home() {
   return (
     <main id="main-content" className="campaign-page">
       <SiteHeader />
-
-      <div className="mobile-cta-bar" aria-label="Mobile quick actions">
-        <a href="/give" onClick={() => trackConversion('mobile_give_click')}>Give</a>
-        <a href="/get-involved" onClick={() => trackConversion('mobile_get_involved_click')}>Get Involved</a>
-      </div>
 
       {videoModalOpen && (
         <div className="video-modal" role="dialog" aria-modal="true" aria-labelledby="vision-video-title" onClick={() => setVideoModalOpen(false)}>
@@ -457,3 +452,4 @@ export default function Home() {
     </main>
   );
 }
+
