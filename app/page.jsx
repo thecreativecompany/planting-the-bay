@@ -25,6 +25,12 @@ const regions = ['Berkeley', 'San Francisco', 'Peninsula', 'San Jose', 'Tri-Vall
 
 const visionTags = ['Berkeley First', 'Bay Area Movement', 'Campus Ministry + Local Church', 'Launching September 1'];
 
+const heroProof = [
+  { value: '01', label: 'Berkeley launch city' },
+  { value: '$1M', label: 'Year 1 funding goal' },
+  { value: '2+', label: 'Staff couples in Year 1' },
+];
+
 const fundingStats = [
   { label: 'Year 1', value: '$1M' },
   { label: 'Year 2', value: '$2M' },
@@ -32,11 +38,11 @@ const fundingStats = [
 ];
 
 const whyCards = [
-  { title: 'World-class campuses', body: 'Berkeley anchors a student-focused launch with room to expand toward the Bay’s major universities.', icon: GraduationCap },
-  { title: 'Strategic cities', body: 'San Francisco, the Peninsula, San Jose, and Tri-Valley connect culture, families, and global influence.', icon: MapPinned },
-  { title: 'Relational influence', body: 'A single conversation can travel through campuses, companies, homes, churches, and online communities.', icon: UsersRound },
-  { title: 'Expansion potential', body: 'The roadmap is built to multiply leaders, pop-up gatherings, and campus ministry across the whole region.', icon: Compass },
-  { title: 'Belonging + purpose', body: 'A generation is searching for community, meaning, spiritual formation, and a place to build.', icon: HeartHandshake },
+  { metric: 'UC', title: 'World-class campuses', body: 'Berkeley anchors a student-focused launch with room to expand toward the Bay’s major universities.', icon: GraduationCap },
+  { metric: '5', title: 'Strategic cities', body: 'San Francisco, the Peninsula, San Jose, and Tri-Valley connect culture, families, and global influence.', icon: MapPinned },
+  { metric: '∞', title: 'Relational influence', body: 'A single conversation can travel through campuses, companies, homes, churches, and online communities.', icon: UsersRound },
+  { metric: '6', title: 'Expansion potential', body: 'The roadmap is built to multiply leaders, pop-up gatherings, and campus ministry across the whole region.', icon: Compass },
+  { metric: 'Gen Z', title: 'Belonging + purpose', body: 'A generation is searching for community, meaning, spiritual formation, and a place to build.', icon: HeartHandshake },
 ];
 
 const pillars = [
@@ -55,10 +61,10 @@ const roadmapPhases = [
 ];
 
 const pathways = [
-  { title: 'Join the Team / Staff Couples', body: 'For couples, interns, and families considering relocating to plant with us.', cta: 'Explore Staff Roles', href: '/team' },
-  { title: 'Serve or Volunteer', body: 'Use your time and gifts to support gatherings, outreach, hospitality, and local ministry.', cta: 'Serve With Us', href: '/get-involved' },
-  { title: 'Relocate to the Bay', body: 'Join the mission on the ground and help build the next chapter of the Bay Area church.', cta: 'Start the Conversation', href: '/contact' },
-  { title: 'Pray With Us', body: 'Join the prayer pipeline and receive updates as the movement grows.', cta: 'Join the Prayer List', href: '/prayer' },
+  { label: 'Staffing', title: 'Join the Team / Staff Couples', body: 'For couples, interns, and families considering relocating to plant with us.', cta: 'Explore Staff Roles', href: '/team' },
+  { label: 'Volunteer', title: 'Serve or Volunteer', body: 'Use your time and gifts to support gatherings, outreach, hospitality, and local ministry.', cta: 'Serve With Us', href: '/get-involved' },
+  { label: 'On the ground', title: 'Relocate to the Bay', body: 'Join the mission on the ground and help build the next chapter of the Bay Area church.', cta: 'Start the Conversation', href: '/contact' },
+  { label: 'Prayer', title: 'Pray With Us', body: 'Join the prayer pipeline and receive updates as the movement grows.', cta: 'Join the Prayer List', href: '/prayer' },
 ];
 
 const givingTiers = [
@@ -153,6 +159,9 @@ export default function Home() {
             <div className="trust-tags" aria-label="Launch details">
               {visionTags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
+            <div className="hero-proof-strip" aria-label="Campaign proof points">
+              {heroProof.map((item) => <div key={item.label}><strong>{item.value}</strong><span>{item.label}</span></div>)}
+            </div>
           </div>
 
           <div className="hero-visual" data-reveal>
@@ -169,6 +178,10 @@ export default function Home() {
               <span>Year 1 goal</span>
               <strong>$1,000,000</strong>
               <small>Staff couples, campus ministry, pop-up services, and regional outreach.</small>
+            </div>
+            <div className="hero-location-card" aria-hidden="true">
+              <span>Launch corridor</span>
+              <strong>Berkeley → Bay</strong>
             </div>
           </div>
         </div>
@@ -197,11 +210,13 @@ export default function Home() {
             <p className="campaign-eyebrow">Fundraising momentum</p>
             <h2>Year 1 Goal: $1,000,000</h2>
             <p>Fuel the first year of church planting, campus ministry, staff couples, pop-up services, and regional outreach.</p>
+            <div className="recurring-callout"><strong>Monthly partners create predictable launch momentum.</strong><span>Recurring gifts help the team plan staffing, campus rhythms, pop-up services, and follow-up before launch day.</span></div>
             <CampaignButton href="/give" eventName="give_monthly_click">Give Monthly</CampaignButton>
           </div>
           <div className="progress-card">
             <div className="progress-meta"><span>$180K placeholder committed</span><strong>18%</strong></div>
             <div className="progress-bar" aria-label="Placeholder fundraising progress"><span /></div>
+            <div className="progress-labels"><span>Committed</span><span>$1M Year 1 Goal</span></div>
             <div className="funding-stats">
               {fundingStats.map((stat) => <div key={stat.label}><span>{stat.label}</span><strong>{stat.value}</strong></div>)}
             </div>
@@ -234,7 +249,7 @@ export default function Home() {
           <div className="why-grid">
             {whyCards.map((card) => {
               const Icon = card.icon;
-              return <article key={card.title}><Icon size={22} aria-hidden="true" /><h3>{card.title}</h3><p>{card.body}</p></article>;
+              return <article key={card.title}><div className="why-card-top"><Icon size={22} aria-hidden="true" /><strong>{card.metric}</strong></div><h3>{card.title}</h3><p>{card.body}</p></article>;
             })}
           </div>
         </div>
@@ -266,9 +281,10 @@ export default function Home() {
             <p className="campaign-eyebrow">Expansion roadmap</p>
             <h2>Berkeley first. The Bay next.</h2>
             <p>Use existing 3D Bay Area flyover asset here. This placeholder is structured for a future video, map, or WebGL flyover without changing the section copy.</p>
+            <div className="roadmap-proof"><span>6-phase expansion</span><span>Campus + church model</span><span>Bay-wide replication</span></div>
           </div>
           <div className="flyover-card">
-            <div className="bay-map-placeholder"><Mountain size={42} aria-hidden="true" /><span>3D Bay Area flyover asset</span></div>
+            <div className="bay-map-placeholder"><div className="bay-route-line" aria-hidden="true" />{regions.slice(0, 5).map((region, index) => <i key={region} style={{ '--x': `${16 + index * 17}%`, '--y': `${62 - (index % 2) * 24}%` }}>{region}</i>)}<Mountain size={42} aria-hidden="true" /><span>3D Bay Area flyover asset</span></div>
             <div className="phase-list">
               {roadmapPhases.map(([phase, place, body]) => <article key={phase}><span>{phase}</span><strong>{place}</strong><p>{body}</p></article>)}
             </div>
@@ -283,7 +299,7 @@ export default function Home() {
             <h2>Find your place in the story.</h2>
           </div>
           <div className="pathway-grid-v2">
-            {pathways.map((pathway) => <article key={pathway.title}><h3>{pathway.title}</h3><p>{pathway.body}</p><a href={pathway.href} onClick={() => trackConversion('pathway_click', { pathway: pathway.title })}>{pathway.cta}<ArrowRight size={15} /></a></article>)}
+            {pathways.map((pathway, index) => <article key={pathway.title}><span className="pathway-kicker">{String(index + 1).padStart(2, '0')} / {pathway.label}</span><h3>{pathway.title}</h3><p>{pathway.body}</p><a href={pathway.href} onClick={() => trackConversion('pathway_click', { pathway: pathway.title })}>{pathway.cta}<ArrowRight size={15} /></a></article>)}
           </div>
         </div>
       </section>
@@ -294,6 +310,7 @@ export default function Home() {
             <p className="campaign-eyebrow">Give to plant the Bay</p>
             <h2>Give to plant the Bay.</h2>
             <p>Your gift helps fund campus ministry, local church planting, staff couples, pop-up services, and regional outreach.</p>
+            <div className="giving-focus"><strong>Most useful next step:</strong><span>choose a monthly gift so the launch team can plan with confidence.</span></div>
             <div className="trust-notes"><span><ShieldCheck size={16} /> Tax-deductible giving</span><span><Banknote size={16} /> Card / ACH / major gift options</span><span><CalendarDays size={16} /> Automated receipts</span></div>
             <CampaignButton href="/give" eventName="give_now_click">Give Now</CampaignButton>
           </div>
@@ -301,6 +318,7 @@ export default function Home() {
             <span>Become a monthly partner</span>
             <div className="tier-grid-v2">{givingTiers.map((tier) => <button type="button" key={tier.amount} onClick={() => trackConversion('giving_tier_click', { tier: tier.amount })}><strong>{tier.amount}</strong><small>{tier.label}</small></button>)}</div>
             <p>General initiative or Planting the Bay fund. Final donation integration placeholder ready for your giving platform.</p>
+            <div className="giving-assurance"><span>2–3 tap mobile path</span><span>Receipts automated</span><span>Major gifts welcomed</span></div>
           </div>
         </div>
       </section>
@@ -349,6 +367,7 @@ export default function Home() {
           <div>
             <strong>Planting the Bay</strong>
             <p>Berkeley first. Bay Area movement. Campus ministry and local church planting for the next generation.</p>
+            <div className="footer-signal"><span>Launching September 1</span><span>Berkeley / SF Bay Fellowship</span></div>
             <div className="footer-actions"><CampaignButton href="/give" eventName="footer_give_click">Give</CampaignButton><CampaignButton href="/get-involved" variant="secondary" eventName="footer_get_involved_click">Get Involved</CampaignButton></div>
           </div>
           <nav aria-label="Footer navigation">

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import config from '../../../sanity.config';
+import config from './studioConfig';
 
 type StudioComponent = React.ComponentType<{ config: any }>;
 
