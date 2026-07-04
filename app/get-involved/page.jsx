@@ -39,7 +39,7 @@ const pathways = [
 
 export default function Page() {
   return (
-    <main className="ptb-page sub-page">
+    <main id="main-content" className="ptb-page sub-page">
       <SiteHeader />
       <section className="sub-hero section-reveal is-visible">
         <div className="sub-hero-glow" aria-hidden="true" />

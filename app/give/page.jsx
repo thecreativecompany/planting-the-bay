@@ -24,14 +24,14 @@ const giftUses = [
 
 export default function Page() {
   return (
-    <main className="ptb-page sub-page">
+    <main id="main-content" className="ptb-page sub-page">
       <SiteHeader />
       <section className="sub-hero section-reveal is-visible">
         <div className="sub-hero-glow" aria-hidden="true" />
         <p className="section-eyebrow">Give</p>
-        <h1>Help fund the first three years.</h1>
+        <h1>Give to plant the Bay.</h1>
         <p>
-          Bay Builders is the monthly partner pathway for people helping fund the first three years of church planting and campus ministry across the Bay.
+          Become a monthly partner and help fuel campus ministry, local church planting, staff couples, pop-up services, and regional outreach.
         </p>
         <div className="sub-actions">
           <a href="#giving-interest" className="btn btn-dark">Start giving</a>
@@ -44,7 +44,7 @@ export default function Page() {
           <div>
             <p className="section-eyebrow">Impact tiers</p>
             <h2>Bay Builders</h2>
-            <p>Recurring giving is emphasized, with one-time, DAF, stock, and major gift conversations supported as next steps.</p>
+            <p>Recurring giving creates reliable momentum, while one-time, DAF, stock, and major gift conversations remain simple next steps.</p>
           </div>
           <div className="tier-grid give-tier-grid">
             {impactTiers.map(([amount, label]) => (
@@ -84,7 +84,7 @@ export default function Page() {
               <span>DAF</span>
               <span>Stock</span>
             </div>
-            <p>Connect this section to the final giving provider for recurring billing, fund designation, automated receipts, and PCI-compliant checkout.</p>
+            <p>The giving flow is structured for recurring billing, fund designation, automated receipts, and a simple mobile checkout handoff.</p>
             <a className="btn btn-dark giving-widget-cta" href="#giving-interest">Continue to giving interest</a>
           </div>
         </div>

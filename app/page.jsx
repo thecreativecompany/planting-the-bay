@@ -351,6 +351,7 @@ export default function Home() {
           </div>
           <div className="flyover-card">
             <div className="bay-map-placeholder" aria-label="Animated Bay Area expansion map from Berkeley across the region"><div className="bay-route-line" aria-hidden="true" />{regions.slice(0, 5).map((region, index) => <i key={region} style={{ '--x': `${16 + index * 17}%`, '--y': `${62 - (index % 2) * 24}%`, '--delay': `${index * 120}ms` }}>{region}</i>)}<Mountain size={42} aria-hidden="true" /><span>Bay Area expansion flyover</span></div>
+            <p className="flyover-note">Use existing 3D Bay Area flyover asset here when final media is approved.</p>
             <div className="phase-list">
               {roadmapPhases.map(([phase, place, body]) => <article key={phase}><span>{phase}</span><strong>{place}</strong><p>{body}</p></article>)}
             </div>

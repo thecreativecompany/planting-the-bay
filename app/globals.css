@@ -1302,6 +1302,10 @@ body.ptb-motion-ready {
   line-height: 1.45;
 }
 
+.giving-widget .btn-dark {
+  color: var(--cream);
+}
+
 .email-form {
   display: flex;
   width: min(520px, 100%);
@@ -3996,6 +4000,18 @@ textarea:focus {
 }
 
 .flyover-card { border-radius: 1.8rem; }
+
+.flyover-note {
+  margin: 0;
+  padding: .85rem 1rem;
+  border-inline: 1px solid rgba(33,72,45,.12);
+  background: rgba(255,250,240,.72);
+  color: color-mix(in srgb, var(--campaign-green) 82%, var(--campaign-muted));
+  font-size: .68rem;
+  font-weight: 950;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
 
 .bay-map-placeholder {
   position: relative;

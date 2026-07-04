@@ -22,6 +22,20 @@ export const metadata = {
     description: 'Planting first in Berkeley, then expanding across the Bay.',
     type: 'website',
     siteName: 'Planting the Bay',
+    images: [
+      {
+        url: '/og/planting-the-bay.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Planting the Bay — Berkeley First. Bay-wide Next.',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Planting the Bay',
+    description: 'Planting first in Berkeley, then expanding across the Bay.',
+    images: ['/og/planting-the-bay.jpg'],
   },
 };
 
