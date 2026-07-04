@@ -44,6 +44,11 @@ export default function SiteHeader() {
 
   const isActive = (href) => pathname === href || (pathname === '/' && href === '/#home');
   const closeMenu = () => setMenuOpen(false);
+  const track = (eventName) => {
+    if (typeof window === 'undefined') return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName });
+  };
 
   return (
     <>
@@ -94,6 +99,10 @@ export default function SiteHeader() {
           ))}
         </nav>
       </header>
+      <div className="mobile-cta-bar" aria-label="Mobile quick actions">
+        <a href="/give" onClick={() => track('mobile_give_click')}>Give</a>
+        <a href="/get-involved" onClick={() => track('mobile_get_involved_click')}>Get Involved</a>
+      </div>
     </>
   );
 }
