@@ -6364,3 +6364,343 @@ body:has(.give-page)::after {
     grid-template-columns: 1fr;
   }
 }
+
+/* === Aura QA polish: Get Involved page, global grid restraint, and supporter form rhythm === */
+body:has(.get-involved-page) .ptb-ambient-grid {
+  opacity: 0.14;
+}
+
+.get-involved-page {
+  --sub-container: min(100% - clamp(2rem, 6vw, 5rem), var(--max));
+  overflow-x: clip;
+}
+
+.get-involved-page::before {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  background-image:
+    linear-gradient(90deg, rgba(11, 13, 10, 0.032) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(11, 13, 10, 0.032) 1px, transparent 1px);
+  background-size: clamp(92px, 9vw, 132px) clamp(92px, 9vw, 132px);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.72), transparent 76%);
+}
+
+.get-involved-page .sub-hero {
+  display: grid;
+  align-content: center;
+  width: var(--sub-container);
+  min-height: clamp(430px, 58vh, 620px);
+  padding: clamp(7.25rem, 12vw, 10.5rem) 0 clamp(2.75rem, 6vw, 4.75rem);
+  isolation: isolate;
+}
+
+.get-involved-page .sub-hero h1 {
+  max-width: 14ch;
+  font-size: clamp(2.75rem, 6.4vw, 5.55rem);
+  font-weight: 620;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+.get-involved-page .sub-hero > p:not(.section-eyebrow) {
+  max-width: 660px;
+  color: color-mix(in srgb, var(--muted) 92%, var(--ink));
+  font-size: clamp(1rem, 1.22vw, 1.15rem);
+  font-weight: 430;
+  line-height: 1.68;
+  letter-spacing: -0.006em;
+}
+
+.get-involved-page .sub-actions {
+  flex-wrap: wrap;
+  gap: 0.78rem;
+  margin-top: clamp(1.2rem, 2.4vw, 1.8rem);
+}
+
+.get-involved-page .sub-content {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1.25rem, 4vw, 2.5rem) var(--pad) clamp(3rem, 7vw, 5.5rem);
+}
+
+.get-involved-page .sub-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: var(--sub-container);
+  gap: clamp(0.85rem, 1.55vw, 1.15rem);
+  margin: 0 auto;
+  border: 0;
+  background: transparent;
+}
+
+.get-involved-page .sub-card {
+  min-width: 0;
+  min-height: clamp(250px, 24vw, 310px);
+  align-content: start;
+  gap: clamp(0.8rem, 1.5vw, 1.1rem);
+  padding: clamp(1.05rem, 1.85vw, 1.45rem);
+  border: 1px solid rgba(16, 17, 13, 0.105);
+  border-radius: clamp(1rem, 1.8vw, 1.35rem);
+  background:
+    linear-gradient(145deg, rgba(255, 250, 240, 0.92), rgba(255,255,255,0.62)),
+    color-mix(in srgb, var(--paper) 86%, white);
+  box-shadow: 0 14px 42px rgba(16, 17, 13, 0.052);
+  transform: none;
+}
+
+.get-involved-page .sub-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(33, 72, 45, 0.18);
+  background: var(--cream);
+  box-shadow: 0 20px 52px rgba(16, 17, 13, 0.075);
+}
+
+.get-involved-page .sub-card span {
+  color: var(--green);
+  font-size: 0.66rem;
+  font-weight: 620;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+}
+
+.get-involved-page .sub-card h2 {
+  max-width: 11ch;
+  font-size: clamp(1.28rem, 1.72vw, 1.85rem);
+  font-weight: 620;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+.get-involved-page .sub-card p {
+  max-width: 34rem;
+  color: color-mix(in srgb, var(--muted) 92%, var(--ink));
+  font-size: clamp(0.92rem, 0.98vw, 1rem);
+  font-weight: 430;
+  line-height: 1.58;
+}
+
+.get-involved-page .sub-card a {
+  align-self: end;
+  display: inline-flex;
+  min-height: 2.7rem;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  padding: 0.72rem 0.92rem;
+  border: 1px solid rgba(16, 17, 13, 0.13);
+  border-radius: 999px;
+  color: var(--ink);
+  background: rgba(255, 250, 240, 0.72);
+  font-size: 0.68rem;
+  font-weight: 620;
+  letter-spacing: 0.09em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.get-involved-page .sub-card a:hover,
+.get-involved-page .sub-card a:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--green);
+  background: var(--green);
+  color: var(--cream);
+}
+
+.get-involved-page .form-page-section {
+  position: relative;
+  z-index: 1;
+  padding: clamp(2.75rem, 6vw, 5rem) var(--pad) clamp(5rem, 8vw, 7rem);
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--paper) 90%, white) 16%);
+}
+
+.get-involved-page .form-page-section .ptb-form {
+  width: min(980px, 100% - clamp(1.35rem, 5vw, 4rem));
+  margin-inline: auto;
+  gap: clamp(0.72rem, 1.25vw, 0.95rem);
+  padding: clamp(0.72rem, 1.45vw, 1rem);
+  border: 1px solid rgba(16, 17, 13, 0.105);
+  border-radius: clamp(1.25rem, 2.6vw, 2rem);
+  background: rgba(255, 250, 240, 0.56);
+  box-shadow: 0 22px 70px rgba(16, 17, 13, 0.068);
+}
+
+.get-involved-page .form-page-section .form-heading,
+.get-involved-page .form-page-section .ptb-form label,
+.get-involved-page .form-page-section .ptb-form button {
+  border-radius: clamp(0.9rem, 1.6vw, 1.2rem);
+  background: rgba(255, 250, 240, 0.9);
+}
+
+.get-involved-page .form-page-section .form-heading {
+  display: grid;
+  gap: 0.7rem;
+  padding: clamp(1rem, 2vw, 1.45rem);
+}
+
+.get-involved-page .form-page-section .form-heading h3 {
+  max-width: 15ch;
+  font-size: clamp(1.75rem, 3.15vw, 3.05rem);
+  font-weight: 620;
+  letter-spacing: -0.034em;
+  line-height: 1.04;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+.get-involved-page .form-page-section .form-heading p:not(.section-eyebrow) {
+  max-width: 640px;
+  margin: 0;
+  font-weight: 430;
+  line-height: 1.6;
+}
+
+.get-involved-page .form-page-section .ptb-form label {
+  gap: 0.62rem;
+  padding: clamp(1rem, 1.7vw, 1.25rem);
+  font-weight: 560;
+  letter-spacing: 0.1em;
+}
+
+.get-involved-page .form-page-section .ptb-form input,
+.get-involved-page .form-page-section .ptb-form select,
+.get-involved-page .form-page-section .ptb-form textarea {
+  border-radius: 0.85rem;
+  background: var(--cream);
+  font-weight: 430;
+}
+
+.get-involved-page .form-page-section .ptb-form button {
+  min-height: 3.3rem;
+  padding: 1rem 1.2rem;
+  color: var(--ink);
+  font-weight: 620;
+}
+
+.email-form {
+  display: grid;
+  gap: 0.7rem;
+  border: 0;
+  background: transparent;
+}
+
+.email-form-label {
+  color: color-mix(in srgb, var(--muted) 84%, var(--ink));
+  font-size: 0.68rem;
+  font-weight: 760;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.email-form-row {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.42rem;
+  border: 1px solid rgba(16, 17, 13, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.88);
+  box-shadow: 0 12px 34px rgba(16, 17, 13, 0.055);
+}
+
+.email-form-row input {
+  min-height: 3rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  padding: 0 0.85rem;
+}
+
+.email-form-row button {
+  min-height: 3rem;
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  white-space: normal;
+  text-align: center;
+}
+
+.form-status {
+  margin: 0;
+  color: color-mix(in srgb, var(--muted) 88%, var(--ink));
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.form-status.is-success {
+  color: var(--green);
+}
+
+.form-status.is-error {
+  color: #9f2f24;
+}
+
+@media (max-width: 1120px) {
+  .get-involved-page .sub-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .get-involved-page {
+    --sub-container: min(100% - 1.35rem, var(--max));
+  }
+
+  .get-involved-page .sub-hero {
+    min-height: auto;
+    padding-top: clamp(6.9rem, 22vw, 8.4rem);
+    padding-bottom: clamp(2.35rem, 10vw, 3.25rem);
+  }
+
+  .get-involved-page .sub-hero h1 {
+    max-width: 12ch;
+    font-size: clamp(2.45rem, 12vw, 3.85rem);
+  }
+
+  .get-involved-page .sub-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .get-involved-page .sub-content {
+    padding-inline: 0;
+  }
+
+  .get-involved-page .sub-grid,
+  .get-involved-page .form-page-section .ptb-form {
+    grid-template-columns: 1fr;
+  }
+
+  .get-involved-page .sub-card {
+    min-height: 218px;
+  }
+
+  .get-involved-page .form-page-section {
+    padding-inline: 0;
+  }
+
+  .get-involved-page .form-page-section .ptb-form {
+    width: var(--sub-container);
+    padding: 0.62rem;
+    border-radius: 1.15rem;
+  }
+
+  .email-form-row {
+    display: grid;
+    border-radius: 1.25rem;
+  }
+
+  .email-form-row input,
+  .email-form-row button {
+    width: 100%;
+  }
+}
