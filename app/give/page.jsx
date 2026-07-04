@@ -24,7 +24,7 @@ const giftUses = [
 
 export default function Page() {
   return (
-    <main id="main-content" className="ptb-page sub-page">
+    <main id="main-content" className="ptb-page sub-page give-page">
       <SiteHeader />
       <section className="sub-hero section-reveal is-visible">
         <div className="sub-hero-glow" aria-hidden="true" />
