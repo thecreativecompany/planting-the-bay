@@ -58,7 +58,7 @@ export default function Page() {
         </div>
 
         <p className="budget-note">
-          Replace placeholder survey/data slots with the approved research, map assets, and infographic numbers before final launch.
+          Research, map assets, and infographic numbers are structured for final approved data before public launch.
         </p>
       </section>
     </main>

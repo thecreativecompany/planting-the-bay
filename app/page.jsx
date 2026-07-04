@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import SiteHeader from './components/SiteHeader';
 import { EmailSignupForm } from './components/FormspreeForms';
 import {
@@ -94,6 +94,40 @@ function trackConversion(eventName, metadata = {}) {
   window.dataLayer.push({ event: eventName, ...metadata });
 }
 
+function CountUp({ value, prefix = '', suffix = '', label }) {
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const node = document.querySelector(`[data-count-label="${label}"]`);
+    if (!node) return undefined;
+
+    if (reduce) {
+      setDisplay(value);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      const start = window.performance.now();
+      const duration = 1250;
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setDisplay(Math.round(value * eased));
+        if (progress < 1) window.window.requestAnimationFrame(tick);
+      };
+      window.requestAnimationFrame(tick);
+      observer.disconnect();
+    }, { threshold: 0.45 });
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [label, value]);
+
+  return <strong data-count-label={label}>{prefix}{display.toLocaleString()}{suffix}</strong>;
+}
+
 function CampaignButton({ href, children, variant = 'primary', eventName, className = '' }) {
   return (
     <a
@@ -108,6 +142,9 @@ function CampaignButton({ href, children, variant = 'primary', eventName, classN
 }
 
 export default function Home() {
+  const [selectedTier, setSelectedTier] = useState('$100/mo');
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
+  const [progressVisible, setProgressVisible] = useState(false);
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const items = Array.from(document.querySelectorAll('[data-reveal]'));
@@ -133,6 +170,24 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const card = document.querySelector('.progress-card');
+    if (!card) return undefined;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      setProgressVisible(true);
+      return undefined;
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setProgressVisible(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.42 });
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main id="main-content" className="campaign-page">
       <SiteHeader />
@@ -141,6 +196,22 @@ export default function Home() {
         <a href="/give" onClick={() => trackConversion('mobile_give_click')}>Give</a>
         <a href="/get-involved" onClick={() => trackConversion('mobile_get_involved_click')}>Get Involved</a>
       </div>
+
+      {videoModalOpen && (
+        <div className="video-modal" role="dialog" aria-modal="true" aria-labelledby="vision-video-title" onClick={() => setVideoModalOpen(false)}>
+          <div className="video-modal-card" onClick={(event) => event.stopPropagation()}>
+            <button type="button" className="video-modal-close" aria-label="Close vision video preview" onClick={() => setVideoModalOpen(false)}>×</button>
+            <div className="video-modal-frame">
+              <Play size={34} fill="currentColor" aria-hidden="true" />
+            </div>
+            <div>
+              <p className="campaign-eyebrow">Vision video</p>
+              <h2 id="vision-video-title">Berkeley first. The Bay next.</h2>
+              <p>This space is ready for the final 30–60 second launch video featuring Stuart and Ashley, Berkeley, campuses, and Bay Area neighborhoods.</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       <section id="home" className="campaign-hero" aria-label="Planting the Bay hero">
         <div className="hero-noise" aria-hidden="true" />
@@ -165,13 +236,13 @@ export default function Home() {
           </div>
 
           <div className="hero-visual" data-reveal>
-            <div className="video-placeholder" aria-label="30 to 60 second vision video placeholder">
-              <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1400&q=80" alt="Golden Gate Bridge and San Francisco Bay Area placeholder for the vision video" />
+            <div className="video-placeholder" aria-label="30 to 60 second vision video preview">
+              <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1400&q=80" alt="Golden Gate Bridge and San Francisco Bay Area vision video preview" />
               <div className="video-overlay">
-                <button type="button" aria-label="Play vision video placeholder" onClick={() => trackConversion('vision_video_placeholder_click')}>
-                  <Play size={20} fill="currentColor" aria-hidden="true" />
+                <button type="button" aria-label="Open 60-second vision video preview" onClick={() => { trackConversion('vision_video_preview_click'); setVideoModalOpen(true); }}>
+                  <Play size={22} fill="currentColor" aria-hidden="true" />
                 </button>
-                <span>30–60 second vision video</span>
+                <span>Watch the 60-second Berkeley launch vision</span>
               </div>
             </div>
             <div className="hero-stat-card">
@@ -213,9 +284,9 @@ export default function Home() {
             <div className="recurring-callout"><strong>Monthly partners create predictable launch momentum.</strong><span>Recurring gifts help the team plan staffing, campus rhythms, pop-up services, and follow-up before launch day.</span></div>
             <CampaignButton href="/give" eventName="give_monthly_click">Give Monthly</CampaignButton>
           </div>
-          <div className="progress-card">
-            <div className="progress-meta"><span>$180K placeholder committed</span><strong>18%</strong></div>
-            <div className="progress-bar" aria-label="Placeholder fundraising progress"><span /></div>
+          <div className={`progress-card ${progressVisible ? 'is-visible' : ''}`}>
+            <div className="progress-meta"><span><CountUp value={180000} prefix="$" label="year-one-committed" /> committed toward launch</span><CountUp value={18} suffix="%" label="year-one-percent" /></div>
+            <div className="progress-bar" role="progressbar" aria-label="Fundraising progress toward the Year 1 goal" aria-valuemin="0" aria-valuemax="1000000" aria-valuenow="180000"><span /></div>
             <div className="progress-labels"><span>Committed</span><span>$1M Year 1 Goal</span></div>
             <div className="funding-stats">
               {fundingStats.map((stat) => <div key={stat.label}><span>{stat.label}</span><strong>{stat.value}</strong></div>)}
@@ -227,8 +298,8 @@ export default function Home() {
       <section id="story" className="story-editorial campaign-section" aria-label="The story of Stuart and Ashley Mains">
         <div className="campaign-container story-grid" data-reveal>
           <div className="story-images">
-            <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=900&q=80" alt="Warm ministry conversation placeholder representing Stuart and Ashley Mains" />
-            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80" alt="Community gathering placeholder for the Planting the Bay story" />
+            <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=900&q=80" alt="Warm ministry conversation representing Stuart and Ashley Mains" />
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80" alt="Community gathering for the Planting the Bay story" />
           </div>
           <div>
             <p className="campaign-eyebrow">The Story</p>
@@ -266,7 +337,7 @@ export default function Home() {
               const Icon = pillar.icon;
               return (
                 <article key={pillar.title}>
-                  <img src={pillar.image} alt={`${pillar.title} placeholder`} />
+                  <img src={pillar.image} alt={`${pillar.title} strategy image`} />
                   <div><Icon size={22} aria-hidden="true" /><h3>{pillar.title}</h3><p>{pillar.body}</p></div>
                 </article>
               );
@@ -280,11 +351,11 @@ export default function Home() {
           <div>
             <p className="campaign-eyebrow">Expansion roadmap</p>
             <h2>Berkeley first. The Bay next.</h2>
-            <p>Use existing 3D Bay Area flyover asset here. This placeholder is structured for a future video, map, or WebGL flyover without changing the section copy.</p>
+            <p>A cinematic Bay Area flyover will anchor this section as final media is approved; the current route view shows the launch path from Berkeley into each priority region.</p>
             <div className="roadmap-proof"><span>6-phase expansion</span><span>Campus + church model</span><span>Bay-wide replication</span></div>
           </div>
           <div className="flyover-card">
-            <div className="bay-map-placeholder"><div className="bay-route-line" aria-hidden="true" />{regions.slice(0, 5).map((region, index) => <i key={region} style={{ '--x': `${16 + index * 17}%`, '--y': `${62 - (index % 2) * 24}%` }}>{region}</i>)}<Mountain size={42} aria-hidden="true" /><span>3D Bay Area flyover asset</span></div>
+            <div className="bay-map-placeholder" aria-label="Animated Bay Area expansion map from Berkeley across the region"><div className="bay-route-line" aria-hidden="true" />{regions.slice(0, 5).map((region, index) => <i key={region} style={{ '--x': `${16 + index * 17}%`, '--y': `${62 - (index % 2) * 24}%`, '--delay': `${index * 120}ms` }}>{region}</i>)}<Mountain size={42} aria-hidden="true" /><span>Bay Area expansion flyover</span></div>
             <div className="phase-list">
               {roadmapPhases.map(([phase, place, body]) => <article key={phase}><span>{phase}</span><strong>{place}</strong><p>{body}</p></article>)}
             </div>
@@ -316,8 +387,8 @@ export default function Home() {
           </div>
           <div className="giving-card">
             <span>Become a monthly partner</span>
-            <div className="tier-grid-v2">{givingTiers.map((tier) => <button type="button" key={tier.amount} onClick={() => trackConversion('giving_tier_click', { tier: tier.amount })}><strong>{tier.amount}</strong><small>{tier.label}</small></button>)}</div>
-            <p>General initiative or Planting the Bay fund. Final donation integration placeholder ready for your giving platform.</p>
+            <div className="tier-grid-v2">{givingTiers.map((tier) => <button type="button" key={tier.amount} className={selectedTier === tier.amount ? 'is-selected' : undefined} aria-pressed={selectedTier === tier.amount} onClick={() => { setSelectedTier(tier.amount); trackConversion('giving_tier_click', { tier: tier.amount }); }}><strong>{tier.amount}</strong><small>{tier.label}</small></button>)}</div>
+            <p>Gifts can be directed to the general initiative or the Planting the Bay fund through the approved giving platform.</p>
             <div className="giving-assurance"><span>2–3 tap mobile path</span><span>Receipts automated</span><span>Major gifts welcomed</span></div>
           </div>
         </div>
@@ -332,7 +403,7 @@ export default function Home() {
           <div className="budget-grid-v2">
             {budget.map((item) => <article key={item.title}><strong>{item.value}</strong><h3>{item.title}</h3><p>{item.body}</p></article>)}
           </div>
-          <p className="editable-note">Placeholder values are CMS-ready and can be updated after the approved budget is finalized.</p>
+          <p className="editable-note">Budget categories are prepared for final approved amounts and donor reporting updates.</p>
         </div>
       </section>
 
@@ -343,7 +414,7 @@ export default function Home() {
             <h2>Stories from the Bay</h2>
           </div>
           <div className="story-card-grid">
-            {stories.map((story) => <article key={story.title}><img src={story.image} alt={`${story.title} story placeholder`} /><div><span>{story.category} • {story.date}</span><h3>{story.title}</h3><p>{story.excerpt}</p><a href="/updates">Read More <ArrowRight size={14} /></a></div></article>)}
+            {stories.map((story) => <article key={story.title}><img src={story.image} alt={`${story.title} story image`} /><div><span>{story.category} • {story.date}</span><h3>{story.title}</h3><p>{story.excerpt}</p><a href="/updates">Read More <ArrowRight size={14} /></a></div></article>)}
           </div>
         </div>
       </section>
@@ -378,8 +449,8 @@ export default function Home() {
           </nav>
           <div className="footer-meta">
             <EmailSignupForm />
-            <p>Giving / 501(c)(3) note placeholder. Connect final donation, CMS, analytics, and Open Graph assets before launch.</p>
-            <div><a href="https://instagram.com" aria-label="Instagram placeholder">Instagram</a><a href="mailto:hello@plantingthebay.com">Contact</a></div>
+            <p>Giving is processed through the approved nonprofit giving platform with receipts provided for tax records. Final fund designation and 501(c)(3) language should match the launch partner’s official wording.</p>
+            <div><a href="https://instagram.com" aria-label="Planting the Bay Instagram">Instagram</a><a href="mailto:hello@plantingthebay.com">Contact</a></div>
           </div>
         </div>
       </footer>

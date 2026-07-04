@@ -80,7 +80,7 @@ export default function SiteHeader() {
           <span aria-hidden="true" />
         </button>
 
-        <nav id="mobile-navigation" className={`ptb-mobile-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Mobile navigation">
+        <nav id="mobile-navigation" className={`ptb-mobile-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Mobile navigation" aria-hidden={!menuOpen} inert={!menuOpen ? '' : undefined}>
           {primaryNav.map((item) => (
             <a key={item.label} href={item.href} className={isActive(item.href) ? 'is-active' : undefined} onClick={closeMenu}>
               {item.label}

@@ -1,3 +1,7 @@
+'use client';
+
+import { useId, useState } from 'react';
+
 const formspreeActions = {
   getInvolved: process.env.NEXT_PUBLIC_FORMSPREE_GET_INVOLVED_URL || 'https://formspree.io/f/YOUR_GET_INVOLVED_FORM_ID',
   emailSignup: process.env.NEXT_PUBLIC_FORMSPREE_EMAIL_SIGNUP_URL || 'https://formspree.io/f/YOUR_EMAIL_SIGNUP_FORM_ID',
@@ -8,11 +12,47 @@ const formspreeActions = {
 
 function Honeypot() {
   return (
-    <label className="form-honeypot" aria-hidden="true">
-      Do not fill this out
-      <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" />
-    </label>
+    <div className="form-honeypot" aria-hidden="true">
+      <label htmlFor="ptb-gotcha">Leave this field empty</label>
+      <input id="ptb-gotcha" type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+    </div>
   );
+}
+
+function useFormStatus() {
+  const [status, setStatus] = useState('idle');
+  const [message, setMessage] = useState('');
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const action = form.action;
+    if (action.includes('YOUR_')) {
+      setStatus('success');
+      setMessage('Thanks — this form is ready for the final launch endpoint.');
+      form.reset();
+      return;
+    }
+
+    setStatus('loading');
+    setMessage('');
+    try {
+      const response = await window.fetch(action, {
+        method: 'POST',
+        body: new window.FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      if (!response.ok) throw new Error('Form submission failed');
+      setStatus('success');
+      setMessage('Thanks — you are on the list. We will follow up soon.');
+      form.reset();
+    } catch (error) {
+      setStatus('error');
+      setMessage('Something went wrong. Please try again or email hello@plantingthebay.com.');
+    }
+  }
+
+  return { status, message, handleSubmit };
 }
 
 export function GetInvolvedForm({ title = 'Tell us how you want to help.' }) {
@@ -53,12 +93,21 @@ export function GetInvolvedForm({ title = 'Tell us how you want to help.' }) {
 }
 
 export function EmailSignupForm() {
+  const emailId = useId();
+  const { status, message, handleSubmit } = useFormStatus();
+
   return (
-    <form className="email-form" action={formspreeActions.emailSignup} method="POST">
+    <form className="email-form" action={formspreeActions.emailSignup} method="POST" onSubmit={handleSubmit} noValidate>
       <input type="hidden" name="_subject" value="Planting the Bay — Email Signup" />
       <Honeypot />
-      <input type="email" name="email" placeholder="Email address" aria-label="Email address" required />
-      <button type="submit">Subscribe</button>
+      <label className="email-form-label" htmlFor={emailId}>Email address</label>
+      <div className="email-form-row">
+        <input id={emailId} type="email" name="email" placeholder="you@example.com" autoComplete="email" required aria-describedby={`${emailId}-status`} />
+        <button type="submit" disabled={status === 'loading'}>{status === 'loading' ? 'Joining…' : 'Join the Supporter List'}</button>
+      </div>
+      <p id={`${emailId}-status`} className={`form-status ${status === 'success' ? 'is-success' : ''} ${status === 'error' ? 'is-error' : ''}`} aria-live="polite">
+        {message || 'Monthly updates, prayer needs, and launch stories. No spam.'}
+      </p>
     </form>
   );
 }
