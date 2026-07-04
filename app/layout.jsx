@@ -1,5 +1,12 @@
+import localFont from 'next/font/local';
 import './globals.css';
 import GsapMotion from './components/GsapMotion';
+
+const geist = localFont({
+  src: '../public/fonts/geist/GeistVF.ttf',
+  variable: '--font-geist',
+  display: 'swap',
+});
 
 export const metadata = {
   metadataBase: new globalThis.URL('https://plantingthebay.com'),
@@ -26,7 +33,7 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${geist.variable} font-sans`}>
         <GsapMotion />
         {children}
       </body>
