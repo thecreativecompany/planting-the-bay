@@ -47,7 +47,7 @@ const whyCards = [
 
 const pillars = [
   { title: 'Social Media Outreach', body: 'Using digital reach to find, engage, and invite people across the Bay.', icon: Megaphone, image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80' },
-  { title: 'Pop-Up Services', body: 'Regional gatherings that create momentum, community, and accessible next steps.', icon: Church, image: 'https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=900&q=80' },
+  { title: 'Pop-Up Services', body: 'Regional gatherings that create momentum, community, and accessible next steps.', icon: Church, image: '/pop-up-services-placeholder.svg' },
   { title: 'Campus Ministry Growth', body: 'Building student-centered ministry on Bay Area campuses, starting in Berkeley.', icon: GraduationCap, image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80' },
 ];
 
@@ -186,6 +186,48 @@ export default function Home() {
     }, { threshold: 0.42 });
     observer.observe(card);
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const heroVisual = document.querySelector('.hero-visual');
+    if (!heroVisual) return undefined;
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      heroVisual.style.setProperty('--hero-card-y', '0px');
+      heroVisual.style.setProperty('--hero-bg-y', '0px');
+      heroVisual.style.setProperty('--hero-card-rotate', '0deg');
+      return undefined;
+    }
+
+    let frame = 0;
+    const updateParallax = () => {
+      frame = 0;
+      const rect = heroVisual.getBoundingClientRect();
+      const viewport = window.innerHeight || 1;
+      const midpoint = rect.top + rect.height / 2;
+      const raw = (viewport / 2 - midpoint) / (viewport + rect.height);
+      const progress = Math.max(-1, Math.min(1, raw));
+
+      heroVisual.style.setProperty('--hero-card-y', `${progress * 18}px`);
+      heroVisual.style.setProperty('--hero-bg-y', `${progress * -14}px`);
+      heroVisual.style.setProperty('--hero-card-rotate', `${progress * 0.45}deg`);
+    };
+
+    const requestParallax = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(updateParallax);
+    };
+
+    updateParallax();
+    window.addEventListener('scroll', requestParallax, { passive: true });
+    window.addEventListener('resize', requestParallax);
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', requestParallax);
+      window.removeEventListener('resize', requestParallax);
+    };
   }, []);
 
   return (
@@ -388,6 +430,10 @@ export default function Home() {
             <div className="giving-assurance"><span>2–3 tap mobile path</span><span>Receipts automated</span><span>Major gifts welcomed</span></div>
           </div>
         </div>
+        <div className="campaign-container donor-transparency-note" data-reveal>
+          <span>Donor transparency</span>
+          <p>Giving is processed through the approved nonprofit giving platform with receipts provided for tax records. Final fund designation and 501(c)(3) language should match the launch partner’s official wording.</p>
+        </div>
       </section>
 
       <section className="budget-breakdown campaign-section" aria-label="Where your gift goes">
@@ -445,7 +491,6 @@ export default function Home() {
           </nav>
           <div className="footer-meta">
             <EmailSignupForm />
-            <p>Giving is processed through the approved nonprofit giving platform with receipts provided for tax records. Final fund designation and 501(c)(3) language should match the launch partner’s official wording.</p>
             <div><a href="https://instagram.com" aria-label="Planting the Bay Instagram">Instagram</a><a href="mailto:hello@plantingthebay.com">Contact</a></div>
           </div>
         </div>

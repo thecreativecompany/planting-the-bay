@@ -23,15 +23,7 @@ const secondaryNav = [
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 18);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.classList.toggle('ptb-menu-open', menuOpen);
@@ -53,7 +45,7 @@ export default function SiteHeader() {
   return (
     <>
       <a href="#main-content" className="skip-link">Skip to main content</a>
-      <header className={`ptb-header ${scrolled || menuOpen ? 'is-scrolled' : ''}`}>
+      <header className="ptb-header">
         <a href="/#home" className="ptb-logo" aria-label="Planting the Bay home" onClick={closeMenu}>
           <i aria-hidden="true" />
           <strong>Planting</strong>
