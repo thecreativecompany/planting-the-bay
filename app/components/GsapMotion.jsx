@@ -208,6 +208,35 @@ export default function GsapMotion() {
         }
       });
 
+      gsap.utils.toArray('.proof-card strong, .momentum-card h2, .hero-orbit-card strong, .tier-card strong').forEach((el) => {
+        gsap.fromTo(
+          el,
+          { backgroundPosition: '100% 50%', filter: 'brightness(0.92)' },
+          {
+            backgroundPosition: '0% 50%',
+            filter: 'brightness(1.12)',
+            duration: 1.15,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 82%', once: true },
+          }
+        );
+      });
+
+      gsap.utils.toArray('.section-heading, .case-inner, .timeline-intro, .signal-copy').forEach((el) => {
+        const rule = document.createElement('span');
+        rule.className = 'luxury-heading-rule';
+        rule.setAttribute('aria-hidden', 'true');
+        el.appendChild(rule);
+        cleanupFns.push(() => rule.remove());
+        gsap.fromTo(rule, { scaleX: 0 }, {
+          scaleX: 1,
+          transformOrigin: 'left center',
+          duration: 1.05,
+          ease: 'expo.out',
+          scrollTrigger: { trigger: el, start: 'top 78%', once: true },
+        });
+      });
+
       gsap.from('.footer-brand, .footer-column, .footer-bottom', {
         scrollTrigger: { trigger: '.ptb-footer', start: 'top 82%', once: true },
         y: 26,
@@ -228,7 +257,7 @@ export default function GsapMotion() {
       window.addEventListener('pointermove', moveCursor, { passive: true });
       cleanupFns.push(() => window.removeEventListener('pointermove', moveCursor));
 
-      const magneticItems = gsap.utils.toArray('.btn, .sticky-give, .pathway-card, .funnel-card, .stat-card, .tier-card, .sub-card, [data-gsap="interactive-box"]');
+      const magneticItems = gsap.utils.toArray('.btn, .sticky-give, .pathway-card, .funnel-card, .stat-card, .proof-card, .budget-card, .partner-card, .event-card, .field-note-card, .tier-card, .sub-card, .why-feature-card, .timeline-card, .signal-panel, [data-gsap="interactive-box"]');
       magneticItems.forEach((el) => {
         const onEnter = () => cursor.classList.add('is-active');
         const onMove = (event) => {
