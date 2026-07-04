@@ -490,7 +490,6 @@ export default function Home() {
             })}
           </nav>
           <div className="footer-meta">
-            <EmailSignupForm />
             <div><a href="https://instagram.com" aria-label="Planting the Bay Instagram">Instagram</a><a href="mailto:hello@plantingthebay.com">Contact</a></div>
           </div>
         </div>
