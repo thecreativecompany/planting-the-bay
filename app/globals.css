@@ -4578,3 +4578,268 @@ textarea:focus {
   .phase-list article,
   .pillar-grid img { transition: none !important; transform: none !important; }
 }
+
+/* --- Geist typography refinement: calm, medium-weight production scale --- */
+:root {
+  --type-regular: 400;
+  --type-medium: 500;
+  --type-semibold: 560;
+  --type-title: 580;
+  --type-label: 540;
+  --type-tight: -0.018em;
+  --type-calm: -0.006em;
+  --type-label-spacing: 0.075em;
+}
+
+html,
+body,
+button,
+input,
+textarea,
+select,
+a {
+  font-family: var(--font-geist), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: var(--type-regular);
+  letter-spacing: var(--type-calm);
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b,
+button,
+.campaign-btn,
+.btn,
+.ptb-logo strong,
+.ptb-desktop-nav a,
+.ptb-mobile-nav a,
+.nav-give,
+.mobile-cta-bar a,
+.footer-grid-v2 nav a,
+.footer-meta a,
+.footer-column a,
+.sub-footer a,
+.email-form button,
+.email-form-label,
+.sub-card a,
+.pathway-grid-v2 a,
+.story-card-grid a,
+.email-card a,
+.giving-widget-cta,
+.give-trust-strip span,
+.tier-grid-v2 button.is-selected::after {
+  font-weight: var(--type-medium);
+}
+
+.campaign-page :where(p, li, small, input, textarea, select),
+.ptb-page :where(p, li, small, input, textarea, select) {
+  font-weight: var(--type-regular);
+  line-height: 1.62;
+  letter-spacing: 0;
+}
+
+.campaign-eyebrow,
+.section-eyebrow,
+.hero-kicker,
+.trust-tags span,
+.hero-stat-card span,
+.progress-meta span,
+.funding-stats span,
+.phase-list span,
+.giving-card > span,
+.stories-section article span,
+.region-route span,
+.roadmap-proof span,
+.giving-assurance span,
+.footer-signal span,
+.pathway-kicker,
+.flyover-note,
+.bay-map-placeholder,
+.bay-map-placeholder i,
+.progress-labels,
+.roadmap-stop span,
+.pathway-card span,
+.tier-card span,
+.stat-card span,
+.sub-card span,
+.meter-topline,
+.meter-labels {
+  font-weight: var(--type-label);
+  letter-spacing: var(--type-label-spacing);
+}
+
+.section-header h2,
+.campaign-hero h1,
+.campaign-hero h2,
+.fundraising-grid h2,
+.story-editorial h2,
+.roadmap-grid h2,
+.giving-grid h2,
+.email-grid h2,
+.footer-grid-v2 strong,
+.roadmap-content h2,
+.case-inner h2,
+.section-heading h2,
+.story-copy h2,
+.give-card-inner h2,
+.email-inner h2,
+.momentum-card h2,
+.sub-hero h1,
+.hero-title,
+.sub-hero h1,
+.sub-card h2,
+.pathway-card h3,
+.why-grid h3,
+.pillar-grid h3,
+.pathway-grid-v2 h3,
+.budget-grid-v2 h3,
+.story-card-grid h3,
+.funnel-card h3 {
+  font-weight: var(--type-title);
+  letter-spacing: var(--type-tight);
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.campaign-hero h1 {
+  font-size: clamp(3.25rem, 8.2vw, 7.65rem);
+  line-height: 0.98;
+  letter-spacing: -0.024em;
+}
+
+.campaign-hero h2 {
+  max-width: 760px;
+  font-size: clamp(1.45rem, 2.65vw, 2.85rem);
+  line-height: 1.08;
+  letter-spacing: -0.018em;
+}
+
+.section-header h2,
+.fundraising-grid h2,
+.story-editorial h2,
+.roadmap-grid h2,
+.giving-grid h2,
+.email-grid h2 {
+  font-size: clamp(2.15rem, 4.25vw, 4.7rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+}
+
+.footer-grid-v2 strong {
+  font-size: clamp(1.95rem, 3.6vw, 3.8rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+}
+
+.why-grid h3,
+.pillar-grid h3,
+.pathway-grid-v2 h3,
+.budget-grid-v2 h3,
+.story-card-grid h3,
+.pathway-card h3,
+.sub-card h2 {
+  font-size: clamp(1.18rem, 1.75vw, 1.82rem);
+  line-height: 1.12;
+  letter-spacing: -0.012em;
+}
+
+.hero-description,
+.fundraising-grid p,
+.story-grid p,
+.roadmap-grid p,
+.giving-grid p,
+.email-grid p,
+.section-header p,
+.hero-lede,
+.sub-hero > p:not(.section-eyebrow),
+.roadmap-content p:not(.section-eyebrow),
+.case-inner p:not(.section-eyebrow),
+.momentum-card p,
+.story-copy p:not(.section-eyebrow),
+.give-card-inner p,
+.email-inner p {
+  max-width: 42rem;
+  font-weight: var(--type-regular);
+  line-height: 1.68;
+  letter-spacing: 0;
+}
+
+.hero-description {
+  font-size: clamp(1rem, 1.28vw, 1.14rem);
+}
+
+.hero-stat-card strong,
+.progress-meta strong,
+.funding-stats strong,
+.tier-grid-v2 strong,
+.budget-grid-v2 strong,
+.why-card-top strong,
+.stat-card strong,
+.tier-card strong,
+.region-route strong,
+.roadmap-stop strong,
+.phase-list strong {
+  font-weight: var(--type-semibold);
+  letter-spacing: -0.022em;
+  line-height: 1.02;
+}
+
+.story-editorial blockquote {
+  font-weight: var(--type-medium);
+  line-height: 1.34;
+  letter-spacing: -0.01em;
+}
+
+.why-grid p,
+.pillar-grid p,
+.pathway-grid-v2 p,
+.budget-grid-v2 p,
+.story-card-grid p,
+.trust-notes span,
+.tier-grid-v2 small,
+.editable-note,
+.hero-stat-card small {
+  font-weight: var(--type-regular);
+  line-height: 1.58;
+  letter-spacing: 0;
+}
+
+@media (max-width: 780px) {
+  .campaign-hero h1 {
+    font-size: clamp(3rem, 14vw, 5.25rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .campaign-hero h2,
+  .section-header h2,
+  .fundraising-grid h2,
+  .story-editorial h2,
+  .roadmap-grid h2,
+  .giving-grid h2,
+  .email-grid h2 {
+    font-size: clamp(1.95rem, 8.6vw, 3.45rem);
+    line-height: 1.08;
+    letter-spacing: -0.018em;
+  }
+
+  .hero-description,
+  .fundraising-grid p,
+  .story-grid p,
+  .roadmap-grid p,
+  .giving-grid p,
+  .email-grid p {
+    max-width: 100%;
+    font-size: 1rem;
+    line-height: 1.66;
+  }
+}

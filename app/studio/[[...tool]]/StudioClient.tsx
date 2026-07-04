@@ -14,10 +14,10 @@ function StudioLoading() {
         placeItems: 'center',
         background: '#10110d',
         color: '#fffaf0',
-        fontFamily: 'system-ui, sans-serif',
-        letterSpacing: '0.08em',
+        fontFamily: 'var(--font-geist), system-ui, sans-serif',
+        letterSpacing: '0.06em',
         textTransform: 'uppercase',
-        fontWeight: 800,
+        fontWeight: 520,
       }}
     >
       Loading Sanity Studio…
