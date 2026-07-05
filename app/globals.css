@@ -1307,16 +1307,18 @@ body.ptb-motion-ready {
 }
 
 .email-form {
-  display: flex;
+  display: grid;
+  gap: 0.78rem;
   width: min(520px, 100%);
   margin: 1.4rem auto 0;
-  border: 1px solid rgba(255, 250, 240, 0.24);
-  background: var(--cream);
+  border: 0;
+  background: transparent;
 }
 
 .email-form input {
+  display: block;
+  width: 100%;
   min-width: 0;
-  flex: 1;
   padding: 1rem;
   outline: 0;
   color: var(--ink);
@@ -1324,12 +1326,18 @@ body.ptb-motion-ready {
 }
 
 .email-form button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
   padding: 0 1rem;
   background: var(--green);
   color: var(--cream);
   font-size: 0.72rem;
   font-weight: 950;
   letter-spacing: 0.14em;
+  text-align: center;
   text-transform: uppercase;
 }
 
@@ -7927,21 +7935,10 @@ body:has(.get-involved-page) .ptb-ambient-grid {
 }
 
 .email-card.email-card-supporter .email-form-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: stretch;
-  gap: 0.75rem;
-  width: 100%;
-  max-width: 100%;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  overflow: visible;
+  display: contents;
 }
 
-.email-card.email-card-supporter .email-form-row input {
+.email-card.email-card-supporter .email-form > input[type="email"] {
   display: block;
   width: 100%;
   min-width: 0;
@@ -7957,25 +7954,24 @@ body:has(.get-involved-page) .ptb-ambient-grid {
   outline: 0;
 }
 
-.email-card.email-card-supporter .email-form-row input::placeholder {
-  color: rgba(16, 17, 13, 0.58);
+.email-card.email-card-supporter .email-form > input[type="email"]::placeholder {
+  color: rgba(16, 17, 13, 0.62);
   opacity: 1;
   font-weight: 650;
 }
 
-.email-card.email-card-supporter .email-form-row input:focus,
-.email-card.email-card-supporter .email-form-row input:focus-visible {
+.email-card.email-card-supporter .email-form > input[type="email"]:focus,
+.email-card.email-card-supporter .email-form > input[type="email"]:focus-visible {
   border-color: rgba(244, 223, 173, 0.58);
   box-shadow: 0 0 0 4px rgba(244, 223, 173, 0.16);
 }
 
-.email-card.email-card-supporter .email-form-row button {
+.email-card.email-card-supporter .email-form > button {
   display: inline-flex;
-  flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: auto;
-  min-width: max-content;
+  width: 100%;
+  min-width: 0;
   min-height: 3.45rem;
   padding: 0.95rem 1.1rem;
   border: 1px solid rgba(244, 223, 173, 0.34);
@@ -7989,14 +7985,13 @@ body:has(.get-involved-page) .ptb-ambient-grid {
   line-height: 1.12;
   text-align: center;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: normal;
   overflow: visible;
-  text-wrap: normal;
   transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
-.email-card.email-card-supporter .email-form-row button:hover,
-.email-card.email-card-supporter .email-form-row button:focus-visible {
+.email-card.email-card-supporter .email-form > button:hover,
+.email-card.email-card-supporter .email-form > button:focus-visible {
   transform: none;
   border-color: rgba(255, 250, 240, 0.42);
   background: linear-gradient(135deg, color-mix(in srgb, var(--campaign-gold-soft) 88%, white), var(--campaign-gold));

@@ -122,10 +122,8 @@ export function EmailSignupForm() {
       <input type="hidden" name="_subject" value="Planting the Bay — Email Signup" />
       <Honeypot />
       <label className="email-form-label" htmlFor={emailId}>Email address</label>
-      <div className="email-form-row">
-        <input id={emailId} type="email" name="email" placeholder="you@example.com" autoComplete="email" required aria-describedby={`${emailId}-status`} />
-        <button type="submit" disabled={status === 'loading'}>{status === 'loading' ? 'Joining…' : 'Join the Supporter List'}</button>
-      </div>
+      <input id={emailId} type="email" name="email" placeholder="you@example.com" autoComplete="email" required aria-describedby={`${emailId}-status`} />
+      <button type="submit" disabled={status === 'loading'}>{status === 'loading' ? 'Joining…' : 'Join the Supporter List'}</button>
       <FormStatus id={`${emailId}-status`} status={status} message={message} fallback="Monthly updates, prayer needs, and launch stories. No spam." />
     </form>
   );
