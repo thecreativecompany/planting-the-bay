@@ -41,16 +41,18 @@ export default function Page() {
   return (
     <main id="main-content" className="ptb-page sub-page get-involved-page">
       <SiteHeader />
-      <section className="sub-hero section-reveal is-visible">
+      <section className="sub-hero get-involved-hero section-reveal is-visible">
         <div className="sub-hero-glow" aria-hidden="true" />
-        <p className="section-eyebrow">Get Involved</p>
-        <h1>Choose your path into the story.</h1>
-        <p>
-          The recruiting hub for staff couples, families considering relocation, volunteers, local supporters, and prayer partners.
-        </p>
-        <div className="sub-actions">
-          <a href="/give" className="btn btn-dark">Give</a>
-          <a href="#interest-form" className="btn btn-light">Start here</a>
+        <div className="sub-hero-inner">
+          <p className="section-eyebrow">Get Involved</p>
+          <h1>Choose your path into the story.</h1>
+          <p>
+            The recruiting hub for staff couples, families considering relocation, volunteers, local supporters, and prayer partners.
+          </p>
+          <div className="sub-actions">
+            <a href="/give" className="btn btn-dark">Give</a>
+            <a href="#interest-form" className="btn btn-light">Start here</a>
+          </div>
         </div>
       </section>
 

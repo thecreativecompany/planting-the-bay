@@ -334,16 +334,16 @@ export default function Home() {
 
       <section id="story" className="story-editorial campaign-section" aria-label="The story of Stuart and Ashley Mains">
         <div className="campaign-container story-grid" data-reveal>
+          <div className="story-copy-block">
+            <p className="campaign-eyebrow">The Story</p>
+            <h2>Called to plant. Sent to serve. Ready for the Bay.</h2>
+            <p>Stuart and Ashley Mains serve as Lead Evangelist and Planting Coordinators, leading the first phase of the initiative in Berkeley while building toward a multi-region Bay Area movement.</p>
+          </div>
           <div className="story-images">
             <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=900&q=80" alt="Warm ministry conversation representing Stuart and Ashley Mains" />
             <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80" alt="Community gathering for the Planting the Bay story" />
           </div>
-          <div>
-            <p className="campaign-eyebrow">The Story</p>
-            <h2>Called to plant. Sent to serve. Ready for the Bay.</h2>
-            <p>Stuart and Ashley Mains serve as Lead Evangelist and Planting Coordinators, leading the first phase of the initiative in Berkeley while building toward a multi-region Bay Area movement.</p>
-            <blockquote>“We believe the Bay Area can become a launching point for renewal, discipleship, and campus transformation.”</blockquote>
-          </div>
+          <blockquote className="story-quote">“We believe the Bay Area can become a launching point for renewal, discipleship, and campus transformation.”</blockquote>
         </div>
       </section>
 
