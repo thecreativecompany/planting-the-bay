@@ -23,12 +23,20 @@ const secondaryNav = [
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     document.body.classList.toggle('ptb-menu-open', menuOpen);
     return () => document.body.classList.remove('ptb-menu-open');
   }, [menuOpen]);
+
+  useEffect(() => {
+    const updateScrolledState = () => setIsScrolled(window.scrollY > 12);
+    updateScrolledState();
+    window.addEventListener('scroll', updateScrolledState, { passive: true });
+    return () => window.removeEventListener('scroll', updateScrolledState);
+  }, []);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -45,7 +53,7 @@ export default function SiteHeader() {
   return (
     <>
       <a href="#main-content" className="skip-link">Skip to main content</a>
-      <header className="ptb-header">
+      <header className={`ptb-header ${isScrolled ? 'is-scrolled' : ''}`}>
         <a href="/#home" className="ptb-logo" aria-label="Planting the Bay home" onClick={closeMenu}>
           <i aria-hidden="true" />
           <strong>Planting</strong>
@@ -79,7 +87,12 @@ export default function SiteHeader() {
 
         <nav id="mobile-navigation" className={`ptb-mobile-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Mobile navigation" aria-hidden={!menuOpen} inert={!menuOpen ? '' : undefined}>
           {primaryNav.map((item) => (
-            <a key={item.label} href={item.href} className={isActive(item.href) ? 'is-active' : undefined} onClick={closeMenu}>
+            <a
+              key={item.label}
+              href={item.href}
+              className={[isActive(item.href) ? 'is-active' : '', item.label === 'Give' ? 'nav-give' : ''].filter(Boolean).join(' ') || undefined}
+              onClick={closeMenu}
+            >
               {item.label}
             </a>
           ))}

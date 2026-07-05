@@ -7032,3 +7032,81 @@ body:has(.get-involved-page) .ptb-ambient-grid {
     width: 100%;
   }
 }
+
+/* --- Focused Aura QA patch: sticky actions, mobile nav CTA, and narrow viewport containment --- */
+.ptb-header.is-scrolled {
+  transform: translateZ(0);
+}
+
+.ptb-mobile-nav .nav-give {
+  display: grid;
+  min-height: 2.85rem;
+  place-items: center;
+  margin-top: .18rem;
+  border-radius: .9rem;
+  text-align: center;
+}
+
+.mobile-cta-bar {
+  box-sizing: border-box;
+  max-width: calc(100vw - 1.5rem);
+}
+
+.mobile-cta-bar a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 980px) {
+  body:has(.mobile-cta-bar) {
+    padding-bottom: calc(4.7rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .ptb-mobile-nav {
+    max-width: calc(100vw - 2rem);
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 520px) {
+  .campaign-page :where(.campaign-btn, .btn, button, input, select, textarea) {
+    max-width: 100%;
+  }
+
+  .campaign-page :where(.trust-tags, .hero-actions-v2, .sub-actions, .give-actions, .footer-actions) {
+    width: 100%;
+  }
+
+  .hero-proof-strip div,
+  .trust-tags span,
+  .vision-node,
+  .region-card,
+  .phase-list article,
+  .pathway-card-v2,
+  .tier-card-v2,
+  .story-card-v2 {
+    min-width: 0;
+  }
+}
+
+.campaign-page :where(img, video, iframe, svg) {
+  max-width: 100%;
+}
+
+.campaign-page img {
+  display: block;
+  min-width: 0;
+}
+
+.campaign-page :where(.video-placeholder, .story-images, .pillar-grid article, .story-card-grid article) {
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 520px) {
+  .campaign-page :where(.video-placeholder img, .pillar-grid img, .story-card-grid img) {
+    width: 100%;
+    transform: none;
+  }
+}
