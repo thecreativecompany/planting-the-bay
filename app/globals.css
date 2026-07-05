@@ -7279,3 +7279,168 @@ body:has(.get-involved-page) .ptb-ambient-grid {
     width: calc(100% - 2rem);
   }
 }
+
+/* --- Focused Aura polish: Prayer + Updates form and Get Involved hero composition --- */
+.email-card.email-card-supporter {
+  grid-template-columns: minmax(13rem, .82fr) minmax(0, 1.28fr);
+  align-items: center;
+  gap: clamp(1rem, 2.8vw, 1.7rem);
+  padding: clamp(1rem, 2.3vw, 1.55rem);
+}
+
+.prayer-request-cta {
+  display: grid;
+  align-content: center;
+  gap: .72rem;
+  min-height: 100%;
+  padding: clamp(1rem, 2.2vw, 1.35rem);
+  border: 1px solid rgba(244, 223, 173, .26);
+  border-radius: 1.2rem;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(244, 223, 173, .14), transparent 14rem),
+    rgba(255, 250, 240, .075);
+}
+
+.prayer-request-cta span {
+  color: rgba(244, 223, 173, .92);
+  font-size: .68rem;
+  font-weight: 850;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.email-grid .prayer-request-cta p {
+  max-width: 21rem;
+  margin: 0;
+  color: rgba(255, 250, 240, .72);
+  font-size: .9rem;
+  line-height: 1.55;
+}
+
+.email-card .prayer-request-cta a {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 2.85rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: .2rem;
+  padding: .85rem 1rem;
+  border: 1px solid rgba(244, 223, 173, .42);
+  border-radius: 999px;
+  color: var(--campaign-gold-soft);
+  background: rgba(244, 223, 173, .08);
+}
+
+.supporter-signup-panel,
+.supporter-signup-panel .email-form {
+  min-width: 0;
+}
+
+.email-card.email-card-supporter .email-form {
+  align-content: center;
+  gap: .8rem;
+}
+
+.email-card.email-card-supporter .email-form-row {
+  gap: .72rem;
+}
+
+.email-form input {
+  background: rgba(255, 250, 240, .98);
+}
+
+.email-form input::placeholder {
+  color: rgba(16, 17, 13, .62);
+  opacity: 1;
+  font-weight: 650;
+}
+
+.email-form input:focus {
+  box-shadow: 0 0 0 3px rgba(244, 223, 173, .24);
+}
+
+.get-involved-page .get-involved-hero {
+  text-align: left;
+  place-items: center;
+  padding-block: clamp(6.5rem, 10vw, 8.5rem) clamp(2.35rem, 4.5vw, 3.75rem);
+}
+
+.get-involved-page .get-involved-hero .sub-hero-inner {
+  max-width: min(var(--max), 100%);
+  justify-items: start;
+  text-align: left;
+}
+
+.get-involved-page .get-involved-hero h1 {
+  max-width: 780px;
+}
+
+.get-involved-page .get-involved-hero .sub-hero-inner > p:not(.section-eyebrow) {
+  max-width: 620px;
+  margin-inline: 0;
+}
+
+.get-involved-page .get-involved-hero .sub-actions {
+  justify-content: flex-start;
+  margin-inline: 0;
+}
+
+.get-involved-page .get-involved-hero .sub-hero-glow {
+  position: absolute;
+  left: max(var(--pad), calc((100vw - var(--max)) / 2));
+  right: auto;
+  top: clamp(5.4rem, 10vw, 8.2rem);
+  bottom: auto;
+  width: clamp(9.5rem, 20vw, 18rem);
+  transform: translateX(-18%);
+  opacity: .58;
+}
+
+@media (max-width: 980px) {
+  .email-card.email-card-supporter {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .prayer-request-cta {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 780px) {
+  .email-card.email-card-supporter {
+    gap: .9rem;
+    padding: 1rem;
+  }
+
+  .email-card.email-card-supporter .email-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .email-card.email-card-supporter .email-form button,
+  .email-card .prayer-request-cta a {
+    width: 100%;
+  }
+
+  .get-involved-page .get-involved-hero .sub-hero-glow {
+    position: absolute;
+    left: 1rem;
+    right: auto;
+    top: 5.5rem;
+    bottom: auto;
+    width: 11rem;
+    transform: translateX(-36%);
+    opacity: .36;
+  }
+}
+
+@media (max-width: 520px) {
+  .get-involved-page .get-involved-hero .sub-hero-inner {
+    width: min(100%, 430px);
+    justify-items: start;
+  }
+
+  .get-involved-page .get-involved-hero .sub-actions {
+    width: 100%;
+  }
+}

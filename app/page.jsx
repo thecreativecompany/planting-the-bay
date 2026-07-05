@@ -468,9 +468,15 @@ export default function Home() {
             <h2>Follow the story. Pray with us. Build with us.</h2>
             <p>Get updates, prayer requests, and stories as the vision moves from Berkeley across the Bay.</p>
           </div>
-          <div className="email-card">
-            <EmailSignupForm />
-            <a href="/prayer" onClick={() => trackConversion('prayer_request_click')}>Submit a Prayer Request</a>
+          <div className="email-card email-card-supporter">
+            <div className="prayer-request-cta">
+              <span>Need prayer?</span>
+              <p>Send a request directly to the planting team so we can pray with you.</p>
+              <a href="/prayer" onClick={() => trackConversion('prayer_request_click')}>Submit a Prayer Request</a>
+            </div>
+            <div className="supporter-signup-panel">
+              <EmailSignupForm />
+            </div>
           </div>
         </div>
       </section>
