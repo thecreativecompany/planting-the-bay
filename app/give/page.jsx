@@ -26,16 +26,18 @@ export default function Page() {
   return (
     <main id="main-content" className="ptb-page sub-page give-page">
       <SiteHeader />
-      <section className="sub-hero section-reveal is-visible">
+      <section className="sub-hero give-hero section-reveal is-visible">
         <div className="sub-hero-glow" aria-hidden="true" />
-        <p className="section-eyebrow">Give</p>
-        <h1>Give to plant the Bay.</h1>
-        <p>
-          Become a monthly partner and help fuel campus ministry, local church planting, staff couples, pop-up services, and regional outreach.
-        </p>
-        <div className="sub-actions">
-          <a href="#giving-interest" className="btn btn-dark">Start giving</a>
-          <a href="mailto:giving@plantingthebay.com" className="btn btn-light">Major gifts / DAF</a>
+        <div className="sub-hero-inner">
+          <p className="section-eyebrow">Give</p>
+          <h1>Give to plant the Bay.</h1>
+          <p>
+            Become a monthly partner and help fuel campus ministry, local church planting, staff couples, pop-up services, and regional outreach.
+          </p>
+          <div className="sub-actions">
+            <a href="#giving-interest" className="btn btn-dark">Start giving</a>
+            <a href="mailto:giving@plantingthebay.com" className="btn btn-light">Major gifts / DAF</a>
+          </div>
         </div>
       </section>
 

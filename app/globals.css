@@ -7444,3 +7444,245 @@ body:has(.get-involved-page) .ptb-ambient-grid {
     width: 100%;
   }
 }
+
+
+/* --- Focused Aura QA polish: Give hero parity, supporter form containment, stable CTAs --- */
+.give-page .give-hero {
+  display: grid;
+  width: 100%;
+  min-height: auto;
+  place-content: initial;
+  place-items: center;
+  padding-block: clamp(6.5rem, 10vw, 8.5rem) clamp(2.35rem, 4.5vw, 3.75rem);
+  padding-inline: var(--pad);
+  text-align: left;
+}
+
+.give-page .give-hero .sub-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(var(--max), 100%);
+  max-width: min(var(--max), 100%);
+  justify-items: start;
+  gap: 0;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.give-page .give-hero h1 {
+  max-width: 780px;
+  font-size: clamp(2.7rem, 6vw, 5.45rem);
+  line-height: 0.98;
+}
+
+.give-page .give-hero .sub-hero-inner > p:not(.section-eyebrow) {
+  max-width: 620px;
+  margin: 0.85rem 0 0;
+  font-weight: 430;
+  line-height: 1.68;
+  letter-spacing: -0.006em;
+}
+
+.give-page .give-hero .sub-actions {
+  justify-content: flex-start;
+  margin-inline: 0;
+}
+
+.give-page .give-hero .sub-hero-glow {
+  position: absolute;
+  left: max(var(--pad), calc((100vw - var(--max)) / 2));
+  right: auto;
+  top: clamp(5.4rem, 10vw, 8.2rem);
+  bottom: auto;
+  width: clamp(9.5rem, 20vw, 18rem);
+  transform: translateX(-18%);
+  opacity: .58;
+}
+
+.give-page .sub-actions .btn,
+.give-page .giving-widget-cta,
+.email-card.email-card-supporter a,
+.email-card.email-card-supporter button {
+  max-width: 100%;
+  min-width: 0;
+  white-space: normal;
+  text-align: center;
+  overflow: visible;
+  text-wrap: balance;
+}
+
+.give-page .btn::before,
+.give-page .btn::after,
+.give-page .giving-widget-cta::before,
+.give-page .giving-widget-cta::after {
+  content: none !important;
+  display: none !important;
+}
+
+.give-page .btn:hover,
+.give-page .btn:focus-visible,
+.give-page .giving-widget-cta:hover,
+.give-page .giving-widget-cta:focus-visible {
+  transform: none;
+  opacity: 1;
+  box-shadow: 0 10px 28px rgba(16, 17, 13, 0.12);
+}
+
+.give-page .btn-dark:hover,
+.give-page .btn-dark:focus-visible,
+.give-page .giving-widget-cta:hover,
+.give-page .giving-widget-cta:focus-visible {
+  border-color: color-mix(in srgb, var(--green) 34%, var(--ink));
+  background: color-mix(in srgb, var(--ink) 88%, var(--green));
+  color: var(--cream);
+}
+
+.give-page .btn-light:hover,
+.give-page .btn-light:focus-visible {
+  border-color: rgba(33, 72, 45, 0.24);
+  background: color-mix(in srgb, var(--cream) 86%, white);
+  color: var(--ink);
+}
+
+.give-page .btn:active,
+.give-page .giving-widget-cta:active {
+  transform: none;
+  box-shadow: 0 6px 18px rgba(16, 17, 13, 0.1);
+}
+
+.give-page .btn:focus-visible,
+.give-page .giving-widget-cta:focus-visible,
+.email-card.email-card-supporter a:focus-visible,
+.email-card.email-card-supporter button:focus-visible {
+  outline: 3px solid rgba(214, 182, 108, 0.42);
+  outline-offset: 3px;
+}
+
+.give-page .tier-card strong {
+  background: none !important;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: #173421 !important;
+  font-weight: 650;
+  text-shadow: none;
+}
+
+.give-page .tier-card span {
+  color: #354238;
+  font-weight: 470;
+  line-height: 1.58;
+}
+
+.email-card.email-card-supporter {
+  grid-template-columns: minmax(14rem, .9fr) minmax(0, 1.1fr);
+  align-items: stretch;
+  gap: clamp(1rem, 2.4vw, 1.55rem);
+  padding: clamp(1.05rem, 2.35vw, 1.65rem);
+  overflow: hidden;
+}
+
+.email-card.email-card-supporter > * {
+  min-width: 0;
+}
+
+.email-card.email-card-supporter .prayer-request-cta,
+.email-card.email-card-supporter .supporter-signup-panel {
+  min-width: 0;
+  min-height: 100%;
+}
+
+.email-card.email-card-supporter .prayer-request-cta {
+  align-content: center;
+}
+
+.supporter-signup-panel {
+  display: grid;
+  align-content: center;
+  gap: .8rem;
+  padding: clamp(.35rem, 1vw, .55rem);
+}
+
+.email-card.email-card-supporter .email-form {
+  width: 100%;
+  max-width: 100%;
+  align-content: center;
+}
+
+.email-card.email-card-supporter .email-form-row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  align-items: stretch;
+  gap: .62rem;
+  padding: .42rem;
+  overflow: hidden;
+}
+
+.email-card.email-card-supporter .email-form-row input {
+  flex: 1 1 15.5rem;
+  width: auto;
+  min-width: min(13rem, 100%);
+  max-width: 100%;
+}
+
+.email-card.email-card-supporter .email-form-row button {
+  flex: 0 1 auto;
+  width: auto;
+  min-width: min(12.5rem, 100%);
+  max-width: 100%;
+  padding-inline: clamp(.95rem, 1.8vw, 1.2rem);
+  line-height: 1.12;
+}
+
+.email-card.email-card-supporter .email-form-row button:hover,
+.email-card.email-card-supporter .email-form-row button:focus-visible,
+.email-card .prayer-request-cta a:hover,
+.email-card .prayer-request-cta a:focus-visible {
+  transform: none;
+  box-shadow: 0 10px 26px rgba(16, 17, 13, 0.12);
+}
+
+@media (max-width: 980px) {
+  .email-card.email-card-supporter {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .supporter-signup-panel {
+    padding: 0;
+  }
+}
+
+@media (max-width: 780px) {
+  .give-page .give-hero .sub-hero-glow {
+    left: 1rem;
+    top: 5.5rem;
+    width: 11rem;
+    transform: translateX(-36%);
+    opacity: .36;
+  }
+
+  .give-page .give-hero .sub-actions,
+  .email-card.email-card-supporter .email-form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .email-card.email-card-supporter .email-form-row input,
+  .email-card.email-card-supporter .email-form-row button,
+  .email-card .prayer-request-cta a {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .give-page .give-hero .sub-hero-inner {
+    width: min(100%, 430px);
+    justify-items: start;
+  }
+}
