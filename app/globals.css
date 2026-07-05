@@ -7849,3 +7849,196 @@ body:has(.get-involved-page) .ptb-ambient-grid {
     display: none;
   }
 }
+
+
+/* --- Aura rebuild: Prayer + Updates supporter email form --- */
+.email-card.email-card-supporter {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.86fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: clamp(1rem, 2.4vw, 1.6rem);
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  padding: clamp(1.15rem, 2.4vw, 1.85rem);
+}
+
+.email-card.email-card-supporter,
+.email-card.email-card-supporter > *,
+.email-card.email-card-supporter .email-form,
+.email-card.email-card-supporter .email-form-row,
+.email-card.email-card-supporter .supporter-signup-panel,
+.email-card.email-card-supporter .prayer-request-cta {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.email-card.email-card-supporter::before,
+.email-card.email-card-supporter::after,
+.email-card.email-card-supporter .supporter-signup-panel::before,
+.email-card.email-card-supporter .supporter-signup-panel::after,
+.email-card.email-card-supporter .email-form::before,
+.email-card.email-card-supporter .email-form::after,
+.email-card.email-card-supporter .email-form-row::before,
+.email-card.email-card-supporter .email-form-row::after {
+  content: none !important;
+  display: none !important;
+}
+
+.email-card.email-card-supporter .prayer-request-cta {
+  display: grid;
+  align-content: center;
+  gap: 0.75rem;
+  min-height: 100%;
+  padding: clamp(1rem, 2.2vw, 1.35rem);
+  border: 1px solid rgba(244, 223, 173, 0.24);
+  border-radius: 1.15rem;
+  background: rgba(255, 250, 240, 0.075);
+}
+
+.email-card.email-card-supporter .supporter-signup-panel {
+  display: grid;
+  align-content: center;
+  justify-self: end;
+  width: min(100%, 600px);
+  max-width: 600px;
+  padding: 0;
+}
+
+.email-card.email-card-supporter .email-form {
+  display: grid;
+  gap: 0.82rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.email-card.email-card-supporter .email-form-label {
+  display: block;
+  color: rgba(255, 250, 240, 0.76);
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.email-card.email-card-supporter .email-form-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.email-card.email-card-supporter .email-form-row input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 3.45rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(244, 223, 173, 0.28);
+  border-radius: 0.95rem;
+  background: rgba(255, 250, 240, 0.98);
+  color: var(--campaign-ink);
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.35;
+  outline: 0;
+}
+
+.email-card.email-card-supporter .email-form-row input::placeholder {
+  color: rgba(16, 17, 13, 0.58);
+  opacity: 1;
+  font-weight: 650;
+}
+
+.email-card.email-card-supporter .email-form-row input:focus,
+.email-card.email-card-supporter .email-form-row input:focus-visible {
+  border-color: rgba(244, 223, 173, 0.58);
+  box-shadow: 0 0 0 4px rgba(244, 223, 173, 0.16);
+}
+
+.email-card.email-card-supporter .email-form-row button {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: max-content;
+  min-height: 3.45rem;
+  padding: 0.95rem 1.1rem;
+  border: 1px solid rgba(244, 223, 173, 0.34);
+  border-radius: 0.95rem;
+  background: linear-gradient(135deg, var(--campaign-gold-soft), var(--campaign-gold));
+  color: var(--campaign-ink);
+  box-shadow: 0 14px 34px rgba(16, 17, 13, 0.16);
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  line-height: 1.12;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: visible;
+  text-wrap: normal;
+  transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.email-card.email-card-supporter .email-form-row button:hover,
+.email-card.email-card-supporter .email-form-row button:focus-visible {
+  transform: none;
+  border-color: rgba(255, 250, 240, 0.42);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--campaign-gold-soft) 88%, white), var(--campaign-gold));
+  box-shadow: 0 16px 38px rgba(16, 17, 13, 0.2);
+}
+
+.email-card.email-card-supporter .form-status {
+  max-width: 100%;
+  color: rgba(255, 250, 240, 0.68);
+}
+
+@media (max-width: 1080px) {
+  .email-card.email-card-supporter {
+    grid-template-columns: 1fr;
+  }
+
+  .email-card.email-card-supporter .supporter-signup-panel {
+    justify-self: stretch;
+    width: 100%;
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 720px) {
+  .email-card.email-card-supporter {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .email-card.email-card-supporter .email-form-row {
+    grid-template-columns: 1fr;
+    gap: 0.72rem;
+  }
+
+  .email-card.email-card-supporter .email-form-row input,
+  .email-card.email-card-supporter .email-form-row button,
+  .email-card.email-card-supporter .prayer-request-cta a {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .email-card.email-card-supporter .email-form-row button {
+    white-space: normal;
+  }
+}
