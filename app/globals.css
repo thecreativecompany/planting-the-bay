@@ -7686,3 +7686,166 @@ body:has(.get-involved-page) .ptb-ambient-grid {
     justify-items: start;
   }
 }
+
+
+/* --- Final QA pass: calmer grid, readable type, form containment, roadmap sticky rhythm --- */
+.ptb-ambient-grid {
+  opacity: 0.055;
+  mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.42) 12%, rgba(0,0,0,.32) 76%, transparent);
+}
+
+.ptb-ambient-grid span {
+  border-right-color: rgba(16, 17, 13, 0.055);
+  background: linear-gradient(180deg, transparent, rgba(255,250,240,.28), transparent);
+}
+
+.campaign-page :where(h1, h2, h3, p, a, button, input, select, textarea, span, strong) {
+  text-rendering: geometricPrecision;
+}
+
+.campaign-page :where(p, li, input, select, textarea) {
+  letter-spacing: -0.006em;
+}
+
+.campaign-hero h1 {
+  font-size: clamp(3.05rem, 7.1vw, 7.45rem);
+  letter-spacing: clamp(-0.058em, -0.52vw, -0.038em);
+  line-height: 0.94;
+}
+
+.campaign-hero h2,
+.story-editorial h2,
+.roadmap-grid h2,
+.giving-grid h2,
+.email-grid h2,
+.section-header h2 {
+  letter-spacing: clamp(-0.04em, -0.36vw, -0.022em);
+  line-height: 1.04;
+}
+
+.story-editorial h2,
+.roadmap-grid h2,
+.giving-grid h2,
+.email-grid h2,
+.section-header h2 {
+  font-size: clamp(2.05rem, 4.65vw, 4.85rem);
+}
+
+.campaign-page :where(.section-header p, .story-copy-block p, .roadmap-grid p, .giving-grid p, .email-grid p) {
+  max-width: 68ch;
+  line-height: 1.66;
+}
+
+.map-roadmap {
+  scroll-margin-top: 7.5rem;
+  padding-block: clamp(4.75rem, 8vw, 7.5rem);
+  overflow: visible;
+}
+
+.roadmap-grid {
+  align-items: start;
+}
+
+@media (min-width: 981px) {
+  .map-roadmap .roadmap-grid > div:first-child {
+    position: sticky;
+    top: clamp(6.4rem, 9vw, 8.2rem);
+    align-self: start;
+    padding-bottom: 1rem;
+  }
+
+  .map-roadmap .flyover-card {
+    margin-top: .2rem;
+  }
+}
+
+.flyover-card {
+  display: grid;
+  gap: clamp(.85rem, 1.45vw, 1.15rem);
+}
+
+.phase-list {
+  align-items: stretch;
+}
+
+.phase-list article {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.email-card.email-card-supporter .email-form-row,
+.email-form-row {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.email-card.email-card-supporter .email-form-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: stretch;
+  overflow: visible;
+}
+
+.email-card.email-card-supporter .email-form-row input {
+  width: 100%;
+  min-width: 0;
+}
+
+.email-card.email-card-supporter .email-form-row button {
+  width: auto;
+  min-width: 12rem;
+  max-width: 100%;
+}
+
+@media (max-width: 980px) {
+  .map-roadmap {
+    padding-block: clamp(4rem, 10vw, 6rem);
+  }
+
+  .map-roadmap .roadmap-grid > div:first-child {
+    position: static;
+  }
+
+  .ptb-ambient-grid {
+    opacity: 0.04;
+  }
+}
+
+@media (max-width: 780px) {
+  .campaign-hero h1 {
+    font-size: clamp(2.85rem, 14.2vw, 4.85rem);
+    line-height: .97;
+  }
+
+  .campaign-hero h2 {
+    font-size: clamp(1.28rem, 6.6vw, 2rem);
+    line-height: 1.1;
+  }
+
+  .story-editorial h2,
+  .roadmap-grid h2,
+  .giving-grid h2,
+  .email-grid h2,
+  .section-header h2 {
+    font-size: clamp(1.9rem, 9.5vw, 3rem);
+    letter-spacing: -0.028em;
+  }
+
+  .email-card.email-card-supporter .email-form-row,
+  .email-form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 1.2rem;
+    padding: .5rem;
+  }
+
+  .email-card.email-card-supporter .email-form-row button,
+  .email-form-row button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .ptb-ambient-grid {
+    display: none;
+  }
+}
