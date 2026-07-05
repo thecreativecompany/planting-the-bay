@@ -12,15 +12,6 @@ export const primaryNav = [
   { label: 'Give', href: '/give' },
 ];
 
-const secondaryNav = [
-  { label: 'Team', href: '/team' },
-  { label: 'Updates', href: '/updates' },
-  { label: 'Prayer', href: '/prayer' },
-  { label: 'Partners', href: '/partners' },
-  { label: 'FAQ', href: '/faq' },
-  { label: 'Contact', href: '/contact' },
-];
-
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -75,7 +66,7 @@ export default function SiteHeader() {
         <button
           type="button"
           className={`ptb-menu ${menuOpen ? 'is-open' : ''}`}
-          aria-label="Toggle navigation"
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((open) => !open)}
@@ -93,12 +84,6 @@ export default function SiteHeader() {
               className={[isActive(item.href) ? 'is-active' : '', item.label === 'Give' ? 'nav-give' : ''].filter(Boolean).join(' ') || undefined}
               onClick={closeMenu}
             >
-              {item.label}
-            </a>
-          ))}
-          <span className="mobile-nav-divider" aria-hidden="true" />
-          {secondaryNav.map((item) => (
-            <a key={item.label} href={item.href} className={pathname === item.href ? 'is-active' : undefined} onClick={closeMenu}>
               {item.label}
             </a>
           ))}

@@ -82,11 +82,33 @@ img, iframe { max-width: 100%; }
 .ptb-desktop-nav a:hover::after,
 .ptb-desktop-nav a:focus-visible::after,
 .ptb-desktop-nav a.is-active::after { transform: scaleX(1); transform-origin: left; }
-.ptb-menu { display: none; width: 2.5rem; height: 2.5rem; place-items: center; }
-.ptb-menu span { display: block; width: 1.25rem; height: 2px; margin: 3px auto; background: currentColor; transition: transform 220ms ease, opacity 220ms ease; }
-.ptb-menu.is-open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.ptb-menu.is-open span:nth-child(2) { opacity: 0; }
-.ptb-menu.is-open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.ptb-menu {
+  position: relative;
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border-radius: 999px;
+}
+.ptb-menu span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  width: 1.22rem;
+  height: 2px;
+  margin: 0;
+  border-radius: 999px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  transition: transform 220ms ease, opacity 180ms ease;
+}
+.ptb-menu span:nth-child(1) { transform: translate(-50%, calc(-50% - 6px)); }
+.ptb-menu span:nth-child(3) { transform: translate(-50%, calc(-50% + 6px)); }
+.ptb-menu.is-open span:nth-child(1) { transform: translate(-50%, -50%) rotate(45deg); }
+.ptb-menu.is-open span:nth-child(2) { opacity: 0; transform: translate(-50%, -50%) scaleX(0.35); }
+.ptb-menu.is-open span:nth-child(3) { transform: translate(-50%, -50%) rotate(-45deg); }
 .ptb-mobile-nav {
   pointer-events: none;
   position: absolute;
@@ -337,7 +359,8 @@ img, iframe { max-width: 100%; }
 
 @media (max-width: 980px) {
   .ptb-desktop-nav { display: none; }
-  .ptb-menu, .sticky-give { display: block; }
+  .ptb-menu { display: inline-grid; }
+  .sticky-give { display: block; }
   .hero-shell, .case-section, .momentum-card, .story-card, .funnel-grid { grid-template-columns: 1fr; }
   .funnel-card h3 { font-size: clamp(2.65rem, 10vw, 4.8rem); }
   .hero-section { min-height: auto; align-items: start; }
