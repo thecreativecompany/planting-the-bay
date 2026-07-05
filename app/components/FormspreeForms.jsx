@@ -121,7 +121,7 @@ export function EmailSignupForm() {
     <form className="email-form" action={formspreeActions.emailSignup} method="POST" onSubmit={handleSubmit} data-form-name="email_signup" noValidate>
       <input type="hidden" name="_subject" value="Planting the Bay — Email Signup" />
       <Honeypot />
-      <label className="email-form-label" htmlFor={emailId}>Email address</label>
+      <label className="email-form-label" htmlFor={emailId}>Email Address</label>
       <input id={emailId} type="email" name="email" placeholder="you@example.com" autoComplete="email" required aria-describedby={`${emailId}-status`} />
       <button type="submit" disabled={status === 'loading'}>{status === 'loading' ? 'Joining…' : 'Join the Supporter List'}</button>
       <FormStatus id={`${emailId}-status`} status={status} message={message} fallback="Monthly updates, prayer needs, and launch stories. No spam." />
