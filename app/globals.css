@@ -7152,7 +7152,7 @@ body:has(.get-involved-page) .ptb-ambient-grid {
 .get-involved-page .get-involved-hero .sub-hero-glow {
   left: 50%;
   right: auto;
-  transform: translateX(42%);
+  transform: translateX(-50%);
 }
 
 .story-grid {
@@ -7271,8 +7271,8 @@ body:has(.get-involved-page) .ptb-ambient-grid {
   }
 
   .get-involved-page .get-involved-hero .sub-hero-glow {
-    transform: translateX(8%);
-    opacity: .5;
+    transform: translateX(-50%);
+    opacity: .42;
   }
 
   .story-editorial .campaign-container.story-grid {
