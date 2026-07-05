@@ -90,25 +90,35 @@ img, iframe { max-width: 100%; }
   place-items: center;
   border-radius: 999px;
 }
-.ptb-menu span {
-  position: absolute;
-  left: 50%;
-  top: 50%;
+.ptb-menu-lines,
+.ptb-menu-line,
+.ptb-menu-close-icon {
+  pointer-events: none;
+}
+.ptb-menu-lines {
+  position: relative;
   display: block;
   width: 1.22rem;
+  height: 1rem;
+}
+.ptb-menu-line {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 100%;
   height: 2px;
-  margin: 0;
   border-radius: 999px;
   background: currentColor;
-  transform: translate(-50%, -50%);
-  transform-origin: center;
-  transition: transform 220ms ease, opacity 180ms ease;
 }
-.ptb-menu span:nth-child(1) { transform: translate(-50%, calc(-50% - 6px)); }
-.ptb-menu span:nth-child(3) { transform: translate(-50%, calc(-50% + 6px)); }
-.ptb-menu.is-open span:nth-child(1) { transform: translate(-50%, -50%) rotate(45deg); }
-.ptb-menu.is-open span:nth-child(2) { opacity: 0; transform: translate(-50%, -50%) scaleX(0.35); }
-.ptb-menu.is-open span:nth-child(3) { transform: translate(-50%, -50%) rotate(-45deg); }
+.ptb-menu-line:nth-child(1) { top: 0; }
+.ptb-menu-line:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.ptb-menu-line:nth-child(3) { bottom: 0; }
+.ptb-menu-close-icon {
+  display: block;
+  width: 1.32rem;
+  height: 1.32rem;
+  stroke: currentColor;
+}
 .ptb-mobile-nav {
   pointer-events: none;
   position: absolute;
@@ -127,7 +137,6 @@ img, iframe { max-width: 100%; }
 .ptb-mobile-nav.is-open { pointer-events: auto; opacity: 1; transform: translateY(0); }
 .ptb-mobile-nav a { padding: 0.9rem 0.95rem; color: var(--cream); }
 .ptb-mobile-nav a.is-active { background: rgba(255, 250, 240, 0.12); }
-.mobile-nav-divider { height: 1px; margin: 0.25rem 0; background: rgba(255, 250, 240, 0.16); }
 .sticky-give {
   position: fixed;
   z-index: 70;
@@ -4915,10 +4924,6 @@ body.ptb-menu-open .ptb-mobile-nav a {
 .ptb-mobile-nav a:focus-visible {
   background: rgba(23, 58, 36, 0.08);
   color: var(--campaign-green, var(--green));
-}
-
-.mobile-nav-divider {
-  background: rgba(16, 18, 13, 0.12);
 }
 
 .nav-give,

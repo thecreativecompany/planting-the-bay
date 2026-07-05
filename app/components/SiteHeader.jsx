@@ -2,15 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-
-export const primaryNav = [
-  { label: 'Home', href: '/#home' },
-  { label: 'Our Story', href: '/#story' },
-  { label: 'Our Vision', href: '/#vision' },
-  { label: 'Why the Bay', href: '/#why-bay' },
-  { label: 'Get Involved', href: '/get-involved' },
-  { label: 'Give', href: '/give' },
-];
+import { X } from 'lucide-react';
+import { PRIMARY_NAV_LINKS } from '../navigation';
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -52,7 +45,7 @@ export default function SiteHeader() {
         </a>
 
         <nav className="ptb-desktop-nav" aria-label="Primary navigation">
-          {primaryNav.map((item) => (
+          {PRIMARY_NAV_LINKS.map((item) => (
             <a
               key={item.label}
               href={item.href}
@@ -71,13 +64,19 @@ export default function SiteHeader() {
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
+          {menuOpen ? (
+            <X aria-hidden="true" className="ptb-menu-close-icon" strokeWidth={2.4} />
+          ) : (
+            <span aria-hidden="true" className="ptb-menu-lines">
+              <span className="ptb-menu-line" />
+              <span className="ptb-menu-line" />
+              <span className="ptb-menu-line" />
+            </span>
+          )}
         </button>
 
         <nav id="mobile-navigation" className={`ptb-mobile-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Mobile navigation" aria-hidden={!menuOpen} inert={!menuOpen ? '' : undefined}>
-          {primaryNav.map((item) => (
+          {PRIMARY_NAV_LINKS.map((item) => (
             <a
               key={item.label}
               href={item.href}

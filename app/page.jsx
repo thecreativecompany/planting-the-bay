@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import SiteHeader from './components/SiteHeader';
 import { EmailSignupForm } from './components/FormspreeForms';
+import { FOOTER_LINKS } from './navigation';
 import {
   ArrowRight,
   Banknote,
@@ -490,10 +491,9 @@ export default function Home() {
             <div className="footer-actions"><CampaignButton href="/give" eventName="footer_give_click">Give</CampaignButton><CampaignButton href="/get-involved" variant="secondary" eventName="footer_get_involved_click">Get Involved</CampaignButton></div>
           </div>
           <nav aria-label="Footer navigation">
-            {['Our Story', 'Our Vision', 'Why the Bay', 'Team', 'Updates', 'Prayer', 'Partners', 'FAQ', 'Contact'].map((label) => {
-              const href = label === 'Our Story' ? '/story' : label === 'Our Vision' ? '/vision' : `/${label.toLowerCase().replaceAll(' ', '-').replace('our-', '')}`;
-              return <a href={href} key={label}>{label}</a>;
-            })}
+            {FOOTER_LINKS.map((item) => (
+              <a href={item.href} key={item.label}>{item.label}</a>
+            ))}
           </nav>
           <div className="footer-meta">
             <div><a href="https://instagram.com" aria-label="Planting the Bay Instagram">Instagram</a><a href="mailto:hello@plantingthebay.com">Contact</a></div>
