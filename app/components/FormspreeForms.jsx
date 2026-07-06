@@ -118,7 +118,7 @@ export function EmailSignupForm() {
   const { status, message, handleSubmit } = useFormStatus();
 
   return (
-    <form className="email-form" action={formspreeActions.emailSignup} method="POST" onSubmit={handleSubmit} data-form-name="email_signup" noValidate>
+    <form className="email-form email-form--supporter-vertical" action={formspreeActions.emailSignup} method="POST" onSubmit={handleSubmit} data-form-name="email_signup" noValidate>
       <input type="hidden" name="_subject" value="Planting the Bay — Email Signup" />
       <Honeypot />
       <label className="email-form-label" htmlFor={emailId}>Email Address</label>

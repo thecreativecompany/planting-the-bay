@@ -8144,3 +8144,89 @@ body:has(.get-involved-page) .ptb-ambient-grid {
   font-size: 0.88rem;
   line-height: 1.5;
 }
+
+/* --- Aura production lock: vertical supporter signup form (Prayer + Updates) --- */
+.email-form--supporter-vertical {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  align-items: stretch;
+  gap: 0.82rem !important;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  position: static !important;
+  overflow: visible;
+}
+
+.email-card.email-card-supporter .email-form--supporter-vertical {
+  justify-self: stretch;
+  align-self: center;
+}
+
+.email-form--supporter-vertical::before,
+.email-form--supporter-vertical::after,
+.email-card.email-card-supporter .supporter-signup-panel::before,
+.email-card.email-card-supporter .supporter-signup-panel::after {
+  content: none !important;
+  display: none !important;
+}
+
+.email-form--supporter-vertical > .email-form-label,
+.email-form--supporter-vertical > input[type="email"],
+.email-form--supporter-vertical > button,
+.email-form--supporter-vertical > .form-status {
+  grid-column: 1 / -1;
+  position: static !important;
+  width: 100% !important;
+  max-width: 100%;
+  min-width: 0 !important;
+}
+
+.email-form--supporter-vertical > .email-form-label {
+  margin: 0 0 -0.1rem;
+  color: rgba(255, 250, 240, 0.78);
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.email-form--supporter-vertical > input[type="email"] {
+  display: block;
+  min-height: 3.55rem;
+  padding: 1rem 1.05rem;
+  border: 1px solid rgba(244, 223, 173, 0.34);
+  border-radius: 0.95rem;
+  background: rgba(255, 250, 240, 0.98) !important;
+  color: var(--campaign-ink) !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.55), 0 10px 28px rgba(0,0,0,.08);
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.email-form--supporter-vertical > input[type="email"]::placeholder {
+  color: rgba(16, 17, 13, 0.64) !important;
+  opacity: 1;
+}
+
+.email-form--supporter-vertical > button {
+  display: flex;
+  min-height: 3.55rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.1rem;
+  border-radius: 0.95rem;
+  line-height: 1.12;
+  text-align: center;
+  white-space: normal;
+  overflow: visible;
+}
+
+.email-form--supporter-vertical > .form-status {
+  margin: 0.06rem 0 0;
+  color: rgba(255, 250, 240, 0.7);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
