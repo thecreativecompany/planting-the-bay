@@ -8677,3 +8677,49 @@ body:has(.campaign-page) {
     bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
   }
 }
+
+/* --- Aura targeted Partners readability lock: cards + endorsement only --- */
+.partners-page-section .partners-card-grid {
+  border-color: rgba(16, 17, 13, 0.14);
+  background: rgba(16, 17, 13, 0.14);
+}
+
+.partners-page-section .partners-card {
+  background: linear-gradient(180deg, #fffaf0 0%, #f3ead7 100%);
+  color: #10110d;
+  text-shadow: none;
+  mix-blend-mode: normal;
+}
+
+.partners-page-section .partners-card span {
+  border-color: rgba(33, 72, 45, 0.24);
+  background: rgba(33, 72, 45, 0.08);
+  color: #21482d;
+  opacity: 1;
+}
+
+.partners-page-section .partners-card strong {
+  color: #10110d;
+  opacity: 1;
+}
+
+.partners-page-section .partners-card p {
+  color: #3f4538;
+  opacity: 1;
+}
+
+.partners-page-section .endorsement-quote {
+  border-color: rgba(33, 72, 45, 0.18) !important;
+  background: linear-gradient(180deg, #fffaf0 0%, #efe4cc 100%);
+  color: #10110d;
+  line-height: 1.15;
+  text-shadow: none;
+  mix-blend-mode: normal;
+}
+
+.partners-page-section .endorsement-quote span {
+  margin-top: 1.15rem;
+  color: #4d5b42;
+  line-height: 1.35;
+  opacity: 1;
+}
