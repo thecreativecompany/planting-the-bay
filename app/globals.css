@@ -8230,3 +8230,49 @@ body:has(.get-involved-page) .ptb-ambient-grid {
   font-size: 0.88rem;
   line-height: 1.5;
 }
+
+/* --- Aura hard lock: supporter form is never a pill row --- */
+.email-card.email-card-supporter .email-form--supporter-vertical,
+.email-card.email-card-supporter .email-form--supporter-vertical > .email-form-row {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-auto-flow: row !important;
+  align-items: stretch !important;
+}
+
+.email-card.email-card-supporter .email-form--supporter-vertical > .email-form-row {
+  gap: 0.82rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.email-card.email-card-supporter .email-form--supporter-vertical > .form-honeypot {
+  display: none !important;
+  position: static !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+.email-card.email-card-supporter .email-form--supporter-vertical > :is(.email-form-label, input[type="email"], button, .form-status),
+.email-card.email-card-supporter .email-form--supporter-vertical > .email-form-row > :is(input[type="email"], button) {
+  grid-column: 1 / -1 !important;
+  position: static !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.email-card.email-card-supporter .email-form--supporter-vertical > :is(.email-form-label, input[type="email"], button, .form-status) {
+  justify-self: stretch !important;
+}
+
+.email-card.email-card-supporter .email-form--supporter-vertical > .email-form-label { order: 1; }
+.email-card.email-card-supporter .email-form--supporter-vertical > input[type="email"],
+.email-card.email-card-supporter .email-form--supporter-vertical > .email-form-row > input[type="email"] { order: 2; }
+.email-card.email-card-supporter .email-form--supporter-vertical > button,
+.email-card.email-card-supporter .email-form--supporter-vertical > .email-form-row > button { order: 3; }
+.email-card.email-card-supporter .email-form--supporter-vertical > .form-status { order: 4; }
