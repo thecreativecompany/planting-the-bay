@@ -35,7 +35,7 @@ button { background: transparent; color: inherit; cursor: pointer; }
 img, iframe { max-width: 100%; }
 ::selection { background: var(--green); color: var(--cream); }
 
-.ptb-page { min-height: 100vh; overflow: hidden; background: var(--paper); }
+.ptb-page { min-height: 100vh; overflow-x: clip; background: var(--paper); }
 .ptb-header {
   position: fixed;
   inset: 0 0 auto;
@@ -8577,5 +8577,103 @@ body:has(.get-involved-page) .ptb-ambient-grid {
   .campaign-page .campaign-footer {
     background: #070907 !important;
     padding-bottom: 7rem;
+  }
+}
+
+/* --- Aura final responsive/footer QA lock: containers, cards, and mobile bottom chrome --- */
+html:has(.campaign-page),
+body:has(.campaign-page) {
+  background: #070907;
+}
+
+body:has(.campaign-page) {
+  overflow-x: clip;
+}
+
+.campaign-page {
+  min-height: 100svh;
+  overflow-x: clip;
+}
+
+.campaign-page .campaign-container,
+.sub-page :is(.sub-hero, .sub-content, .sub-cta, .sub-footer, .form-page-section, .partner-section, .email-section) > :is(.sub-grid, .partner-grid, .field-notes-grid, .email-inner, .ptb-form, .endorsement-quote) {
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.campaign-page .campaign-container {
+  width: min(var(--campaign-max, 1240px), calc(100% - clamp(2.5rem, 6vw, 6rem)));
+}
+
+.sub-page :is(.sub-hero, .sub-content, .sub-cta, .sub-footer, .form-page-section, .partner-section, .email-section) {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding-inline: clamp(1.25rem, 4vw, 4rem);
+}
+
+.sub-page :is(.sub-grid, .partner-grid, .field-notes-grid, .email-inner, .ptb-form, .endorsement-quote) {
+  width: min(var(--max), 100%);
+}
+
+.sub-page :is(.sub-card, .updates-card, .partners-card, .endorsement-quote) {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.campaign-page .campaign-footer {
+  position: relative;
+  z-index: 1;
+  margin-bottom: -1px;
+  border-bottom: 1px solid #070907;
+  background-color: #070907 !important;
+}
+
+@media (max-width: 1080px) {
+  body:has(.mobile-cta-bar) {
+    padding-bottom: calc(5.6rem + env(safe-area-inset-bottom, 0px));
+    background: #070907;
+  }
+
+  .campaign-page .campaign-container {
+    width: min(var(--campaign-max, 1240px), calc(100% - 4rem));
+  }
+
+  .mobile-cta-bar {
+    left: max(1rem, env(safe-area-inset-left, 0px));
+    right: max(1rem, env(safe-area-inset-right, 0px));
+    bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+    width: auto;
+    max-width: none;
+    border-radius: 1.35rem;
+    background: linear-gradient(135deg, rgba(7, 9, 7, 0.94), rgba(20, 35, 21, 0.94)) !important;
+  }
+
+  .campaign-page .campaign-footer {
+    padding-bottom: calc(7.75rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 640px) {
+  .campaign-page .campaign-container {
+    width: min(var(--campaign-max, 1240px), calc(100% - 2.5rem));
+  }
+
+  .sub-page :is(.sub-hero, .sub-content, .sub-cta, .sub-footer, .form-page-section, .partner-section, .email-section) {
+    padding-inline: 1.25rem;
+  }
+
+  .updates-card-grid,
+  .partners-card-grid,
+  .sub-grid {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mobile-cta-bar {
+    left: max(0.75rem, env(safe-area-inset-left, 0px));
+    right: max(0.75rem, env(safe-area-inset-right, 0px));
+    bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
   }
 }
