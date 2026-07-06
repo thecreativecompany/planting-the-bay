@@ -6,9 +6,21 @@ export const metadata = {
 };
 
 const partners = [
-  ['SF Bay Fellowship', 'Berkeley launch partner and local support structure.'],
-  ['ICOC affiliation', 'Existing church network and credibility for donors, churches, and relocating families.'],
-  ['Partner churches', 'A place for supporting churches, logos, regions, and donor confidence signals.'],
+  {
+    label: 'Local Anchor',
+    name: 'SF Bay Fellowship',
+    detail: 'Berkeley launch partner and local support structure.',
+  },
+  {
+    label: 'Network',
+    name: 'ICOC affiliation',
+    detail: 'Existing church network and credibility for donors, churches, and relocating families.',
+  },
+  {
+    label: 'Churches',
+    name: 'Partner churches',
+    detail: 'A place for supporting churches, logos, regions, and donor confidence signals.',
+  },
 ];
 
 export default function Page() {
@@ -28,10 +40,11 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="partner-section">
-        <div className="partner-grid">
-          {partners.map(([name, detail]) => (
-            <article className="partner-card" key={name}>
+      <section className="partner-section partners-page-section">
+        <div className="partner-grid partners-card-grid">
+          {partners.map(({ label, name, detail }) => (
+            <article className="partner-card partners-card" key={name}>
+              <span>{label}</span>
               <strong>{name}</strong>
               <p>{detail}</p>
             </article>

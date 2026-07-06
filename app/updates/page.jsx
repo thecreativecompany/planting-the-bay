@@ -7,9 +7,27 @@ export const metadata = {
 };
 
 const updates = [
-  ['Berkeley launch preparation', 'Milestones, staff recruitment, campus conversations, and first-gathering readiness.'],
-  ['Prayer needs this month', 'Focused prayer requests for seekers, staff couples, students, and open doors.'],
-  ['Supporter report', 'Progress toward the Year 1 goal and what monthly partners are helping make possible.'],
+  {
+    label: 'Launch Prep',
+    title: 'Berkeley launch preparation',
+    body: 'Milestones, staff recruitment, campus conversations, and first-gathering readiness.',
+    href: '/contact',
+    cta: 'Send an update idea',
+  },
+  {
+    label: 'Prayer',
+    title: 'Prayer needs this month',
+    body: 'Focused prayer requests for seekers, staff couples, students, and open doors.',
+    href: '/prayer',
+    cta: 'View prayer needs',
+  },
+  {
+    label: 'Supporters',
+    title: 'Supporter report',
+    body: 'Progress toward the Year 1 goal and what monthly partners are helping make possible.',
+    href: '/give',
+    cta: 'See giving progress',
+  },
 ];
 
 export default function Page() {
@@ -29,13 +47,14 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="form-page-section">
-        <div className="field-notes-grid">
-          {updates.map(([title, body]) => (
-            <article className="field-note-card" key={title}>
+      <section className="form-page-section updates-page-section">
+        <div className="field-notes-grid updates-card-grid">
+          {updates.map(({ label, title, body, href, cta }) => (
+            <article className="field-note-card updates-card" key={title}>
+              <span>{label}</span>
               <h3>{title}</h3>
               <p>{body}</p>
-              <a href="/contact">Send an update idea →</a>
+              <a href={href}>{cta} →</a>
             </article>
           ))}
         </div>

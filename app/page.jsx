@@ -496,7 +496,11 @@ export default function Home() {
             ))}
           </nav>
           <div className="footer-meta">
-            <div><a href="https://instagram.com" aria-label="Planting the Bay Instagram">Instagram</a><a href="mailto:hello@plantingthebay.com">Contact</a></div>
+            <div className="footer-social-links">
+              <a href="https://instagram.com/plantingthebay" aria-label="Planting the Bay Instagram">Instagram</a>
+              <a href="https://facebook.com/plantingthebay" aria-label="Planting the Bay Facebook">Facebook</a>
+              <a href="https://youtube.com/@plantingthebay" aria-label="Planting the Bay YouTube">YouTube</a>
+            </div>
           </div>
         </div>
       </footer>

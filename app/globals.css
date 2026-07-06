@@ -8397,3 +8397,185 @@ body:has(.get-involved-page) .ptb-ambient-grid {
 .email-card.email-card-supporter .email-form--supporter-vertical > button,
 .email-card.email-card-supporter .email-form--supporter-vertical > .email-form-row > button { order: 3; }
 .email-card.email-card-supporter .email-form--supporter-vertical > .form-status { order: 4; }
+
+/* --- Aura source-level fixes: updates cards, partners cards, footer socials, responsive section rhythm --- */
+.updates-page-section,
+.partners-page-section {
+  padding-inline: var(--pad);
+}
+
+.updates-card-grid,
+.partners-card-grid {
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(16, 17, 13, 0.14);
+  border-radius: 1.35rem;
+  background: rgba(16, 17, 13, 0.14);
+}
+
+.updates-card,
+.partners-card {
+  position: relative;
+  min-width: 0;
+  min-height: clamp(14rem, 21vw, 18rem);
+  padding: clamp(1.15rem, 2.2vw, 1.7rem);
+  align-content: space-between;
+  isolation: isolate;
+}
+
+.updates-card::before,
+.partners-card::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  content: "";
+  background: linear-gradient(90deg, var(--green), #d6b66c);
+  opacity: 0.9;
+  transform: scaleX(0.34);
+  transform-origin: left;
+  transition: transform 220ms cubic-bezier(.22,1,.36,1);
+}
+
+.updates-card:hover::before,
+.updates-card:focus-within::before,
+.partners-card:hover::before,
+.partners-card:focus-within::before {
+  transform: scaleX(1);
+}
+
+.updates-card span,
+.partners-card span {
+  width: fit-content;
+  border: 1px solid rgba(33, 72, 45, 0.16);
+  border-radius: 999px;
+  padding: 0.5rem 0.65rem;
+  background: rgba(255, 250, 240, 0.72);
+  color: var(--green);
+  font-size: 0.62rem;
+  font-weight: 950;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.updates-card h3,
+.partners-card strong {
+  max-width: 12ch;
+}
+
+.updates-card a {
+  width: fit-content;
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.partners-card-grid {
+  border-color: rgba(255, 250, 240, 0.16);
+  background: rgba(255, 250, 240, 0.16);
+}
+
+.partners-card {
+  background: linear-gradient(180deg, rgba(255,250,240,.08), rgba(255,250,240,.035));
+  color: var(--cream);
+}
+
+.partners-card span {
+  border-color: rgba(244, 223, 173, 0.24);
+  background: rgba(244, 223, 173, 0.1);
+  color: #f4dfad;
+}
+
+.footer-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  align-items: center;
+}
+
+.campaign-page .campaign-footer {
+  isolation: isolate;
+  background: radial-gradient(circle at 88% 0%, rgba(214,182,108,.16), transparent 24rem), linear-gradient(135deg, #070907, #142315 58%, #0a0d0a) !important;
+  background-color: #070907;
+  color: var(--campaign-cream);
+}
+
+.campaign-page .campaign-footer > .campaign-container {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 980px) {
+  .sub-page .sub-hero {
+    padding-top: clamp(6.7rem, 14vw, 8.5rem);
+    padding-bottom: clamp(2.4rem, 7vw, 4rem);
+  }
+
+  .sub-page :is(.form-page-section, .partner-section, .email-section) {
+    padding-top: clamp(3.6rem, 8vw, 5rem);
+    padding-bottom: clamp(3.6rem, 8vw, 5rem);
+  }
+
+  .updates-card-grid,
+  .partners-card-grid {
+    grid-template-columns: 1fr;
+    border-radius: 1.15rem;
+  }
+
+  .updates-card,
+  .partners-card {
+    min-height: auto;
+    gap: 0.9rem;
+    align-content: start;
+  }
+
+  .campaign-page .campaign-footer {
+    background: linear-gradient(180deg, #070907 0%, #111d12 58%, #070907 100%) !important;
+    padding-top: clamp(3.4rem, 8vw, 4.8rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .sub-page .sub-hero {
+    padding-inline: var(--pad);
+    padding-top: 6.25rem;
+    padding-bottom: 2.75rem;
+  }
+
+  .sub-page :is(.form-page-section, .partner-section, .email-section) {
+    padding-inline: var(--pad);
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
+  }
+
+  .updates-card-grid,
+  .partners-card-grid {
+    width: 100%;
+    border-radius: 1rem;
+  }
+
+  .updates-card,
+  .partners-card {
+    padding: 1rem;
+  }
+
+  .updates-card h3,
+  .partners-card strong {
+    max-width: none;
+    font-size: clamp(1.45rem, 8vw, 2.15rem);
+    line-height: 0.96;
+  }
+
+  .footer-social-links {
+    display: grid;
+    justify-items: start;
+    gap: 0.85rem;
+  }
+
+  .campaign-page .campaign-footer {
+    background: #070907 !important;
+    padding-bottom: 7rem;
+  }
+}
