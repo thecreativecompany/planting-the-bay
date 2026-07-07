@@ -24,14 +24,6 @@ import {
 
 const regions = ['Berkeley', 'San Francisco', 'Peninsula', 'San Jose', 'Tri-Valley', 'Beyond'];
 
-const visionTags = ['Berkeley First', 'Bay Area Movement', 'Campus Ministry + Local Church', 'Launching September 1'];
-
-const heroProof = [
-  { value: '01', label: 'Berkeley launch city' },
-  { value: '$1M', label: 'Year 1 funding goal' },
-  { value: '2+', label: 'Staff couples in Year 1' },
-];
-
 const fundingStats = [
   { label: 'Year 1', value: '$1M' },
   { label: 'Year 2', value: '$2M' },
@@ -256,41 +248,38 @@ export default function Home() {
         <div className="campaign-container hero-grid">
           <div className="hero-copy" data-reveal>
             <p className="campaign-eyebrow">A Berkeley-first Bay Area movement</p>
-            <h1>Planting the Bay</h1>
-            <h2>A movement to reach Berkeley first — then the Bay Area and beyond.</h2>
+            <h1 className="hero-editorial-title" aria-label="Berkeley first. The Bay next.">
+              <span>Berkeley First.</span>
+              <span>The Bay Next.</span>
+            </h1>
             <p className="hero-description">
-              Beginning September 1, Stuart and Ashley Mains are launching a church-planting and campus-ministry initiative across the San Francisco Bay Area, starting in Berkeley in partnership with the SF Bay Fellowship.
+              Beginning September 1, Stuart and Ashley Mains are launching a church-planting and campus-ministry initiative across the San Francisco Bay Area, beginning in Berkeley.
             </p>
             <div className="campaign-actions">
               <CampaignButton href="/give" eventName="give_to_vision_click">Give to the Vision</CampaignButton>
               <CampaignButton href="/get-involved" variant="secondary" eventName="get_involved_click">Get Involved</CampaignButton>
             </div>
-            <div className="trust-tags" aria-label="Launch details">
-              {visionTags.map((tag) => <span key={tag}>{tag}</span>)}
-            </div>
-            <div className="hero-proof-strip" aria-label="Campaign proof points">
-              {heroProof.map((item) => <div key={item.label}><strong>{item.value}</strong><span>{item.label}</span></div>)}
+            <div className="hero-meta-row" aria-label="Launch details">
+              <span>Launching September 1</span>
+              <span>Berkeley, CA</span>
+              <span>Campus ministry + local church</span>
             </div>
           </div>
 
           <div className="hero-visual" data-reveal>
-            <div className="video-placeholder" aria-label="30 to 60 second vision video preview">
+            <div className="video-placeholder hero-media-block" aria-label="30 to 60 second vision video preview">
               <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1400&q=80" alt="Golden Gate Bridge and San Francisco Bay Area vision video preview" />
               <div className="video-overlay">
                 <button type="button" aria-label="Open 60-second vision video preview" onClick={() => { trackConversion('vision_video_preview_click'); setVideoModalOpen(true); }}>
                   <Play size={22} fill="currentColor" aria-hidden="true" />
                 </button>
-                <span>Watch the 60-second Berkeley launch vision</span>
+                <span>Watch the Berkeley launch vision</span>
               </div>
             </div>
-            <div className="hero-stat-card">
+            <div className="hero-stat-card hero-editorial-stat">
               <span>Year 1 goal</span>
               <strong>$1,000,000</strong>
               <small>Staff couples, campus ministry, pop-up services, and regional outreach.</small>
-            </div>
-            <div className="hero-location-card" aria-hidden="true">
-              <span>Launch corridor</span>
-              <strong>Berkeley → Bay</strong>
             </div>
           </div>
         </div>
