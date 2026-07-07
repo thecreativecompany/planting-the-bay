@@ -1,1 +1,9 @@
-{"scripts":{"dev":"next dev","build":"next build","start":"next start","lint":"eslint ."},"dependencies":{"@next/eslint-plugin-next":"latest","next":"latest","react":"latest","react-dom":"latest"},"devDependencies":{"typescript":"latest","@types/node":"latest","@types/react":"latest","@types/react-dom":"latest","tailwindcss":"latest","@tailwindcss/postcss":"latest","eslint":"latest","eslint-config-next":"latest"}}
+{
+  "name": "planting-the-bay-vercel-static",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check-static-links.mjs"
+  }
+}

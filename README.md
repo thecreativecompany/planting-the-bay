@@ -1,19 +1,40 @@
-# CityLight House — Editorial Church Landing Page
+# Planting the Bay - Vercel Static Site
 
-A complete Vercel-ready Next.js App Router landing page with React, TypeScript, Tailwind CSS, reusable components, CSS-only paper texture, grayscale placeholder imagery, fullscreen menu, editorial collage sections, and lightweight CSS animations.
+This package is a Vercel-ready static Webflow export.
 
-## Run locally
+## Deploy to Vercel
+
+1. Upload this folder/zip to Vercel or push it to GitHub and import the repo.
+2. Use these Vercel settings:
+   - Framework Preset: **Other**
+   - Build Command: **None / leave empty**
+   - Output Directory: **None / leave empty**
+   - Install Command: **None / leave empty**
+3. Vercel will serve `index.html` as the homepage.
+
+## What was added
+
+- `vercel.json` for static deploy behavior, clean URLs, and caching headers.
+- `_project_docs/Planting-the-Bay-Web-Design-Brief_1.pdf` - original design brief for reference.
+- `_project_docs/Planting-the-Bay-Brief.md` - quick implementation checklist from the brief.
+- `.vercelignore` so internal project docs are not published on the live site by default.
+
+## Updating assets later
+
+Most visual assets are in:
+
+- `images/`
+- `fonts/`
+- `css/the-creatives-stupendous-site-6cb212.webflow.css`
+
+When replacing images, either keep the same file names or update the matching `src`, `srcset`, and CSS `url(...)` references.
+
+## Local static check
+
+Run this before deploying if you have Node installed:
 
 ```bash
-npm install
-npm run dev
-npm run build
+npm run check
 ```
 
-## Replace placeholder images
-
-Swap the files in `public/images/` with your own photography while keeping the same filenames, or update the image paths in the components.
-
-## Deploy
-
-Push this folder to GitHub and import it into Vercel. No CMS, database, authentication, backend setup, or environment variables are required.
+It checks all local HTML/CSS/JS/image/font links referenced by the static pages.
