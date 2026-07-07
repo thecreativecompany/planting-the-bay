@@ -1,47 +1,54 @@
-# Planting the Bay - Vercel Static Build
+# Planting the Bay - Vercel Static Site
 
-This is a Vercel-ready static Webflow export.
+This is a static Vercel-ready redesign based on the Planting the Bay website design brief.
 
-## Why this package exists
+## Deploy on Vercel
 
-The previous deployment log showed Vercel running `next build`, then failing because this export is not a Next.js app and has no `app/` or `pages/` directory.
+Use these settings:
 
-This package fixes that by:
-
-- Adding `vercel.json` with `framework: null`
-- Adding a safe `vercel-build` script that prepares static files only
-- Outputting the deployable website into `dist/`
-- Keeping the Planting the Bay design brief inside `_project_docs/`
-
-## Vercel settings
-
-Use these settings when creating/importing the project:
-
-- Framework Preset: Other
+- Framework Preset: `Other`
+- Install Command: `npm install`
 - Build Command: `npm run vercel-build`
 - Output Directory: `dist`
-- Install Command: `npm install`
 
-If this is an existing Vercel project that previously used Next.js, also check:
-
-Project Settings -> Build & Development Settings
-
-Remove any command that says `next build`. Use `npm run vercel-build` instead.
+The `vercel.json` already forces Vercel to treat this project as a static site, not Next.js.
 
 ## Local check
 
 ```bash
 npm install
-npm run vercel-build
+npm run check
+npm run build
 ```
 
-Then preview the files inside `dist/`.
+## Important project files
 
-## Included project docs
+- `index.html` - homepage
+- `our-story.html` - story page
+- `our-vision.html` - vision and roadmap page
+- `why-the-bay.html` - donor-confidence/data page
+- `get-involved.html` - segmented involvement form
+- `give.html` - giving conversion page
+- `team.html`, `updates.html`, `prayer.html`, `partners.html`, `faq.html`, `contact.html` - supporting pages
+- `css/planting-the-bay.css` - full visual system
+- `js/planting-the-bay.js` - mobile menu, demo forms, donation toggle, FAQ accordion
+- `_project_docs/Planting-the-Bay-Web-Design-Brief_1.pdf` - original brief
+- `_project_docs/Planting-the-Bay-Brief-Implementation-Notes.md` - implementation notes and TODOs
 
-The design brief is included in `_project_docs/`:
+## Replace assets later
 
-- `Planting-the-Bay-Web-Design-Brief_1.pdf`
-- `Planting-the-Bay-Brief.md`
+Current images are neutral SVG placeholders in `/images`:
 
-These files are included for project reference. They are not copied into the public `dist/` deployment output.
+- `hero-bay-placeholder.svg`
+- `bay-map-placeholder.svg`
+- `story-people-placeholder.svg`
+- `team-placeholder.svg`
+- `og-planting-the-bay.svg`
+
+Replace them with real Bay Area photography, Stuart/Ashley photos, the vision video, and the 3D Bay Area flyover when ready.
+
+## Forms and giving
+
+Forms are demo-only and show a local success message. Before launch, connect them to Formspree, CRM, newsletter, or CMS.
+
+The Give page CTA currently points to Contact. Replace it with the final giving provider URL or embed once the provider is selected.

@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Style Guide - Planting the Bay</title>
-  <meta name="description" content="Internal design system notes and reusable components for the Planting the Bay website.">
-  <meta property="og:title" content="Style Guide - Planting the Bay">
-  <meta property="og:description" content="Internal design system notes and reusable components for the Planting the Bay website.">
+  <title>Get Involved - Planting the Bay</title>
+  <meta name="description" content="Join the team, serve locally, pray, or express interest in relocating to support Planting the Bay.">
+  <meta property="og:title" content="Get Involved - Planting the Bay">
+  <meta property="og:description" content="Join the team, serve locally, pray, or express interest in relocating to support Planting the Bay.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/og-planting-the-bay.svg">
   <meta name="twitter:card" content="summary_large_image">
@@ -26,7 +26,7 @@
 <a href="our-story.html" class="">Our Story</a>
 <a href="our-vision.html" class="">Our Vision</a>
 <a href="why-the-bay.html" class="">Why the Bay</a>
-<a href="get-involved.html" class="">Get Involved</a>
+<a href="get-involved.html" class="active">Get Involved</a>
 <a href="give.html" class="">Give</a>
       </nav>
       <div class="nav-actions">
@@ -39,12 +39,35 @@
   <main id="main">
 
     <section class="page-hero">
-      <span class="kicker">Internal style guide</span>
-      <h1>Modern editorial, mobile-first, warm and trustworthy.</h1>
-      <p class="lead">Use this page to keep the design consistent as assets, copy, CMS, and giving integrations are added.</p>
+      <span class="kicker">Get Involved</span>
+      <h1>Choose the path that fits how you want to help.</h1>
+      <p class="lead">The recruiting hub separates staff, volunteer, relocation, prayer, and local support pathways so visitors do not have to guess where they belong.</p>
     </section>
-    <section class="section grid-2"><div><p class="eyebrow">Palette</p><h2>Bay, bridge, paper, ink.</h2><p>Deep ink for trust, warm paper for approachability, bridge orange for action, bay teal for place.</p></div><div class="grid-2"><div class="card bridge"><h3>Bridge CTA</h3><p>Use for donate and main conversion actions.</p></div><div class="card dark"><h3>Ink panels</h3><p>Use for high contrast story and credibility moments.</p></div><div class="card tinted"><h3>Bay tint</h3><p>Use for calm information sections.</p></div><div class="card"><h3>Paper cards</h3><p>Use for content and forms.</p></div></div></section>
-    <section class="section"><div class="section-head"><div><p class="eyebrow">Components</p><h2>Buttons, cards, forms.</h2></div></div><div class="grid-3"><article class="card"><h3>Primary CTA</h3><a class="btn btn-primary" href="give.html">Give</a></article><article class="card"><h3>Secondary CTA</h3><a class="btn btn-outline" href="get-involved.html">Get involved</a></article><article class="card"><h3>Information card</h3><p>Use for stories, updates, and data points.</p></article></div></section>
+    <section class="section">
+      <div class="grid-3">
+        <article class="card pathway-card bridge"><div class="icon-chip">01</div><h3>Join the team / planting staff</h3><p>For couples, interns, and families considering relocating to plant with us.</p><a class="btn btn-dark" href="#interest-form">Start interest form</a></article>
+        <article class="card pathway-card tinted"><div class="icon-chip">02</div><h3>Serve or volunteer</h3><p>For local supporters who want to host, serve, welcome, or help with pop-up services.</p><a class="btn btn-dark" href="#interest-form">Volunteer</a></article>
+        <article class="card pathway-card"><div class="icon-chip">03</div><h3>Pray and advocate</h3><p>Join the prayer pipeline and share updates with churches and friends.</p><a class="btn btn-outline" href="prayer.html">Prayer page</a></article>
+      </div>
+    </section>
+    <section class="section grid-2" id="interest-form">
+      <div>
+        <p class="eyebrow">Interest form</p>
+        <h2>Segmented by pathway with clear next steps.</h2>
+        <p class="lead">This form is demo-ready. Replace the action with Formspree, CRM, or newsletter integration before launch.</p>
+        <div class="asset-note">After submission, route users to a confirmation message explaining what happens next.</div>
+      </div>
+      <form class="card" action="#" method="post" data-demo-form="true">
+        <div class="form-grid">
+          <div class="input-row"><label for="name">Name</label><input id="name" name="name" required></div>
+          <div class="input-row"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+          <div class="input-row full"><label for="pathway">Pathway</label><select id="pathway" name="pathway"><option>Join staff / planting team</option><option>Relocate to the Bay</option><option>Serve locally</option><option>Host a pop-up</option><option>Pray / share updates</option></select></div>
+          <div class="input-row full"><label for="message">Tell us more</label><textarea id="message" name="message" placeholder="Share your interest, location, and best next step."></textarea></div>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit interest</button>
+        <p class="form-note" aria-live="polite"></p>
+      </form>
+    </section>
 
   </main>
   <footer class="footer">
