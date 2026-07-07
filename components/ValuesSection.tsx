@@ -10,14 +10,14 @@ export default function ValuesSection() {
     <section className="section-pad border-b border-black/15">
       <div className="container">
         <p className="eyebrow">Values / Beliefs</p>
-        <h2 className="display mt-4 max-w-5xl text-[clamp(3.4rem,9vw,9rem)]">The culture we carry.</h2>
-        <div className="no-scrollbar mt-12 flex snap-x gap-4 overflow-x-auto pb-4 lg:grid lg:grid-cols-4 lg:overflow-visible">
+        <h2 className="display mt-4 max-w-5xl text-[clamp(3.2rem,8vw,8.5rem)]">The culture we carry.</h2>
+        <div className="no-scrollbar mt-12 flex snap-x gap-5 overflow-x-auto pb-5 lg:grid lg:grid-cols-4 lg:overflow-visible">
           {values.map(([num, title, text]) => (
-            <article key={title} className="group relative min-h-80 min-w-[78vw] snap-center overflow-hidden border border-black/25 bg-[var(--paper)] p-6 transition hover:-translate-y-1 hover:border-[var(--red)] sm:min-w-[22rem] lg:min-w-0">
-              <span className="absolute -right-4 -top-2 text-[8rem] font-black leading-none tracking-[-.12em] text-black/[.045] transition group-hover:text-[var(--red)]/10">{num}</span>
+            <article key={title} className="premium-card group relative min-h-[22rem] min-w-[82vw] snap-center overflow-hidden p-7 sm:min-w-[22rem] sm:p-8 lg:min-w-0">
+              <span className="absolute -right-3 top-5 text-[7.5rem] font-black leading-none tracking-[-.12em] text-black/[.04] transition group-hover:text-[var(--red)]/10">{num}</span>
               <p className="eyebrow">{num}</p>
-              <h3 className="mt-20 text-4xl font-black uppercase tracking-[-.06em]">{title}</h3>
-              <p className="mt-5 font-semibold leading-relaxed text-black/65">{text}</p>
+              <h3 className="mt-24 text-[clamp(2.2rem,3vw,3.1rem)] font-black uppercase leading-none tracking-[-.06em]">{title}</h3>
+              <p className="copy mt-6 text-[1rem]">{text}</p>
             </article>
           ))}
         </div>
