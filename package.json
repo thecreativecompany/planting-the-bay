@@ -1,0 +1,11 @@
+{
+  "name": "webflow-static-vercel",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node -e \"console.log('Static Webflow site: no build needed')\"",
+    "vercel-build": "node -e \"console.log('Static Webflow site: no Next.js build needed')\""
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

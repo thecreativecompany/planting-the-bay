@@ -1,11 +1,8 @@
-# Vercel Static Deployment
+# Static Webflow Export for Vercel
 
-This is a static Webflow export prepared for Vercel.
+This package keeps all Webflow runtime assets needed for animations, including `js/webflow.js` and all video files.
 
-Vercel settings are controlled by `vercel.json`:
+Vercel notes:
 - Framework Preset: Other
-- Build Command: disabled
-- Install Command: disabled
-- Output Directory: public
-
-Deploy this zip as a new Vercel project or redeploy it over the existing project.
+- Build command can be empty or `npm run vercel-build`
+- Output Directory: leave empty

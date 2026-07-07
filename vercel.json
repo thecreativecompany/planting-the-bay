@@ -1,9 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": null,
-  "installCommand": "",
-  "outputDirectory": "public",
+  "buildCommand": "npm run vercel-build",
+  "installCommand": "npm install --ignore-scripts=false",
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
