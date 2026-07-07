@@ -3,6 +3,7 @@
   "framework": null,
   "buildCommand": "npm run vercel-build",
   "installCommand": "npm install --ignore-scripts=false",
+  "outputDirectory": "public",
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
