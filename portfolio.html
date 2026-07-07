@@ -1,12 +1,12 @@
 <!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Tue Jul 07 2026 19:27:05 GMT+0000 (Coordinated Universal Time)  -->
-<html data-wf-page="6a4d52b8f5ab167830322e6e" data-wf-site="6a4d52b6f5ab167830322c32" lang="en">
+<html data-wf-page="6a4d52b8f5ab167830322dfc" data-wf-site="6a4d52b6f5ab167830322c32" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Contact - AirLens - Webflow HTML website template</title>
+  <title>Portfolio - AirLens - Webflow HTML website template</title>
   <meta content="AirLens offers creative photography and video editing services, capturing moments with emotion. Bring stories to life through stunning visuals." name="description">
-  <meta content="Contact - AirLens - Webflow HTML website template" property="og:title">
+  <meta content="Portfolio - AirLens - Webflow HTML website template" property="og:title">
   <meta content="AirLens offers creative photography and video editing services, capturing moments with emotion. Bring stories to life through stunning visuals." property="og:description">
-  <meta content="Contact - AirLens - Webflow HTML website template" name="twitter:title">
+  <meta content="Portfolio - AirLens - Webflow HTML website template" name="twitter:title">
   <meta content="AirLens offers creative photography and video editing services, capturing moments with emotion. Bring stories to life through stunning visuals." name="twitter:description">
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
@@ -49,7 +49,7 @@ html.lenis {
           <div class="nav-menu">
             <ul role="list" class="nav-list">
               <li class="nav-list-item">
-                <a nav-link="" href="/portfolio" class="u-link cc-nav w-inline-block">
+                <a nav-link="" href="/portfolio" aria-current="page" class="u-link cc-nav w-inline-block w--current">
                   <div class="nav-text">Portfolio</div>
                 </a>
                 <link rel="prefetch" href="/portfolio">
@@ -67,7 +67,7 @@ html.lenis {
                 <link rel="prefetch" href="/about">
               </li>
               <li class="nav-list-item">
-                <a nav-link="" href="/contact" aria-current="page" class="u-link cc-nav w-inline-block w--current">
+                <a nav-link="" href="/contact" class="u-link cc-nav w-inline-block">
                   <div class="nav-text">Contact</div>
                 </a>
                 <link rel="prefetch" href="/contact">
@@ -103,7 +103,7 @@ html.lenis {
               <link rel="prefetch" href="/">
             </li>
             <li class="nav-list-item-bottom">
-              <a href="/portfolio" nav-link="" class="nav-link w-inline-block">
+              <a href="/portfolio" nav-link="" aria-current="page" class="nav-link w-inline-block w--current">
                 <div class="nav-text cc-bottom">Portfolio</div>
               </a>
               <link rel="prefetch" href="/portfolio">
@@ -121,7 +121,7 @@ html.lenis {
               <link rel="prefetch" href="/about">
             </li>
             <li class="nav-list-item-bottom">
-              <a href="/contact" nav-link="" aria-current="page" class="nav-link w-inline-block w--current">
+              <a href="/contact" nav-link="" class="nav-link w-inline-block">
                 <div class="nav-text cc-bottom">Contact</div>
               </a>
               <link rel="prefetch" href="/contact">
@@ -166,192 +166,48 @@ html.lenis {
       </div>
     </div>
     <div class="main">
-      <section class="section cc-blog-hero">
+      <section class="section cc-portfolio-hero">
         <div class="container">
           <div class="grid-cols">
-            <div class="header-col cc-max-640">
+            <div class="header-col cc-align-center cc-max-700">
               <div class="title-wrapper">
-                <h1 portfolio-title="" class="text-h1">Lets give it a shot</h1>
+                <h1 portfolio-title="" class="text-h1">A showcase of captured moments</h1>
               </div>
               <div class="text-wrapper cc-top-20">
-                <p portfolio-text="" class="text-md">Fill out the form below or drop me a message directly, and I’ll get back to you as soon as I can. Let’s create something memorable together!</p>
+                <p portfolio-text="" class="text-md">Each frame tells a story, capturing genuine moments that showcase my style and vision. Browse through my favorite projects.</p>
               </div>
             </div>
-            <div data-blog-item="" class="grid-cols cc-2col cc-gap-32">
-              <div class="column-left cc-contact-left">
-                <div class="title-wrapper">
-                  <div class="text-xl">Contact Information</div>
-                </div>
-                <div class="content-col cc-gap-24">
-                  <div class="contact-info cc-gap-16">
-                    <div class="image-wrapper"><img width="40" height="40" alt="A black and white photo of a phone." loading="lazy" src="images/Call-Icon.webp" class="image cc-contact-icon"></div>
-                    <div class="column-right">
-                      <div class="title-wrapper">
-                        <div class="text-lg cc-font-weight-700">Phone:</div>
+            <div class="content-col cc-gap-64">
+              <div class="portfolio-collection w-dyn-list">
+                <div data-blog-item="" role="list" class="portfolio-coll-list w-dyn-items">
+                  <div role="listitem" class="portfolio-coll-item w-dyn-item">
+                    <a href="#" class="portfolio-cms-link w-inline-block">
+                      <div class="portfolio-card">
+                        <div class="image-wrapper cc-portfolio"><img width="Auto" height="738" alt="" loading="lazy" src="" data-image-scale="scroll" class="image cc-portfolio w-dyn-bind-empty"><img width="Auto" height="Auto" alt="AirLens - Webflow Template Image" src="images/Icon_6.webp" loading="lazy" class="portfolio-icon"></div>
+                        <div data-blog-item="" class="content-col cc-portfolio">
+                          <div class="text-wrapper cc-portfolio">
+                            <div class="text-lg cc-u-text-muted">Project Name:</div>
+                            <div class="text-md cc-portfolio w-dyn-bind-empty"></div>
+                          </div>
+                          <div class="text-wrapper cc-portfolio cc-max-350">
+                            <div class="text-lg cc-u-text-muted">Description:</div>
+                            <div class="text-md cc-portfolio w-dyn-bind-empty"></div>
+                          </div>
+                          <div class="text-wrapper cc-portfolio">
+                            <div class="text-lg cc-u-text-muted">Industry:</div>
+                            <div class="text-md cc-portfolio w-dyn-bind-empty"></div>
+                          </div>
+                          <div class="text-wrapper cc-portfolio">
+                            <div class="text-lg cc-u-text-muted">Release Date:</div>
+                            <div class="text-md cc-portfolio w-dyn-bind-empty"></div>
+                          </div>
+                        </div>
                       </div>
-                      <div class="text-wrapper cc-gap-4 cc-top-14">
-                        <div class="text-sm">Customer Support:</div>
-                        <a href="tel:1-800-362-4573" class="u-link cc-info w-inline-block">
-                          <div>(1-800-362-4573)</div>
-                        </a>
-                      </div>
-                      <div class="text-wrapper cc-gap-4 cc-top-8">
-                        <div class="text-sm">Sales Inquiries:</div>
-                        <a href="tel:1-800-362-4537" class="u-link cc-info w-inline-block">
-                          <div>(1-800-362-4537)</div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="contact-info cc-gap-16">
-                    <div class="image-wrapper"><img width="40" height="40" alt="A black and white photo of a check mark." loading="lazy" src="images/Email-Icon.webp" class="image cc-contact-icon"></div>
-                    <div class="column-right">
-                      <div class="title-wrapper">
-                        <div class="text-lg cc-font-weight-700">Email:</div>
-                      </div>
-                      <div class="text-wrapper cc-gap-4 cc-top-14">
-                        <div class="text-sm">General Inquiries:</div>
-                        <a href="tel:1-800-362-4573" class="u-link cc-info w-inline-block">
-                          <div>info@sendix.com</div>
-                        </a>
-                      </div>
-                      <div class="text-wrapper cc-gap-4 cc-top-8">
-                        <div class="text-sm">Support:</div>
-                        <a href="tel:1-800-362-4537" class="u-link cc-info w-inline-block">
-                          <div>support@sendix.com</div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="contact-info cc-gap-16">
-                    <div class="image-wrapper"><img width="40" height="40" alt="A black and white photo of a check mark." loading="lazy" src="images/Location-Icon.webp" class="image cc-contact-icon"></div>
-                    <div class="column-right">
-                      <div class="title-wrapper">
-                        <div class="text-lg cc-font-weight-700">Address:</div>
-                      </div>
-                      <div class="text-wrapper cc-gap-4 cc-top-14">
-                        <div class="text-sm">123 Email Marketing Lane <br>Suite 456 Marketing City, MA 01234</div>
-                      </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
-              </div>
-              <div class="column-right cc-contact-right">
-                <div class="form-wrapper w-form">
-                  <form id="email-form" name="email-form" data-name="Email Form" method="get" class="form-group" data-wf-page-id="6a4d52b8f5ab167830322e6e" data-wf-element-id="66eb4c95-8f1f-2814-29ce-06fa62847701"><input class="input-field w-input" maxlength="256" name="name" data-name="Name" placeholder="First Name" type="text" id="First-Name"><input class="input-field w-input" maxlength="256" name="name" data-name="Name" placeholder="Last Name" type="text" id="Last-Name"><input class="input-field w-input" maxlength="256" name="email" data-name="Email" placeholder="Work Email" type="email" id="email" required=""><textarea placeholder="Write your message" maxlength="5000" id="field" name="field" data-name="Field" class="input-field cc-text-area w-input"></textarea><input type="submit" data-wait="Please wait..." class="form-button w-button" value="Submit"></form>
-                  <div class="success-message w-form-done">
-                    <div>Thank you! Your submission has been received!</div>
-                  </div>
-                  <div class="w-form-fail">
-                    <div>Oops! Something went wrong while submitting the form.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section cc-faq">
-        <div class="container cc-faq">
-          <div class="grid-cols cc-2col cc-gap-80">
-            <div class="column-left">
-              <div slide-up-item="" class="image-wrapper">
-                <div class="faq-img"><img src="images/Faq-Image_1.webp" loading="lazy" width="86" height="84" alt="A picture of a woman with red hair." faq-left-img="" class="image cc-faq"><img src="images/Faq-Image.webp" loading="lazy" width="83" height="80" alt="A woman with red hair wearing a black jacket." faq-right-img="" class="image cc-faq-1"></div>
-              </div>
-              <div class="title-wrapper">
-                <div data-wf--heading--variant="align-left" class="title-wrapper">
-                  <h2 slide-up-title="" class="heading text-h2">Frequently Asked Question</h2>
-                </div>
-              </div>
-              <div class="text-wrapper cc-top-20">
-                <div data-wf--paragraph--variant="align-left" class="text-wrapper">
-                  <p slide-up-title="" class="paragraph text-md">From reservations to dietary preferences, here’s all the information you need before dining with us.</p>
-                </div>
-              </div>
-            </div>
-            <div slide-up-item="" class="column-right cc-max-660 cc-gap-16">
-              <div class="faq-accordion">
-                <div class="faq-question">
-                  <div class="text-xl">Should I book a session before my photoshoot?</div>
-                  <div class="faq-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 25" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
-                      <path d="M0 12.291C0 5.6636 5.37258 0.291016 12 0.291016C18.6274 0.291016 24 5.6636 24 12.291C24 18.9184 18.6274 24.291 12 24.291C5.37258 24.291 0 18.9184 0 12.291Z" fill="#F2F2EF"></path>
-                      <path d="M12 14.7456C11.8838 14.7456 11.7674 14.7011 11.6787 14.6124L7.13321 10.067C6.9556 9.88934 6.9556 9.60173 7.13321 9.42423C7.31082 9.24673 7.59844 9.24661 7.77594 9.42423L12 13.6483L16.2241 9.42423C16.4017 9.24661 16.6893 9.24661 16.8668 9.42423C17.0443 9.60184 17.0444 9.88945 16.8668 10.067L12.3214 14.6124C12.2326 14.7011 12.1163 14.7456 12 14.7456Z" fill="#595E5C"></path>
-                    </svg></div>
-                </div>
-                <div class="faq-answer">
-                  <p class="text-sm">While walk-ins are always welcome, we recommend booking a table in advance, especially during weekends and peak hours, to avoid waiting.</p>
-                </div>
-              </div>
-              <div class="faq-accordion">
-                <div class="faq-question">
-                  <div class="text-xl">What are your photography studio hours?</div>
-                  <div class="faq-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 25" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
-                      <path d="M0 12.291C0 5.6636 5.37258 0.291016 12 0.291016C18.6274 0.291016 24 5.6636 24 12.291C24 18.9184 18.6274 24.291 12 24.291C5.37258 24.291 0 18.9184 0 12.291Z" fill="#F2F2EF"></path>
-                      <path d="M12 14.7456C11.8838 14.7456 11.7674 14.7011 11.6787 14.6124L7.13321 10.067C6.9556 9.88934 6.9556 9.60173 7.13321 9.42423C7.31082 9.24673 7.59844 9.24661 7.77594 9.42423L12 13.6483L16.2241 9.42423C16.4017 9.24661 16.6893 9.24661 16.8668 9.42423C17.0443 9.60184 17.0444 9.88945 16.8668 10.067L12.3214 14.6124C12.2326 14.7011 12.1163 14.7456 12 14.7456Z" fill="#595E5C"></path>
-                    </svg></div>
-                </div>
-                <div class="faq-answer">
-                  <p class="text-sm">While walk-ins are always welcome, we recommend booking a table in advance, especially during weekends and peak hours, to avoid waiting.</p>
-                </div>
-              </div>
-              <div class="faq-accordion">
-                <div class="faq-question">
-                  <div class="text-xl">Do you offer both outdoor and indoor photography?</div>
-                  <div class="faq-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 25" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
-                      <path d="M0 12.291C0 5.6636 5.37258 0.291016 12 0.291016C18.6274 0.291016 24 5.6636 24 12.291C24 18.9184 18.6274 24.291 12 24.291C5.37258 24.291 0 18.9184 0 12.291Z" fill="#F2F2EF"></path>
-                      <path d="M12 14.7456C11.8838 14.7456 11.7674 14.7011 11.6787 14.6124L7.13321 10.067C6.9556 9.88934 6.9556 9.60173 7.13321 9.42423C7.31082 9.24673 7.59844 9.24661 7.77594 9.42423L12 13.6483L16.2241 9.42423C16.4017 9.24661 16.6893 9.24661 16.8668 9.42423C17.0443 9.60184 17.0444 9.88945 16.8668 10.067L12.3214 14.6124C12.2326 14.7011 12.1163 14.7456 12 14.7456Z" fill="#595E5C"></path>
-                    </svg></div>
-                </div>
-                <div class="faq-answer">
-                  <p class="text-sm">While walk-ins are always welcome, we recommend booking a table in advance, especially during weekends and peak hours, to avoid waiting.</p>
-                </div>
-              </div>
-              <div class="faq-accordion">
-                <div class="faq-question">
-                  <div class="text-xl">Is home photography available for events?</div>
-                  <div class="faq-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 25" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
-                      <path d="M0 12.291C0 5.6636 5.37258 0.291016 12 0.291016C18.6274 0.291016 24 5.6636 24 12.291C24 18.9184 18.6274 24.291 12 24.291C5.37258 24.291 0 18.9184 0 12.291Z" fill="#F2F2EF"></path>
-                      <path d="M12 14.7456C11.8838 14.7456 11.7674 14.7011 11.6787 14.6124L7.13321 10.067C6.9556 9.88934 6.9556 9.60173 7.13321 9.42423C7.31082 9.24673 7.59844 9.24661 7.77594 9.42423L12 13.6483L16.2241 9.42423C16.4017 9.24661 16.6893 9.24661 16.8668 9.42423C17.0443 9.60184 17.0444 9.88945 16.8668 10.067L12.3214 14.6124C12.2326 14.7011 12.1163 14.7456 12 14.7456Z" fill="#595E5C"></path>
-                    </svg></div>
-                </div>
-                <div class="faq-answer">
-                  <p class="text-sm">While walk-ins are always welcome, we recommend booking a table in advance, especially during weekends and peak hours, to avoid waiting.</p>
-                </div>
-              </div>
-              <div class="faq-accordion">
-                <div class="faq-question">
-                  <div class="text-xl">Can I book a photography session online?</div>
-                  <div class="faq-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 25" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
-                      <path d="M0 12.291C0 5.6636 5.37258 0.291016 12 0.291016C18.6274 0.291016 24 5.6636 24 12.291C24 18.9184 18.6274 24.291 12 24.291C5.37258 24.291 0 18.9184 0 12.291Z" fill="#F2F2EF"></path>
-                      <path d="M12 14.7456C11.8838 14.7456 11.7674 14.7011 11.6787 14.6124L7.13321 10.067C6.9556 9.88934 6.9556 9.60173 7.13321 9.42423C7.31082 9.24673 7.59844 9.24661 7.77594 9.42423L12 13.6483L16.2241 9.42423C16.4017 9.24661 16.6893 9.24661 16.8668 9.42423C17.0443 9.60184 17.0444 9.88945 16.8668 10.067L12.3214 14.6124C12.2326 14.7011 12.1163 14.7456 12 14.7456Z" fill="#595E5C"></path>
-                    </svg></div>
-                </div>
-                <div class="faq-answer">
-                  <p class="text-sm">While walk-ins are always welcome, we recommend booking a table in advance, especially during weekends and peak hours, to avoid waiting.</p>
-                </div>
-              </div>
-              <div class="faq-accordion">
-                <div class="faq-question">
-                  <div class="text-xl">What are the hours for booking photography?</div>
-                  <div class="faq-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 25" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
-                      <path d="M0 12.291C0 5.6636 5.37258 0.291016 12 0.291016C18.6274 0.291016 24 5.6636 24 12.291C24 18.9184 18.6274 24.291 12 24.291C5.37258 24.291 0 18.9184 0 12.291Z" fill="#F2F2EF"></path>
-                      <path d="M12 14.7456C11.8838 14.7456 11.7674 14.7011 11.6787 14.6124L7.13321 10.067C6.9556 9.88934 6.9556 9.60173 7.13321 9.42423C7.31082 9.24673 7.59844 9.24661 7.77594 9.42423L12 13.6483L16.2241 9.42423C16.4017 9.24661 16.6893 9.24661 16.8668 9.42423C17.0443 9.60184 17.0444 9.88945 16.8668 10.067L12.3214 14.6124C12.2326 14.7011 12.1163 14.7456 12 14.7456Z" fill="#595E5C"></path>
-                    </svg></div>
-                </div>
-                <div class="faq-answer">
-                  <p class="text-sm">While walk-ins are always welcome, we recommend booking a table in advance, especially during weekends and peak hours, to avoid waiting.</p>
-                </div>
-              </div>
-              <div class="faq-accordion">
-                <div class="faq-question">
-                  <div class="text-xl">Can I hold photography workshops at your studio?</div>
-                  <div class="faq-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 25" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
-                      <path d="M0 12.291C0 5.6636 5.37258 0.291016 12 0.291016C18.6274 0.291016 24 5.6636 24 12.291C24 18.9184 18.6274 24.291 12 24.291C5.37258 24.291 0 18.9184 0 12.291Z" fill="#F2F2EF"></path>
-                      <path d="M12 14.7456C11.8838 14.7456 11.7674 14.7011 11.6787 14.6124L7.13321 10.067C6.9556 9.88934 6.9556 9.60173 7.13321 9.42423C7.31082 9.24673 7.59844 9.24661 7.77594 9.42423L12 13.6483L16.2241 9.42423C16.4017 9.24661 16.6893 9.24661 16.8668 9.42423C17.0443 9.60184 17.0444 9.88945 16.8668 10.067L12.3214 14.6124C12.2326 14.7011 12.1163 14.7456 12 14.7456Z" fill="#595E5C"></path>
-                    </svg></div>
-                </div>
-                <div class="faq-answer">
-                  <p class="text-sm">While walk-ins are always welcome, we recommend booking a table in advance, especially during weekends and peak hours, to avoid waiting.</p>
+                <div class="w-dyn-empty">
+                  <div>No items found.</div>
                 </div>
               </div>
             </div>
@@ -399,7 +255,7 @@ html.lenis {
                       <link rel="prefetch" href="/">
                     </li>
                     <li class="footer-list-item">
-                      <a href="/portfolio" class="u-link cc-footer w-inline-block">
+                      <a href="/portfolio" aria-current="page" class="u-link cc-footer w-inline-block w--current">
                         <div>Portfolio</div>
                       </a>
                       <link rel="prefetch" href="/portfolio">
@@ -417,7 +273,7 @@ html.lenis {
                       <link rel="prefetch" href="/about">
                     </li>
                     <li class="footer-list-item">
-                      <a href="/contact" aria-current="page" class="u-link cc-footer w-inline-block w--current">
+                      <a href="/contact" class="u-link cc-footer w-inline-block">
                         <div>Contact</div>
                       </a>
                       <link rel="prefetch" href="/contact">
