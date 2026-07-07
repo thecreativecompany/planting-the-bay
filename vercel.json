@@ -11,6 +11,46 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/portfolio",
+      "destination": "/our-vision",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio.html",
+      "destination": "/our-vision",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/updates",
+      "permanent": true
+    },
+    {
+      "source": "/blog.html",
+      "destination": "/updates",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/our-story",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/our-story",
+      "permanent": true
+    },
+    {
+      "source": "/detail_portfolio",
+      "destination": "/give",
+      "permanent": true
+    },
+    {
+      "source": "/detail_post",
+      "destination": "/why-the-bay",
+      "permanent": true
     }
   ]
 }
