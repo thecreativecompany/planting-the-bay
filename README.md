@@ -1,40 +1,47 @@
-# Planting the Bay - Vercel Static Site
+# Planting the Bay - Vercel Static Build
 
-This package is a Vercel-ready static Webflow export.
+This is a Vercel-ready static Webflow export.
 
-## Deploy to Vercel
+## Why this package exists
 
-1. Upload this folder/zip to Vercel or push it to GitHub and import the repo.
-2. Use these Vercel settings:
-   - Framework Preset: **Other**
-   - Build Command: **None / leave empty**
-   - Output Directory: **None / leave empty**
-   - Install Command: **None / leave empty**
-3. Vercel will serve `index.html` as the homepage.
+The previous deployment log showed Vercel running `next build`, then failing because this export is not a Next.js app and has no `app/` or `pages/` directory.
 
-## What was added
+This package fixes that by:
 
-- `vercel.json` for static deploy behavior, clean URLs, and caching headers.
-- `_project_docs/Planting-the-Bay-Web-Design-Brief_1.pdf` - original design brief for reference.
-- `_project_docs/Planting-the-Bay-Brief.md` - quick implementation checklist from the brief.
-- `.vercelignore` so internal project docs are not published on the live site by default.
+- Adding `vercel.json` with `framework: null`
+- Adding a safe `vercel-build` script that prepares static files only
+- Outputting the deployable website into `dist/`
+- Keeping the Planting the Bay design brief inside `_project_docs/`
 
-## Updating assets later
+## Vercel settings
 
-Most visual assets are in:
+Use these settings when creating/importing the project:
 
-- `images/`
-- `fonts/`
-- `css/the-creatives-stupendous-site-6cb212.webflow.css`
+- Framework Preset: Other
+- Build Command: `npm run vercel-build`
+- Output Directory: `dist`
+- Install Command: `npm install`
 
-When replacing images, either keep the same file names or update the matching `src`, `srcset`, and CSS `url(...)` references.
+If this is an existing Vercel project that previously used Next.js, also check:
 
-## Local static check
+Project Settings -> Build & Development Settings
 
-Run this before deploying if you have Node installed:
+Remove any command that says `next build`. Use `npm run vercel-build` instead.
+
+## Local check
 
 ```bash
-npm run check
+npm install
+npm run vercel-build
 ```
 
-It checks all local HTML/CSS/JS/image/font links referenced by the static pages.
+Then preview the files inside `dist/`.
+
+## Included project docs
+
+The design brief is included in `_project_docs/`:
+
+- `Planting-the-Bay-Web-Design-Brief_1.pdf`
+- `Planting-the-Bay-Brief.md`
+
+These files are included for project reference. They are not copied into the public `dist/` deployment output.

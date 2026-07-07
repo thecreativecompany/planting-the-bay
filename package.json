@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "node scripts/prepare-static.mjs",
+    "vercel-build": "node scripts/prepare-static.mjs",
     "check": "node scripts/check-static-links.mjs"
   }
 }
