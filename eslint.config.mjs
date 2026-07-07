@@ -1,31 +1,31 @@
-import js from '@eslint/js';
+import nextPlugin from "@next/eslint-plugin-next";
+import tsParser from "@typescript-eslint/parser";
 
-export default [
+const nextRecommended = nextPlugin.configs.recommended.rules;
+const nextVitals = nextPlugin.configs["core-web-vitals"].rules;
+
+const eslintConfig = [
   {
-    ignores: ['.next/**', 'node_modules/**'],
+    ignores: [".next/**", "node_modules/**", "out/**", "next-env.d.ts"],
   },
-  js.configs.recommended,
   {
-    files: ['app/**/*.{js,jsx}'],
+    files: ["**/*.{js,jsx,ts,tsx}"],
     languageOptions: {
-      ecmaVersion: 2024,
-      sourceType: 'module',
+      parser: tsParser,
       parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-      globals: {
-        document: 'readonly',
-        window: 'readonly',
-        IntersectionObserver: 'readonly',
-        process: 'readonly',
+        ecmaVersion: "latest",
+        sourceType: "module",
+        ecmaFeatures: { jsx: true },
       },
     },
+    plugins: {
+      "@next/next": nextPlugin,
+    },
     rules: {
-      // Espree does not mark JSX component identifiers as used without the React plugin.
-      // Keep the lightweight project lint focused on syntax and recommended correctness rules.
-      'no-unused-vars': 'off',
+      ...nextRecommended,
+      ...nextVitals,
     },
   },
 ];
+
+export default eslintConfig;
