@@ -4,21 +4,25 @@ import path from 'node:path';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
-const staticDirs = ['css', 'js', 'images', 'fonts'];
-const htmlFiles = readdirSync(root).filter((file) => file.endsWith('.html'));
+
+const htmlEntries = readdirSync(root).filter((file) => file.endsWith('.html'));
+const publicEntries = [
+  ...htmlEntries,
+  'css',
+  'js',
+  'images',
+  'fonts'
+];
 
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
 
-for (const file of htmlFiles) {
-  await cp(path.join(root, file), path.join(dist, file));
-}
-
-for (const entry of staticDirs) {
+for (const entry of publicEntries) {
   const source = path.join(root, entry);
   if (!existsSync(source)) continue;
+  const target = path.join(dist, entry);
   const info = await stat(source);
-  await cp(source, path.join(dist, entry), { recursive: info.isDirectory() });
+  await cp(source, target, { recursive: info.isDirectory() });
 }
 
-console.log(`Prepared ${htmlFiles.length} HTML page(s) and static assets in ./dist`);
+console.log('Static Webflow export prepared in ./dist');
