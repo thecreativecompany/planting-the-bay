@@ -5205,3 +5205,8 @@ figcaption {
     object-position: 58% center;
   }
 }
+
+/* PTB hero fix: remove home hero vertical guide lines */
+.section.cc-hero .line {
+  display: none !important;
+}
