@@ -5136,3 +5136,72 @@ figcaption {
   font-style: italic;
   font-display: swap;
 }
+/* Home hero background fix: full-bleed landscape image with readable overlays. */
+.section.cc-hero {
+  min-height: 100svh;
+  background-color: #19292a;
+}
+
+.container.cc-hero {
+  width: 100%;
+  max-width: none;
+  min-height: 100svh;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.hero-wrapper {
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.image-wrapper.cc-absolate[data-hero-image] {
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.image.cc-hero-img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.hero-wrapper::before {
+  content: "";
+  z-index: 1;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(14, 30, 31, .48) 0%, rgba(14, 30, 31, .08) 30%, rgba(14, 30, 31, .12) 56%, rgba(14, 30, 31, .72) 100%),
+    linear-gradient(90deg, rgba(14, 30, 31, .44) 0%, rgba(14, 30, 31, .06) 26%, rgba(14, 30, 31, .06) 74%, rgba(14, 30, 31, .44) 100%);
+}
+
+.hero-shadow {
+  z-index: 1;
+  filter: blur(150px);
+  opacity: .78;
+  max-width: 64rem;
+  max-height: 18rem;
+}
+
+.header-col.cc-hero,
+.line.cc-span-1,
+.line.cc-span-2,
+.line.cc-span-3 {
+  z-index: 2;
+}
+
+@media screen and (max-width: 767px) {
+  .image.cc-hero-img {
+    object-position: 58% center;
+  }
+}
