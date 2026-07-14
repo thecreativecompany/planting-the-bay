@@ -9,7 +9,3 @@ Recommended Vercel settings:
 - Install Command: default or empty
 
 The Webflow animation runtime and video assets are kept.
-
-## Boss-feedback revision
-
-This version includes the navigation-overlay cleanup, Bay/church imagery updates, simplified involvement cards, refreshed FAQ and Berkeley/CAL content, a cleaner footer, and Our Story layout/hover fixes. New photography is stored locally as optimized WebP assets; credits are in `IMAGE-CREDITS.md`.
