@@ -5240,14 +5240,20 @@ figcaption {
     height: auto;
     aspect-ratio: 377 / 214;
     object-fit: cover;
+    object-position: center;
     display: block;
     position: absolute;
     pointer-events: auto;
     cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: var(--roundness--medium);
+    box-shadow: 0 .75rem 2.25rem rgba(5, 18, 19, .18);
     translate: 0 0;
+    rotate: 0deg;
     scale: 1;
-    transition: translate .45s cubic-bezier(.22, 1, .36, 1), scale .45s cubic-bezier(.22, 1, .36, 1), filter .45s ease, box-shadow .45s ease;
-    will-change: translate, scale, filter;
+    transition: translate .5s cubic-bezier(.22, 1, .36, 1), rotate .5s cubic-bezier(.22, 1, .36, 1), scale .5s cubic-bezier(.22, 1, .36, 1), filter .5s ease, box-shadow .5s ease;
+    will-change: translate, rotate, scale, filter;
+    backface-visibility: hidden;
   }
 
   .nav-content-img .nav-left {
@@ -5262,10 +5268,16 @@ figcaption {
 
   .nav-content-img .nav-left:hover,
   .nav-content-img .nav-right:hover {
-    filter: brightness(1.08) saturate(1.04);
-    box-shadow: 0 1.25rem 2.5rem rgba(5, 18, 19, .28);
-    translate: 0 -.45rem;
-    scale: 1.035;
+    filter: brightness(1.07) saturate(1.05);
+    box-shadow: 0 1.5rem 3rem rgba(5, 18, 19, .3);
+  }
+
+  .nav-content-img .nav-left:hover {
+    animation: nav-image-float-left 2.2s cubic-bezier(.45, 0, .55, 1) infinite alternate;
+  }
+
+  .nav-content-img .nav-right:hover {
+    animation: nav-image-float-right 2.2s cubic-bezier(.45, 0, .55, 1) infinite alternate;
   }
 }
 
@@ -5276,5 +5288,42 @@ figcaption {
 
   .nav-content-img .nav-right {
     top: 6.5rem;
+  }
+}
+
+
+@keyframes nav-image-float-left {
+  0% {
+    translate: .2rem -.25rem;
+    rotate: -.65deg;
+    scale: 1.025;
+  }
+
+  100% {
+    translate: .8rem -.7rem;
+    rotate: .8deg;
+    scale: 1.05;
+  }
+}
+
+@keyframes nav-image-float-right {
+  0% {
+    translate: -.2rem .15rem;
+    rotate: .65deg;
+    scale: 1.025;
+  }
+
+  100% {
+    translate: -.8rem -.5rem;
+    rotate: -.8deg;
+    scale: 1.05;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-content-img .nav-left,
+  .nav-content-img .nav-right {
+    animation: none !important;
+    transition-duration: .01ms !important;
   }
 }
