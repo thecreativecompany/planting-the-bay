@@ -5217,3 +5217,59 @@ figcaption {
   object-fit: contain;
   object-position: center;
 }
+
+/* Navigation overlay image alignment: equal sizing, padded corner placement, and subtle hover. */
+@media screen and (min-width: 992px) {
+  .nav-content-img,
+  .nav-content-img:where(.w-variant-ccf49484-ec42-8e99-caac-da7d3f4b97cd) {
+    width: 100%;
+    max-width: var(--_section---container--max-width);
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .nav-content-img .nav-left,
+  .nav-content-img .nav-right {
+    width: clamp(18rem, 26vw, 23.5625rem);
+    height: auto;
+    aspect-ratio: 377 / 214;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    pointer-events: auto;
+    transition: transform .45s cubic-bezier(.22, 1, .36, 1), filter .45s ease, box-shadow .45s ease;
+    will-change: transform;
+  }
+
+  .nav-content-img .nav-left {
+    left: calc(var(--_section---container--padding) + 1.5rem);
+    bottom: 13rem;
+  }
+
+  .nav-content-img .nav-right {
+    top: 8rem;
+    right: calc(var(--_section---container--padding) + 1.5rem);
+  }
+
+  .nav-content-img .nav-left:hover,
+  .nav-content-img .nav-right:hover {
+    filter: brightness(1.06);
+    box-shadow: 0 1.25rem 2.5rem rgba(5, 18, 19, .24);
+    transform: translateY(-.4rem) scale(1.025);
+  }
+}
+
+@media screen and (min-width: 992px) and (max-height: 760px) {
+  .nav-content-img .nav-left {
+    bottom: 10rem;
+  }
+
+  .nav-content-img .nav-right {
+    top: 6.5rem;
+  }
+}
