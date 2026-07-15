@@ -5251,8 +5251,9 @@ figcaption {
     translate: 0 0;
     rotate: 0deg;
     scale: 1;
-    transition: translate .5s cubic-bezier(.22, 1, .36, 1), rotate .5s cubic-bezier(.22, 1, .36, 1), scale .5s cubic-bezier(.22, 1, .36, 1), filter .5s ease, box-shadow .5s ease;
+    transition: filter .55s cubic-bezier(.22, 1, .36, 1), box-shadow .55s cubic-bezier(.22, 1, .36, 1);
     will-change: translate, rotate, scale, filter;
+    transform-origin: center;
     backface-visibility: hidden;
   }
 
@@ -5272,13 +5273,6 @@ figcaption {
     box-shadow: 0 1.5rem 3rem rgba(5, 18, 19, .3);
   }
 
-  .nav-content-img .nav-left:hover {
-    animation: nav-image-float-left 2.2s cubic-bezier(.45, 0, .55, 1) infinite alternate;
-  }
-
-  .nav-content-img .nav-right:hover {
-    animation: nav-image-float-right 2.2s cubic-bezier(.45, 0, .55, 1) infinite alternate;
-  }
 }
 
 @media screen and (min-width: 992px) and (max-height: 760px) {
@@ -5292,33 +5286,6 @@ figcaption {
 }
 
 
-@keyframes nav-image-float-left {
-  0% {
-    translate: .2rem -.25rem;
-    rotate: -.65deg;
-    scale: 1.025;
-  }
-
-  100% {
-    translate: .8rem -.7rem;
-    rotate: .8deg;
-    scale: 1.05;
-  }
-}
-
-@keyframes nav-image-float-right {
-  0% {
-    translate: -.2rem .15rem;
-    rotate: .65deg;
-    scale: 1.025;
-  }
-
-  100% {
-    translate: -.8rem -.5rem;
-    rotate: -.8deg;
-    scale: 1.05;
-  }
-}
 
 @media (prefers-reduced-motion: reduce) {
   .nav-content-img .nav-left,
