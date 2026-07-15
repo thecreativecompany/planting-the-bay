@@ -5210,3 +5210,10 @@ figcaption {
 .section.cc-hero .line {
   display: none !important;
 }
+
+/* Navigation logo clipping fix: preserve the existing 110x32 layout without cropping. */
+.nav-logo-white,
+.nav-logo-dark {
+  object-fit: contain;
+  object-position: center;
+}
