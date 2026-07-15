@@ -5230,6 +5230,7 @@ figcaption {
     display: block;
     position: absolute;
     inset: 0;
+    z-index: 3;
     pointer-events: none;
   }
 
@@ -5242,8 +5243,11 @@ figcaption {
     display: block;
     position: absolute;
     pointer-events: auto;
-    transition: transform .45s cubic-bezier(.22, 1, .36, 1), filter .45s ease, box-shadow .45s ease;
-    will-change: transform;
+    cursor: pointer;
+    translate: 0 0;
+    scale: 1;
+    transition: translate .45s cubic-bezier(.22, 1, .36, 1), scale .45s cubic-bezier(.22, 1, .36, 1), filter .45s ease, box-shadow .45s ease;
+    will-change: translate, scale, filter;
   }
 
   .nav-content-img .nav-left {
@@ -5258,9 +5262,10 @@ figcaption {
 
   .nav-content-img .nav-left:hover,
   .nav-content-img .nav-right:hover {
-    filter: brightness(1.06);
-    box-shadow: 0 1.25rem 2.5rem rgba(5, 18, 19, .24);
-    transform: translateY(-.4rem) scale(1.025);
+    filter: brightness(1.08) saturate(1.04);
+    box-shadow: 0 1.25rem 2.5rem rgba(5, 18, 19, .28);
+    translate: 0 -.45rem;
+    scale: 1.035;
   }
 }
 
