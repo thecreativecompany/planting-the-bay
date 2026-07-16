@@ -2603,7 +2603,7 @@ figcaption {
   padding: 2.5rem 2rem;
   display: flex;
   position: sticky;
-  top: 8rem;
+  top: 10rem;
   overflow: auto;
 }
 
@@ -5261,11 +5261,11 @@ figcaption {
 
   .nav-content-img .nav-left {
     left: calc(var(--_section---container--padding) + 1.5rem);
-    bottom: 13rem;
+    bottom: 15rem;
   }
 
   .nav-content-img .nav-right {
-    top: 8rem;
+    top: 10rem;
     right: calc(var(--_section---container--padding) + 1.5rem);
   }
 
@@ -5279,11 +5279,11 @@ figcaption {
 
 @media screen and (min-width: 992px) and (max-height: 760px) {
   .nav-content-img .nav-left {
-    bottom: 10rem;
+    bottom: 12rem;
   }
 
   .nav-content-img .nav-right {
-    top: 6.5rem;
+    top: 8.5rem;
   }
 }
 
