@@ -5296,3 +5296,14 @@ figcaption {
     transition-duration: .01ms !important;
   }
 }
+
+
+/* Home parallax images: border radius only. */
+.image.cc-span1,
+.image.cc-span2,
+.image.cc-span3,
+.image.cc-span4,
+.image.cc-span5,
+.image.cc-span6 {
+  border-radius: 16px;
+}
