@@ -5155,6 +5155,7 @@ figcaption {
   min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
+  background-color: #000000;
 }
 
 .image-wrapper.cc-absolate[data-hero-image] {
@@ -5163,6 +5164,7 @@ figcaption {
   height: 100%;
   position: absolute;
   inset: 0;
+  background-color: #000000;
 }
 
 .image.cc-hero-img {
@@ -5181,8 +5183,8 @@ figcaption {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(14, 30, 31, .48) 0%, rgba(14, 30, 31, .08) 30%, rgba(14, 30, 31, .12) 56%, rgba(14, 30, 31, .72) 100%),
-    linear-gradient(90deg, rgba(14, 30, 31, .44) 0%, rgba(14, 30, 31, .06) 26%, rgba(14, 30, 31, .06) 74%, rgba(14, 30, 31, .44) 100%);
+    linear-gradient(180deg, rgba(0, 0, 0, .48) 0%, rgba(0, 0, 0, .08) 30%, rgba(0, 0, 0, .12) 56%, rgba(0, 0, 0, .72) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, .44) 0%, rgba(0, 0, 0, .06) 26%, rgba(0, 0, 0, .06) 74%, rgba(0, 0, 0, .44) 100%);
 }
 
 .hero-shadow {
@@ -5247,7 +5249,7 @@ figcaption {
     cursor: pointer;
     border: 1px solid rgba(255, 255, 255, .12);
     border-radius: var(--roundness--medium);
-    box-shadow: 0 .75rem 2.25rem rgba(5, 18, 19, .18);
+    box-shadow: 0 .75rem 2.25rem rgba(0, 0, 0, .18);
     translate: 0 0;
     rotate: 0deg;
     scale: 1;
@@ -5270,7 +5272,7 @@ figcaption {
   .nav-content-img .nav-left:hover,
   .nav-content-img .nav-right:hover {
     filter: brightness(1.07) saturate(1.05);
-    box-shadow: 0 1.5rem 3rem rgba(5, 18, 19, .3);
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, .3);
   }
 
 }
