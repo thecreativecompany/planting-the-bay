@@ -5618,3 +5618,80 @@ figcaption {
     gap: .75rem;
   }
 }
+
+
+/* Planting the Bay — redesign mission pathways as static cards instead of a slider */
+.mission-cards-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.mission-path-card {
+  background: var(--_themes---colors--surface, #ffffff);
+  border: 1px solid rgba(12, 18, 28, 0.08);
+  border-radius: var(--roundness--large);
+  padding: 1.5rem;
+  min-height: 17rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mission-path-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.mission-path-title {
+  color: var(--_themes---colors--accent, #101828);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.mission-path-subtitle {
+  color: var(--_themes---colors--text-muted, rgba(16, 24, 40, 0.66));
+  font-size: .8125rem;
+  line-height: 1.35;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.mission-path-copy {
+  margin: 0;
+  color: var(--_themes---colors--accent, #101828);
+  font-size: 1.125rem;
+  line-height: 1.45;
+}
+
+@media screen and (max-width: 991px) {
+  .mission-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mission-path-card {
+    min-height: 15rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .mission-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-path-card {
+    min-height: 0;
+    gap: 1rem;
+  }
+
+  .mission-path-title {
+    font-size: 1.375rem;
+  }
+
+  .mission-path-copy {
+    font-size: 1rem;
+  }
+}
