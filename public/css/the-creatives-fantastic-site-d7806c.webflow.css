@@ -5341,14 +5341,15 @@ figcaption {
 }
 
 .goal-card-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: .98;
+  font-size: var(--_typography---h5--size);
+  line-height: var(--_typography---h5--line-height);
+  letter-spacing: 0;
 }
 
 .funding-card-amount {
-  font-size: clamp(4.5rem, 9vw, 7.5rem);
-  line-height: .82;
-  letter-spacing: -.065em;
+  font-size: var(--_typography---h2--size);
+  line-height: var(--_typography---h2--line-height);
+  letter-spacing: var(--_typography---h2--letter-spacing);
 }
 
 .goal-card-divider {
@@ -5385,13 +5386,6 @@ figcaption {
     padding: 1.5rem !important;
   }
 
-  .goal-card-title {
-    font-size: clamp(2.25rem, 8vw, 3.25rem);
-  }
-
-  .funding-card-amount {
-    font-size: clamp(4rem, 16vw, 6rem);
-  }
 }
 
 @media screen and (max-width: 479px) {
@@ -5408,4 +5402,26 @@ figcaption {
     max-width: 18rem;
     font-size: 1rem;
   }
+}
+
+
+/* Why the Bay — ensure the first feature image fills its card */
+.choose-card.cc-span-1 {
+  overflow: hidden;
+}
+
+.choose-card.cc-span-1 > .image.cc-choose-1 {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  margin-top: 0 !important;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+.choose-card.cc-span-1 > .text-wrapper.cc-choose-1 {
+  z-index: 1;
 }
