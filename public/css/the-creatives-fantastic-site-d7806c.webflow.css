@@ -5564,3 +5564,23 @@ figcaption {
 .header-col.cc-3col > .choose-card.cc-span-2 > .text-wrapper.cc-choose-2 {
   z-index: 2;
 }
+
+
+/* Planting the Bay — add darker lower-half overlay on the support/funding feature image for text readability */
+.image-wrapper.cc-overflow-hide.cc-ralative::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 36%,
+    rgba(0, 0, 0, 0.18) 52%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
+}
+
+.image-wrapper.cc-overflow-hide.cc-ralative > .text-wrapper.cc-choose-2 {
+  z-index: 2;
+}
