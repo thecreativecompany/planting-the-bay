@@ -5554,9 +5554,9 @@ figcaption {
   border-radius: inherit;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0) 38%,
-    rgba(0, 0, 0, 0.12) 52%,
-    rgba(0, 0, 0, 0.72) 100%
+    rgba(0, 0, 0, 0) 30%,
+    rgba(0, 0, 0, 0.28) 48%,
+    rgba(0, 0, 0, 0.88) 100%
   );
 }
 
