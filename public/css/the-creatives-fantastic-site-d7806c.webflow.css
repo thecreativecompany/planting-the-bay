@@ -5296,3 +5296,116 @@ figcaption {
     transition-duration: .01ms !important;
   }
 }
+
+
+/* Planting the Bay — text-only Year 1 goal cards */
+.goal-card {
+  box-sizing: border-box;
+  min-height: 22rem;
+  position: relative;
+  overflow: hidden;
+  flex-flow: column !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  padding: 2rem !important;
+  background-color: var(--_themes---colors--surface) !important;
+  color: var(--_themes---colors--text);
+}
+
+.goal-card-label {
+  font-family: "Inter Variable Font", Arial, sans-serif;
+  font-size: .75rem;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--_themes---colors--text-muted);
+}
+
+.goal-card-body {
+  width: 100%;
+  max-width: 24rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.goal-card-title,
+.funding-card-amount {
+  font-family: "Inter Variable Font", Arial, sans-serif;
+  margin: 0;
+  color: var(--_themes---colors--text);
+  font-weight: 500;
+  letter-spacing: -.045em;
+}
+
+.goal-card-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: .98;
+}
+
+.funding-card-amount {
+  font-size: clamp(4.5rem, 9vw, 7.5rem);
+  line-height: .82;
+  letter-spacing: -.065em;
+}
+
+.goal-card-divider {
+  width: 100%;
+  height: 1px;
+  background-color: color-mix(in srgb, var(--_themes---colors--text) 14%, transparent);
+}
+
+.goal-card-copy {
+  max-width: 22rem;
+  margin: 0;
+  font-family: "Inter Variable Font", Arial, sans-serif;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: -.015em;
+  color: var(--_themes---colors--text);
+}
+
+.funding-card .goal-card-body {
+  max-width: 25rem;
+}
+
+@media screen and (max-width: 991px) {
+  .goal-card {
+    min-height: 24rem;
+    aspect-ratio: auto !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .goal-card {
+    min-height: 20rem;
+    padding: 1.5rem !important;
+  }
+
+  .goal-card-title {
+    font-size: clamp(2.25rem, 8vw, 3.25rem);
+  }
+
+  .funding-card-amount {
+    font-size: clamp(4rem, 16vw, 6rem);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .goal-card {
+    min-height: 17.25rem;
+    aspect-ratio: auto !important;
+  }
+
+  .goal-card-body {
+    gap: 1rem;
+  }
+
+  .goal-card-copy {
+    max-width: 18rem;
+    font-size: 1rem;
+  }
+}
