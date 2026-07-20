@@ -5584,3 +5584,37 @@ figcaption {
 .image-wrapper.cc-overflow-hide.cc-ralative > .text-wrapper.cc-choose-2 {
   z-index: 2;
 }
+
+
+/* Planting the Bay — align expansion path images with the text block */
+.expansion-intro {
+  grid-column: 1 / -1;
+}
+
+.expansion-path-row {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.expansion-path-images {
+  flex: 0 0 auto;
+}
+
+.expansion-path-copy {
+  flex: 0 1 auto;
+}
+
+.expansion-path-copy .text-sm {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .expansion-path-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: .75rem;
+  }
+}
