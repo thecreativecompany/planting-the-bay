@@ -5695,3 +5695,12 @@ figcaption {
     font-size: 1rem;
   }
 }
+
+
+/* Planting the Bay — 16px rounded corners for the four collaboration images */
+.image.cc-collaboration-1,
+.image.cc-collaboration-2,
+.image.cc-collaboration-3,
+.image.cc-collaboration-4 {
+  border-radius: 16px;
+}
