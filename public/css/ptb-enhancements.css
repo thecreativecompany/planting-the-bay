@@ -31,6 +31,12 @@
   min-width: 9rem;
 }
 
+.ptb-momentum-actions {
+  justify-content: center;
+  width: 100%;
+  margin-top: 2rem;
+}
+
 .ptb-subtitle-light,
 .ptb-subtitle-light * {
   color: var(--_themes---colors--surface);
