@@ -941,5 +941,19 @@
 
 .footer-social-icons .u-link.cc-social {
   flex: 0 0 auto;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  vertical-align: middle;
+}
+
+.footer-social-icons .social-icon {
+  width: 1rem;
+  height: 1rem;
+  display: block;
+  flex: 0 0 auto;
 }
 
