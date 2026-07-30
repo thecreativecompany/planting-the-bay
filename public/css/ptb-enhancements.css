@@ -964,3 +964,53 @@
   flex: 0 0 auto;
 }
 
+
+/* Three pillars: reveal only the hovered card image and let it follow the cursor. */
+@media (hover: hover) and (pointer: fine) and (min-width: 992px) {
+  .ptb-vision-pillars {
+    position: relative;
+    overflow: visible;
+  }
+
+  .ptb-vision-pillars .tools-card {
+    z-index: 1;
+  }
+
+  .ptb-vision-pillars .tools-image {
+    position: fixed;
+    inset: 0 auto auto 0;
+    z-index: 100;
+    width: clamp(16rem, 27vw, 28rem);
+    max-width: none;
+    height: clamp(11rem, 19vw, 19rem);
+    object-fit: cover;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden !important;
+    will-change: transform, opacity;
+    box-shadow: 0 1.25rem 3.5rem rgba(0, 0, 0, .18);
+    transform: translate3d(-200vw, -200vh, 0) rotate(var(--ptb-pillar-image-rotation, -5deg)) scale(.94);
+    transition: opacity 180ms ease, visibility 0s linear 180ms, transform 180ms ease;
+  }
+
+  .ptb-vision-pillars .tools-card:nth-child(2) .tools-image {
+    --ptb-pillar-image-rotation: 4deg;
+  }
+
+  .ptb-vision-pillars .tools-card:nth-child(3) .tools-image {
+    --ptb-pillar-image-rotation: -3deg;
+  }
+
+  html .ptb-vision-pillars .tools-card.is-pillar-hovered .tools-image {
+    opacity: 1;
+    visibility: visible !important;
+    transition: opacity 180ms ease, visibility 0s linear 0s;
+  }
+}
+
+/* Touch devices do not have a dependable hover state, so keep these preview images hidden. */
+@media (hover: none), (pointer: coarse), (max-width: 991px) {
+  html .ptb-vision-pillars .tools-image {
+    display: none !important;
+  }
+}
