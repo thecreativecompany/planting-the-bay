@@ -976,10 +976,16 @@
     z-index: 1;
   }
 
+  /* Raise the active card's stacking context so its preview cannot sit beneath
+     the other pillar rows or any of their text/backgrounds. */
+  .ptb-vision-pillars .tools-card.is-pillar-hovered {
+    z-index: 2147483646;
+  }
+
   .ptb-vision-pillars .tools-image {
     position: fixed;
     inset: 0 auto auto 0;
-    z-index: 100;
+    z-index: 2147483647 !important;
     width: clamp(16rem, 27vw, 28rem);
     max-width: none;
     height: clamp(11rem, 19vw, 19rem);
