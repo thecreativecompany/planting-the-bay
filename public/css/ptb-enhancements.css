@@ -930,3 +930,16 @@
 .ptb-signup-band .ptb-form-note {
   color: #ffffff;
 }
+
+/* Footer: remove the old emblem and show the same three social icons used in the open navigation. */
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: .75rem;
+}
+
+.footer-social-icons .u-link.cc-social {
+  flex: 0 0 auto;
+}
+
