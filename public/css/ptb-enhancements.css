@@ -925,3 +925,8 @@
   align-items: center;
   transform: translateY(-50%);
 }
+
+/* Improve readability of the supporter signup note on the black band. */
+.ptb-signup-band .ptb-form-note {
+  color: #ffffff;
+}
