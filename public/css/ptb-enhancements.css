@@ -1062,3 +1062,21 @@
   color: #ffffff !important;
   opacity: 1 !important;
 }
+
+/* Roadmap cards: consistent white treatment */
+.ptb-roadmap-card,
+.ptb-roadmap-card.is-active {
+  background: #fff;
+  color: #000;
+}
+
+.ptb-roadmap-card > span,
+.ptb-roadmap-card .text-h5,
+.ptb-roadmap-card .text-sm,
+.ptb-roadmap-card .ptb-card-meta,
+.ptb-roadmap-card.is-active > span,
+.ptb-roadmap-card.is-active .text-h5,
+.ptb-roadmap-card.is-active .text-sm,
+.ptb-roadmap-card.is-active .ptb-card-meta {
+  color: #000;
+}
