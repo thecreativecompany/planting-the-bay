@@ -1083,3 +1083,29 @@
 .ptb-roadmap-card.is-active .ptb-card-meta {
   color: #000;
 }
+
+/* Blog regional section refinements */
+.ptb-regions-section .header-col > .button {
+  margin-top: 1.5rem;
+}
+
+.ptb-region-node.is-active {
+  background: #ffffff;
+  color: #000000;
+}
+
+.ptb-region-node.is-active span {
+  background: var(--_themes---colors--bg-secondary);
+  color: #000000;
+}
+
+.ptb-region-node.is-active strong,
+.ptb-region-node.is-active small {
+  color: #000000;
+}
+
+@media screen and (max-width: 767px) {
+  .ptb-regions-section .header-col > .button {
+    margin-top: 1.25rem;
+  }
+}
