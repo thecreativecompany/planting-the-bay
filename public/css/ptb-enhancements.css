@@ -1049,3 +1049,16 @@
     margin-top: 1.25rem;
   }
 }
+
+/* Flyover section eyebrow: keep the label readable on the dark background. */
+.ptb-flyover-section .ptb-subtitle-light {
+  background-color: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #ffffff !important;
+}
+
+.ptb-flyover-section .ptb-subtitle-light,
+.ptb-flyover-section .ptb-subtitle-light * {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
