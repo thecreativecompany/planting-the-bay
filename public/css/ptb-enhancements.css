@@ -1020,3 +1020,32 @@
     display: none !important;
   }
 }
+
+/* Portfolio flyover cleanup */
+.ptb-flyover-frame {
+  min-height: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.ptb-flyover-frame > img {
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--roundness--xlarge);
+}
+
+.ptb-flyover-frame::after {
+  display: none;
+}
+
+.ptb-flyover-overlay {
+  position: static;
+  inset: auto;
+  margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 767px) {
+  .ptb-flyover-overlay {
+    margin-top: 1.25rem;
+  }
+}
