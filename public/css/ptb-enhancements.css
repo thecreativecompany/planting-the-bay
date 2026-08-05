@@ -438,9 +438,10 @@
 }
 
 .ptb-reasons-grid article {
-  min-height: 24rem;
+  min-height: 0;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 .ptb-reasons-grid article > h3 {
