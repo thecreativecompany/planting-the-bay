@@ -1053,7 +1053,8 @@
 /* Dark-section eyebrows: keep the labels readable and consistent. */
 .ptb-flyover-section .ptb-subtitle-light,
 .ptb-survey-section .ptb-subtitle-light,
-.ptb-interest-section .ptb-subtitle-light {
+.ptb-interest-section .ptb-subtitle-light,
+.ptb-other-giving-section .ptb-subtitle-light {
   background-color: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.28);
   color: #ffffff !important;
@@ -1064,7 +1065,9 @@
 .ptb-survey-section .ptb-subtitle-light,
 .ptb-survey-section .ptb-subtitle-light *,
 .ptb-interest-section .ptb-subtitle-light,
-.ptb-interest-section .ptb-subtitle-light * {
+.ptb-interest-section .ptb-subtitle-light *,
+.ptb-other-giving-section .ptb-subtitle-light,
+.ptb-other-giving-section .ptb-subtitle-light * {
   color: #ffffff !important;
   opacity: 1 !important;
 }
