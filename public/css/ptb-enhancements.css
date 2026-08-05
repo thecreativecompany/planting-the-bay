@@ -1400,3 +1400,13 @@
     font-size: clamp(2rem, 10vw, 2.75rem);
   }
 }
+
+/* Why the Bay use-of-funds cards: match the consistent card spacing system. */
+.ptb-use-grid article > h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ptb-use-grid article > p {
+  margin: 0;
+}
