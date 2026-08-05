@@ -1115,3 +1115,15 @@
   display: block;
   margin-bottom: 0.75rem;
 }
+
+/* Navigation: keep the primary actions aligned to the far-right edge. */
+.nav-top,
+.nav-top:where(.w-variant-ccf49484-ec42-8e99-caac-da7d3f4b97cd),
+.nav-top:where(.w-variant-c9c3102b-cea0-853c-e007-3abc7d62f054) {
+  grid-template-columns: 1fr auto;
+}
+
+.nav-top > .nav-right-button {
+  grid-column: 2;
+  justify-self: end;
+}
