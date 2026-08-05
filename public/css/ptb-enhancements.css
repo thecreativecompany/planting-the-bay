@@ -1180,3 +1180,31 @@
     white-space: normal;
   }
 }
+
+
+/* Give hero: guarantee exactly three centered lines */
+.ptb-give-hero .header-col.cc-max-640 {
+  max-width: 60rem;
+}
+
+.ptb-give-heading {
+  width: 100%;
+  font-size: clamp(3.25rem, 4.4vw, 5rem);
+  line-height: 1.08;
+  text-align: center;
+}
+
+.ptb-give-heading > span {
+  display: block;
+  white-space: nowrap !important;
+}
+
+@media screen and (max-width: 767px) {
+  .ptb-give-hero .header-col.cc-max-640 {
+    max-width: 100%;
+  }
+
+  .ptb-give-heading {
+    font-size: clamp(2rem, 8vw, 3.25rem);
+  }
+}
