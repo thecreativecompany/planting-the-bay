@@ -1343,6 +1343,8 @@
   width: 100%;
   max-width: 54rem;
   margin: 0;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  box-sizing: border-box;
   text-align: left;
 }
 
