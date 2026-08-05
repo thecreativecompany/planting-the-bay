@@ -1329,3 +1329,26 @@
 .ptb-faq-fullscreen > .container.cc-faq {
   width: 100%;
 }
+
+
+/* Prayer page: single-column, left-aligned content layout */
+.ptb-prayer-section .ptb-prayer-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.ptb-prayer-section .ptb-prayer-content {
+  width: 100%;
+  max-width: 54rem;
+  margin: 0;
+  text-align: left;
+}
+
+.ptb-prayer-section .privacy-richtext {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
