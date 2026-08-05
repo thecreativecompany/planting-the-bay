@@ -1317,3 +1317,15 @@
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
 }
+
+
+/* FAQ page: make the main FAQ section fill the viewport */
+.ptb-faq-fullscreen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.ptb-faq-fullscreen > .container.cc-faq {
+  width: 100%;
+}
