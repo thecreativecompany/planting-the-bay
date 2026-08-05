@@ -1354,3 +1354,16 @@
   align-items: flex-start;
   width: 100%;
 }
+
+
+/* Home collaboration heading: keep the copy balanced without an orphan word. */
+.ptb-collaboration-heading span {
+  display: block;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 479px) {
+  .ptb-collaboration-heading {
+    font-size: clamp(2rem, 10vw, 2.75rem);
+  }
+}
