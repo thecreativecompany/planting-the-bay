@@ -11,6 +11,51 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/portfolio",
+      "destination": "/our-vision",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/why-the-bay",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/our-story",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/get-involved",
+      "permanent": true
+    },
+    {
+      "source": "/detail_portfolio",
+      "destination": "/give",
+      "permanent": true
+    },
+    {
+      "source": "/detail_post",
+      "destination": "/story",
+      "permanent": true
+    },
+    {
+      "source": "/utility-pages/licenses",
+      "destination": "/utility-pages/faq",
+      "permanent": true
+    },
+    {
+      "source": "/utility-pages/privacy-policy",
+      "destination": "/utility-pages/prayer",
+      "permanent": true
+    },
+    {
+      "source": "/utility-pages/terms-conditions",
+      "destination": "/utility-pages/giving-info",
+      "permanent": true
     }
   ]
 }
