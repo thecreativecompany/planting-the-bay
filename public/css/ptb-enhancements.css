@@ -443,8 +443,13 @@
   flex-direction: column;
 }
 
-.ptb-reasons-grid h3 {
-  margin-top: auto;
+.ptb-reasons-grid article > h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ptb-reasons-grid article > p {
+  margin: 0;
 }
 
 .ptb-region-map {
