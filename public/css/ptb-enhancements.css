@@ -1157,3 +1157,26 @@
     align-items: center;
   }
 }
+
+
+/* Give page hero: fixed three-line centered heading */
+.ptb-give-heading {
+  text-align: center;
+}
+
+.ptb-give-heading > span {
+  display: block;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 767px) {
+  .ptb-give-heading {
+    font-size: clamp(2.25rem, 9vw, 4rem);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .ptb-give-heading > span {
+    white-space: normal;
+  }
+}
