@@ -1134,5 +1134,17 @@
 
 /* PTB contact pathways: add space between the small label and heading */
 .ptb-pathway-details article > h3 {
-  margin-top: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+
+/* PTB contact pathway heading: lock the copy to exactly two lines */
+.ptb-pathway-heading {
+  font-size: clamp(1.75rem, 4.5vw, 3.5rem);
+  line-height: 1.18;
+}
+
+.ptb-pathway-heading > span {
+  display: block;
+  white-space: nowrap;
 }
