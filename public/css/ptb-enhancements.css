@@ -140,10 +140,32 @@
   background: var(--_themes---colors--accent);
   border-radius: var(--roundness--xlarge);
   padding: 3rem;
-  display: grid;
-  grid-template-columns: minmax(0,1fr) minmax(20rem,.72fr);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   gap: var(--gap--xlarge);
-  align-items: end;
+}
+
+.ptb-signup-band > .header-col {
+  flex: 1 1 0;
+}
+
+.ptb-signup-band > .ptb-inline-form {
+  flex: 0 1 28rem;
+  width: 100%;
+}
+
+.ptb-signup-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .125rem;
+  text-wrap: balance;
+}
+
+.ptb-signup-heading > span {
+  display: block;
 }
 
 .ptb-inline-form {
@@ -815,7 +837,12 @@
   }
 
   .ptb-signup-band {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ptb-signup-heading {
+    align-items: center;
   }
 }
 
