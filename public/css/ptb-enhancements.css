@@ -1298,3 +1298,10 @@
     white-space: normal;
   }
 }
+
+
+/* PTB give funding cards: match Contact page card spacing */
+.ptb-fund-grid article > h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
