@@ -5704,3 +5704,19 @@ figcaption {
 .image.cc-collaboration-4 {
   border-radius: 16px;
 }
+
+
+/* PTB nav logo size bump */
+.nav-logo-white,
+.nav-logo-dark {
+  width: 126px;
+  height: auto;
+}
+
+@media screen and (max-width: 479px) {
+  .nav-logo-white,
+  .nav-logo-dark {
+    width: 120px;
+    max-width: 48%;
+  }
+}
