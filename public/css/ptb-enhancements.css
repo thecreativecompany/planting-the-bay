@@ -1280,3 +1280,21 @@
     letter-spacing: -.02em;
   }
 }
+
+
+/* Give page allocation copy: exactly two centered lines on tablet and desktop */
+.ptb-gift-allocation-copy {
+  max-width: none;
+  text-align: center;
+}
+
+.ptb-gift-allocation-copy > span {
+  display: block;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 767px) {
+  .ptb-gift-allocation-copy > span {
+    white-space: normal;
+  }
+}
