@@ -1208,3 +1208,75 @@
     font-size: clamp(2rem, 8vw, 3.25rem);
   }
 }
+
+
+/* PTB give form readability and spacing */
+.ptb-give-panel-header {
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.ptb-give-panel-header > div {
+  width: 100%;
+}
+
+.ptb-give-panel-header .text-xs,
+.ptb-give-panel .ptb-field-group > label,
+.ptb-give-panel .ptb-trust-copy {
+  color: rgba(255, 255, 255, .78);
+}
+
+.ptb-give-panel-header .text-h4 {
+  margin-top: .5rem;
+  color: #fff;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.ptb-give-panel .ptb-toggle {
+  margin-top: 0;
+}
+
+.ptb-give-panel .ptb-field-group {
+  margin-top: 1.75rem;
+}
+
+.ptb-give-panel .ptb-field-group > label {
+  display: block;
+  margin-bottom: .75rem;
+  line-height: 1.35;
+}
+
+.ptb-give-panel .ptb-field-group .ptb-amount-grid,
+.ptb-give-panel .ptb-field-group .input-field {
+  margin-top: 0;
+}
+
+.ptb-give-panel .input-field,
+.ptb-give-panel .input-field option {
+  color: #fff;
+}
+
+.ptb-give-panel .ptb-give-summary {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  color: #fff;
+}
+
+.ptb-give-panel .ptb-give-submit {
+  margin-top: 1.25rem;
+}
+
+.ptb-give-panel .ptb-trust-copy {
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 479px) {
+  .ptb-give-panel-header .text-h4 {
+    font-size: 1.3rem;
+    letter-spacing: -.02em;
+  }
+}
