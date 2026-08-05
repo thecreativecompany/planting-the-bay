@@ -1256,9 +1256,18 @@
   margin-top: 0;
 }
 
-.ptb-give-panel .input-field,
-.ptb-give-panel .input-field option {
+.ptb-give-panel .input-field {
   color: #fff;
+}
+
+.ptb-give-panel select.input-field option {
+  color: #111827;
+  background: #ffffff;
+}
+
+.ptb-give-panel select.input-field option:checked {
+  color: #111827;
+  background: #e5e7eb;
 }
 
 .ptb-give-panel .ptb-give-summary {
