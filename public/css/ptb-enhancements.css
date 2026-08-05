@@ -1149,3 +1149,11 @@
   display: block;
   white-space: nowrap;
 }
+
+
+/* PTB footer heading and email alignment */
+@media screen and (min-width: 992px) {
+  .footer-col.cc-span-1 {
+    align-items: center;
+  }
+}
