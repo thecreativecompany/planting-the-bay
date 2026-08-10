@@ -1440,3 +1440,15 @@
     white-space: nowrap;
   }
 }
+
+
+/* Home page tablet + mobile polish: hide the floating/parallax image collage. */
+@media screen and (max-width: 991px) {
+  .section.cc-our-perspective .content-col.cc-perspective {
+    display: none;
+  }
+
+  .section.cc-our-perspective .grid-cols.cc-gap-0.cc-perspective {
+    max-height: none;
+  }
+}
