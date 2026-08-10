@@ -1444,15 +1444,56 @@
 
 /* Home page tablet + mobile polish: keep only the final bridge image from the perspective sequence. */
 @media screen and (max-width: 991px) {
+  .section.cc-our-perspective {
+    height: auto;
+    min-height: 0;
+    padding-bottom: 4rem;
+  }
+
+  .section.cc-our-perspective .grid-cols.cc-gap-0.cc-perspective {
+    max-height: none;
+  }
+
   .section.cc-our-perspective .content-col.cc-perspective {
     display: block;
+    width: 100%;
+    margin-top: 3rem;
   }
 
   .section.cc-our-perspective .content-col.cc-perspective > .perspective-item:not(.cc-span-4) {
     display: none;
   }
 
-  .section.cc-our-perspective .grid-cols.cc-gap-0.cc-perspective {
-    max-height: none;
+  .section.cc-our-perspective .perspective-item.cc-span-4 {
+    width: 100%;
+    margin-top: 0;
+    display: block;
+  }
+
+  .section.cc-our-perspective .perspective-item.cc-span-4 > .image-wrapper {
+    position: relative;
+    width: min(100%, 48rem);
+    aspect-ratio: 2 / 1;
+    margin-inline: auto;
+    overflow: hidden;
+    border-radius: var(--roundness--large);
+  }
+
+  .section.cc-our-perspective .image.cc-span7 {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+    inset: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section.cc-our-perspective {
+    padding-bottom: 3rem;
+  }
+
+  .section.cc-our-perspective .content-col.cc-perspective {
+    margin-top: 2rem;
   }
 }
