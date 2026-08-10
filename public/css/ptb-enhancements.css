@@ -272,7 +272,19 @@
   min-height: 15rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+}
+
+.ptb-story-step > div {
+  margin-top: 3rem;
+}
+
+.ptb-story-step .text-h6 {
+  margin-bottom: .75rem;
+}
+
+.ptb-story-step p {
+  margin: 0;
 }
 
 .ptb-story-step > span,
