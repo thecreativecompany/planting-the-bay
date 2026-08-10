@@ -1415,3 +1415,16 @@
 .section.cc-about .title-wrapper.cc-max-966.cc-align-center .text-h5 + .text-h5 {
   margin-top: 1.5rem;
 }
+
+
+/* About / Our Story / Vision tools rows: keep the middle labels on one line on desktop. */
+@media screen and (min-width: 992px) {
+  .section.cc-tools .tools-card > .text-wrapper.cc-max-200:not(.cc-left) {
+    max-width: 18rem;
+    flex: 0 0 18rem;
+  }
+
+  .section.cc-tools .tools-card > .text-wrapper.cc-max-200:not(.cc-left) .text-xl {
+    white-space: nowrap;
+  }
+}
