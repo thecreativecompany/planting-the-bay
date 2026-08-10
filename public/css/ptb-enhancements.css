@@ -1410,3 +1410,8 @@
 .ptb-use-grid article > p {
   margin: 0;
 }
+
+/* Story/About intro copy: add breathing room between the two centered paragraphs. */
+.section.cc-about .title-wrapper.cc-max-966.cc-align-center .text-h5 + .text-h5 {
+  margin-top: 1.5rem;
+}
