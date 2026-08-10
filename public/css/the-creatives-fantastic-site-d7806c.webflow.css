@@ -5375,22 +5375,26 @@ figcaption {
 
 @media screen and (max-width: 991px) {
   .goal-card {
-    min-height: 24rem;
+    min-height: 16rem;
     aspect-ratio: auto !important;
+    justify-content: flex-start !important;
+    gap: 1.5rem;
   }
 }
 
 @media screen and (max-width: 767px) {
   .goal-card {
-    min-height: 20rem;
+    min-height: 14rem;
     padding: 1.5rem !important;
+    justify-content: flex-start !important;
+    gap: 1.25rem;
   }
 
 }
 
 @media screen and (max-width: 479px) {
   .goal-card {
-    min-height: 17.25rem;
+    min-height: 13rem;
     aspect-ratio: auto !important;
   }
 
