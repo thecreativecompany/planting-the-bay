@@ -1442,9 +1442,13 @@
 }
 
 
-/* Home page tablet + mobile polish: hide the floating/parallax image collage. */
+/* Home page tablet + mobile polish: keep only the final bridge image from the perspective sequence. */
 @media screen and (max-width: 991px) {
   .section.cc-our-perspective .content-col.cc-perspective {
+    display: block;
+  }
+
+  .section.cc-our-perspective .content-col.cc-perspective > .perspective-item:not(.cc-span-4) {
     display: none;
   }
 
