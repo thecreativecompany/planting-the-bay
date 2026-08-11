@@ -1522,3 +1522,56 @@
     inset: auto 1rem 1rem 1rem;
   }
 }
+
+
+/* Tablet/mobile polish: tighten spacing and normalize the supporter signup form button size. */
+@media screen and (max-width: 991px) {
+  .ptb-signup-band {
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .ptb-signup-band > .header-col {
+    width: 100%;
+  }
+
+  .ptb-signup-band > .ptb-inline-form {
+    width: 100%;
+    max-width: none;
+  }
+
+  .ptb-inline-form {
+    gap: 0.875rem;
+  }
+
+  .ptb-inline-form .input-field {
+    min-height: 3.5rem;
+    margin: 0;
+  }
+
+  .ptb-inline-form .form-button {
+    min-height: 3.5rem;
+    height: auto;
+    padding: 1rem 1.25rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ptb-inline-form .ptb-form-note {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .ptb-signup-band {
+    padding: 1.5rem 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .ptb-inline-form .input-field,
+  .ptb-inline-form .form-button {
+    min-height: 3.25rem;
+  }
+}
