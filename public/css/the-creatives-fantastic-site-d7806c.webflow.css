@@ -5724,3 +5724,20 @@ figcaption {
     max-width: 48%;
   }
 }
+
+/* Home cards — tablet/mobile: let the Year 1 cards size to their content instead of a tall 4:5 ratio. */
+@media screen and (max-width: 1199px) {
+  .header-col.cc-3col > .header-col.cc-choose > .goal-card {
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    justify-content: flex-start !important;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header-col.cc-3col > .header-col.cc-choose > .goal-card {
+    gap: 1.25rem;
+  }
+}
