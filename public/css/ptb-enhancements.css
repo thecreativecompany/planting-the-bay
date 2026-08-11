@@ -1634,3 +1634,27 @@
     max-height: 3.25rem;
   }
 }
+
+
+/* Tablet/mobile polish: fix featured update image fit and corner radius. */
+@media screen and (max-width: 991px) {
+  .blog-features-card .image-wrapper.cc-blog {
+    border-top-left-radius: var(--roundness--medium);
+    border-top-right-radius: var(--roundness--medium);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .blog-features-card .blog-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .blog-features-card .blog-image-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
