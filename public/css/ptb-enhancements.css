@@ -1659,18 +1659,24 @@
   }
 }
 
-
-/* Our Story responsive polish: use the same section/container spacing rhythm as the rest of the site. */
-@media screen and (max-width: 991px) {
-  .ptb-our-story-page .main > .section:not(.cc-about-hero) {
-    padding-top: var(--_section---section--padding);
-    padding-bottom: var(--_section---section--padding);
+/* Mobile portrait polish: keep the Home hero CTAs compact instead of full-width. */
+@media screen and (max-width: 479px) {
+  .section.cc-hero .ptb-hero-actions {
+    width: auto;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: .5rem;
   }
 
-  .ptb-our-story-page .main > .section:not(.cc-about-hero) > .container,
-  .ptb-our-story-page .main > .section:not(.cc-about-hero) > .container.cc-about,
-  .ptb-our-story-page .main > .section:not(.cc-about-hero) > .container.cc-tools {
-    padding-left: var(--_section---container--padding);
-    padding-right: var(--_section---container--padding);
+  .section.cc-hero .ptb-hero-actions .button {
+    width: auto !important;
+    min-width: 7.5rem;
+    padding: .7rem 1rem;
+  }
+
+  .section.cc-hero .ptb-hero-actions .button:nth-child(2) {
+    min-width: 9rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
 }
