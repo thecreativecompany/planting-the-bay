@@ -5741,3 +5741,41 @@ figcaption {
     gap: 1.25rem;
   }
 }
+
+
+/* PTB mobile footer polish */
+@media screen and (max-width: 479px) {
+  .section.cc-footer .container.cc-footer {
+    padding-bottom: 4.5rem;
+  }
+
+  .footer-col.cc-span-2 .column-right.cc-gap-40 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1rem;
+    align-items: start;
+  }
+
+  .footer-menu {
+    width: 100%;
+  }
+
+  .footer-social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .875rem;
+    width: 100%;
+    margin-top: .5rem;
+    margin-bottom: .75rem;
+  }
+
+  .section.cc-footer .text-sm.cc-u-text-surface.cc-align-center {
+    display: block;
+    max-width: 18rem;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+}
