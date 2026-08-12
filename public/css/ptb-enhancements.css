@@ -908,6 +908,31 @@
     grid-template-columns: 1fr;
   }
 
+  .ptb-campaign-years > div {
+    display: grid;
+    grid-template-columns: minmax(4.5rem, auto) 1fr;
+    column-gap: 1rem;
+    row-gap: .15rem;
+    align-items: center;
+  }
+
+  .ptb-campaign-years > div .ptb-label-light {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .ptb-campaign-years > div strong {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .ptb-campaign-years > div span:last-child {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    max-width: none;
+  }
+
   .ptb-story-image,
   .ptb-flyover-frame {
     min-height: 24rem;
