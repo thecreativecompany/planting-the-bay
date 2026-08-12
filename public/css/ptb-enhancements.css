@@ -1707,13 +1707,15 @@
 }
 
 
-/* Mobile portrait polish: fix the Our Story hero figure so the full body reads clearly above the copy and CTA. */
+/* Mobile portrait polish: keep the Our Story hero figure full-size, but let the copy/button sit in front so the cropped legs stay hidden behind the content block. */
 @media screen and (max-width: 479px) {
   .section.cc-about-hero .about-wrapper {
     min-height: 44rem;
     padding-top: 1rem;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
     overflow: hidden;
+    position: relative;
+    justify-content: flex-end;
   }
 
   .section.cc-about-hero .about-text {
@@ -1742,17 +1744,21 @@
   }
 
   .section.cc-about-hero .about-bottom {
-    position: relative;
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
     z-index: 3;
-    margin-top: auto;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: 1rem;
   }
 
   .section.cc-about-hero .column-left.cc-max-377 {
     width: 100%;
     max-width: none;
+    background-color: #000;
+    padding-top: 1rem;
   }
 
   .section.cc-about-hero .column-left.cc-max-377 .cta-wrapper {
