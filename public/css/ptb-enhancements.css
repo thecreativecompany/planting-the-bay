@@ -1705,3 +1705,65 @@
     padding-left: 1rem;
   }
 }
+
+
+/* Mobile portrait polish: fix the Our Story hero figure so the full body reads clearly above the copy and CTA. */
+@media screen and (max-width: 479px) {
+  .section.cc-about-hero .about-wrapper {
+    min-height: 44rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    overflow: hidden;
+  }
+
+  .section.cc-about-hero .about-text {
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+  }
+
+  .section.cc-about-hero .title-wrapper.cc-about {
+    justify-content: center;
+  }
+
+  .section.cc-about-hero .image-wrapper.cc-about {
+    z-index: 2;
+    inset: 3.5rem 0 auto 0;
+    padding-left: 0;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .section.cc-about-hero .image.cc-about {
+    min-width: 0;
+    width: min(78vw, 17rem);
+    max-width: 17rem;
+    margin-left: 0;
+  }
+
+  .section.cc-about-hero .about-bottom {
+    position: relative;
+    z-index: 3;
+    margin-top: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section.cc-about-hero .column-left.cc-max-377 {
+    width: 100%;
+    max-width: none;
+  }
+
+  .section.cc-about-hero .column-left.cc-max-377 .cta-wrapper {
+    width: 100%;
+  }
+
+  .section.cc-about-hero .column-left.cc-max-377 .button {
+    width: 100%;
+  }
+
+  .section.cc-about-hero .column-right {
+    display: none;
+  }
+}
