@@ -1707,7 +1707,7 @@
 }
 
 
-/* Mobile portrait polish: keep the moving hero title at the top while placing the couple behind the lower copy/CTA. */
+/* Mobile portrait polish: keep the moving hero title at the top, use the larger couple image, and place it behind the lower copy/CTA. */
 @media screen and (max-width: 479px) {
   .section.cc-about-hero .about-wrapper {
     min-height: 36rem;
@@ -1733,7 +1733,7 @@
 
   .section.cc-about-hero .image-wrapper.cc-about {
     z-index: 1;
-    inset: auto 0 0 auto;
+    inset: auto 0.5rem 1.5rem auto;
     width: auto;
     height: 18rem;
     padding-left: 0;
@@ -1764,7 +1764,7 @@
     width: 100%;
     max-width: none;
     padding-top: 0;
-    padding-right: 10.5rem;
+    padding-right: 0;
     background: transparent;
   }
 
@@ -1772,15 +1772,16 @@
     position: relative;
     z-index: 2;
     max-width: none;
+    width: 100%;
   }
 
   .section.cc-about-hero .column-left.cc-max-377 .cta-wrapper {
-    width: auto;
+    width: 100%;
   }
 
   .section.cc-about-hero .column-left.cc-max-377 .button {
-    width: auto;
-    min-width: 10rem;
+    width: 100%;
+    min-width: 0;
   }
 
   .section.cc-about-hero .column-right {
