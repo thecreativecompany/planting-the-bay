@@ -1707,20 +1707,23 @@
 }
 
 
-/* Mobile portrait polish: layer the Stuart & Ashley cutout behind the copy/CTA instead of ending above them. */
+/* Mobile portrait polish: restore the original hero height/title position while keeping the couple behind the copy/CTA. */
 @media screen and (max-width: 479px) {
   .section.cc-about-hero .about-wrapper {
-    min-height: 44rem;
-    padding-top: 1rem;
-    padding-bottom: 1.25rem;
+    min-height: 36rem;
+    padding-top: 0;
+    padding-bottom: 2rem;
     overflow: hidden;
     position: relative;
     justify-content: flex-end;
   }
 
-  /* Keep the large Stuart & Ashley title readable over the image. */
+  /* Return the animated Stuart & Ashley title to the top of the hero. */
   .section.cc-about-hero .about-text {
-    position: relative;
+    position: absolute;
+    top: 1.25rem;
+    left: 0;
+    right: 0;
     z-index: 3;
     justify-content: center;
   }
@@ -1729,7 +1732,7 @@
     justify-content: center;
   }
 
-  /* Couple stays the same visual size, but sits to the right and behind the lower content. */
+  /* Keep the couple behind the lower copy and CTA. */
   .section.cc-about-hero .image-wrapper.cc-about {
     z-index: 1;
     inset: auto -1rem 0 auto;
@@ -1747,12 +1750,11 @@
     margin-left: 0;
   }
 
-  /* Text and button remain in front of the couple. */
   .section.cc-about-hero .about-bottom {
     position: absolute;
     left: 1rem;
     right: 1rem;
-    bottom: 1.25rem;
+    bottom: 2rem;
     z-index: 4;
     flex-direction: column;
     align-items: flex-start;
