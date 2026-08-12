@@ -1707,7 +1707,7 @@
 }
 
 
-/* Mobile portrait polish: restore the original hero height/title position while keeping the couple behind the copy/CTA. */
+/* Mobile portrait polish: keep the moving hero title at the top while placing the couple behind the lower copy/CTA. */
 @media screen and (max-width: 479px) {
   .section.cc-about-hero .about-wrapper {
     min-height: 36rem;
@@ -1718,13 +1718,12 @@
     justify-content: flex-end;
   }
 
-  /* Return the animated Stuart & Ashley title to the top of the hero. */
   .section.cc-about-hero .about-text {
     position: absolute;
     top: 1.25rem;
     left: 0;
     right: 0;
-    z-index: 3;
+    z-index: 2;
     justify-content: center;
   }
 
@@ -1732,21 +1731,21 @@
     justify-content: center;
   }
 
-  /* Keep the couple behind the lower copy and CTA. */
   .section.cc-about-hero .image-wrapper.cc-about {
     z-index: 1;
-    inset: auto -1rem 0 auto;
-    width: 76%;
-    height: auto;
+    inset: auto 0 0 auto;
+    width: auto;
+    height: 18rem;
     padding-left: 0;
     justify-content: flex-end;
     align-items: flex-end;
   }
 
   .section.cc-about-hero .image.cc-about {
+    width: auto;
+    height: 100%;
+    max-width: none;
     min-width: 0;
-    width: 17rem;
-    max-width: 17rem;
     margin-left: 0;
   }
 
@@ -1755,31 +1754,33 @@
     left: 1rem;
     right: 1rem;
     bottom: 2rem;
-    z-index: 4;
+    z-index: 3;
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
 
   .section.cc-about-hero .column-left.cc-max-377 {
-    width: 62%;
-    max-width: 13rem;
+    width: 100%;
+    max-width: none;
     padding-top: 0;
+    padding-right: 10.5rem;
     background: transparent;
   }
 
   .section.cc-about-hero .column-left.cc-max-377 .text-wrapper {
     position: relative;
     z-index: 2;
+    max-width: none;
   }
 
   .section.cc-about-hero .column-left.cc-max-377 .cta-wrapper {
-    width: 100%;
+    width: auto;
   }
 
   .section.cc-about-hero .column-left.cc-max-377 .button {
-    width: 100%;
-    min-width: 0;
+    width: auto;
+    min-width: 10rem;
   }
 
   .section.cc-about-hero .column-right {
