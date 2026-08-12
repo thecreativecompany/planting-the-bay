@@ -1707,20 +1707,21 @@
 }
 
 
-/* Mobile portrait polish: keep the Our Story hero figure full-size, but let the copy/button sit in front so the cropped legs stay hidden behind the content block. */
+/* Mobile portrait polish: layer the Stuart & Ashley cutout behind the copy/CTA instead of ending above them. */
 @media screen and (max-width: 479px) {
   .section.cc-about-hero .about-wrapper {
     min-height: 44rem;
     padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: 1.25rem;
     overflow: hidden;
     position: relative;
     justify-content: flex-end;
   }
 
+  /* Keep the large Stuart & Ashley title readable over the image. */
   .section.cc-about-hero .about-text {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     justify-content: center;
   }
 
@@ -1728,37 +1729,46 @@
     justify-content: center;
   }
 
+  /* Couple stays the same visual size, but sits to the right and behind the lower content. */
   .section.cc-about-hero .image-wrapper.cc-about {
-    z-index: 2;
-    inset: 3.5rem 0 auto 0;
+    z-index: 1;
+    inset: auto -1rem 0 auto;
+    width: 76%;
+    height: auto;
     padding-left: 0;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
 
   .section.cc-about-hero .image.cc-about {
     min-width: 0;
-    width: min(78vw, 17rem);
+    width: 17rem;
     max-width: 17rem;
     margin-left: 0;
   }
 
+  /* Text and button remain in front of the couple. */
   .section.cc-about-hero .about-bottom {
     position: absolute;
     left: 1rem;
     right: 1rem;
-    bottom: 1rem;
-    z-index: 3;
+    bottom: 1.25rem;
+    z-index: 4;
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
     gap: 1rem;
   }
 
   .section.cc-about-hero .column-left.cc-max-377 {
-    width: 100%;
-    max-width: none;
-    background-color: #000;
-    padding-top: 1rem;
+    width: 62%;
+    max-width: 13rem;
+    padding-top: 0;
+    background: transparent;
+  }
+
+  .section.cc-about-hero .column-left.cc-max-377 .text-wrapper {
+    position: relative;
+    z-index: 2;
   }
 
   .section.cc-about-hero .column-left.cc-max-377 .cta-wrapper {
@@ -1767,6 +1777,7 @@
 
   .section.cc-about-hero .column-left.cc-max-377 .button {
     width: 100%;
+    min-width: 0;
   }
 
   .section.cc-about-hero .column-right {
