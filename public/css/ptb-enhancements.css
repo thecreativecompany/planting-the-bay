@@ -1978,3 +1978,19 @@
 .section.cc-footer a.u-link.cc-footer:focus-visible::after {
   transform: scaleX(1);
 }
+
+/* Navigation logo hit-area: keep the brand link wrapped tightly around the logo instead of stretching across the grid column. */
+.nav-top > .nav-logo,
+.nav-top > .nav-logo.w--current {
+  justify-self: start;
+  align-self: center;
+  width: max-content;
+  max-width: max-content;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 0;
+}
+
+.nav-top > .nav-logo > img {
+  flex: 0 0 auto;
+}
