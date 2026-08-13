@@ -1808,3 +1808,27 @@
     margin-top: 0 !important;
   }
 }
+
+
+/* Home mobile portrait: preserve the full Golden Gate Bridge image without parent cropping. */
+@media screen and (max-width: 479px) {
+  .section.cc-our-perspective .perspective-item.cc-span-4 > .image-wrapper {
+    width: 100%;
+    aspect-ratio: 1672 / 941;
+    height: auto;
+    overflow: hidden;
+    border-radius: var(--roundness--medium);
+  }
+
+  .section.cc-our-perspective .image.cc-span7 {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    background-size: contain !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    border-radius: inherit;
+  }
+}
