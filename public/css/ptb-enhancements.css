@@ -1832,3 +1832,85 @@
     border-radius: inherit;
   }
 }
+
+
+/* PTB navigation hover: dual expanding underline instead of text slide-up. */
+.navigation .nav-text {
+  text-shadow: none !important;
+  transform: none !important;
+}
+
+.navigation a.u-link.cc-nav,
+.navigation a.nav-link,
+.navigation a.u-link.cc-email,
+.navigation a.u-link.cc-call {
+  position: relative;
+  overflow: visible;
+  text-decoration: none;
+}
+
+.navigation a.u-link.cc-nav::before,
+.navigation a.u-link.cc-nav::after,
+.navigation a.nav-link::before,
+.navigation a.nav-link::after,
+.navigation a.u-link.cc-email::before,
+.navigation a.u-link.cc-email::after,
+.navigation a.u-link.cc-call::before,
+.navigation a.u-link.cc-call::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #f44336;
+  display: block;
+  transition: width .5s ease;
+  pointer-events: none;
+}
+
+.navigation a.u-link.cc-nav::before,
+.navigation a.nav-link::before,
+.navigation a.u-link.cc-email::before,
+.navigation a.u-link.cc-call::before {
+  top: -0.15em;
+  right: 0;
+}
+
+.navigation a.u-link.cc-nav::after,
+.navigation a.nav-link::after,
+.navigation a.u-link.cc-email::after,
+.navigation a.u-link.cc-call::after {
+  bottom: -0.15em;
+  left: 0;
+}
+
+.navigation a.u-link.cc-nav:hover::before,
+.navigation a.u-link.cc-nav:hover::after,
+.navigation a.u-link.cc-nav:focus-visible::before,
+.navigation a.u-link.cc-nav:focus-visible::after,
+.navigation a.nav-link:hover::before,
+.navigation a.nav-link:hover::after,
+.navigation a.nav-link:focus-visible::before,
+.navigation a.nav-link:focus-visible::after,
+.navigation a.u-link.cc-email:hover::before,
+.navigation a.u-link.cc-email:hover::after,
+.navigation a.u-link.cc-email:focus-visible::before,
+.navigation a.u-link.cc-email:focus-visible::after,
+.navigation a.u-link.cc-call:hover::before,
+.navigation a.u-link.cc-call:hover::after,
+.navigation a.u-link.cc-call:focus-visible::before,
+.navigation a.u-link.cc-call:focus-visible::after {
+  width: 100%;
+}
+
+/* Let the two animated lines remain visible around the large overlay links. */
+.navigation .nav-list-item-bottom {
+  overflow: visible;
+}
+
+/* Remove the older bottom-border hover from the two utility links so it does not stack with the new effect. */
+.navigation .u-link.cc-email,
+.navigation .u-link.cc-call,
+.navigation .u-link.cc-email:hover,
+.navigation .u-link.cc-call:hover {
+  border-bottom-color: transparent !important;
+}
