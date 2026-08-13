@@ -886,12 +886,23 @@
   }
 
   .ptb-progress-top,
-  .ptb-progress-caption,
   .ptb-give-panel-header,
   .ptb-simple-cta,
   .ptb-trust-band {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .ptb-progress-caption {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: .75rem;
+  }
+
+  .ptb-progress-caption span:last-child {
+    justify-self: end;
+    white-space: nowrap;
   }
 
   .ptb-campaign-years,
