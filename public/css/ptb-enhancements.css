@@ -1800,3 +1800,11 @@
     display: none;
   }
 }
+
+
+/* Mobile portrait: remove the black strip above the Home hero image. */
+@media screen and (max-width: 479px) {
+  .section.cc-hero .hero-wrapper {
+    margin-top: 0 !important;
+  }
+}
