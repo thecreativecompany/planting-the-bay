@@ -896,12 +896,13 @@
   .ptb-progress-caption {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    align-items: end;
+    align-items: start;
     gap: .75rem;
   }
 
   .ptb-progress-caption span:last-child {
     justify-self: end;
+    align-self: start;
     white-space: nowrap;
   }
 
