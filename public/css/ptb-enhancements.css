@@ -1834,7 +1834,7 @@
 }
 
 
-/* PTB navigation hover: dual expanding underline instead of text slide-up. */
+/* PTB navigation hover: dual expanding lines using the link's current text color. */
 .navigation .nav-text {
   text-shadow: none !important;
   transform: none !important;
@@ -1859,11 +1859,12 @@
 .navigation a.u-link.cc-call::after {
   content: '';
   position: absolute;
-  width: 0;
+  left: 0;
+  width: 100%;
   height: 2px;
-  background: #f44336;
-  display: block;
-  transition: width .5s ease;
+  background: currentColor;
+  transform: scaleX(0);
+  transition: transform .45s ease;
   pointer-events: none;
 }
 
@@ -1872,7 +1873,7 @@
 .navigation a.u-link.cc-email::before,
 .navigation a.u-link.cc-call::before {
   top: -0.15em;
-  right: 0;
+  transform-origin: right center;
 }
 
 .navigation a.u-link.cc-nav::after,
@@ -1880,7 +1881,7 @@
 .navigation a.u-link.cc-email::after,
 .navigation a.u-link.cc-call::after {
   bottom: -0.15em;
-  left: 0;
+  transform-origin: left center;
 }
 
 .navigation a.u-link.cc-nav:hover::before,
@@ -1899,15 +1900,27 @@
 .navigation a.u-link.cc-call:hover::after,
 .navigation a.u-link.cc-call:focus-visible::before,
 .navigation a.u-link.cc-call:focus-visible::after {
-  width: 100%;
+  transform: scaleX(1);
 }
 
-/* Let the two animated lines remain visible around the large overlay links. */
+/* Prevent any list-marker/bullet artifact in the open navigation. */
+.navigation .nav-content-list,
+.navigation .nav-list-item-bottom {
+  list-style: none !important;
+}
+
+.navigation .nav-list-item-bottom::before,
+.navigation .nav-list-item-bottom::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Let the animated lines remain visible around the large overlay links. */
 .navigation .nav-list-item-bottom {
   overflow: visible;
 }
 
-/* Remove the older bottom-border hover from the two utility links so it does not stack with the new effect. */
+/* Remove the older bottom-border hover from the utility links so it does not stack with the new effect. */
 .navigation .u-link.cc-email,
 .navigation .u-link.cc-call,
 .navigation .u-link.cc-email:hover,
