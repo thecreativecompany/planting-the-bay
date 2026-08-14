@@ -39,7 +39,12 @@
     },
     {
       "source": "/detail_post",
-      "destination": "/story",
+      "destination": "/updates",
+      "permanent": true
+    },
+    {
+      "source": "/story",
+      "destination": "/updates",
       "permanent": true
     },
     {
