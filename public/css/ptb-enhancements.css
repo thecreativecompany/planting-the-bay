@@ -1994,3 +1994,181 @@
 .nav-top > .nav-logo > img {
   flex: 0 0 auto;
 }
+
+/* Updates / Stories landing placeholder UI */
+.ptb-updates-page .ptb-updates-landing {
+  padding-top: clamp(8rem, 12vw, 12rem);
+}
+
+.ptb-updates-header {
+  max-width: 58rem;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.ptb-updates-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: 31rem;
+  border-radius: var(--roundness--large);
+  overflow: hidden;
+  background: var(--_themes---colors--bg-secondary);
+  color: inherit;
+  text-decoration: none;
+}
+
+.ptb-updates-feature-media,
+.ptb-update-small-media {
+  overflow: hidden;
+}
+
+.ptb-updates-feature-media img,
+.ptb-update-small-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.ptb-updates-feature:hover .ptb-updates-feature-media img,
+.ptb-update-small-card:hover .ptb-update-small-media img {
+  transform: scale(1.025);
+}
+
+.ptb-updates-feature-content {
+  padding: 2.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.ptb-updates-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ptb-updates-feature-content h2,
+.ptb-update-small-body h3 {
+  margin-top: 0;
+  margin-bottom: .75rem;
+}
+
+.ptb-updates-feature-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ptb-updates-previous-head {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+.ptb-updates-previous-head p {
+  margin-top: .75rem;
+}
+
+.ptb-updates-previous-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.ptb-update-small-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--roundness--large);
+  background: var(--_themes---colors--bg-secondary);
+  color: inherit;
+  text-decoration: none;
+}
+
+.ptb-update-small-media {
+  aspect-ratio: 4 / 3;
+}
+
+.ptb-update-small-body {
+  padding: 1.5rem;
+}
+
+.ptb-previous-pill {
+  display: inline-flex;
+  padding: .3rem .75rem;
+  border-radius: var(--roundness--full);
+  background: var(--_themes---colors--text);
+  color: var(--_themes---colors--surface);
+  font-size: var(--_typography---text-xsmail--size);
+  line-height: 1.2;
+}
+
+@media screen and (max-width: 991px) {
+  .ptb-updates-page .ptb-updates-landing {
+    padding-top: 7rem;
+  }
+
+  .ptb-updates-feature {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .ptb-updates-feature-media {
+    aspect-ratio: 16 / 9;
+  }
+
+  .ptb-updates-feature-content {
+    min-height: 22rem;
+    padding: 2rem;
+  }
+
+  .ptb-updates-previous-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .ptb-updates-header {
+    margin-bottom: 2.5rem;
+    text-align: left;
+  }
+
+  .ptb-updates-feature-content {
+    min-height: 0;
+    padding: 1.5rem;
+  }
+
+  .ptb-updates-previous-head {
+    margin-top: 3.5rem;
+  }
+
+  .ptb-updates-previous-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .ptb-updates-page .ptb-updates-landing {
+    padding-top: 5.5rem;
+  }
+
+  .ptb-updates-feature-media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .ptb-updates-feature-content,
+  .ptb-update-small-body {
+    padding: 1.25rem;
+  }
+
+  .ptb-updates-meta {
+    gap: .75rem;
+    flex-wrap: wrap;
+  }
+}
